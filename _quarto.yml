@@ -3,19 +3,34 @@ project:
   output-dir: docs
 
 website:
-  title: "Karol Orozco"
+  title: "Portfolio"
   navbar:
     left:
       - href: index.qmd
-        text: Home
-      - about.qmd
+        text: About
       - text: Blog
-        href: blog.qmd
+        href: about.qmd
+      - text: Projects
+        href: Projects.qmd
+      - text: Resources
+        href: Resources.qmd
+  page-footer: 
+    background: light
+    left: 
+      - "Copyright 2023, Karol Orozco"
+    right: 
+      - icon: github
+        href: https://github.com/karolo89
+      - icon: linkedin
+        href: https://www.linkedin.com/in/karolorozcoe/
+  reader-mode: true
 
 format:
   html:
+    page-layout: full
     theme: cosmo
     css: styles.css
+    mainfont: Nunito
     toc: true
 
 editor: visual

@@ -1,9 +1,3 @@
 ---
-title: "About"
+title: "Hi There! Welcome"
 ---
-
-About this site
-
-```{r}
-1 + 1
-```
