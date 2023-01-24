@@ -11,7 +11,14 @@
     "href": "blog.html",
     "title": "Blog",
     "section": "",
-    "text": "No matching items"
+    "text": "IMPORTANT: You can delete everything in here and start fresh. You might want to start by not deleting anything above this line until you know what that stuff is doing.\nThis is an .Rmd file. It is plain text with special features. Any time you write just like this, it will be compiled to normal text in the website. If you put a # in front of your text, it will create a top level-header."
+  },
+  {
+    "objectID": "blog.html#second-level-header",
+    "href": "blog.html#second-level-header",
+    "title": "Blog",
+    "section": "Second level header",
+    "text": "Second level header\nYou can add more headers by adding more hashtags. These won’t be put into the table of contents\n\nthird level header\nHere’s an even lower level header"
   },
   {
     "objectID": "index.html",
