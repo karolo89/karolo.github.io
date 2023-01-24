@@ -1,0 +1,14 @@
+---
+title: "Business-Projects"
+---
+
+## This is a Quarto website.
+
+To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+
+1. Some markdown
+2. More interesting stuff
+
+```{r}
+1 + 1
+```
