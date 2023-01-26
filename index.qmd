@@ -1,5 +1,5 @@
 ---
-title: "Karol Orozco"
+title: "Hi There! Welcome"
 output: html_document
 ---
 
@@ -19,7 +19,7 @@ output: html_document
 <div class="col-sm-6">
 
 
-## Add a Header
+## Hi There! Welcome
 
 To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
 
