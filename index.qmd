@@ -15,6 +15,7 @@ about:
       href: https://github.com/karolo89
 ---
 
+
 ::: {#hero-heading}
 *I love digging into community challenges and bringing an equity lens to the data collection, analysis, interpretation, and distribution.*
 
