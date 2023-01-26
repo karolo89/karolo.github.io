@@ -1,5 +1,8 @@
 ---
 title: "Karol Orozco E."
+filters:
+   - lightbox
+lightbox: auto
 about:
   id: hero-heading
   template: broadside
@@ -15,6 +18,13 @@ about:
       href: https://github.com/karolo89
 ---
 
+<center>
+
+::: {.btn-group role="group" aria-label="About"}
+<a href="index.html"> <button type="button" class="btn btn-primary me-md-2 btn-sm">English</button></a> <a href="Spanish_index.html"><button type="button" class="btn btn-primary me-md-2 btn-sm">Español</button></a>
+:::
+
+</center>
 
 ::: {#hero-heading}
 *I love digging into community challenges and bringing an equity lens to the data collection, analysis, interpretation, and distribution.*

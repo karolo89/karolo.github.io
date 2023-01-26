@@ -4,7 +4,14 @@
     "href": "index.html",
     "title": "Karol Orozco E.",
     "section": "",
-    "text": "I love digging into community challenges and bringing an equity lens to the data collection, analysis, interpretation, and distribution.\n\n\nWillamette University | Portland, OR\nMaster in Data Science | August 2023\nPresidential Scholarship; selected based on professional achievements\nGPA: 3.97/4.0\n\nWillamette University | Portland, OR\nMaster of Business Administration | August 2022\nGeorge and Colleen Hoyt Not-For-Profit Scholarship; selected based on professional achievements\nGPA: 3.97/ 4.0\nAtkinson Honor\nBeta Gamma Sigma: The International Business Honor Society\n\n\n\n  \n  \n  \n    \n     LinkedIn\n  \n  \n    \n     Github"
+    "text": "English Español"
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Karol Orozco E.",
+    "section": "Education",
+    "text": "Education\nWillamette University | Portland, OR\nMaster in Data Science | August 2023\nPresidential Scholarship; selected based on professional achievements\nGPA: 3.97/4.0\n\nWillamette University | Portland, OR\nMaster of Business Administration | August 2022\nGeorge and Colleen Hoyt Not-For-Profit Scholarship; selected based on professional achievements\nGPA: 3.97/ 4.0\nAtkinson Honor\nBeta Gamma Sigma: The International Business Honor Society"
   },
   {
     "objectID": "Resources.html",
@@ -19,5 +26,12 @@
     "title": "Take a look at this",
     "section": "Second level header",
     "text": "Second level header\nYou can add more headers by adding more hashtags. These won’t be put into the table of contents\n\nthird level header\nHere’s an even lower level header"
+  },
+  {
+    "objectID": "Spanish_index.html",
+    "href": "Spanish_index.html",
+    "title": "Karol Orozco E.",
+    "section": "",
+    "text": "Me encanta profundizar en los desafíos de la comunidad y aportar una perspectiva de equidad a la recopilación, el análisis, la interpretación y la distribución de datos.\n\n\nWillamette University | Portland, OR\nMaestría en Ciencia de Datos | Agosto 2023\nBeca Presidencial; seleccionado en base a los logros profesionales\nGPA: 3.97/4.0\n\nWillamette University | Portland, OR\nMaestría en Administración de Empresas | Agosto 2022\nBeca sin fines de lucro George y Colleen Hoyt; seleccionado en base a los logros profesionales\nGPA: 3.97/ 4.0\nHonores Atkinson\nBeta Gamma Sigma: La Sociedad de Honor de Negocios Internacionales\n\n\n\n  \n  \n  \n    \n     LinkedIn\n  \n  \n    \n     Github"
   }
 ]

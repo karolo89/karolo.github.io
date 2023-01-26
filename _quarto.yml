@@ -7,7 +7,7 @@ website:
   navbar:
     left:
       - href: index.qmd
-        text: About
+        text: Karol Orozco
       - text: Blog
         href: blog.qmd
       - text: Projects
@@ -23,6 +23,8 @@ website:
         href: https://github.com/karolo89
       - icon: linkedin
         href: https://www.linkedin.com/in/karolorozcoe/
+      - icon: envelope
+        href: mailto:karol.marianoe@gmail.com
   reader-mode: true
 
 format:

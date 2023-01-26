@@ -1,0 +1,38 @@
+---
+title: "Karol Orozco E."
+filters:
+   - lightbox
+lightbox: auto
+about:
+  id: hero-heading
+  template: broadside
+  image: 20230117_164750.jpg
+  image-width: 10em
+  image-shape: round
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/karolorozcoe/
+    - icon: github
+      text: Github
+      href: https://github.com/karolo89
+---
+
+
+::: {#hero-heading}
+*Me encanta profundizar en los desafíos de la comunidad y aportar una perspectiva de equidad a la recopilación, el análisis, la interpretación y la distribución de datos.*
+
+## Educación
+
+Willamette University \| Portland, OR\
+**Maestría en Ciencia de Datos** \| Agosto 2023\
+Beca Presidencial; seleccionado en base a los logros profesionales\
+GPA: 3.97/4.0\
+
+Willamette University \| Portland, OR\
+**Maestría en Administración de Empresas** \| Agosto 2022\
+Beca sin fines de lucro George y Colleen Hoyt; seleccionado en base a los logros profesionales\
+GPA: 3.97/ 4.0\
+Honores Atkinson\
+Beta Gamma Sigma: La Sociedad de Honor de Negocios Internacionales\
+:::
