@@ -1,30 +1,35 @@
 ---
-title: "Hi There! Welcome"
-output: html_document
+title: "Karol Orozco E."
+about:
+  id: hero-heading
+  template: broadside
+  image: 20230117_164750.jpg
+  image-width: 10em
+  image-shape: round
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/karolorozcoe/
+    - icon: github
+      text: Github
+      href: https://github.com/karolo89
 ---
 
+::: {#hero-heading}
+*I love digging into community challenges and bringing an equity lens to the data collection, analysis, interpretation, and distribution.*
 
-<style type="text/css">
-.title {
-  display: none;
-}
+## Education
 
-#getting-started img {
-  margin-right: 10px;
-}
+Willamette University \| Portland, OR\
+**Master in Data Science** \| August 2023\
+Presidential Scholarship; selected based on professional achievements\
+GPA: 3.97/4.0\
 
-</style>
+Willamette University \| Portland, OR\
+**Master of Business Administration** \| August 2022\
+George and Colleen Hoyt Not-For-Profit Scholarship; selected based on professional achievements\
+GPA: 3.97/ 4.0\
+Atkinson Honor\
+Beta Gamma Sigma: The International Business Honor Society\
 
-<div class="row" style="padding-top: 30px;">
-<div class="col-sm-6">
-
-
-## Hi There! Welcome
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
-
-1.  Some markdown
-2.  More interesting stuff
-
-</div>
-<div class="col-sm-6">
+:::
