@@ -6,7 +6,7 @@ lightbox: auto
 about:
   id: hero-heading
   template: broadside
-  image: 20230117_164750.jpg
+  image: 20221217_144247.jpg
   image-width: 10em
   image-shape: round
   links:
@@ -41,7 +41,6 @@ George and Colleen Hoyt Not-For-Profit Scholarship; selected based on profession
 Atkinson Honor\
 Beta Gamma Sigma: The International Business Honor Society\
 
-Universidad Autonoma del Caribe  \| Barranquilla, Colombia\
+Universidad Autonoma del Caribe \| Barranquilla, Colombia\
 **Bachelor's Degree, Industrial Engineering** \| July 2014\
-
 :::

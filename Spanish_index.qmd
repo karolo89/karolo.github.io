@@ -6,7 +6,7 @@ lightbox: auto
 about:
   id: hero-heading
   template: broadside
-  image: 20230117_164750.jpg
+  image: 20221217_144247.jpg
   image-width: 10em
   image-shape: round
   links:
