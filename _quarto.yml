@@ -8,12 +8,11 @@ website:
     left:
       - href: index.qmd
         text: Karol Orozco
-      - text: Blog
-        href: blog.qmd
       - text: Projects
         href: Projects.qmd
       - text: Resources
         href: Resources.qmd
+
   page-footer: 
     background: light
     left: 
@@ -25,7 +24,7 @@ website:
         href: https://www.linkedin.com/in/karolorozcoe/
       - icon: envelope
         href: mailto:karol.marianoe@gmail.com
-      - icon: medium
+
 
   reader-mode: true
 
