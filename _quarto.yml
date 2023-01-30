@@ -29,9 +29,11 @@ website:
 
 format:
   html:
-    page-layout: full
-    theme: cosmo
+    theme: 
+      light: minty
+      dark: slate
     css: styles.css
+    page-layout: full
     mainfont: Nunito
     toc: true
 
