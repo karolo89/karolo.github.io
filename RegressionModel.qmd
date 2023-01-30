@@ -1,0 +1,425 @@
+---
+title: "House Prices in Portland, OR"
+author: "Karol Orozco"
+date: "2022-12"
+---
+
+## Background
+
+The goal is to build a classification model to predict the type of median housing prices in Portland, OR and its metropolitan area.
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(ggplot2)
+library(readr)
+library(tidymodels)
+library(dplyr)
+library(gt) ## tables
+library(ggmap)
+
+
+
+suppressWarnings(if(!require("pacman")) install.packages("pacman"))
+
+pacman::p_load('tidyverse', 'tidymodels', 'ranger','vip', 'ggplot2', 'readr', 'ggmap','gt' )
+```
+
+## Get the Data
+
+```{r}
+raw_pdx <- read.csv("https://raw.githubusercontent.com/karolo89/Raw_Data/main/PORTLAND%20HOUSE.csv", stringsAsFactors=TRUE)
+```
+
+## Prepare the Data
+
+This data has 25731 obs. of 32 variables
+
+```{r}
+## raw_pdx <- raw_pdx%>%select(-id)
+
+head(raw_pdx)
+```
+
+```{r}
+
+# convert variables
+
+raw_pdx <-  raw_pdx %>% 
+  
+  mutate(
+    
+    yearBuilt = as.numeric(yearBuilt),
+    bathrooms = as.numeric(bathrooms),
+    bedrooms = as.numeric(bedrooms),
+    daysOnZillow = as.numeric(daysOnZillow),
+    lastSoldPrice = as.numeric(lastSoldPrice ),
+    livingArea = as.numeric(livingArea),
+    lotSize= as.numeric(lotSize),
+    price = as.numeric(price),
+    priceHistory.1.price= as.numeric(priceHistory.1.price),
+    
+    
+    ElementarySchoolrating = as.factor(ElementarySchoolrating),
+    MiddleSchoolsrating = as.factor(MiddleSchoolsrating),
+    HighSchoolRating= as.factor(HighSchoolRating),
+    zipcode = as.factor(zipcode)
+
+    
+  )
+
+```
+
+### Missing data
+
+```{r}
+is.na(raw_pdx) %>% colSums()
+```
+
+```{r}
+clean_data <- raw_pdx %>%
+  filter(!is.na(yearBuilt))%>%
+  filter(!is.na(longitude))%>%
+  filter(!is.na(bedrooms))%>%
+  filter(!is.na(daysOnZillow))%>%
+  filter(!is.na(livingArea))%>%
+  filter(!is.na(priceHistory.1.price))%>%
+  filter(!is.na(hasFireplace))%>%
+  filter(!is.na(latitude))%>%
+  filter(!is.na(hasHeating))%>%
+  filter(!is.na(hasCooling))%>%
+  filter(!is.na(bathrooms))%>%
+  filter(!is.na(lotSize))%>%
+  filter(!is.na(propertyTaxRate))%>%
+  filter(!is.na(ElementarySchooldistance))%>%
+  filter(!is.na(MiddleSchooldistance))%>%
+  filter(!is.na(HighSchooldistance))%>%
+  filter(!is.na(ElementarySchoolrating))%>%
+  filter(!is.na(MiddleSchoolsrating))%>%
+  filter(!is.na(HighSchoolRating))
+
+```
+
+```{r}
+summary(clean_data)
+
+```
+
+```{r}
+clean_data <- 
+  clean_data %>% 
+  mutate(price_category = case_when( 
+    price < 551000 ~ "below",
+    price >= 551000 ~ "above")) %>% 
+  mutate(price_category = as.factor(price_category)) 
+```
+
+## Take a look at the Data
+
+```{r}
+clean_data %>% 
+  count(price_category, 
+        name ="total") %>%
+  mutate(percent = total/sum(total)*100,
+         percent = round(percent, 2)) %>%
+ gt() %>%
+  tab_header(
+    title = "Portland, OR and its Metropolitan Area Median House Prices",
+    subtitle = "Above and below 551,000$"
+  ) %>%
+  cols_label(
+    price_category = "Price",
+    total = "Total",
+    percent = "Percent"
+  ) %>% 
+  fmt_number(
+    columns = vars(total),
+    suffixing = TRUE
+  )  
+```
+
+```{r}
+qmplot(x = longitude, 
+       y = latitude, 
+       data = clean_data, 
+       geom = "point", 
+       color = price_category, 
+       alpha = 0.4) +
+  scale_alpha(guide = 'none')
+
+```
+
+```{r}
+houses_pdx <-
+  clean_data %>% 
+  select( # select our predictors
+    longitude, 
+    latitude, 
+    price_category,
+    bathrooms, 
+    yearBuilt, 
+    homeType,
+    bedrooms, 
+    livingArea, 
+    lotSize,
+    MiddleSchooldistance,
+    ElementarySchooldistance,
+    HighSchooldistance)
+
+glimpse(houses_pdx)
+
+```
+
+```{r}
+pdx_long <- houses_pdx %>% 
+  select(-longitude,-latitude, -homeType, -yearBuilt, -lotSize)%>%
+    pivot_longer(!price_category, names_to = "features", values_to = "values")
+
+
+# Print the first 10 rows
+pdx_long %>% 
+  slice_head(n = 10)
+```
+
+```{r}
+theme_set(theme_light())
+
+# Make a box plot for each predictor feature
+pdx_long %>% 
+  ggplot(mapping = aes(x = price_category, y = values, fill = features)) +
+  geom_boxplot() + 
+  facet_wrap(~ features, scales = "free", ncol = 4) +
+  scale_color_viridis_d(option = "plasma", end = .7) +
+  theme(legend.position = "none")
+```
+
+### Data Splitting
+
+```{r}
+
+# Fix the random numbers by setting the seed 
+# This enables the analysis to be reproducible 
+set.seed(504)
+
+# Put 3/4 of the data into the training set 
+data_split <- initial_split(houses_pdx, 
+                           prop = 3/4)
+
+# Create dataframes for the two sets:
+train_data <- training(data_split) 
+test_data <- testing(data_split)
+```
+
+### Validaton Set
+
+```{r}
+house_folds <-
+ vfold_cv(train_data, 
+          v = 5, 
+          strata = price_category) 
+```
+
+```{r}
+pdx_rec <-
+  recipe(price_category ~ .,
+         data = train_data) %>%
+  update_role(longitude, latitude, 
+              new_role = "ID") %>% 
+  
+  step_naomit(everything(), skip = TRUE) %>% 
+  
+  step_novel(all_nominal(), -all_outcomes()) %>% # converts all nominal variables to factors and takes care of other issues related to categorical variables.
+  
+  step_normalize(all_numeric(), -all_outcomes(), 
+                 -longitude, -latitude) %>% # step_normalize() normalizes (center and scales) the numeric variables to have a standard deviation of one and a mean of zero
+  
+  step_dummy(all_nominal(), -all_outcomes()) %>% #converts our factor columns into numeric binary (0 and 1) variables.
+  
+  step_zv(all_numeric(), -all_outcomes()) %>% ## step_zv(): removes any numeric variables that have zero variance.
+  
+  step_corr(all_predictors(), threshold = 0.7, method = "spearman") # step_corr(): will remove predictor variables that have large correlations with other predictor variables.
+
+```
+
+```{r}
+summary(pdx_rec)
+
+```
+
+```{r}
+prep_data <- 
+  pdx_rec %>% # use the recipe object
+  prep() %>% # perform the recipe on training data
+  juice() # extract only the preprocessed dataframe 
+
+```
+
+## The Model- Logistic regression
+
+```{r}
+log_spec <- # your model specification
+  logistic_reg() %>%  # model type
+  set_engine(engine = "glm") %>%  # model engine
+  set_mode("classification") # model mode
+
+# Show your model specification
+log_spec
+```
+
+```{r}
+
+pdx_wflow <- # new workflow object
+ workflow() %>% # use workflow function
+ add_recipe(pdx_rec) %>%   # use the new recipe
+ add_model(log_spec)   # add your model spec
+
+pdx_wflow
+
+```
+
+```{r, message=FALSE, warning=FALSE}
+# save model coefficients for a fitted model object from a workflow
+
+get_model <- function(x) {
+  pull_workflow_fit(x) %>% tidy()
+}
+
+# same as before with one exception
+log_res_2 <- 
+  pdx_wflow %>% 
+  fit_resamples(
+    resamples = house_folds, 
+    metrics = metric_set(
+      recall, precision, f_meas, 
+      accuracy, kap,
+      roc_auc, sens, spec),
+      control = control_resamples(
+      save_pred = TRUE,
+      extract = get_model) # use extract and our new function
+    ) 
+
+
+## All of the results can be flattened and collected using:
+
+
+
+all_coef <- map_dfr(log_res_2$.extracts, ~ .x[[1]][[1]])
+filter(all_coef, term == "bedrooms")
+
+```
+
+### Performance metrics
+
+Show performance for every single fold:
+
+```{r}
+log_res_2 %>%  collect_metrics(summarize = FALSE)
+
+```
+
+### Collect predictions
+
+To obtain the actual model predictions, we use the function collect_predictions and save the result as log_pred:
+
+```{r}
+log_pred <- 
+  log_res_2 %>%
+  collect_predictions()
+
+
+log_pred %>% 
+  conf_mat(price_category, .pred_class) 
+```
+
+```{r}
+log_pred %>% 
+  conf_mat(price_category, .pred_class) %>% 
+  autoplot(type = "heatmap")+
+  theme_minimal()
+```
+
+### ROC Curve
+
+```{r}
+log_pred %>% 
+  group_by(id) %>% # id contains our folds
+  roc_curve(price_category, .pred_above) %>% 
+  autoplot()+
+  theme_minimal()
+```
+
+## Use the workflow to train our model
+
+```{r}
+pdx_fit <- fit(pdx_wflow, train_data)
+```
+
+This allows us to use the model trained by this workflow to predict labels for our test set, and compare the performance metrics with the basic model we created previously.
+
+```{r}
+pdx_fit %>% ## display results
+pull_workflow_fit() %>%
+tidy()%>%
+  filter(p.value < 0.05)
+```
+
+```{r}
+library(vip)
+
+pdx_fit %>%
+extract_fit_parsnip() %>%
+   vip(num_features = 5)+
+  theme_minimal()
+```
+
+The two most important predictors in whether the median house value is above or below 551,000 dollars were the Living Area and the home type: Townhouse
+
+```{r}
+# Make predictions on the test set
+pred_results <- test_data %>% 
+  select(price_category) %>% 
+  bind_cols(pdx_fit %>% 
+              predict(new_data = test_data)) %>% 
+  bind_cols(pdx_fit %>% 
+              predict(new_data = test_data, type = "prob"))
+
+# Print the results
+pred_results %>% 
+  slice_head(n = 10)
+```
+
+Let's take a look at the confusion matrix:
+
+```{r}
+pred_results%>% 
+  conf_mat(price_category, .pred_class) %>% 
+  autoplot(type = "heatmap")+
+  theme_minimal()
+```
+
+# Evaluate other desired metrics
+
+```{r}
+
+eval_metrics <- metric_set(ppv, recall, accuracy, f_meas)
+eval_metrics(data = pred_results, truth = price_category, estimate = .pred_class)
+```
+
+```{r}
+pred_results %>% 
+  roc_auc(price_category, .pred_above)
+```
+
+### Make a roc_chart
+
+Let's create the ROC curve. Again, since the event we are predicting is the first level in the price_category factor ("above"), we provide roc_curve() with the relevant class probability .pred_above:
+
+```{r}
+pred_results %>% 
+  roc_curve(truth = price_category, .pred_above) %>% 
+  autoplot()+
+  theme_minimal()
+```
+
+## Reference
+
+Tidymodels- https://www.tidymodels.org/

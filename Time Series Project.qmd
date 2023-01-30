@@ -1,0 +1,299 @@
+---
+title: "Time Series Project"
+author: "Karol Orozco"
+date: "2022-12-04"
+---
+
+## Background
+
+In this project, I will perform Time series analysis using the Zillow Home Value Index (ZHVI) dataset: A smoothed, seasonally adjusted measure of the typical home value and market changes across Portland, OR, four bedroom houses. It reflects the typical value for homes in the 35th to 65th percentile range.
+
+Here is the link: https://www.zillow.com/research/data/
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning=FALSE, message=FALSE, fig.height=6, fig.retina=3)
+
+library(fpp3)
+library(tidyverse)
+library(knitr)
+library(lubridate)
+library(dplyr)
+library(fable)
+library(tsibble)
+library(ggthemes)
+library(fabletools)
+
+```
+
+## The Data
+
+```{r}
+metrofour <- read.csv("https://raw.githubusercontent.com/karolo89/Raw_Data/main/City_zhvi_bdrmcnt_4_uc_sfrcondo_tier_0.33_0.67_sm_sa_month.csv")
+
+str(metrofour[,c(1:11)])
+
+```
+
+We have to make this dataset tidy. Tidy Data is a way of structuring data so that it can be easily understood by people and analyzed by machines.
+
+I need to remove the X at the beginning of the dates (X2000.01.31,X2000.02.29,...)
+
+```{r}
+names(metrofour) <- sub("^X", "", names(metrofour))
+
+str(metrofour[,c(1:11)])
+```
+
+```{r}
+house_price <- metrofour %>% 
+  pivot_longer(-c(RegionID, SizeRank, RegionName, RegionType, StateName, State, Metro, CountyName),
+    names_to = "Monthly",
+    values_to = "Price"
+  ) 
+str(metrofour[,c(1:11)])
+```
+
+```{r}
+#Converting the Date from factor to character
+
+house_clean <- house_price %>%
+            mutate(Monthly_parsed = as.Date(Monthly,"%Y.%m.%d"))
+
+
+house_clean[["Monthly"]]<- as.character(house_clean$Monthly)
+
+house_price[["Monthly"]]<- as.character(house_price $Monthly)
+summary(house_clean)
+```
+
+We see some missing values in the Price variable, but before I deal with those values, I will filter my data to the cities that I am interested the most
+
+```{r}
+pdx_data <- house_clean %>%
+  dplyr:::filter(RegionID== 13373)  %>%
+  dplyr:::filter(Monthly_parsed >= "2014-01-01")
+
+summary(pdx_data)
+
+```
+
+After filtering the data, we don't have any missing values
+
+### Coerce to a tsibble with as_tsibble()
+
+A time series can be recorded as a tsibble object in R. tsibble objects extend tidy data frames (tibble objects) by introducing temporal structure, and to do it, we need to declare key and index. In this case, the Monthly_parsed containing the data-time is the index and the RegionID is the key. Other columns can be considered as measured variables.
+
+```{r}
+tsb_pdx <- pdx_data %>%
+                   select(RegionName,RegionID, Monthly_parsed, Price)
+
+tsb_pref_pdx <-tsb_pdx%>%
+  as_tsibble(key= RegionName, index= Monthly_parsed)%>%
+                   index_by(year_month = ~ yearmonth(.))
+
+tsibble_pdx <-tsb_pref_pdx%>%
+  select(-RegionID)%>%
+  as_tsibble(key= RegionName, index= year_month)%>%
+  mutate(Prices = Price/1000)
+```
+
+## Data Visualization
+
+To visualize the data, I could use the autoplot() command, but I rather to create my graph with ggplot.
+
+```{r}
+plot_pdx_house <- tsibble_pdx %>%
+  ggplot(aes(x= year_month, y= Prices)) +
+  geom_line(size=1, color= "darkgreen")+
+   
+    labs(y="Price in Thousands of Dollars ", 
+       x= " ",
+       title=" Four Bedroom House Prices in Portland, OR, 2014-2022 ",
+       caption = "data:https://www.zillow.com/research/data")+
+  scale_y_continuous(labels=scales::dollar_format())+
+   theme_light()
+
+
+plot_pdx_house 
+```
+
+Data is non- stationary, we can see a trend-cycle component in the graph above.
+
+```{r}
+tsibble_pdx %>%
+gg_subseries(Price/1000)+
+  labs(y= "Price in Thousands of Dollars",
+       x= "Year")+theme_minimal()+
+  scale_y_continuous(labels=scales::dollar_format())+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+```
+
+```{r, fig.width= 10}
+tsibble_pdx%>%
+gg_season(Price/1000, labels = "both")+
+  labs(x= "",
+       y= "Price in Thousands of Dollars ", 
+       title="Portland's Seasonal Plot")+
+  
+  scale_y_continuous(labels=scales::dollar_format())+
+  theme_minimal()
+```
+
+## Determining Stationarity
+
+In our analysis, we use the Kwiatkowski-Phillips-Schmidt-Shin (KPSS) test (Kwiatkowski et al., 1992). In this test, the null hypothesis is that the data are stationary, and we look for evidence that the null hypothesis is false. Consequently, small p-values (e.g., less than 0.05) suggest that differencing is required. The test can be computed using the unitroot_kpss() function.
+
+```{r}
+tsibble_pdx%>%
+  features(Prices, unitroot_kpss)
+```
+
+The p-value is reported as 0.01 if it is less than 0.01, and as 0.1 if it is greater than 0.1. In this case, the test statistic (1.946) is bigger than the 1% critical value, so the p-value is less than 0.01, indicating that the null hypothesis is rejected. That is, the data are not stationary.
+
+```{r}
+
+tsibble_pdx %>% 
+  features(Prices ,unitroot_ndiffs)
+
+```
+
+As we saw from the KPSS tests above, one difference (d) is required to make the tsibble_pdx data stationary.
+
+## Autocorrelation
+
+```{r}
+tsibble_pdx %>%
+  gg_tsdisplay(Prices,
+                     plot_type='partial')+
+       labs(y="Thousands of Dollars ", 
+       x= " ")
+```
+
+ACF does not drop quickly to zero, moreover the value is large and positive (almost 1 in this case). All these are signs of a non-stationary time series. Therefore it should be differenced to obtain a stationary series.
+
+PACF value r1 is almost 1. All other values ri,i \>1 are small. This is a sign of a non stationary process that should be differenced in order to obtain a stationary series.
+
+The data are clearly non-stationary, so we will first take a seasonal difference. The seasonally differenced data are shown below:
+
+```{r}
+tsibble_pdx %>%
+  gg_tsdisplay(difference(Prices, 12),
+               plot_type='partial', lag=36) +
+  labs(title="Seasonally differenced", y="")
+```
+
+Our aim now is to find an appropriate ARIMA model based on the ACF and PACF shown in the Double Differenced graph.
+
+## Seasonal Arima Model
+
+```{r}
+all_fit <- tsibble_pdx%>%
+  model(
+    arima212012 = ARIMA(Prices ~ pdq(2,1,2)+ PDQ(0,1,2)),
+    arima210011 = ARIMA(Prices ~ pdq(2,1,0)+ PDQ(0,1,1)),
+    stepwise = ARIMA(Prices),
+    search = ARIMA(Prices,stepwise=FALSE))
+
+```
+
+```{r}
+all_fit %>% pivot_longer(!RegionName,
+            names_to = "Model name", 
+            values_to = "Orders")
+```
+
+```{r}
+glance(all_fit) %>% arrange(AICc) %>% select(.model:BIC)
+```
+
+Of these models, the best is the ARIMA(2,1,2)(0,1,2)\[12\]model (i.e., it has the smallest AICc value).
+
+```{r}
+arima212012 <- tsibble_pdx %>%
+  model(arima212012 = ARIMA(Prices ~ pdq(2,1,2)+ PDQ(0,1,2)))%>%
+  report()
+```
+
+```{r}
+all_fit %>% select(arima212012) %>%
+  gg_tsresiduals()
+```
+
+```{r}
+all_fit %>% select("search") %>%
+  gg_tsresiduals()
+```
+
+```{r}
+augment(all_fit) %>%
+  filter(.model=='arima212012') %>%
+  features(.innov, ljung_box, lag = 36, dof = 6)
+```
+
+```{r}
+tsibble_pdx %>%
+  model(ARIMA(Prices ~ pdq(2,1,2) + PDQ(0,1,2))) %>%
+  forecast() %>%
+  autoplot(tsibble_pdx) +
+  labs(y=" Thousands of $US ",
+       x =" ",
+       title="Forecast from the ARIMA(2,1,2)(0,1,2)[12] model applied to the Portland House Prices data")+
+theme_minimal()
+
+##Price in Thousands of Dollars
+tsibble_pdx %>%
+  model(ARIMA(Prices ~ pdq(2,1,2) + PDQ(0,1,2))) %>%
+  forecast()
+```
+
+## ETS
+
+```{r}
+
+fit_ets <- tsibble_pdx %>%
+  model(ETS(Prices))
+report(fit_ets)
+
+```
+
+The model selected is ETS(M,Ad,N)
+
+```{r}
+components(fit_ets) %>%
+  autoplot() +
+  labs(title = "ETS(M,Ad,N) components")
+```
+
+Because this model has multiplicative errors, the innovation residuals are not equivalent to the regular residuals.
+
+```{r}
+fit_ets %>%
+    augment() %>%
+    select(.innov, .resid) %>%
+    pivot_longer(c(.innov, .resid)) %>%
+    autoplot()+
+   theme_fivethirtyeight()
+```
+
+```{r}
+fit_ets%>%
+    gg_tsresiduals()
+```
+
+```{r}
+fit_ets %>%
+  forecast(h = 24) %>%
+  autoplot(tsibble_pdx)+
+
+   theme_light()
+```
+
+```{r}
+bind_rows(
+    arima212012 %>% accuracy(),
+    fit_ets %>% accuracy()) %>%
+  select(-ME, -MPE, -ACF1)
+```
+
+In this case the ARIMA model seems to be more accurate model based on the test set RMSE, MAPE and MASE.

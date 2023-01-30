@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.313">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Karol Orozco">
+<meta name="dcterms.date" content="2022-12-04">
+
+<title>Portfolio - Time Series Project</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Portfolio</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html">
+ <span class="menu-text">Karol Orozco</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./Projects.html">
+ <span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./Resources.html">
+ <span class="menu-text">Resources</span></a>
+  </li>  
+</ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+                  <a href="" class="quarto-reader-toggle nav-link" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background">Background</a></li>
+  <li><a href="#the-data" id="toc-the-data" class="nav-link" data-scroll-target="#the-data">The Data</a>
+  <ul class="collapse">
+  <li><a href="#coerce-to-a-tsibble-with-as_tsibble" id="toc-coerce-to-a-tsibble-with-as_tsibble" class="nav-link" data-scroll-target="#coerce-to-a-tsibble-with-as_tsibble">Coerce to a tsibble with as_tsibble()</a></li>
+  </ul></li>
+  <li><a href="#data-visualization" id="toc-data-visualization" class="nav-link" data-scroll-target="#data-visualization">Data Visualization</a></li>
+  <li><a href="#determining-stationarity" id="toc-determining-stationarity" class="nav-link" data-scroll-target="#determining-stationarity">Determining Stationarity</a></li>
+  <li><a href="#autocorrelation" id="toc-autocorrelation" class="nav-link" data-scroll-target="#autocorrelation">Autocorrelation</a></li>
+  <li><a href="#seasonal-arima-model" id="toc-seasonal-arima-model" class="nav-link" data-scroll-target="#seasonal-arima-model">Seasonal Arima Model</a></li>
+  <li><a href="#ets" id="toc-ets" class="nav-link" data-scroll-target="#ets">ETS</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content column-page-left" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Time Series Project</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Karol Orozco </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 4, 2022</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="background" class="level2">
+<h2 class="anchored" data-anchor-id="background">Background</h2>
+<p>In this project, I will perform Time series analysis using the Zillow Home Value Index (ZHVI) dataset: A smoothed, seasonally adjusted measure of the typical home value and market changes across Portland, OR, four bedroom houses. It reflects the typical value for homes in the 35th to 65th percentile range.</p>
+<p>Here is the link: https://www.zillow.com/research/data/</p>
+</section>
+<section id="the-data" class="level2">
+<h2 class="anchored" data-anchor-id="the-data">The Data</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>metrofour <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/karolo89/Raw_Data/main/City_zhvi_bdrmcnt_4_uc_sfrcondo_tier_0.33_0.67_sm_sa_month.csv"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(metrofour[,<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">11</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   13528 obs. of  11 variables:
+ $ RegionID   : int  6181 12447 39051 17426 6915 40326 13271 18959 54296 38128 ...
+ $ SizeRank   : int  0 1 2 3 4 5 6 7 8 9 ...
+ $ RegionName : chr  "New York" "Los Angeles" "Houston" "Chicago" ...
+ $ RegionType : chr  "city" "city" "city" "city" ...
+ $ StateName  : chr  "NY" "CA" "TX" "IL" ...
+ $ State      : chr  "NY" "CA" "TX" "IL" ...
+ $ Metro      : chr  "New York-Newark-Jersey City, NY-NJ-PA" "Los Angeles-Long Beach-Anaheim, CA" "Houston-The Woodlands-Sugar Land, TX" "Chicago-Naperville-Elgin, IL-IN-WI" ...
+ $ CountyName : chr  "Queens County" "Los Angeles County" "Harris County" "Cook County" ...
+ $ X2000.01.31: num  284723 302701 146377 179997 154391 ...
+ $ X2000.02.29: num  286885 303000 146270 180472 154691 ...
+ $ X2000.03.31: num  288711 304356 145921 181368 154943 ...</code></pre>
+</div>
+</div>
+<p>We have to make this dataset tidy. Tidy Data is a way of structuring data so that it can be easily understood by people and analyzed by machines.</p>
+<p>I need to remove the X at the beginning of the dates (X2000.01.31,X2000.02.29,…)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(metrofour) <span class="ot">&lt;-</span> <span class="fu">sub</span>(<span class="st">"^X"</span>, <span class="st">""</span>, <span class="fu">names</span>(metrofour))</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(metrofour[,<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">11</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   13528 obs. of  11 variables:
+ $ RegionID  : int  6181 12447 39051 17426 6915 40326 13271 18959 54296 38128 ...
+ $ SizeRank  : int  0 1 2 3 4 5 6 7 8 9 ...
+ $ RegionName: chr  "New York" "Los Angeles" "Houston" "Chicago" ...
+ $ RegionType: chr  "city" "city" "city" "city" ...
+ $ StateName : chr  "NY" "CA" "TX" "IL" ...
+ $ State     : chr  "NY" "CA" "TX" "IL" ...
+ $ Metro     : chr  "New York-Newark-Jersey City, NY-NJ-PA" "Los Angeles-Long Beach-Anaheim, CA" "Houston-The Woodlands-Sugar Land, TX" "Chicago-Naperville-Elgin, IL-IN-WI" ...
+ $ CountyName: chr  "Queens County" "Los Angeles County" "Harris County" "Cook County" ...
+ $ 2000.01.31: num  284723 302701 146377 179997 154391 ...
+ $ 2000.02.29: num  286885 303000 146270 180472 154691 ...
+ $ 2000.03.31: num  288711 304356 145921 181368 154943 ...</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>house_price <span class="ot">&lt;-</span> metrofour <span class="sc">%&gt;%</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span><span class="fu">c</span>(RegionID, SizeRank, RegionName, RegionType, StateName, State, Metro, CountyName),</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"Monthly"</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"Price"</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  ) </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(metrofour[,<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">11</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   13528 obs. of  11 variables:
+ $ RegionID  : int  6181 12447 39051 17426 6915 40326 13271 18959 54296 38128 ...
+ $ SizeRank  : int  0 1 2 3 4 5 6 7 8 9 ...
+ $ RegionName: chr  "New York" "Los Angeles" "Houston" "Chicago" ...
+ $ RegionType: chr  "city" "city" "city" "city" ...
+ $ StateName : chr  "NY" "CA" "TX" "IL" ...
+ $ State     : chr  "NY" "CA" "TX" "IL" ...
+ $ Metro     : chr  "New York-Newark-Jersey City, NY-NJ-PA" "Los Angeles-Long Beach-Anaheim, CA" "Houston-The Woodlands-Sugar Land, TX" "Chicago-Naperville-Elgin, IL-IN-WI" ...
+ $ CountyName: chr  "Queens County" "Los Angeles County" "Harris County" "Cook County" ...
+ $ 2000.01.31: num  284723 302701 146377 179997 154391 ...
+ $ 2000.02.29: num  286885 303000 146270 180472 154691 ...
+ $ 2000.03.31: num  288711 304356 145921 181368 154943 ...</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Converting the Date from factor to character</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>house_clean <span class="ot">&lt;-</span> house_price <span class="sc">%&gt;%</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>            <span class="fu">mutate</span>(<span class="at">Monthly_parsed =</span> <span class="fu">as.Date</span>(Monthly,<span class="st">"%Y.%m.%d"</span>))</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>house_clean[[<span class="st">"Monthly"</span>]]<span class="ot">&lt;-</span> <span class="fu">as.character</span>(house_clean<span class="sc">$</span>Monthly)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>house_price[[<span class="st">"Monthly"</span>]]<span class="ot">&lt;-</span> <span class="fu">as.character</span>(house_price <span class="sc">$</span>Monthly)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(house_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    RegionID         SizeRank      RegionName         RegionType       
+ Min.   :  3300   Min.   :    0   Length:3720200     Length:3720200    
+ 1st Qu.: 17381   1st Qu.: 3511   Class :character   Class :character  
+ Median : 31963   Median : 7196   Mode  :character   Mode  :character  
+ Mean   : 51628   Mean   : 8235                                        
+ 3rd Qu.: 46317   3rd Qu.:11713                                        
+ Max.   :827230   Max.   :28439                                        
+                                                                       
+  StateName            State              Metro            CountyName       
+ Length:3720200     Length:3720200     Length:3720200     Length:3720200    
+ Class :character   Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+   Monthly              Price         Monthly_parsed      
+ Length:3720200     Min.   :  17773   Min.   :2000-01-31  
+ Class :character   1st Qu.: 172701   1st Qu.:2005-09-30  
+ Mode  :character   Median : 244810   Median :2011-06-30  
+                    Mean   : 321841   Mean   :2011-07-01  
+                    3rd Qu.: 369075   3rd Qu.:2017-03-31  
+                    Max.   :8337561   Max.   :2022-11-30  
+                    NA's   :1201126                       </code></pre>
+</div>
+</div>
+<p>We see some missing values in the Price variable, but before I deal with those values, I will filter my data to the cities that I am interested the most</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>pdx_data <span class="ot">&lt;-</span> house_clean <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">:::</span><span class="fu">filter</span>(RegionID<span class="sc">==</span> <span class="dv">13373</span>)  <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">:::</span><span class="fu">filter</span>(Monthly_parsed <span class="sc">&gt;=</span> <span class="st">"2014-01-01"</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pdx_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    RegionID        SizeRank   RegionName         RegionType       
+ Min.   :13373   Min.   :22   Length:107         Length:107        
+ 1st Qu.:13373   1st Qu.:22   Class :character   Class :character  
+ Median :13373   Median :22   Mode  :character   Mode  :character  
+ Mean   :13373   Mean   :22                                        
+ 3rd Qu.:13373   3rd Qu.:22                                        
+ Max.   :13373   Max.   :22                                        
+  StateName            State              Metro            CountyName       
+ Length:107         Length:107         Length:107         Length:107        
+ Class :character   Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+                                                                            
+                                                                            
+                                                                            
+   Monthly              Price        Monthly_parsed      
+ Length:107         Min.   :410582   Min.   :2014-01-31  
+ Class :character   1st Qu.:506597   1st Qu.:2016-04-15  
+ Mode  :character   Median :564473   Median :2018-06-30  
+                    Mean   :563372   Mean   :2018-06-30  
+                    3rd Qu.:588606   3rd Qu.:2020-09-15  
+                    Max.   :758797   Max.   :2022-11-30  </code></pre>
+</div>
+</div>
+<p>After filtering the data, we don’t have any missing values</p>
+<section id="coerce-to-a-tsibble-with-as_tsibble" class="level3">
+<h3 class="anchored" data-anchor-id="coerce-to-a-tsibble-with-as_tsibble">Coerce to a tsibble with as_tsibble()</h3>
+<p>A time series can be recorded as a tsibble object in R. tsibble objects extend tidy data frames (tibble objects) by introducing temporal structure, and to do it, we need to declare key and index. In this case, the Monthly_parsed containing the data-time is the index and the RegionID is the key. Other columns can be considered as measured variables.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>tsb_pdx <span class="ot">&lt;-</span> pdx_data <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">select</span>(RegionName,RegionID, Monthly_parsed, Price)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>tsb_pref_pdx <span class="ot">&lt;-</span>tsb_pdx<span class="sc">%&gt;%</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tsibble</span>(<span class="at">key=</span> RegionName, <span class="at">index=</span> Monthly_parsed)<span class="sc">%&gt;%</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">index_by</span>(<span class="at">year_month =</span> <span class="sc">~</span> <span class="fu">yearmonth</span>(.))</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>tsibble_pdx <span class="ot">&lt;-</span>tsb_pref_pdx<span class="sc">%&gt;%</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>RegionID)<span class="sc">%&gt;%</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tsibble</span>(<span class="at">key=</span> RegionName, <span class="at">index=</span> year_month)<span class="sc">%&gt;%</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Prices =</span> Price<span class="sc">/</span><span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="data-visualization" class="level2">
+<h2 class="anchored" data-anchor-id="data-visualization">Data Visualization</h2>
+<p>To visualize the data, I could use the autoplot() command, but I rather to create my graph with ggplot.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>plot_pdx_house <span class="ot">&lt;-</span> tsibble_pdx <span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span> year_month, <span class="at">y=</span> Prices)) <span class="sc">+</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size=</span><span class="dv">1</span>, <span class="at">color=</span> <span class="st">"darkgreen"</span>)<span class="sc">+</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Price in Thousands of Dollars "</span>, </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span> <span class="st">" "</span>,</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">title=</span><span class="st">" Four Bedroom House Prices in Portland, OR, 2014-2022 "</span>,</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"data:https://www.zillow.com/research/data"</span>)<span class="sc">+</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels=</span>scales<span class="sc">::</span><span class="fu">dollar_format</span>())<span class="sc">+</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>   <span class="fu">theme_light</span>()</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>plot_pdx_house </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Time-Series-Project_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Data is non- stationary, we can see a trend-cycle component in the graph above.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>tsibble_pdx <span class="sc">%&gt;%</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gg_subseries</span>(Price<span class="sc">/</span><span class="dv">1000</span>)<span class="sc">+</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y=</span> <span class="st">"Price in Thousands of Dollars"</span>,</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span> <span class="st">"Year"</span>)<span class="sc">+</span><span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels=</span>scales<span class="sc">::</span><span class="fu">dollar_format</span>())<span class="sc">+</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>, <span class="at">hjust=</span><span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Time-Series-Project_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>tsibble_pdx<span class="sc">%&gt;%</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gg_season</span>(Price<span class="sc">/</span><span class="dv">1000</span>, <span class="at">labels =</span> <span class="st">"both"</span>)<span class="sc">+</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span> <span class="st">""</span>,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span> <span class="st">"Price in Thousands of Dollars "</span>, </span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">title=</span><span class="st">"Portland's Seasonal Plot"</span>)<span class="sc">+</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels=</span>scales<span class="sc">::</span><span class="fu">dollar_format</span>())<span class="sc">+</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Time-Series-Project_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="960"></p>
+</div>
+</div>
+</section>
+<section id="determining-stationarity" class="level2">
+<h2 class="anchored" data-anchor-id="determining-stationarity">Determining Stationarity</h2>
+<p>In our analysis, we use the Kwiatkowski-Phillips-Schmidt-Shin (KPSS) test (Kwiatkowski et al., 1992). In this test, the null hypothesis is that the data are stationary, and we look for evidence that the null hypothesis is false. Consequently, small p-values (e.g., less than 0.05) suggest that differencing is required. The test can be computed using the unitroot_kpss() function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>tsibble_pdx<span class="sc">%&gt;%</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">features</span>(Prices, unitroot_kpss)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  RegionName kpss_stat kpss_pvalue
+  &lt;chr&gt;          &lt;dbl&gt;       &lt;dbl&gt;
+1 Portland        1.97        0.01</code></pre>
+</div>
+</div>
+<p>The p-value is reported as 0.01 if it is less than 0.01, and as 0.1 if it is greater than 0.1. In this case, the test statistic (1.946) is bigger than the 1% critical value, so the p-value is less than 0.01, indicating that the null hypothesis is rejected. That is, the data are not stationary.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>tsibble_pdx <span class="sc">%&gt;%</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">features</span>(Prices ,unitroot_ndiffs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 2
+  RegionName ndiffs
+  &lt;chr&gt;       &lt;int&gt;
+1 Portland        1</code></pre>
+</div>
+</div>
+<p>As we saw from the KPSS tests above, one difference (d) is required to make the tsibble_pdx data stationary.</p>
+</section>
+<section id="autocorrelation" class="level2">
+<h2 class="anchored" data-anchor-id="autocorrelation">Autocorrelation</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>tsibble_pdx <span class="sc">%&gt;%</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gg_tsdisplay</span>(Prices,</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">plot_type=</span><span class="st">'partial'</span>)<span class="sc">+</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>       <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Thousands of Dollars "</span>, </span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span> <span class="st">" "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Time-Series-Project_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>ACF does not drop quickly to zero, moreover the value is large and positive (almost 1 in this case). All these are signs of a non-stationary time series. Therefore it should be differenced to obtain a stationary series.</p>
+<p>PACF value r1 is almost 1. All other values ri,i &gt;1 are small. This is a sign of a non stationary process that should be differenced in order to obtain a stationary series.</p>
+<p>The data are clearly non-stationary, so we will first take a seasonal difference. The seasonally differenced data are shown below:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>tsibble_pdx <span class="sc">%&gt;%</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gg_tsdisplay</span>(<span class="fu">difference</span>(Prices, <span class="dv">12</span>),</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">plot_type=</span><span class="st">'partial'</span>, <span class="at">lag=</span><span class="dv">36</span>) <span class="sc">+</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Seasonally differenced"</span>, <span class="at">y=</span><span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Time-Series-Project_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Our aim now is to find an appropriate ARIMA model based on the ACF and PACF shown in the Double Differenced graph.</p>
+</section>
+<section id="seasonal-arima-model" class="level2">
+<h2 class="anchored" data-anchor-id="seasonal-arima-model">Seasonal Arima Model</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>all_fit <span class="ot">&lt;-</span> tsibble_pdx<span class="sc">%&gt;%</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">model</span>(</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">arima212012 =</span> <span class="fu">ARIMA</span>(Prices <span class="sc">~</span> <span class="fu">pdq</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">2</span>)<span class="sc">+</span> <span class="fu">PDQ</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>)),</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">arima210011 =</span> <span class="fu">ARIMA</span>(Prices <span class="sc">~</span> <span class="fu">pdq</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">0</span>)<span class="sc">+</span> <span class="fu">PDQ</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>)),</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">stepwise =</span> <span class="fu">ARIMA</span>(Prices),</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">search =</span> <span class="fu">ARIMA</span>(Prices,<span class="at">stepwise=</span><span class="cn">FALSE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>all_fit <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(<span class="sc">!</span>RegionName,</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">names_to =</span> <span class="st">"Model name"</span>, </span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">values_to =</span> <span class="st">"Orders"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A mable: 4 x 3
+# Key:     RegionName, Model name [4]
+  RegionName `Model name`                             Orders
+  &lt;chr&gt;      &lt;chr&gt;                                   &lt;model&gt;
+1 Portland   arima212012           &lt;ARIMA(2,1,2)(0,1,2)[12]&gt;
+2 Portland   arima210011           &lt;ARIMA(2,1,0)(0,1,1)[12]&gt;
+3 Portland   stepwise                &lt;ARIMA(3,1,2) w/ drift&gt;
+4 Portland   search       &lt;ARIMA(2,1,3)(0,0,1)[12] w/ drift&gt;</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(all_fit) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(AICc) <span class="sc">%&gt;%</span> <span class="fu">select</span>(.model<span class="sc">:</span>BIC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 6
+  .model      sigma2 log_lik   AIC  AICc   BIC
+  &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 arima212012   2.81   -190.  394.  395.  412.
+2 search        2.14   -191.  399.  400.  420.
+3 stepwise      2.23   -194.  402.  403.  420.
+4 arima210011   4.53   -207.  423.  423.  433.</code></pre>
+</div>
+</div>
+<p>Of these models, the best is the ARIMA(2,1,2)(0,1,2)[12]model (i.e., it has the smallest AICc value).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>arima212012 <span class="ot">&lt;-</span> tsibble_pdx <span class="sc">%&gt;%</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">model</span>(<span class="at">arima212012 =</span> <span class="fu">ARIMA</span>(Prices <span class="sc">~</span> <span class="fu">pdq</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">2</span>)<span class="sc">+</span> <span class="fu">PDQ</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>)))<span class="sc">%&gt;%</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">report</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Series: Prices 
+Model: ARIMA(2,1,2)(0,1,2)[12] 
+
+Coefficients:
+         ar1     ar2     ma1     ma2     sma1    sma2
+      0.5178  0.0341  1.0092  0.9999  -0.8285  0.1308
+s.e.  0.1130  0.1206  0.0573  0.0692   0.1461  0.1514
+
+sigma^2 estimated as 2.813:  log likelihood=-189.9
+AIC=393.8   AICc=395.1   BIC=411.6</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>all_fit <span class="sc">%&gt;%</span> <span class="fu">select</span>(arima212012) <span class="sc">%&gt;%</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gg_tsresiduals</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Time-Series-Project_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>all_fit <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="st">"search"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gg_tsresiduals</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Time-Series-Project_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">augment</span>(all_fit) <span class="sc">%&gt;%</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(.model<span class="sc">==</span><span class="st">'arima212012'</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">features</span>(.innov, ljung_box, <span class="at">lag =</span> <span class="dv">36</span>, <span class="at">dof =</span> <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 4
+  RegionName .model      lb_stat lb_pvalue
+  &lt;chr&gt;      &lt;chr&gt;         &lt;dbl&gt;     &lt;dbl&gt;
+1 Portland   arima212012    36.7     0.186</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>tsibble_pdx <span class="sc">%&gt;%</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">model</span>(<span class="fu">ARIMA</span>(Prices <span class="sc">~</span> <span class="fu">pdq</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">2</span>) <span class="sc">+</span> <span class="fu">PDQ</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">forecast</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">autoplot</span>(tsibble_pdx) <span class="sc">+</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">" Thousands of $US "</span>,</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span><span class="st">" "</span>,</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">title=</span><span class="st">"Forecast from the ARIMA(2,1,2)(0,1,2)[12] model applied to the Portland House Prices data"</span>)<span class="sc">+</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Time-Series-Project_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="do">##Price in Thousands of Dollars</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>tsibble_pdx <span class="sc">%&gt;%</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">model</span>(<span class="fu">ARIMA</span>(Prices <span class="sc">~</span> <span class="fu">pdq</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">2</span>) <span class="sc">+</span> <span class="fu">PDQ</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">forecast</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A fable: 24 x 5 [1M]
+# Key:     RegionName, .model [1]
+   RegionName .model                                  year_m…¹      Prices .mean
+   &lt;chr&gt;      &lt;chr&gt;                                      &lt;mth&gt;      &lt;dist&gt; &lt;dbl&gt;
+ 1 Portland   ARIMA(Prices ~ pdq(2, 1, 2) + PDQ(0, 1… 2022 Dec N(735, 2.9)  735.
+ 2 Portland   ARIMA(Prices ~ pdq(2, 1, 2) + PDQ(0, 1… 2023 Jan  N(737, 21)  737.
+ 3 Portland   ARIMA(Prices ~ pdq(2, 1, 2) + PDQ(0, 1… 2023 Feb  N(740, 75)  740.
+ 4 Portland   ARIMA(Prices ~ pdq(2, 1, 2) + PDQ(0, 1… 2023 Mar N(745, 156)  745.
+ 5 Portland   ARIMA(Prices ~ pdq(2, 1, 2) + PDQ(0, 1… 2023 Apr N(750, 255)  750.
+ 6 Portland   ARIMA(Prices ~ pdq(2, 1, 2) + PDQ(0, 1… 2023 May N(755, 365)  755.
+ 7 Portland   ARIMA(Prices ~ pdq(2, 1, 2) + PDQ(0, 1… 2023 Jun N(758, 482)  758.
+ 8 Portland   ARIMA(Prices ~ pdq(2, 1, 2) + PDQ(0, 1… 2023 Jul N(760, 604)  760.
+ 9 Portland   ARIMA(Prices ~ pdq(2, 1, 2) + PDQ(0, 1… 2023 Aug N(762, 727)  762.
+10 Portland   ARIMA(Prices ~ pdq(2, 1, 2) + PDQ(0, 1… 2023 Sep N(764, 852)  764.
+# … with 14 more rows, and abbreviated variable name ¹​year_month</code></pre>
+</div>
+</div>
+</section>
+<section id="ets" class="level2">
+<h2 class="anchored" data-anchor-id="ets">ETS</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>fit_ets <span class="ot">&lt;-</span> tsibble_pdx <span class="sc">%&gt;%</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">model</span>(<span class="fu">ETS</span>(Prices))</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="fu">report</span>(fit_ets)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Series: Prices 
+Model: ETS(M,Ad,N) 
+  Smoothing parameters:
+    alpha = 0.9997705 
+    beta  = 0.9997704 
+    phi   = 0.9088093 
+
+  Initial states:
+     l[0]    b[0]
+ 406.6826 3.75712
+
+  sigma^2:  0
+
+     AIC     AICc      BIC 
+659.0909 659.9309 675.1278 </code></pre>
+</div>
+</div>
+<p>The model selected is ETS(M,Ad,N)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">components</span>(fit_ets) <span class="sc">%&gt;%</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"ETS(M,Ad,N) components"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Time-Series-Project_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Because this model has multiplicative errors, the innovation residuals are not equivalent to the regular residuals.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>fit_ets <span class="sc">%&gt;%</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">augment</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(.innov, .resid) <span class="sc">%&gt;%</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_longer</span>(<span class="fu">c</span>(.innov, .resid)) <span class="sc">%&gt;%</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">autoplot</span>()<span class="sc">+</span></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>   <span class="fu">theme_fivethirtyeight</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Time-Series-Project_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>fit_ets<span class="sc">%&gt;%</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gg_tsresiduals</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Time-Series-Project_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>fit_ets <span class="sc">%&gt;%</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">forecast</span>(<span class="at">h =</span> <span class="dv">24</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">autoplot</span>(tsibble_pdx)<span class="sc">+</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">theme_light</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Time-Series-Project_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bind_rows</span>(</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>    arima212012 <span class="sc">%&gt;%</span> <span class="fu">accuracy</span>(),</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>    fit_ets <span class="sc">%&gt;%</span> <span class="fu">accuracy</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>ME, <span class="sc">-</span>MPE, <span class="sc">-</span>ACF1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 8
+  RegionName .model      .type     RMSE   MAE  MAPE   MASE  RMSSE
+  &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+1 Portland   arima212012 Training  1.52  1.13 0.193 0.0284 0.0308
+2 Portland   ETS(Prices) Training  2.27  1.62 0.274 0.0408 0.0461</code></pre>
+</div>
+</div>
+<p>In this case the ARIMA model seems to be more accurate model based on the test set RMSE, MAPE and MASE.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ Copyright 2023, Karol Orozco
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/karolo89">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/karolorozcoe/">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="mailto:karol.marianoe@gmail.com">
+      <i class="bi bi-envelope" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>
