@@ -2,7 +2,7 @@
 title: "Time Series Project"
 author: "Karol Orozco"
 date: "2022-12-04"
-image: "forecast.jpg"
+image: "house_price.jpg"
 ---
 
 ## Background
