@@ -17,6 +17,7 @@ about:
       text: Github
       href: https://github.com/karolo89
     - icon: envelope
+      text: email
       href: mailto:karol.marianoe@gmail.com
 ---
 
