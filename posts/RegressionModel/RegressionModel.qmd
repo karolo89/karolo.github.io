@@ -2,6 +2,7 @@
 title: "House Prices in Portland, OR"
 author: "Karol Orozco"
 date: "2022-12"
+image: "house_price.jpg"
 ---
 
 ## Background
