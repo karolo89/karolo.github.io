@@ -30,7 +30,7 @@ website:
 format:
   html:
     theme: 
-      light: minty
+      light: yeti
       dark: slate
     css: styles.css
     page-layout: full
