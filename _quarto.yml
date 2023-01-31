@@ -36,6 +36,8 @@ format:
     page-layout: full
     mainfont: Nunito
     toc: true
+    code-fold: true
+    code-summary: "Show the code"
 
 editor: visual
 
