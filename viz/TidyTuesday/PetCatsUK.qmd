@@ -11,7 +11,9 @@ Well, I was born in Colombia, and during my time there, I always remember the ca
 
 According to the American Society for the Prevention of Cruelty to Animals ASPCA, a female cat can have an average of four to six kittens per litter and may have one to two litters per year. Some cat owners prefer to spay or neuter their cats.
 
-The TidyTuesday, weekly data project, posted on January 31st, 2023, a dataset from the Movebank for Animal Tracking Data, which includes cats' characteristics (such as age, sex, neuter status, hunting habits) and time-stamped GPS pings.  I'll take a look at the reproductive status of the cats and provide an alternate viewing option to the one offered by the Twitter user [@OluwafemOyedele](https://twitter.com/OluwafemOyedele/status/1621817963232874496/photo/1).
+The TidyTuesday, weekly data project, posted on January 31st, 2023, a dataset from the Movebank for Animal Tracking Data, which includes cats' characteristics (such as age, sex, neuter status, hunting habits) and time-stamped GPS pings.  I'll take a look at the reproductive status of the cats and provide an alternate graph to the one offered by the Twitter user [@OluwafemOyedele](https://twitter.com/OluwafemOyedele/status/1621817963232874496/photo/1).
+
+![OluwademOyede's Visualization](cat_orig.jpg)
 
 You can find the data on the TidyTuesday Github site- ["Pet Cats UK"](https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-01-31/readme.md).
 
