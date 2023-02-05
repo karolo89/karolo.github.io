@@ -9,7 +9,7 @@ image: "house_price.jpg"
 
 The goal is to build a classification model to predict the type of median housing prices in Portland, OR and its metropolitan area.
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(ggplot2)
 library(readr)

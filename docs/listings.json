@@ -9,7 +9,9 @@
   {
     "listing": "/Resources.html",
     "items": [
-      "/viz/TidyTuesday/tidytuesday.html"
+      "/viz/Hurricanes Graph/hurricanes.html",
+      "/viz/TidyTuesday/tidytuesday.html",
+      "/viz/Voter Registrations Graph/voter.html"
     ]
   }
 ]

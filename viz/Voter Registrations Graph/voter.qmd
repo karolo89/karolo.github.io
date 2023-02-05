@@ -1,0 +1,174 @@
+---
+title: "Voters Registrations"
+author: "Karol Orozco"
+date: "2023/02/05"
+image: "voter.jpg"
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning=FALSE, message=FALSE)
+
+library(tidyverse)
+library(ggplot2)
+library(readr)
+library(RCurl)
+library(scales)
+
+
+```
+
+
+Let’s practice our visualization skills with ggplot2 and recreate the graph from the [“Voter Registrations Are Way, Way Down During The Pandemic”] (https://fivethirtyeight.com/features/voter-registrations-are-way-way-down-during-the-pandemic/) article.
+
+First, Let’s get and prepare the data
+
+# Get the Data
+
+```{r}
+
+# Import data
+x <- getURL("https://raw.githubusercontent.com/fivethirtyeight/data/master/voter-registration/new-voter-registrations.csv")
+
+vreg<- read.csv(text = x)
+
+# Level the Month variable so that its in the right order (ie not alphabetical)
+vreg$Month<-factor(vreg$Month,
+levels=c("Jan", "Feb", "Mar", "Apr", "May"))
+
+### USE spread() FROM tidyr
+vreg<-vreg%>%
+spread(Year, New.registered.voters)
+
+### RENAME THE COLUMNS
+colnames(vreg)<-c("Jurisdiction", "Month", "Y2016", "Y2020")
+
+### mutate() FROM dplyr()
+vreg<-vreg%>%
+mutate(change= Y2020-Y2016)%>%
+  mutate(Color = ifelse(change > 0,"#48E5E8", "#F56C6A"))
+
+  
+
+a<- function(change){number_format(accuracy = 1,
+                                  scale = 1/1000,
+                                  suffix = "K")(change)}
+
+str(vreg)
+```
+
+
+## The Graph
+
+```{r}
+ggplot(vreg, aes(x= Month, y= change, fill = Color))+
+  
+    geom_col()+ 
+ 
+  geom_hline( yintercept = 0, color= "black")+
+
+  geom_rect(data = data.frame(Jurisdiction = "Arizona"), 
+              aes(xmin = 4.5, xmax= 5.5, ymin= -Inf, ymax = Inf), 
+              color = "darkgrey", 
+              fill = "white", 
+              alpha = 0, 
+              linetype = "dotted", 
+              inherit.aes = FALSE)+
+  geom_rect(data = data.frame(Jurisdiction = "California"), 
+            aes(xmin = 4.5, xmax= 5.5, ymin= -Inf, ymax = Inf), 
+            color = "darkgrey", 
+            fill = "white", 
+            alpha = 0, 
+            linetype = "dotted", 
+            inherit.aes = FALSE)+
+   geom_rect(data = data.frame(Jurisdiction = "Colorado"), 
+             aes(xmin = 4.5, xmax= 5.5, ymin= -Inf, ymax = Inf), 
+             color = "darkgrey", 
+             fill = "white", 
+             alpha = 0, 
+             linetype = "dotted", 
+             inherit.aes = FALSE)+
+  geom_rect(data = data.frame(Jurisdiction = "Delaware"), 
+            aes(xmin = 4.5, xmax= 5.5, ymin= -Inf, ymax = Inf), 
+            color = "darkgrey", fill = "white", 
+            alpha = 0, 
+            linetype = "dotted", 
+            inherit.aes = FALSE)+
+  geom_rect(data = data.frame(Jurisdiction = "Florida"), 
+            aes(xmin = 4.5, xmax= 5.5, ymin= -Inf, ymax = Inf), 
+            color = "darkgrey", 
+            fill = "white", 
+            alpha = 0, 
+            linetype = "dotted", inherit.aes = FALSE)+
+  geom_rect(data = data.frame(Jurisdiction = "Georgia"), 
+            aes(xmin = 4.5, xmax= 5.5, ymin= -Inf, ymax = Inf), 
+            color = "darkgrey", 
+            fill = "white", 
+            alpha = 0, 
+            linetype = "dotted", 
+            inherit.aes = FALSE)+
+  geom_rect(data = data.frame(Jurisdiction = "Illinois"), 
+            aes(xmin = 4.5, xmax= 5.5, ymin= -Inf, ymax = Inf), 
+            color = "darkgrey", 
+            fill = "white", 
+            alpha = 0, 
+            linetype = "dotted", 
+            inherit.aes = FALSE)+
+  
+    facet_wrap(~Jurisdiction, scales = "free_y")+
+
+  scale_fill_identity(guide= FALSE)+
+  scale_x_discrete(limits=c("Jan", "Feb", "Mar", "Apr", "May"), 
+                   breaks=c("Jan","May"))+
+  scale_y_continuous(labels = label_number_si(a =! 0), n.breaks = 4)+
+
+  labs(
+        x="",
+        y="",
+      title = "Voter registration dropped dramatically during the pandemic",
+      subtitle = "Difference in the number of newly registered voters for each month in 2020 compared to the same month in 2016",
+      caption = "Some states treat voters who move between counties within a state as new registrants because they're unregistered from their old county and nearly registered in the new ones.          ",
+      
+      tag= "FiveThirtyEight") +
+
+    theme_classic()+
+    theme(
+          axis.line.y=element_blank(),
+          axis.line.x = element_blank(),
+          axis.ticks = element_blank(),
+          axis.text.y = element_text(size = 6.5, color = "gray"), 
+          axis.text.x = element_text(size= 6.5, color = "gray"),
+          
+          
+          plot.title = element_text(size =9, face = "bold", hjust = 0.55),
+          plot.title.position = "plot",
+          plot.subtitle= element_text(size = 8, hjust = 0.55),
+          
+          plot.caption = element_text(hjust = 0, size = 6, color = "grey50",
+                                      margin = margin(r=5)),
+          plot.background = element_rect(fill= "white"),
+          plot.tag.position = "bottom",
+          plot.tag = element_text(size= 5, color = "gray", hjust =0.1, 
+                                  margin=margin(t=1, 
+                                                r=5, 
+                                                b=1, 
+                                                l=20, 
+                                                unit="pt")),
+          panel.grid.minor.y = element_blank(),
+          panel.grid.major.y = element_line(size= 0.1, color= "lightgrey",
+                                            linetype= "solid"),
+          panel.background = element_rect(fill = "white"),
+          panel.border = element_blank(),
+          panel.spacing = unit(1, "lines"),
+          
+          strip.background= element_rect(fill= "white", linetype = "blank"),
+          strip.text = element_text(color= "black", face= "bold"),
+          strip.text.x = element_text(face = "bold", size= 7),
+
+          
+          legend.title = element_blank(),
+          legend.position = "none"
+    
+)
+```
+

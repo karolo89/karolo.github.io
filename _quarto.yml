@@ -10,7 +10,7 @@ website:
         text: Karol Orozco
       - text: Models
         href: Projects.qmd
-      - text: Visualizations
+      - text: Visualization
         href: Resources.qmd
 
   page-footer: 
