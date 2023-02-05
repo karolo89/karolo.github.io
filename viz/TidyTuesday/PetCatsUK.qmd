@@ -1,0 +1,25 @@
+---
+title: "Pet Cats UK"
+author: "Karol Orozco"
+date: "2023/02/05"
+image: "tt_logo.png"
+---
+
+
+
+# Get the Data
+
+You can find the data on the TidyTuesday Github site- ["Pet Cats UK"](https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-01-31/readme.md)
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning=FALSE, message=FALSE)
+
+library(ggplot2)
+library(tidyverse)
+
+cats_uk <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-01-31/cats_uk.csv')
+
+cats_uk_reference <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-01-31/cats_uk_reference.csv')
+```
+
