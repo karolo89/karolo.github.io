@@ -2,6 +2,7 @@
   {
     "listing": "/Projects.html",
     "items": [
+      "/posts/TidyTuesday/tidytuesday.html",
       "/posts/TimeSeries/Time Series Project.html",
       "/posts/RegressionModel/RegressionModel.html"
     ]
