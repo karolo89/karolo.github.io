@@ -8,9 +8,9 @@ website:
     left:
       - href: index.qmd
         text: Karol Orozco
-      - text: Projects
+      - text: Models
         href: Projects.qmd
-      - text: Resources
+      - text: Visualizations
         href: Resources.qmd
 
   page-footer: 
