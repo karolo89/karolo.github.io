@@ -218,7 +218,7 @@ cats_uk_graph <-  cats_uk_reference %>%
     y = animal_reproductive_condition,
     colour = animal_reproductive_condition)) +
   geom_jitter(size = 2.0) +
-  scale_color_hue(name="none", direction = 1) +
+   scale_color_manual(name= NULL, values = c("cyan4","darkgray","brown")) +
     labs(caption = "Source: Movebank for Animal Tracking Data | github: karolo-89 | February 5th, 2023",
          x= "Age") +
   
