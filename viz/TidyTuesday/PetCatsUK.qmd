@@ -6,8 +6,6 @@ image: "tt_logo.png"
 ---
 
 
-(cat.jpg)
-
 This dataset is full of exciting columns that provide insight into the secret lives of cats. I must admit that dogs are my favorite pets, but many of my friends love cats, and I always hear stories about how independent their pets are, which made me want to learn more about them.
 
 Well, I was born in Colombia, and during my time there, I always remember the cats running and fighting on my roof, which would keep me up at night for a few hours. Then, a few weeks later, I heard tiny meows and noticed the presence of some kittens, which made me suspect that it was another kind of fun that was going on there.
@@ -35,7 +33,16 @@ library(janitor)
 library(ggplot2)
 library(tidyverse)
 library(dplyr)
+library(png)
+```
 
+
+```{r setup, include=FALSE}
+mypng <- readPNG("catsface.png")
+```
+
+
+```{r, include=FALSE, warning=FALSE, message=FALSE)}
 cats_uk <- read_csv("https://www.datarepository.movebank.org/bitstream/handle/10255/move.883/Pet%20Cats%20United%20Kingdom.csv?sequence=3") |> 
   clean_names() |> 
   # Standardize things and reorder columns.
@@ -175,20 +182,22 @@ glimpse(cats_uk_reference)
 ```
 
 ```{r}
+
 cats_uk_reference %>%
   group_by(animal_reproductive_condition, tag_id)%>%
   drop_na()%>%
-  mutate(count= n())%>%
   ggplot(aes(
-    x = count,
-    y = animal_reproductive_condition,
-    fill= reorder(animal_reproductive_condition, count))) +
-  geom_col(aes(x = count,
-    y = animal_reproductive_condition,
-    fill= reorder(animal_reproductive_condition, count))) +
-  
-  
-  scale_fill_manual(name= NULL, values = c("cyan4","darkgray","lightcyan4"))+
+    x = animal_reproductive_condition,
+    fill= animal_reproductive_condition))+
+  geom_bar(aes(
+    x = animal_reproductive_condition,
+    fill= animal_reproductive_condition)) +
+   geom_label(aes(x= animal_reproductive_condition,
+                label=..count..),
+              colour= "White",
+            stat='count')+
+
+scale_fill_manual(name= NULL, values = c("cyan4","darkgray","#b13173"))+
     labs(title= "Cat Reproductive Condition & Count",
       caption = "Source: Movebank for Animal Tracking Data | github: karolo-89 | February 5th, 2023",
              subtitle = "Between 2013 and 2017, Roland Kays et al. convinced hundreds of volunteers in the U.S., \nU.K., Australia, and New Zealand to strap GPS sensors on their pet cats and provide general information about them.",
@@ -198,39 +207,26 @@ cats_uk_reference %>%
   
   
   theme_minimal() +
-  theme(
-    plot.title = element_text(face = "bold", size = 20),
-        plot.subtitle = element_text(face = "italic"),
-        plot.caption = element_text(size = 8, hjust = 0.5),
+  theme(legend.position="none",
+        plot.title = element_text(face = "bold", size = 20),
+        plot.subtitle = element_text(face = "italic", margin=margin(0,0,60,0)),
+        plot.caption = element_text(size = 10, hjust = 0.5),
         axis.title.y = element_blank(),
-        axis.text.y = element_text(size = 7)) +
-  coord_flip()
+        axis.text.x = element_text(size = 11, face = "bold"),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank(),
+        plot.background = element_rect(fill = "#F5F5DC", colour="#F5F5DC"),
+        panel.background = element_rect(fill = "#F5F5DC", colour="#F5F5DC"),
+        plot.margin = unit(c(1,3,1,1), "lines"))+
+      coord_cartesian(clip = 'off') +   # This keeps the labels from disappearing
+ annotation_raster(mypng, ymin = 46, ymax= 59, xmin = 0.89, xmax = 1.2)
+
+
+ggsave("TT_Week5_2023.png")
 
 ```
 
-```{r}
 
-cats_uk_graph <-  cats_uk_reference %>%
-  group_by(animal_reproductive_condition)%>%
-  drop_na()%>%
-  ggplot(aes(
-    x = age_years,
-    y = animal_reproductive_condition,
-    colour = animal_reproductive_condition)) +
-  geom_jitter(size = 2.0) +
-   scale_color_manual(name= NULL, values = c("cyan4","darkgray","brown")) +
-    labs(caption = "Source: Movebank for Animal Tracking Data | github: karolo-89 | February 5th, 2023",
-         x= "Age") +
-  
-  
-  theme_minimal() +
-  theme(
-        plot.caption = element_text(size = 8, hjust = 0.5),
-        axis.title.y = element_blank(),
-        axis.text.y = element_text(size = 7)) 
-
-cats_uk_graph
-```
 
 ## Reference
 
