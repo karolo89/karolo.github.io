@@ -2,7 +2,7 @@
 title: "Pet Cats UK"
 author: "Karol Orozco"
 date: "2023/02/05"
-image: "tt_logo.png"
+image: "TT_Week5_2023.png"
 ---
 
 
