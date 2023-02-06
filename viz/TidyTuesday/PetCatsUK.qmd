@@ -215,7 +215,6 @@ scale_fill_manual(name= NULL, values = c("cyan4","darkgray","#b13173"))+
       coord_cartesian(clip = 'off') +   # This keeps the labels from disappearing
  annotation_raster(mypng, ymin = 45.5, ymax= 57, xmin = 0.89, xmax = 1.1)
 
-ggsave("TT_Week5_2023.png")
 
 ```
 
