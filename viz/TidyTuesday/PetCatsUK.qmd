@@ -12,7 +12,7 @@ Well, I was born in Colombia, and during my time there, I always remember the ca
 
 According to the American Society for the Prevention of Cruelty to Animals ASPCA, a female cat can have an average of four to six kittens per litter and may have one to two litters per year. Some cat owners prefer to spay or neuter their cats.
 
-The TidyTuesday, weekly data project, posted on January 31st, 2023, a dataset from the Movebank for Animal Tracking Data, which includes cats' characteristics (such as age, sex, neuter status, hunting habits) and time-stamped GPS pings.  I'll take a look at the reproductive status of the cats and provide an alternate graph to the one offered by the Twitter user [@OluwafemOyedele](https://twitter.com/OluwafemOyedele/status/1621817963232874496/photo/1).
+The TidyTuesday, weekly data project, posted on January 31st, 2023, a dataset from the Movebank for Animal Tracking Data, which includes cats' characteristics (such as age, sex, neuter status, hunting habits) and time-stamped GPS pings.  I'll take a look at the reproductive status of the cats and improve the graph offered by the Twitter user [@OluwafemOyedele](https://twitter.com/OluwafemOyedele/status/1621817963232874496/photo/1).
 
 ![OluwademOyede's Visualization](cat_orig.jpg)
 
@@ -34,15 +34,10 @@ library(ggplot2)
 library(tidyverse)
 library(dplyr)
 library(png)
-```
 
-
-```{r setup, include=FALSE}
 mypng <- readPNG("catsface.png")
-```
 
 
-```{r, include=FALSE, warning=FALSE, message=FALSE)}
 cats_uk <- read_csv("https://www.datarepository.movebank.org/bitstream/handle/10255/move.883/Pet%20Cats%20United%20Kingdom.csv?sequence=3") |> 
   clean_names() |> 
   # Standardize things and reorder columns.
@@ -143,8 +138,6 @@ cats_uk_reference <- read_csv("https://www.datarepository.movebank.org/bitstream
     -tag_readout_method
   )
 
-glimpse(cats_uk)
-glimpse(cats_uk_reference)
 
 cats_uk |> write_csv(
   here(
@@ -165,12 +158,16 @@ cats_uk_reference |> write_csv(
 )
 ```
 
-## Things to noticed
+::: {.callout-warning icon=true}
+
+## Pay Attention
 
 - In the graph above, the user combined both data sets: cats_uk and cats_uk_reference, which combined all cat activities and duplicated tag_id. The user did not consider the unique tag_id, which inflated their data points to over 100,000.
 
 - By doubling the tag_ids, the data implies that the cat was neutered or spayed multiple times.
+:::
 
+**Here is the list of cat names, in case you need some inspiration.**
 
 ```{r}
 unique(cats_uk$tag_id)
@@ -178,10 +175,7 @@ unique(cats_uk$tag_id)
 
 
 ```{r}
-glimpse(cats_uk_reference)
-```
 
-```{r}
 
 cats_uk_reference %>%
   group_by(animal_reproductive_condition, tag_id)%>%
@@ -200,7 +194,7 @@ cats_uk_reference %>%
 scale_fill_manual(name= NULL, values = c("cyan4","darkgray","#b13173"))+
     labs(title= "Cat Reproductive Condition & Count",
       caption = "Source: Movebank for Animal Tracking Data | github: karolo-89 | February 5th, 2023",
-             subtitle = "Between 2013 and 2017, Roland Kays et al. convinced hundreds of volunteers in the U.S., \nU.K., Australia, and New Zealand to strap GPS sensors on their pet cats and provide general information about them.",
+             subtitle = "Between 2013 and 2017, Roland Kays et al. convinced hundreds of volunteers in the U.S., U.K.,\nAustralia, and New Zealand to strap GPS sensors on their pet cats and provide general information\nabout them.",
 
          y= "",
          x="") +
@@ -209,23 +203,21 @@ scale_fill_manual(name= NULL, values = c("cyan4","darkgray","#b13173"))+
   theme_minimal() +
   theme(legend.position="none",
         plot.title = element_text(face = "bold", size = 20),
-        plot.subtitle = element_text(face = "italic", margin=margin(0,0,60,0)),
-        plot.caption = element_text(size = 10, hjust = 0.5),
+        plot.subtitle = element_text(face = "italic", size= 10, margin=margin(0,0,62,0)),
+        plot.caption = element_text(size = 10, hjust = 0.5, face = "italic"),
         axis.title.y = element_blank(),
-        axis.text.x = element_text(size = 11, face = "bold"),
+        axis.text.x = element_text(size = 11, face = "italic"),
         axis.text.y=element_blank(),
         axis.ticks.y=element_blank(),
         plot.background = element_rect(fill = "#F5F5DC", colour="#F5F5DC"),
         panel.background = element_rect(fill = "#F5F5DC", colour="#F5F5DC"),
         plot.margin = unit(c(1,3,1,1), "lines"))+
       coord_cartesian(clip = 'off') +   # This keeps the labels from disappearing
- annotation_raster(mypng, ymin = 46, ymax= 59, xmin = 0.89, xmax = 1.2)
-
+ annotation_raster(mypng, ymin = 45.5, ymax= 57, xmin = 0.89, xmax = 1.1)
 
 ggsave("TT_Week5_2023.png")
 
 ```
-
 
 
 ## Reference
