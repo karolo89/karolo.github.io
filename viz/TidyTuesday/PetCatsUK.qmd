@@ -5,6 +5,9 @@ date: "2023/02/05"
 image: "tt_logo.png"
 ---
 
+
+(cat.jpg)
+
 This dataset is full of exciting columns that provide insight into the secret lives of cats. I must admit that dogs are my favorite pets, but many of my friends love cats, and I always hear stories about how independent their pets are, which made me want to learn more about them.
 
 Well, I was born in Colombia, and during my time there, I always remember the cats running and fighting on my roof, which would keep me up at night for a few hours. Then, a few weeks later, I heard tiny meows and noticed the presence of some kittens, which made me suspect that it was another kind of fun that was going on there.
@@ -154,6 +157,81 @@ cats_uk_reference |> write_csv(
   )
 )
 ```
+
+## Things to noticed
+
+- In the graph above, the user combined both data sets: cats_uk and cats_uk_reference, which combined all cat activities and duplicated tag_id. The user did not consider the unique tag_id, which inflated their data points to over 100,000.
+
+- By doubling the tag_ids, the data implies that the cat was neutered or spayed multiple times.
+
+
+```{r}
+unique(cats_uk$tag_id)
+```
+
+
+```{r}
+glimpse(cats_uk_reference)
+```
+
+```{r}
+cats_uk_reference %>%
+  group_by(animal_reproductive_condition, tag_id)%>%
+  drop_na()%>%
+  mutate(count= n())%>%
+  ggplot(aes(
+    x = count,
+    y = animal_reproductive_condition,
+    fill= reorder(animal_reproductive_condition, count))) +
+  geom_col(aes(x = count,
+    y = animal_reproductive_condition,
+    fill= reorder(animal_reproductive_condition, count))) +
+  
+  
+  scale_fill_manual(name= NULL, values = c("cyan4","darkgray","lightcyan4"))+
+    labs(title= "Cat Reproductive Condition & Count",
+      caption = "Source: Movebank for Animal Tracking Data | github: karolo-89 | February 5th, 2023",
+             subtitle = "Between 2013 and 2017, Roland Kays et al. convinced hundreds of volunteers in the U.S., \nU.K., Australia, and New Zealand to strap GPS sensors on their pet cats and provide general information about them.",
+
+         y= "",
+         x="") +
+  
+  
+  theme_minimal() +
+  theme(
+    plot.title = element_text(face = "bold", size = 20),
+        plot.subtitle = element_text(face = "italic"),
+        plot.caption = element_text(size = 8, hjust = 0.5),
+        axis.title.y = element_blank(),
+        axis.text.y = element_text(size = 7)) +
+  coord_flip()
+
+```
+
+```{r}
+
+cats_uk_graph <-  cats_uk_reference %>%
+  group_by(animal_reproductive_condition)%>%
+  drop_na()%>%
+  ggplot(aes(
+    x = age_years,
+    y = animal_reproductive_condition,
+    colour = animal_reproductive_condition)) +
+  geom_jitter(size = 2.0) +
+  scale_color_hue(name="none", direction = 1) +
+    labs(caption = "Source: Movebank for Animal Tracking Data | github: karolo-89 | February 5th, 2023",
+         x= "Age") +
+  
+  
+  theme_minimal() +
+  theme(
+        plot.caption = element_text(size = 8, hjust = 0.5),
+        axis.title.y = element_blank(),
+        axis.text.y = element_text(size = 7)) 
+
+cats_uk_graph
+```
+
 ## Reference
 
 Kays R, Dunn RR, Parsons AW, Mcdonald B, Perkins T, Powers S, Shell L, McDonald JL, Cole H, Kikillus H, Woods L, Tindle H, Roetman P (2020) The small home ranges and large local ecological impacts of pet cats. Animal Conservation. doi:10.1111/acv.12563
