@@ -9,6 +9,7 @@
   {
     "listing": "/Resources.html",
     "items": [
+      "/viz/TriMet_table/trimet.html",
       "/viz/Hurricanes Graph/hurricanes.html",
       "/viz/TidyTuesday/PetCatsUK.html",
       "/viz/Voter Registrations Graph/voter.html"

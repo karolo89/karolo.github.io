@@ -1,0 +1,6 @@
+---
+title: "TriMet Jurisdiction Ridership Report- Spring 2022"
+author: "Karol Orozco"
+date: "2023/02/06"
+image: "TRIMET.jpg"
+---

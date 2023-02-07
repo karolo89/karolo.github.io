@@ -1,0 +1,201 @@
+Jurisdiction,Date,status,count
+Beaverton,Weekday,Ons,"12,106"
+Clackamas Co.,Weekday,Ons,"7,322"
+Cornelius,Weekday,Ons,476
+Durham,Weekday,Ons,23
+Estacada,Weekday,Ons,41
+Fairview,Weekday,Ons,283
+Forest Grove,Weekday,Ons,800
+Gladstone,Weekday,Ons,197
+Gresham,Weekday,Ons,"8,228"
+Happy Valley,Weekday,Ons,218
+Hillsboro,Weekday,Ons,"7,493"
+Lake Oswego,Weekday,Ons,315
+Maywood Park,Weekday,Ons,69
+Milwaukie,Weekday,Ons,"1,491"
+Multnomah Co.,Weekday,Ons,28
+Oregon City,Weekday,Ons,"1,298"
+Portland,Weekday,Ons,"105,110"
+Sherwood,Weekday,Ons,135
+Tigard,Weekday,Ons,"2,751"
+Troutdale,Weekday,Ons,584
+Tualatin,Weekday,Ons,577
+Washington Co.,Weekday,Ons,"2,535"
+West Linn,Weekday,Ons,84
+Wilsonville,Weekday,Ons,78
+Wood Village,Weekday,Ons,228
+Beaverton,Saturday,Ons,"8,967"
+Clackamas Co.,Saturday,Ons,"5,717"
+Cornelius,Saturday,Ons,434
+Durham,Saturday,Ons,13
+Estacada,Saturday,Ons,28
+Fairview,Saturday,Ons,202
+Forest Grove,Saturday,Ons,673
+Gladstone,Saturday,Ons,139
+Gresham,Saturday,Ons,"6,027"
+Happy Valley,Saturday,Ons,156
+Hillsboro,Saturday,Ons,"5,107"
+Lake Oswego,Saturday,Ons,145
+Maywood Park,Saturday,Ons,39
+Milwaukie,Saturday,Ons,867
+Multnomah Co.,Saturday,Ons,31
+Oregon City,Saturday,Ons,848
+Portland,Saturday,Ons,"76,114"
+Sherwood,Saturday,Ons,79
+Tigard,Saturday,Ons,"2,271"
+Troutdale,Saturday,Ons,209
+Tualatin,Saturday,Ons,302
+Washington Co.,Saturday,Ons,"1,522"
+West Linn,Saturday,Ons,42
+Wilsonville,Saturday,Ons,0
+Wood Village,Saturday,Ons,168
+Beaverton,Sunday,Ons,"7,449"
+Clackamas Co.,Sunday,Ons,"4,912"
+Cornelius,Sunday,Ons,376
+Durham,Sunday,Ons,12
+Estacada,Sunday,Ons,25
+Fairview,Sunday,Ons,170
+Forest Grove,Sunday,Ons,593
+Gladstone,Sunday,Ons,114
+Gresham,Sunday,Ons,"5,312"
+Happy Valley,Sunday,Ons,135
+Hillsboro,Sunday,Ons,"4,394"
+Lake Oswego,Sunday,Ons,110
+Maywood Park,Sunday,Ons,32
+Milwaukie,Sunday,Ons,777
+Multnomah Co.,Sunday,Ons,18
+Oregon City,Sunday,Ons,727
+Portland,Sunday,Ons,"62,703"
+Sherwood,Sunday,Ons,68
+Tigard,Sunday,Ons,"1,782"
+Troutdale,Sunday,Ons,189
+Tualatin,Sunday,Ons,223
+Washington Co.,Sunday,Ons,"1,216"
+West Linn,Sunday,Ons,29
+Wilsonville,Sunday,Ons,0
+Wood Village,Sunday,Ons,137
+Beaverton,Weekly,Ons,"76,946"
+Clackamas Co.,Weekly,Ons,"47,239"
+Cornelius,Weekly,Ons,"3,190"
+Durham,Weekly,Ons,140
+Estacada,Weekly,Ons,258
+Fairview,Weekly,Ons,"1,787"
+Forest Grove,Weekly,Ons,"5,266"
+Gladstone,Weekly,Ons,"1,238"
+Gresham,Weekly,Ons,"52,479"
+Happy Valley,Weekly,Ons,"1,381"
+Hillsboro,Weekly,Ons,"46,966"
+Lake Oswego,Weekly,Ons,"1,830"
+Maywood Park,Weekly,Ons,416
+Milwaukie,Weekly,Ons,"9,099"
+Multnomah Co.,Weekly,Ons,189
+Oregon City,Weekly,Ons,"8,065"
+Portland,Weekly,Ons,"664,367"
+Sherwood,Weekly,Ons,822
+Tigard,Weekly,Ons,"17,808"
+Troutdale,Weekly,Ons,"3,318"
+Tualatin,Weekly,Ons,"3,410"
+Washington Co.,Weekly,Ons,"15,413"
+West Linn,Weekly,Ons,491
+Wilsonville,Weekly,Ons,390
+Wood Village,Weekly,Ons,"1,445"
+Beaverton,Weekday,Offs,"12,379"
+Clackamas Co.,Weekday,Offs,"7,393"
+Cornelius,Weekday,Offs,496
+Durham,Weekday,Offs,3
+Estacada,Weekday,Offs,42
+Fairview,Weekday,Offs,272
+Forest Grove,Weekday,Offs,820
+Gladstone,Weekday,Offs,188
+Gresham,Weekday,Offs,"8,590"
+Happy Valley,Weekday,Offs,281
+Hillsboro,Weekday,Offs,"7,739"
+Lake Oswego,Weekday,Offs,317
+Maywood Park,Weekday,Offs,32
+Milwaukie,Weekday,Offs,"1,456"
+Multnomah Co.,Weekday,Offs,31
+Oregon City,Weekday,Offs,"1,287"
+Portland,Weekday,Offs,"107,382"
+Sherwood,Weekday,Offs,113
+Tigard,Weekday,Offs,"2,816"
+Troutdale,Weekday,Offs,451
+Tualatin,Weekday,Offs,575
+Washington Co.,Weekday,Offs,"2,565"
+West Linn,Weekday,Offs,92
+Wilsonville,Weekday,Offs,91
+Wood Village,Weekday,Offs,247
+Beaverton,Saturday,Offs,"9,147"
+Clackamas Co.,Saturday,Offs,"5,760"
+Cornelius,Saturday,Offs,454
+Durham,Saturday,Offs,1
+Estacada,Saturday,Offs,30
+Fairview,Saturday,Offs,185
+Forest Grove,Saturday,Offs,668
+Gladstone,Saturday,Offs,136
+Gresham,Saturday,Offs,"6,218"
+Happy Valley,Saturday,Offs,179
+Hillsboro,Saturday,Offs,"5,277"
+Lake Oswego,Saturday,Offs,149
+Maywood Park,Saturday,Offs,21
+Milwaukie,Saturday,Offs,856
+Multnomah Co.,Saturday,Offs,32
+Oregon City,Saturday,Offs,819
+Portland,Saturday,Offs,"78,299"
+Sherwood,Saturday,Offs,86
+Tigard,Saturday,Offs,"2,314"
+Troutdale,Saturday,Offs,163
+Tualatin,Saturday,Offs,293
+Washington Co.,Saturday,Offs,"1,512"
+West Linn,Saturday,Offs,46
+Wilsonville,Saturday,Offs,0
+Wood Village,Saturday,Offs,184
+Beaverton,Sunday,Offs,"7,587"
+Clackamas Co.,Sunday,Offs,"4,925"
+Cornelius,Sunday,Offs,404
+Durham,Sunday,Offs,1
+Estacada,Sunday,Offs,23
+Fairview,Sunday,Offs,161
+Forest Grove,Sunday,Offs,588
+Gladstone,Sunday,Offs,103
+Gresham,Sunday,Offs,"5,526"
+Happy Valley,Sunday,Offs,153
+Hillsboro,Sunday,Offs,"4,621"
+Lake Oswego,Sunday,Offs,118
+Maywood Park,Sunday,Offs,15
+Milwaukie,Sunday,Offs,767
+Multnomah Co.,Sunday,Offs,20
+Oregon City,Sunday,Offs,700
+Portland,Sunday,Offs,"64,057"
+Sherwood,Sunday,Offs,68
+Tigard,Sunday,Offs,"1,825"
+Troutdale,Sunday,Offs,151
+Tualatin,Sunday,Offs,228
+Washington Co.,Sunday,Offs,"1,228"
+West Linn,Sunday,Offs,34
+Wilsonville,Sunday,Offs,0
+Wood Village,Sunday,Offs,154
+Beaverton,Weekly,Offs,"78,629"
+Clackamas Co.,Weekly,Offs,"47,650"
+Cornelius,Weekly,Offs,"3,338"
+Durham,Weekly,Offs,17
+Estacada,Weekly,Offs,263
+Fairview,Weekly,Offs,"1,706"
+Forest Grove,Weekly,Offs,"5,356"
+Gladstone,Weekly,Offs,"1,179"
+Gresham,Weekly,Offs,"54,694"
+Happy Valley,Weekly,Offs,"1,737"
+Hillsboro,Weekly,Offs,"48,593"
+Lake Oswego,Weekly,Offs,"1,852"
+Maywood Park,Weekly,Offs,196
+Milwaukie,Weekly,Offs,"8,903"
+Multnomah Co.,Weekly,Offs,207
+Oregon City,Weekly,Offs,"7,954"
+Portland,Weekly,Offs,"679,266"
+Sherwood,Weekly,Offs,719
+Tigard,Weekly,Offs,"18,219"
+Troutdale,Weekly,Offs,"2,569"
+Tualatin,Weekly,Offs,"3,396"
+Washington Co.,Weekly,Offs,"15,565"
+West Linn,Weekly,Offs,540
+Wilsonville,Weekly,Offs,455
+Wood Village,Weekly,Offs,"1,573"
