@@ -1,8 +1,10 @@
 ---
-title: "Karol Orozco E."
-filters:
-   - lightbox
-lightbox: auto
+title: "Hello there!"
+title-block-banner: "#1C4481"
+format:
+  html:
+    quarto-template-params:
+      banner-header-class: "home"
 about:
   id: hero-heading
   template: broadside
@@ -29,8 +31,7 @@ about:
 
 </center>
 
-:::{#hero-heading}
-
+::: {#hero-heading}
 *I love digging into community challenges and bringing an equity lens to the data collection, analysis, interpretation, and distribution.*
 
 ## Education

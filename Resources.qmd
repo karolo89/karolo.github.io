@@ -6,6 +6,10 @@ listing:
   type: grid
   categories: true
   sort-ui: false
+title-block-banner: "#60688D"
 page-layout: full
-title-block-banner: true
+toc: true
+toc-location: right
+toc-title: Year
+date-format: "MMMM D, YYYY"
 ---

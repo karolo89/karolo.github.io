@@ -3,11 +3,13 @@ project:
   output-dir: docs
 
 website:
-  title: "Portfolio"
+  title: "Karol Orozco"
   navbar:
+    pinned: true
+    
     left:
       - href: index.qmd
-        text: Karol Orozco
+        text: About
       - text: Models
         href: Projects.qmd
       - text: Visualization
@@ -30,12 +32,14 @@ website:
 format:
   html:
     theme: 
-      - mystyles.scss
-    page-layout: full
-    mainfont: Nunito
-    toc: true
-    code-fold: true
-    code-summary: "Show the code"
+       - html/mystyles.scss
+    toc: false
+    code-link: true
+    anchor-sections: true
+    fig-cap-location: margin
+    reference-location: margin
+    footnotes-hover: true
+    highlight-style: monokai
 
 editor: visual
 
