@@ -4,3 +4,80 @@ author: "Karol Orozco"
 date: "2023/02/06"
 image: "TRIMET.jpg"
 ---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning=FALSE, message=FALSE)
+
+library(DT)
+library(png)
+library(tidyverse)
+library(gt)
+library(gtExtras)
+
+
+```
+
+In this exrcise we will practice how to create tables in R. I will use the library(DT) in the first example, and then I will use  gt and gtExtras
+You can find the original data of the [Passenger Census Reports](https://trimet.org/about/performance.htm#route) on the TriMet website or downloaded directly from my [GitHub](https://github.com/karolo89/karolo_website/tree/main/viz/TriMet_table)
+
+
+```{r}
+trimet <- readr::read_csv("https://raw.githubusercontent.com/karolo89/karolo_website/main/viz/TriMet_table/trimet.csv")
+```
+
+
+
+```{r}
+datatable(trimet, filter = "top", caption = htmltools::tags$caption(style = "caption-side: bottom; text-align: center;",
+    htmltools::strong("Table shows Spring 2022 Ridership Report by Jurisdiction (Source: TriMet.org)")), editable = "cell", extensions = c("Scroller",
+    "Buttons"), options = list(deferRender = TRUE, scrollY = 400, scroller = TRUE,
+    dom = "Bfrtip", buttons = c("copy", "csv", "excel", "pdf", "print")))
+
+```
+
+```{r}
+t1 <- trimet%>%
+  head(10)%>%   # Keep only first rows as example
+  gt()%>%
+  # Add title and subtitle
+  tab_header(
+    title = "Ridership Report by Jurisdiction",
+    # Use markdown syntax with md()
+    subtitle = md("Spring **2022**"))%>%
+  tab_style(
+    # Select object to modify
+    locations = cells_title(groups = 'title'),
+    # Specify text style
+    style = list(
+      cell_text(
+        font=google_font(name = 'Nunito'), 
+        size='xx-large',
+        color='darkblue'
+  )))
+
+
+t1
+
+
+```
+
+
+```{r}
+t2 <-t1%>%
+  gtExtras::gt_theme_nytimes()%>%
+  gtExtras::gt_highlight_rows(
+    # Row to highlight
+    rows = 4, 
+    # Background color
+    fill = "lightblue",
+    # Bold for target column only
+    bold_target_only = TRUE,
+    # Select target column
+    target_col = count
+  )
+
+t2
+```
+
+
