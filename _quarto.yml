@@ -10,10 +10,11 @@ website:
     left:
       - href: index.qmd
         text: About
-      - text: Models
-        href: Projects.qmd
       - text: Visualization
         href: Resources.qmd
+      - text: Models
+        href: Projects.qmd
+
 
   page-footer: 
     background: light
