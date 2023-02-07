@@ -1,4 +1,8 @@
 /*-- scss:defaults --*/
+
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
+
 #nav, #nav-inner, .nav-list {
 	background-color: #fff;
 	border: 0;
