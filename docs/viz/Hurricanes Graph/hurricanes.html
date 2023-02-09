@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.2.313">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
 <meta name="author" content="Karol Orozco">
 <meta name="dcterms.date" content="2023-02-05">
+
 <title>Karol Orozco - Hurricanes</title>
 <style>
 code{white-space: pre-wrap;}
@@ -84,6 +87,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -98,7 +102,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -117,11 +122,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-submit-button-title": "Submit"
   }
 }</script>
+
+
 </head>
+
 <body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg navbar-dark "><div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Karol Orozco</span>
@@ -132,7 +142,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-<li class="nav-item">
+  <li class="nav-item">
     <a class="nav-link" href="../../index.html">
  <span class="menu-text">About</span></a>
   </li>  
@@ -145,7 +155,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  <span class="menu-text">Models</span></a>
   </li>  
 </ul>
-<div class="quarto-toggle-container">
+              <div class="quarto-toggle-container">
                   <a href="" class="quarto-reader-toggle nav-link" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -155,7 +165,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
               <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
-    </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><div class="quarto-title-banner page-columns page-full">
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">Hurricanes</h1>
                       </div>
@@ -187,81 +201,92 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content"><p>Hello there,</p>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p>Hello there,</p>
 <p>Today, I will be recreating the graph from the article <a href="https://fivethirtyeight.com/features/why-past-hurricane-seasons-dont-tell-us-much-about-the-future/">“Why Past Hurricane Seasons Don’t Tell Us Much About The Future”</a> by Anna Wiederkehr.</p>
 <p>You can find the raw data in the National Oceanic and Atmospheric Administration’s HURDAT2 database, which has records of all Atlantic basin tropical cyclones dating back to 1851.</p>
 <p>This exercise focuses on practicing our data visualization skills with ggplot2, so I’ll skip the data manipulation steps. You can find the dataset for the graph in my GitHub repository.</p>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## library(tidyverse)</span></span>
-<span><span class="co">## library(ggplot2)</span></span>
-<span><span class="co">## library(geomtextpath)</span></span>
-<span><span class="co">## library(RCurl)</span></span>
-<span><span class="co">## library(grid)</span></span>
-<span><span class="co">## library(gridExtra)</span></span>
-<span></span>
-<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">getURL</span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/karolo89/Raw_Data/main/Hurricane.csv"</span><span class="op">)</span></span>
-<span><span class="va">hurricane</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span>text <span class="op">=</span> <span class="va">x</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## library(tidyverse)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="do">## library(ggplot2)</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="do">## library(geomtextpath)</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="do">## library(RCurl)</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="do">## library(grid)</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="do">## library(gridExtra)</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">getURL</span>(<span class="st">"https://raw.githubusercontent.com/karolo89/Raw_Data/main/Hurricane.csv"</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>hurricane <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">text =</span> x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">graph1</span> <span class="op">&lt;-</span> <span class="fu">ggplot</span><span class="op">(</span><span class="va">hurricane</span>, <span class="fu">aes</span><span class="op">(</span><span class="va">year</span>,<span class="va">average</span>, color <span class="op">=</span> <span class="va">type</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">geom_step</span><span class="op">(</span>size<span class="op">=</span><span class="fl">.7</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  </span>
-<span><span class="co">## Adding the text</span></span>
-<span>  <span class="fu">geom_textline</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">type</span> <span class="op">==</span> <span class="st">"avg_h_15year"</span>, </span>
-<span>                    <span class="st">"All Hurricanes"</span>,</span>
-<span>                    <span class="st">"Major Hurricanes"</span><span class="op">)</span>, </span>
-<span>                    y <span class="op">=</span> <span class="va">average</span> <span class="op">+</span> <span class="fl">.8</span><span class="op">)</span>, </span>
-<span>                text_smoothing <span class="op">=</span> <span class="fl">50</span>, </span>
-<span>                fontface <span class="op">=</span> <span class="fl">2</span>,</span>
-<span>                hjust <span class="op">=</span> <span class="fl">0</span>,  </span>
-<span>                linetype <span class="op">=</span> <span class="fl">0</span>, </span>
-<span>                size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">annotate</span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="fl">1886</span>, y <span class="op">=</span> <span class="fl">2.2</span>, label <span class="op">=</span> <span class="st">"Category 3 - 5"</span>, hjust <span class="op">=</span> <span class="fl">0</span>,</span>
-<span>           color <span class="op">=</span> <span class="st">"#3b2d74"</span>, size<span class="op">=</span> <span class="fl">2.5</span><span class="op">)</span> <span class="op">+</span></span>
-<span></span>
-<span><span class="co">## Scales</span></span>
-<span>  </span>
-<span>  <span class="fu">scale_x_continuous</span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">1860</span>,<span class="fl">2020</span>,<span class="fl">20</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">scale_y_continuous</span><span class="op">(</span>limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">8.5</span><span class="op">)</span>,</span>
-<span>                     breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">8</span>,<span class="fl">2</span><span class="op">)</span>,</span>
-<span>                     expand <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">scale_color_manual</span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#735ad2"</span>, <span class="st">"#3b2d74"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span></span>
-<span><span class="co">## Labs</span></span>
-<span>  </span>
-<span>  <span class="fu">labs</span><span class="op">(</span></span>
-<span>    y <span class="op">=</span> <span class="st">" "</span>,</span>
-<span>    x <span class="op">=</span> <span class="st">" "</span>, </span>
-<span>    title <span class="op">=</span> <span class="st">"15-year average recorded Atlantic basin hurricanes, 1851-2019"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  </span>
-<span><span class="co">## Theme </span></span>
-<span>  </span>
-<span>  <span class="fu">theme_minimal</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  </span>
-<span>  <span class="fu">theme</span><span class="op">(</span></span>
-<span>    </span>
-<span>    panel.grid.minor <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span>,</span>
-<span>    panel.grid.major.x <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span>,</span>
-<span>    </span>
-<span>    <span class="co">## Customize x axis</span></span>
-<span>    axis.ticks.x <span class="op">=</span> <span class="fu">element_line</span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"#e1e1e1"</span><span class="op">)</span>,</span>
-<span>    axis.ticks.length.x <span class="op">=</span><span class="fu">unit</span><span class="op">(</span><span class="fl">0.3</span>,<span class="st">"cm"</span><span class="op">)</span>,</span>
-<span>    axis.line.x.bottom <span class="op">=</span> <span class="fu">element_line</span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"#313131"</span><span class="op">)</span>,</span>
-<span>    </span>
-<span>    <span class="co">## axis text</span></span>
-<span></span>
-<span>    axis.text <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size<span class="op">=</span> <span class="fl">6</span>, color<span class="op">=</span> <span class="st">"#8f8f8f"</span>, </span>
-<span>                             face <span class="op">=</span> <span class="st">"bold"</span><span class="op">)</span>,</span>
-<span>    </span>
-<span>    <span class="co">## We don't want a legend</span></span>
-<span>    </span>
-<span>    legend.position <span class="op">=</span> <span class="st">"none"</span>,</span>
-<span>    </span>
-<span>    <span class="co">## title</span></span>
-<span>    plot.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span><span class="fl">8</span>, face <span class="op">=</span> <span class="st">"bold"</span>, colour<span class="op">=</span> <span class="st">"#545454"</span>,</span>
-<span>                              hjust <span class="op">=</span> <span class="fl">0.50</span>, vjust <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span>  <span class="op">)</span></span>
-<span><span class="va">graph1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>graph1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(hurricane, <span class="fu">aes</span>(year,average, <span class="at">color =</span> type)) <span class="sc">+</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_step</span>(<span class="at">size=</span>.<span class="dv">7</span>) <span class="sc">+</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Adding the text</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_textline</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">ifelse</span>(type <span class="sc">==</span> <span class="st">"avg_h_15year"</span>, </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"All Hurricanes"</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Major Hurricanes"</span>), </span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>                    <span class="at">y =</span> average <span class="sc">+</span> .<span class="dv">8</span>), </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">text_smoothing =</span> <span class="dv">50</span>, </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>                <span class="at">fontface =</span> <span class="dv">2</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>                <span class="at">hjust =</span> <span class="dv">0</span>,  </span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>                <span class="at">linetype =</span> <span class="dv">0</span>, </span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>                <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">1886</span>, <span class="at">y =</span> <span class="fl">2.2</span>, <span class="at">label =</span> <span class="st">"Category 3 - 5"</span>, <span class="at">hjust =</span> <span class="dv">0</span>,</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> <span class="st">"#3b2d74"</span>, <span class="at">size=</span> <span class="fl">2.5</span>) <span class="sc">+</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="do">## Scales</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">1860</span>,<span class="dv">2020</span>,<span class="dv">20</span>)) <span class="sc">+</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">8.5</span>),</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">2</span>,<span class="dv">8</span>,<span class="dv">2</span>),</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#735ad2"</span>, <span class="st">"#3b2d74"</span>)) <span class="sc">+</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="do">## Labs</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">" "</span>,</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">" "</span>, </span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"15-year average recorded Atlantic basin hurricanes, 1851-2019"</span>) <span class="sc">+</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="do">## Theme </span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    <span class="do">## Customize x axis</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks.x =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">"#e1e1e1"</span>),</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks.length.x =</span><span class="fu">unit</span>(<span class="fl">0.3</span>,<span class="st">"cm"</span>),</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.line.x.bottom =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">"#313131"</span>),</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>    <span class="do">## axis text</span></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size=</span> <span class="dv">6</span>, <span class="at">color=</span> <span class="st">"#8f8f8f"</span>, </span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>                             <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>    <span class="do">## We don't want a legend</span></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>    <span class="do">## title</span></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span><span class="dv">8</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">colour=</span> <span class="st">"#545454"</span>,</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>                              <span class="at">hjust =</span> <span class="fl">0.50</span>, <span class="at">vjust =</span> <span class="dv">1</span>)</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>graph1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <p><img src="hurricanes_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -269,28 +294,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>I used the https://imagecolorpicker.com/en tool to get the hex colors from the original graph.</p>
 <p>We are still missing the footer, so let’s add it.</p>
 <div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">footer</span><span class="op">&lt;-</span> <span class="fu">grobTree</span><span class="op">(</span> </span>
-<span>                  <span class="fu">textGrob</span><span class="op">(</span><span class="st">"      FiveThirtyEight"</span>, x<span class="op">=</span><span class="fu">unit</span><span class="op">(</span><span class="fl">.05</span>, <span class="st">"npc"</span><span class="op">)</span>, </span>
-<span>                      gp<span class="op">=</span><span class="fu">gpar</span><span class="op">(</span>col<span class="op">=</span><span class="st">"#868686"</span>, </span>
-<span>                              family<span class="op">=</span><span class="st">"sans"</span>, </span>
-<span>                              fontsize<span class="op">=</span> <span class="fl">5.5</span>,</span>
-<span>                              fontface<span class="op">=</span> <span class="st">"bold"</span><span class="op">)</span>,</span>
-<span>                      hjust<span class="op">=</span><span class="fl">0</span>,</span>
-<span>                      vjust <span class="op">=</span> <span class="op">-</span><span class="fl">2</span><span class="op">)</span>,</span>
-<span>                  </span>
-<span>                  <span class="fu">textGrob</span><span class="op">(</span><span class="st">"SOURCES: HURDAT2, VECCHI ET AL      "</span>,</span>
-<span>                        x<span class="op">=</span><span class="fu">unit</span><span class="op">(</span><span class="fl">1</span>, <span class="st">"npc"</span><span class="op">)</span>, </span>
-<span>                        gp<span class="op">=</span><span class="fu">gpar</span><span class="op">(</span>col<span class="op">=</span><span class="st">"#868686"</span>, </span>
-<span>                                family<span class="op">=</span> <span class="st">"sans"</span>,</span>
-<span>                                fontsize<span class="op">=</span><span class="fl">5.5</span>,</span>
-<span>                              fontface<span class="op">=</span> <span class="st">"bold"</span><span class="op">)</span>,</span>
-<span>                        hjust<span class="op">=</span><span class="fl">1</span>,</span>
-<span>                      vjust <span class="op">=</span> <span class="op">-</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
-<span>                  </span>
-<span><span class="co"># Plot All Together</span></span>
-<span></span>
-<span> <span class="va">plt.final</span> <span class="op">&lt;-</span> <span class="fu">grid.arrange</span><span class="op">(</span><span class="va">graph1</span>, <span class="va">footer</span>, heights<span class="op">=</span><span class="fu">unit</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.72</span>, <span class="fl">0.03</span><span class="op">)</span>, </span>
-<span>                                                    <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"npc"</span>, <span class="st">"npc"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>footer<span class="ot">&lt;-</span> <span class="fu">grobTree</span>( </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">textGrob</span>(<span class="st">"      FiveThirtyEight"</span>, <span class="at">x=</span><span class="fu">unit</span>(.<span class="dv">05</span>, <span class="st">"npc"</span>), </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">gp=</span><span class="fu">gpar</span>(<span class="at">col=</span><span class="st">"#868686"</span>, </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">family=</span><span class="st">"sans"</span>, </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>                              <span class="at">fontsize=</span> <span class="fl">5.5</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>                              <span class="at">fontface=</span> <span class="st">"bold"</span>),</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>                      <span class="at">hjust=</span><span class="dv">0</span>,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>                      <span class="at">vjust =</span> <span class="sc">-</span><span class="dv">2</span>),</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>                  </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">textGrob</span>(<span class="st">"SOURCES: HURDAT2, VECCHI ET AL      "</span>,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>                        <span class="at">x=</span><span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">"npc"</span>), </span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>                        <span class="at">gp=</span><span class="fu">gpar</span>(<span class="at">col=</span><span class="st">"#868686"</span>, </span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>                                <span class="at">family=</span> <span class="st">"sans"</span>,</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>                                <span class="at">fontsize=</span><span class="fl">5.5</span>,</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>                              <span class="at">fontface=</span> <span class="st">"bold"</span>),</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>                        <span class="at">hjust=</span><span class="dv">1</span>,</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>                      <span class="at">vjust =</span> <span class="sc">-</span><span class="dv">2</span>))</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>                  </span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot All Together</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a> plt.final <span class="ot">&lt;-</span> <span class="fu">grid.arrange</span>(graph1, footer, <span class="at">heights=</span><span class="fu">unit</span>(<span class="fu">c</span>(<span class="fl">0.72</span>, <span class="fl">0.03</span>), </span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>                                                    <span class="fu">c</span>(<span class="st">"npc"</span>, <span class="st">"npc"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <p><img src="hurricanes_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -298,7 +326,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-</main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -432,17 +461,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<footer class="footer"><div class="nav-footer">
+<footer class="footer">
+  <div class="nav-footer">
     <div class="nav-footer-left">
       <ul class="footer-items list-unstyled">
-<li class="nav-item">
+    <li class="nav-item">
  Copyright 2023, Karol Orozco
   </li>  
 </ul>
-</div>   
+    </div>   
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
-<li class="nav-item compact">
+    <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/karolo89">
       <i class="bi bi-github" role="img">
 </i> 
@@ -461,9 +491,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </a>
   </li>  
 </ul>
-</div>
+    </div>
   </div>
 </footer>
+
 
 
 </body></html>

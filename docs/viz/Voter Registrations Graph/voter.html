@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.2.313">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
 <meta name="author" content="Karol Orozco">
 <meta name="dcterms.date" content="2023-02-05">
+
 <title>Karol Orozco - Voters Registrations</title>
 <style>
 code{white-space: pre-wrap;}
@@ -84,6 +87,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -98,7 +102,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -117,11 +122,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-submit-button-title": "Submit"
   }
 }</script>
+
+
 </head>
+
 <body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg navbar-dark "><div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Karol Orozco</span>
@@ -132,7 +142,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-<li class="nav-item">
+  <li class="nav-item">
     <a class="nav-link" href="../../index.html">
  <span class="menu-text">About</span></a>
   </li>  
@@ -145,7 +155,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  <span class="menu-text">Models</span></a>
   </li>  
 </ul>
-<div class="quarto-toggle-container">
+              <div class="quarto-toggle-container">
                   <a href="" class="quarto-reader-toggle nav-link" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -155,7 +165,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
               <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
-    </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><div class="quarto-title-banner page-columns page-full">
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">Voters Registrations</h1>
                       </div>
@@ -187,38 +201,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content"><p>Let’s practice our visualization skills with ggplot2 and recreate the graph from the [“Voter Registrations Are Way, Way Down During The Pandemic”] (https://fivethirtyeight.com/features/voter-registrations-are-way-way-down-during-the-pandemic/) article.</p>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p>Let’s practice our visualization skills with ggplot2 and recreate the graph from the [“Voter Registrations Are Way, Way Down During The Pandemic”] (https://fivethirtyeight.com/features/voter-registrations-are-way-way-down-during-the-pandemic/) article.</p>
 <p>First, Let’s get and prepare the data</p>
-<section id="get-the-data" class="level1"><h1>Get the Data</h1>
+<section id="get-the-data" class="level1">
+<h1>Get the Data</h1>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Import data</span></span>
-<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">getURL</span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/fivethirtyeight/data/master/voter-registration/new-voter-registrations.csv"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">vreg</span><span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span>text <span class="op">=</span> <span class="va">x</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Level the Month variable so that its in the right order (ie not alphabetical)</span></span>
-<span><span class="va">vreg</span><span class="op">$</span><span class="va">Month</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">vreg</span><span class="op">$</span><span class="va">Month</span>,</span>
-<span>levels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Jan"</span>, <span class="st">"Feb"</span>, <span class="st">"Mar"</span>, <span class="st">"Apr"</span>, <span class="st">"May"</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co">### USE spread() FROM tidyr</span></span>
-<span><span class="va">vreg</span><span class="op">&lt;-</span><span class="va">vreg</span><span class="op">%&gt;%</span></span>
-<span><span class="fu">spread</span><span class="op">(</span><span class="va">Year</span>, <span class="va">New.registered.voters</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co">### RENAME THE COLUMNS</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">vreg</span><span class="op">)</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Jurisdiction"</span>, <span class="st">"Month"</span>, <span class="st">"Y2016"</span>, <span class="st">"Y2020"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co">### mutate() FROM dplyr()</span></span>
-<span><span class="va">vreg</span><span class="op">&lt;-</span><span class="va">vreg</span><span class="op">%&gt;%</span></span>
-<span><span class="fu">mutate</span><span class="op">(</span>change<span class="op">=</span> <span class="va">Y2020</span><span class="op">-</span><span class="va">Y2016</span><span class="op">)</span><span class="op">%&gt;%</span></span>
-<span>  <span class="fu">mutate</span><span class="op">(</span>Color <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">change</span> <span class="op">&gt;</span> <span class="fl">0</span>,<span class="st">"#48E5E8"</span>, <span class="st">"#F56C6A"</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span>  </span>
-<span></span>
-<span><span class="va">a</span><span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">change</span><span class="op">)</span><span class="op">{</span><span class="fu">number_format</span><span class="op">(</span>accuracy <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>                                  scale <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="fl">1000</span>,</span>
-<span>                                  suffix <span class="op">=</span> <span class="st">"K"</span><span class="op">)</span><span class="op">(</span><span class="va">change</span><span class="op">)</span><span class="op">}</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">vreg</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">getURL</span>(<span class="st">"https://raw.githubusercontent.com/fivethirtyeight/data/master/voter-registration/new-voter-registrations.csv"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>vreg<span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">text =</span> x)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Level the Month variable so that its in the right order (ie not alphabetical)</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>vreg<span class="sc">$</span>Month<span class="ot">&lt;-</span><span class="fu">factor</span>(vreg<span class="sc">$</span>Month,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="at">levels=</span><span class="fu">c</span>(<span class="st">"Jan"</span>, <span class="st">"Feb"</span>, <span class="st">"Mar"</span>, <span class="st">"Apr"</span>, <span class="st">"May"</span>))</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="do">### USE spread() FROM tidyr</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>vreg<span class="ot">&lt;-</span>vreg<span class="sc">%&gt;%</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">spread</span>(Year, New.registered.voters)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="do">### RENAME THE COLUMNS</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(vreg)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"Jurisdiction"</span>, <span class="st">"Month"</span>, <span class="st">"Y2016"</span>, <span class="st">"Y2020"</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="do">### mutate() FROM dplyr()</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>vreg<span class="ot">&lt;-</span>vreg<span class="sc">%&gt;%</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">change=</span> Y2020<span class="sc">-</span>Y2016)<span class="sc">%&gt;%</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Color =</span> <span class="fu">ifelse</span>(change <span class="sc">&gt;</span> <span class="dv">0</span>,<span class="st">"#48E5E8"</span>, <span class="st">"#F56C6A"</span>))</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>a<span class="ot">&lt;-</span> <span class="cf">function</span>(change){<span class="fu">number_format</span>(<span class="at">accuracy =</span> <span class="dv">1</span>,</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">scale =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">1000</span>,</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">suffix =</span> <span class="st">"K"</span>)(change)}</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(vreg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   53 obs. of  6 variables:
  $ Jurisdiction: chr  "Arizona" "Arizona" "Arizona" "Arizona" ...
@@ -229,124 +252,132 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  $ Color       : chr  "#48E5E8" "#F56C6A" "#F56C6A" "#F56C6A" ...</code></pre>
 </div>
 </div>
-<section id="the-graph" class="level2"><h2 class="anchored" data-anchor-id="the-graph">The Graph</h2>
+<section id="the-graph" class="level2">
+<h2 class="anchored" data-anchor-id="the-graph">The Graph</h2>
 <div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">vreg</span>, <span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span> <span class="va">Month</span>, y<span class="op">=</span> <span class="va">change</span>, fill <span class="op">=</span> <span class="va">Color</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
-<span>  </span>
-<span>    <span class="fu">geom_col</span><span class="op">(</span><span class="op">)</span><span class="op">+</span> </span>
-<span> </span>
-<span>  <span class="fu">geom_hline</span><span class="op">(</span> yintercept <span class="op">=</span> <span class="fl">0</span>, color<span class="op">=</span> <span class="st">"black"</span><span class="op">)</span><span class="op">+</span></span>
-<span></span>
-<span>  <span class="fu">geom_rect</span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>Jurisdiction <span class="op">=</span> <span class="st">"Arizona"</span><span class="op">)</span>, </span>
-<span>              <span class="fu">aes</span><span class="op">(</span>xmin <span class="op">=</span> <span class="fl">4.5</span>, xmax<span class="op">=</span> <span class="fl">5.5</span>, ymin<span class="op">=</span> <span class="op">-</span><span class="cn">Inf</span>, ymax <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span>, </span>
-<span>              color <span class="op">=</span> <span class="st">"darkgrey"</span>, </span>
-<span>              fill <span class="op">=</span> <span class="st">"white"</span>, </span>
-<span>              alpha <span class="op">=</span> <span class="fl">0</span>, </span>
-<span>              linetype <span class="op">=</span> <span class="st">"dotted"</span>, </span>
-<span>              inherit.aes <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu">geom_rect</span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>Jurisdiction <span class="op">=</span> <span class="st">"California"</span><span class="op">)</span>, </span>
-<span>            <span class="fu">aes</span><span class="op">(</span>xmin <span class="op">=</span> <span class="fl">4.5</span>, xmax<span class="op">=</span> <span class="fl">5.5</span>, ymin<span class="op">=</span> <span class="op">-</span><span class="cn">Inf</span>, ymax <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span>, </span>
-<span>            color <span class="op">=</span> <span class="st">"darkgrey"</span>, </span>
-<span>            fill <span class="op">=</span> <span class="st">"white"</span>, </span>
-<span>            alpha <span class="op">=</span> <span class="fl">0</span>, </span>
-<span>            linetype <span class="op">=</span> <span class="st">"dotted"</span>, </span>
-<span>            inherit.aes <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">+</span></span>
-<span>   <span class="fu">geom_rect</span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>Jurisdiction <span class="op">=</span> <span class="st">"Colorado"</span><span class="op">)</span>, </span>
-<span>             <span class="fu">aes</span><span class="op">(</span>xmin <span class="op">=</span> <span class="fl">4.5</span>, xmax<span class="op">=</span> <span class="fl">5.5</span>, ymin<span class="op">=</span> <span class="op">-</span><span class="cn">Inf</span>, ymax <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span>, </span>
-<span>             color <span class="op">=</span> <span class="st">"darkgrey"</span>, </span>
-<span>             fill <span class="op">=</span> <span class="st">"white"</span>, </span>
-<span>             alpha <span class="op">=</span> <span class="fl">0</span>, </span>
-<span>             linetype <span class="op">=</span> <span class="st">"dotted"</span>, </span>
-<span>             inherit.aes <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu">geom_rect</span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>Jurisdiction <span class="op">=</span> <span class="st">"Delaware"</span><span class="op">)</span>, </span>
-<span>            <span class="fu">aes</span><span class="op">(</span>xmin <span class="op">=</span> <span class="fl">4.5</span>, xmax<span class="op">=</span> <span class="fl">5.5</span>, ymin<span class="op">=</span> <span class="op">-</span><span class="cn">Inf</span>, ymax <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span>, </span>
-<span>            color <span class="op">=</span> <span class="st">"darkgrey"</span>, fill <span class="op">=</span> <span class="st">"white"</span>, </span>
-<span>            alpha <span class="op">=</span> <span class="fl">0</span>, </span>
-<span>            linetype <span class="op">=</span> <span class="st">"dotted"</span>, </span>
-<span>            inherit.aes <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu">geom_rect</span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>Jurisdiction <span class="op">=</span> <span class="st">"Florida"</span><span class="op">)</span>, </span>
-<span>            <span class="fu">aes</span><span class="op">(</span>xmin <span class="op">=</span> <span class="fl">4.5</span>, xmax<span class="op">=</span> <span class="fl">5.5</span>, ymin<span class="op">=</span> <span class="op">-</span><span class="cn">Inf</span>, ymax <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span>, </span>
-<span>            color <span class="op">=</span> <span class="st">"darkgrey"</span>, </span>
-<span>            fill <span class="op">=</span> <span class="st">"white"</span>, </span>
-<span>            alpha <span class="op">=</span> <span class="fl">0</span>, </span>
-<span>            linetype <span class="op">=</span> <span class="st">"dotted"</span>, inherit.aes <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu">geom_rect</span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>Jurisdiction <span class="op">=</span> <span class="st">"Georgia"</span><span class="op">)</span>, </span>
-<span>            <span class="fu">aes</span><span class="op">(</span>xmin <span class="op">=</span> <span class="fl">4.5</span>, xmax<span class="op">=</span> <span class="fl">5.5</span>, ymin<span class="op">=</span> <span class="op">-</span><span class="cn">Inf</span>, ymax <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span>, </span>
-<span>            color <span class="op">=</span> <span class="st">"darkgrey"</span>, </span>
-<span>            fill <span class="op">=</span> <span class="st">"white"</span>, </span>
-<span>            alpha <span class="op">=</span> <span class="fl">0</span>, </span>
-<span>            linetype <span class="op">=</span> <span class="st">"dotted"</span>, </span>
-<span>            inherit.aes <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu">geom_rect</span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>Jurisdiction <span class="op">=</span> <span class="st">"Illinois"</span><span class="op">)</span>, </span>
-<span>            <span class="fu">aes</span><span class="op">(</span>xmin <span class="op">=</span> <span class="fl">4.5</span>, xmax<span class="op">=</span> <span class="fl">5.5</span>, ymin<span class="op">=</span> <span class="op">-</span><span class="cn">Inf</span>, ymax <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span>, </span>
-<span>            color <span class="op">=</span> <span class="st">"darkgrey"</span>, </span>
-<span>            fill <span class="op">=</span> <span class="st">"white"</span>, </span>
-<span>            alpha <span class="op">=</span> <span class="fl">0</span>, </span>
-<span>            linetype <span class="op">=</span> <span class="st">"dotted"</span>, </span>
-<span>            inherit.aes <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">+</span></span>
-<span>  </span>
-<span>    <span class="fu">facet_wrap</span><span class="op">(</span><span class="op">~</span><span class="va">Jurisdiction</span>, scales <span class="op">=</span> <span class="st">"free_y"</span><span class="op">)</span><span class="op">+</span></span>
-<span></span>
-<span>  <span class="fu">scale_fill_identity</span><span class="op">(</span>guide<span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu">scale_x_discrete</span><span class="op">(</span>limits<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Jan"</span>, <span class="st">"Feb"</span>, <span class="st">"Mar"</span>, <span class="st">"Apr"</span>, <span class="st">"May"</span><span class="op">)</span>, </span>
-<span>                   breaks<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Jan"</span>,<span class="st">"May"</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu">scale_y_continuous</span><span class="op">(</span>labels <span class="op">=</span> <span class="fu">label_number_si</span><span class="op">(</span>a <span class="op">=</span><span class="op">!</span> <span class="fl">0</span><span class="op">)</span>, n.breaks <span class="op">=</span> <span class="fl">4</span><span class="op">)</span><span class="op">+</span></span>
-<span></span>
-<span>  <span class="fu">labs</span><span class="op">(</span></span>
-<span>        x<span class="op">=</span><span class="st">""</span>,</span>
-<span>        y<span class="op">=</span><span class="st">""</span>,</span>
-<span>      title <span class="op">=</span> <span class="st">"Voter registration dropped dramatically during the pandemic"</span>,</span>
-<span>      subtitle <span class="op">=</span> <span class="st">"Difference in the number of newly registered voters for each month in 2020 compared to the same month in 2016"</span>,</span>
-<span>      caption <span class="op">=</span> <span class="st">"Some states treat voters who move between counties within a state as new registrants because they're unregistered from their old county and nearly registered in the new ones.          "</span>,</span>
-<span>      </span>
-<span>      tag<span class="op">=</span> <span class="st">"FiveThirtyEight"</span><span class="op">)</span> <span class="op">+</span></span>
-<span></span>
-<span>    <span class="fu">theme_classic</span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
-<span>    <span class="fu">theme</span><span class="op">(</span></span>
-<span>          axis.line.y<span class="op">=</span><span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span>,</span>
-<span>          axis.line.x <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span>,</span>
-<span>          axis.ticks <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span>,</span>
-<span>          axis.text.y <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">6.5</span>, color <span class="op">=</span> <span class="st">"gray"</span><span class="op">)</span>, </span>
-<span>          axis.text.x <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size<span class="op">=</span> <span class="fl">6.5</span>, color <span class="op">=</span> <span class="st">"gray"</span><span class="op">)</span>,</span>
-<span>          </span>
-<span>          </span>
-<span>          plot.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span><span class="fl">9</span>, face <span class="op">=</span> <span class="st">"bold"</span>, hjust <span class="op">=</span> <span class="fl">0.55</span><span class="op">)</span>,</span>
-<span>          plot.title.position <span class="op">=</span> <span class="st">"plot"</span>,</span>
-<span>          plot.subtitle<span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">8</span>, hjust <span class="op">=</span> <span class="fl">0.55</span><span class="op">)</span>,</span>
-<span>          </span>
-<span>          plot.caption <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0</span>, size <span class="op">=</span> <span class="fl">6</span>, color <span class="op">=</span> <span class="st">"grey50"</span>,</span>
-<span>                                      margin <span class="op">=</span> <span class="fu">margin</span><span class="op">(</span>r<span class="op">=</span><span class="fl">5</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>          plot.background <span class="op">=</span> <span class="fu">element_rect</span><span class="op">(</span>fill<span class="op">=</span> <span class="st">"white"</span><span class="op">)</span>,</span>
-<span>          plot.tag.position <span class="op">=</span> <span class="st">"bottom"</span>,</span>
-<span>          plot.tag <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size<span class="op">=</span> <span class="fl">5</span>, color <span class="op">=</span> <span class="st">"gray"</span>, hjust <span class="op">=</span><span class="fl">0.1</span>, </span>
-<span>                                  margin<span class="op">=</span><span class="fu">margin</span><span class="op">(</span>t<span class="op">=</span><span class="fl">1</span>, </span>
-<span>                                                r<span class="op">=</span><span class="fl">5</span>, </span>
-<span>                                                b<span class="op">=</span><span class="fl">1</span>, </span>
-<span>                                                l<span class="op">=</span><span class="fl">20</span>, </span>
-<span>                                                unit<span class="op">=</span><span class="st">"pt"</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>          panel.grid.minor.y <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span>,</span>
-<span>          panel.grid.major.y <span class="op">=</span> <span class="fu">element_line</span><span class="op">(</span>size<span class="op">=</span> <span class="fl">0.1</span>, color<span class="op">=</span> <span class="st">"lightgrey"</span>,</span>
-<span>                                            linetype<span class="op">=</span> <span class="st">"solid"</span><span class="op">)</span>,</span>
-<span>          panel.background <span class="op">=</span> <span class="fu">element_rect</span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span>,</span>
-<span>          panel.border <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span>,</span>
-<span>          panel.spacing <span class="op">=</span> <span class="fu">unit</span><span class="op">(</span><span class="fl">1</span>, <span class="st">"lines"</span><span class="op">)</span>,</span>
-<span>          </span>
-<span>          strip.background<span class="op">=</span> <span class="fu">element_rect</span><span class="op">(</span>fill<span class="op">=</span> <span class="st">"white"</span>, linetype <span class="op">=</span> <span class="st">"blank"</span><span class="op">)</span>,</span>
-<span>          strip.text <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>color<span class="op">=</span> <span class="st">"black"</span>, face<span class="op">=</span> <span class="st">"bold"</span><span class="op">)</span>,</span>
-<span>          strip.text.x <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>face <span class="op">=</span> <span class="st">"bold"</span>, size<span class="op">=</span> <span class="fl">7</span><span class="op">)</span>,</span>
-<span></span>
-<span>          </span>
-<span>          legend.title <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span>,</span>
-<span>          legend.position <span class="op">=</span> <span class="st">"none"</span></span>
-<span>    </span>
-<span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(vreg, <span class="fu">aes</span>(<span class="at">x=</span> Month, <span class="at">y=</span> change, <span class="at">fill =</span> Color))<span class="sc">+</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>()<span class="sc">+</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>( <span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">color=</span> <span class="st">"black"</span>)<span class="sc">+</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rect</span>(<span class="at">data =</span> <span class="fu">data.frame</span>(<span class="at">Jurisdiction =</span> <span class="st">"Arizona"</span>), </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>              <span class="fu">aes</span>(<span class="at">xmin =</span> <span class="fl">4.5</span>, <span class="at">xmax=</span> <span class="fl">5.5</span>, <span class="at">ymin=</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">ymax =</span> <span class="cn">Inf</span>), </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">color =</span> <span class="st">"darkgrey"</span>, </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">fill =</span> <span class="st">"white"</span>, </span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>              <span class="at">alpha =</span> <span class="dv">0</span>, </span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>              <span class="at">linetype =</span> <span class="st">"dotted"</span>, </span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>              <span class="at">inherit.aes =</span> <span class="cn">FALSE</span>)<span class="sc">+</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rect</span>(<span class="at">data =</span> <span class="fu">data.frame</span>(<span class="at">Jurisdiction =</span> <span class="st">"California"</span>), </span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">xmin =</span> <span class="fl">4.5</span>, <span class="at">xmax=</span> <span class="fl">5.5</span>, <span class="at">ymin=</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">ymax =</span> <span class="cn">Inf</span>), </span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">"darkgrey"</span>, </span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>            <span class="at">fill =</span> <span class="st">"white"</span>, </span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>            <span class="at">alpha =</span> <span class="dv">0</span>, </span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>            <span class="at">linetype =</span> <span class="st">"dotted"</span>, </span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>            <span class="at">inherit.aes =</span> <span class="cn">FALSE</span>)<span class="sc">+</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_rect</span>(<span class="at">data =</span> <span class="fu">data.frame</span>(<span class="at">Jurisdiction =</span> <span class="st">"Colorado"</span>), </span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">xmin =</span> <span class="fl">4.5</span>, <span class="at">xmax=</span> <span class="fl">5.5</span>, <span class="at">ymin=</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">ymax =</span> <span class="cn">Inf</span>), </span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"darkgrey"</span>, </span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>             <span class="at">fill =</span> <span class="st">"white"</span>, </span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>             <span class="at">alpha =</span> <span class="dv">0</span>, </span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>             <span class="at">linetype =</span> <span class="st">"dotted"</span>, </span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>             <span class="at">inherit.aes =</span> <span class="cn">FALSE</span>)<span class="sc">+</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rect</span>(<span class="at">data =</span> <span class="fu">data.frame</span>(<span class="at">Jurisdiction =</span> <span class="st">"Delaware"</span>), </span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">xmin =</span> <span class="fl">4.5</span>, <span class="at">xmax=</span> <span class="fl">5.5</span>, <span class="at">ymin=</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">ymax =</span> <span class="cn">Inf</span>), </span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">"darkgrey"</span>, <span class="at">fill =</span> <span class="st">"white"</span>, </span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>            <span class="at">alpha =</span> <span class="dv">0</span>, </span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>            <span class="at">linetype =</span> <span class="st">"dotted"</span>, </span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>            <span class="at">inherit.aes =</span> <span class="cn">FALSE</span>)<span class="sc">+</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rect</span>(<span class="at">data =</span> <span class="fu">data.frame</span>(<span class="at">Jurisdiction =</span> <span class="st">"Florida"</span>), </span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">xmin =</span> <span class="fl">4.5</span>, <span class="at">xmax=</span> <span class="fl">5.5</span>, <span class="at">ymin=</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">ymax =</span> <span class="cn">Inf</span>), </span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">"darkgrey"</span>, </span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>            <span class="at">fill =</span> <span class="st">"white"</span>, </span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>            <span class="at">alpha =</span> <span class="dv">0</span>, </span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>            <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">inherit.aes =</span> <span class="cn">FALSE</span>)<span class="sc">+</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rect</span>(<span class="at">data =</span> <span class="fu">data.frame</span>(<span class="at">Jurisdiction =</span> <span class="st">"Georgia"</span>), </span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">xmin =</span> <span class="fl">4.5</span>, <span class="at">xmax=</span> <span class="fl">5.5</span>, <span class="at">ymin=</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">ymax =</span> <span class="cn">Inf</span>), </span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">"darkgrey"</span>, </span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>            <span class="at">fill =</span> <span class="st">"white"</span>, </span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>            <span class="at">alpha =</span> <span class="dv">0</span>, </span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>            <span class="at">linetype =</span> <span class="st">"dotted"</span>, </span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>            <span class="at">inherit.aes =</span> <span class="cn">FALSE</span>)<span class="sc">+</span></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rect</span>(<span class="at">data =</span> <span class="fu">data.frame</span>(<span class="at">Jurisdiction =</span> <span class="st">"Illinois"</span>), </span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">xmin =</span> <span class="fl">4.5</span>, <span class="at">xmax=</span> <span class="fl">5.5</span>, <span class="at">ymin=</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">ymax =</span> <span class="cn">Inf</span>), </span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">"darkgrey"</span>, </span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>            <span class="at">fill =</span> <span class="st">"white"</span>, </span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>            <span class="at">alpha =</span> <span class="dv">0</span>, </span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>            <span class="at">linetype =</span> <span class="st">"dotted"</span>, </span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>            <span class="at">inherit.aes =</span> <span class="cn">FALSE</span>)<span class="sc">+</span></span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span>Jurisdiction, <span class="at">scales =</span> <span class="st">"free_y"</span>)<span class="sc">+</span></span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_identity</span>(<span class="at">guide=</span> <span class="cn">FALSE</span>)<span class="sc">+</span></span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">limits=</span><span class="fu">c</span>(<span class="st">"Jan"</span>, <span class="st">"Feb"</span>, <span class="st">"Mar"</span>, <span class="st">"Apr"</span>, <span class="st">"May"</span>), </span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>                   <span class="at">breaks=</span><span class="fu">c</span>(<span class="st">"Jan"</span>,<span class="st">"May"</span>))<span class="sc">+</span></span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_number_si</span>(<span class="at">a =</span><span class="sc">!</span> <span class="dv">0</span>), <span class="at">n.breaks =</span> <span class="dv">4</span>)<span class="sc">+</span></span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>        <span class="at">x=</span><span class="st">""</span>,</span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>        <span class="at">y=</span><span class="st">""</span>,</span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>      <span class="at">title =</span> <span class="st">"Voter registration dropped dramatically during the pandemic"</span>,</span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>      <span class="at">subtitle =</span> <span class="st">"Difference in the number of newly registered voters for each month in 2020 compared to the same month in 2016"</span>,</span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption =</span> <span class="st">"Some states treat voters who move between counties within a state as new registrants because they're unregistered from their old county and nearly registered in the new ones.          "</span>,</span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>      <span class="at">tag=</span> <span class="st">"FiveThirtyEight"</span>) <span class="sc">+</span></span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(</span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.line.y=</span><span class="fu">element_blank</span>(),</span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.line.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.ticks =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fl">6.5</span>, <span class="at">color =</span> <span class="st">"gray"</span>), </span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size=</span> <span class="fl">6.5</span>, <span class="at">color =</span> <span class="st">"gray"</span>),</span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a>          </span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a>          </span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span><span class="dv">9</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">hjust =</span> <span class="fl">0.55</span>),</span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.title.position =</span> <span class="st">"plot"</span>,</span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.subtitle=</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>, <span class="at">hjust =</span> <span class="fl">0.55</span>),</span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a>          </span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="dv">6</span>, <span class="at">color =</span> <span class="st">"grey50"</span>,</span>
+<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">r=</span><span class="dv">5</span>)),</span>
+<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill=</span> <span class="st">"white"</span>),</span>
+<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.tag.position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.tag =</span> <span class="fu">element_text</span>(<span class="at">size=</span> <span class="dv">5</span>, <span class="at">color =</span> <span class="st">"gray"</span>, <span class="at">hjust =</span><span class="fl">0.1</span>, </span>
+<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">margin=</span><span class="fu">margin</span>(<span class="at">t=</span><span class="dv">1</span>, </span>
+<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a>                                                <span class="at">r=</span><span class="dv">5</span>, </span>
+<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a>                                                <span class="at">b=</span><span class="dv">1</span>, </span>
+<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a>                                                <span class="at">l=</span><span class="dv">20</span>, </span>
+<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a>                                                <span class="at">unit=</span><span class="st">"pt"</span>)),</span>
+<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a>          <span class="at">panel.grid.minor.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a>          <span class="at">panel.grid.major.y =</span> <span class="fu">element_line</span>(<span class="at">size=</span> <span class="fl">0.1</span>, <span class="at">color=</span> <span class="st">"lightgrey"</span>,</span>
+<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a>                                            <span class="at">linetype=</span> <span class="st">"solid"</span>),</span>
+<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a>          <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"white"</span>),</span>
+<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a>          <span class="at">panel.border =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a>          <span class="at">panel.spacing =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">"lines"</span>),</span>
+<span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a>          </span>
+<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a>          <span class="at">strip.background=</span> <span class="fu">element_rect</span>(<span class="at">fill=</span> <span class="st">"white"</span>, <span class="at">linetype =</span> <span class="st">"blank"</span>),</span>
+<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a>          <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">color=</span> <span class="st">"black"</span>, <span class="at">face=</span> <span class="st">"bold"</span>),</span>
+<span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a>          <span class="at">strip.text.x =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size=</span> <span class="dv">7</span>),</span>
+<span id="cb3-104"><a href="#cb3-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-105"><a href="#cb3-105" aria-hidden="true" tabindex="-1"></a>          </span>
+<span id="cb3-106"><a href="#cb3-106" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.title =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb3-107"><a href="#cb3-107" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.position =</span> <span class="st">"none"</span></span>
+<span id="cb3-108"><a href="#cb3-108" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-109"><a href="#cb3-109" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <p><img src="voter_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 
 
-</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -480,17 +511,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<footer class="footer"><div class="nav-footer">
+<footer class="footer">
+  <div class="nav-footer">
     <div class="nav-footer-left">
       <ul class="footer-items list-unstyled">
-<li class="nav-item">
+    <li class="nav-item">
  Copyright 2023, Karol Orozco
   </li>  
 </ul>
-</div>   
+    </div>   
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
-<li class="nav-item compact">
+    <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/karolo89">
       <i class="bi bi-github" role="img">
 </i> 
@@ -509,9 +541,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </a>
   </li>  
 </ul>
-</div>
+    </div>
   </div>
 </footer>
+
 
 
 </body></html>

@@ -7,12 +7,11 @@ image: "hurricanes.jpg"
 
 Hello there,
 
-Today, I will be recreating the graph from the article [“Why Past Hurricane Seasons Don’t Tell Us Much About The Future”](https://fivethirtyeight.com/features/why-past-hurricane-seasons-dont-tell-us-much-about-the-future/) by Anna Wiederkehr.
+Today, I will be recreating the graph from the article ["Why Past Hurricane Seasons Don't Tell Us Much About The Future"](https://fivethirtyeight.com/features/why-past-hurricane-seasons-dont-tell-us-much-about-the-future/) by Anna Wiederkehr.
 
-You can find the raw data in the National Oceanic and Atmospheric Administration’s HURDAT2 database, which has records of all Atlantic basin tropical cyclones dating back to 1851.
+You can find the raw data in the National Oceanic and Atmospheric Administration's HURDAT2 database, which has records of all Atlantic basin tropical cyclones dating back to 1851.
 
-This exercise focuses on practicing our data visualization skills with ggplot2, so I’ll skip the data manipulation steps. You can find the dataset for the graph in my GitHub repository.
-
+This exercise focuses on practicing our data visualization skills with ggplot2, so I'll skip the data manipulation steps. You can find the dataset for the graph in my GitHub repository.
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(warning=FALSE, message=FALSE)
@@ -25,10 +24,8 @@ library(gridExtra)
 
 ```
 
-
 ```{r}
 
-## library(tidyverse)
 ## library(ggplot2)
 ## library(geomtextpath)
 ## library(RCurl)
@@ -103,9 +100,7 @@ graph1
 
 I used the https://imagecolorpicker.com/en tool to get the hex colors from the original graph.
 
-
-We are still missing the footer, so let’s add it.
-
+We are still missing the footer, so let's add it.
 
 ```{r}
 
@@ -133,4 +128,3 @@ footer<- grobTree(
                                                     c("npc", "npc")))
 
 ```
-
