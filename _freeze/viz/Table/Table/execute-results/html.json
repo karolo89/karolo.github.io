@@ -1,7 +1,7 @@
 {
-  "hash": "081cbba787e25e1423322197dad7ddae",
+  "hash": "38a6843c8c743d93c099d0fe95fb99c0",
   "result": {
-    "markdown": "---\ntitle: \"Pretty Tables\"\nauthor: \"Karol Orozco\"\ndate: today\nimage: \"tt_logo.png\"\n---\n\n\n\n\n\n\n## Reference\n\nKays R, Dunn RR, Parsons AW, Mcdonald B, Perkins T, Powers S, Shell L, McDonald JL, Cole H, Kikillus H, Woods L, Tindle H, Roetman P (2020) The small home ranges and large local ecological impacts of pet cats. Animal Conservation. doi:10.1111/acv.12563\n\nMcDonald JL, Cole H (2020) Data from: The small home ranges and large local ecological impacts of pet cats \\[United Kingdom\\]. Movebank Data Repository. doi:10.5441/001/1.pf315732\n\nThomas Mock (2022). Tidy Tuesday: A weekly data project aimed at the R ecosystem.[GitHub](https://github.com/rfordatascience/tidytuesday)",
+    "markdown": "---\ntitle: \"Big Tech Stock Prices\"\nauthor: \"Karol Orozco\"\ndate: today\nimage: \"stock.png\"\n---\n\n\n\n::: {.cell}\n\n:::\n",
     "supporting": [],
     "filters": [
       "rmarkdown/pagebreak.lua"
