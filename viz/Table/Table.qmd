@@ -5,26 +5,22 @@ date: today
 image: "stock.png"
 ---
 
-
-
 ```{r setup, include=FALSE}
-
+knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
-library(reactablefmtr)
-library(htmltools)
-library(htmlwidgets)
+library(tidytuesdayR)
+library(scales)
 library(lubridate)
-library(glue)
 
 
-big_tech_stock_prices <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-02-07/big_tech_stock_prices.csv')
-big_tech_companies <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-02-07/big_tech_companies.csv')
+tt <- tt_load("2023-02-07")
+
+tt
 ```
 
 
 ```{r}
-
+glimpse(tt)
 ```
-
 
