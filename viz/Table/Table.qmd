@@ -1,26 +1,79 @@
 ---
-title: "Big Tech Stock Prices"
+title: "Coffee- Pretty Tables"
 author: "Karol Orozco"
 date: today
-image: "stock.png"
+image: "coffee.png"
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
-library(tidytuesdayR)
-library(scales)
-library(lubridate)
+library(ggplot2)
+library(DT)
+library(gt)
+library(gtExtras)
+library(dplyr)
+
+```
 
 
-tt <- tt_load("2023-02-07")
 
-tt
+```{r}
+coffee <- read.csv("https://raw.githubusercontent.com/karolo89/karolo_website/main/data/2023/arabica_data_cleaned.csv")%>%
+    rename_all(tolower) %>%
+    select(country.of.origin, aroma, flavor, acidity, sweetness)
+
+coffee <- distinct(coffee)
+summary(coffee)%>% 
+na.omit()
+
+coffee$acidity <- as.numeric(coffee$acidity)
+coffee$sweetness<- as.numeric(coffee$sweetness)
+
+
+```
+
+```{r}
+coffee <- coffee %>%
+  mutate_if(is.numeric, round, digits = 3)
+```
+
+```{r}
+coffee <- coffee %>%
+  group_by(country.of.origin)%>% 
+  summarize(Avg_aroma= median(aroma),
+            Avg_flavor= median(flavor),
+            Avg_acidity =  median(acidity),
+            Avg_sweetness = median(sweetness))
+
+coffee <-  subset(coffee, country.of.origin != "")
 ```
 
 
 ```{r}
-glimpse(tt)
+
+  datatable(coffee, 
+            colnames = c("Country" = "country.of.origin"),
+            caption = htmltools::tags$caption(style = "caption-side: bottom; text-align: center;",
+    htmltools::strong("Source: Coffee Quality Institute (CQI), January 2018. | By: Karol Orozco" )),
+    editable = "cell", 
+    extensions = c("Scroller","Buttons"), 
+    options = list(deferRender = TRUE, 
+                   scrollY = 400, 
+                   scroller = TRUE,
+                   dom = "Bfrtip", 
+                   buttons = c("copy", "csv", "excel", "pdf", "print")))
+
+          
+```
+
+## Gt and gtExtra
+
+```{r}
+
+library(ggimage)
+
+
 ```
 
