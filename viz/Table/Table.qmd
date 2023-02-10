@@ -90,7 +90,7 @@ coffee_tabble <- coffee %>%
 coffee_tabble%>%
   gt()%>%
   tab_header(
-    title = "Most sucessful riders in the Tour de France")%>%
+    title = "Arabica Coffee Attributes by Country")%>%
   gtExtras::gt_theme_nytimes()%>% 
   gtExtras::gt_img_rows(columns = flag, height = 20)
 
