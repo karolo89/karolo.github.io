@@ -16,9 +16,11 @@ library(gtExtras)
 library(dplyr)
 
 
+
 coffee <- read.csv("https://raw.githubusercontent.com/karolo89/karolo_website/main/data/2023/arabica_data_cleaned.csv")%>%
     rename_all(tolower) %>%
-    select(country.of.origin, aroma, flavor, acidity, sweetness)
+    select(country.of.origin, aroma, flavor, acidity, sweetness)%>%
+  rename_at("country.of.origin", ~"Country")
 
 coffee <- distinct(coffee)
 summary(coffee)%>% 
@@ -33,13 +35,13 @@ coffee <- coffee %>%
   mutate_if(is.numeric, round, digits = 3)
 
 coffee <- coffee %>%
-  group_by(country.of.origin)%>% 
+  group_by(Country)%>% 
   summarize(Avg_aroma= median(aroma),
             Avg_flavor= median(flavor),
             Avg_acidity =  median(acidity),
             Avg_sweetness = median(sweetness))
 
-coffee <-  subset(coffee, country.of.origin != "")
+coffee <-  subset(coffee, Country != "")
 ```
 
 # Table with DT
@@ -47,7 +49,6 @@ coffee <-  subset(coffee, country.of.origin != "")
 ```{r}
 
   datatable(coffee, 
-            colnames = c("Country" = "country.of.origin"),
             caption = htmltools::tags$caption(style = "caption-side: bottom; text-align: center;",
     htmltools::strong("Source: Coffee Quality Institute (CQI), January 2018. | By: Karol Orozco" )),
     editable = "cell", 
@@ -68,20 +69,20 @@ coffee <-  subset(coffee, country.of.origin != "")
 library(ggimage)
 
 coffee_tabble <- coffee %>%
-  filter(country.of.origin !="Cote d?Ivoire")%>%
+  filter(Country !="Cote d?Ivoire")%>%
   mutate(flag = case_when(
-   str_detect(country.of.origin,"Burundi") ~ "https://raw.githubusercontent.com/karolo89/karolo_website/main/viz/Table/Flag_of_Burundi.svg.png",
-     str_detect(country.of.origin, "Brazil") ~ "https://raw.githubusercontent.com/karolo89/karolo_website/main/viz/Table/2560px-Flag_of_Brazil.svg.png",
-    str_detect(country.of.origin,"China") ~ "https://raw.githubusercontent.com/karolo89/karolo_website/main/viz/Table/Flag_of_China.png",
-    str_detect(country.of.origin,"Colombia") ~ "https://raw.githubusercontent.com/karolo89/karolo_website/main/viz/Table/Flag_of_Colombia.png",
-    str_detect(country.of.origin,"Costa Rica") ~ "https://raw.githubusercontent.com/karolo89/karolo_website/main/viz/Table/Flag_of_Costa_Rica.svg.png",
-    str_detect(country.of.origin,"Cote d'Ivoire") ~ "https://raw.githubusercontent.com/karolo89/karolo_website/main/viz/Table/Flag_of_C%C3%B4te_d'Ivoire.svg.png",
-    str_detect(country.of.origin,"Ecuador") ~ "https://raw.githubusercontent.com/karolo89/karolo_website/main/viz/Table/Flag_of_Ecuador.svg.png",
-     str_detect(country.of.origin, "El Salvador" )~ "https://raw.githubusercontent.com/karolo89/karolo_website/main/viz/Table/Flag_of_El_Salvador.svg.png",
-    str_detect(country.of.origin,"Ethiopia") ~ "https://raw.githubusercontent.com/karolo89/karolo_website/main/viz/Table/Flag_of_Ethiopia.svg.png",
-    str_detect(country.of.origin,"Guatemala") ~ "https://raw.githubusercontent.com/karolo89/karolo_website/main/viz/Table/Flag_of_Guatemala.svg.png"))%>%
+   str_detect(Country,"Burundi") ~ "https://raw.githubusercontent.com/karolo89/karolo_website/main/viz/Table/Flag_of_Burundi.svg.png",
+     str_detect(Country, "Brazil") ~ "https://raw.githubusercontent.com/karolo89/karolo_website/main/viz/Table/2560px-Flag_of_Brazil.svg.png",
+    str_detect(Country,"China") ~ "https://raw.githubusercontent.com/karolo89/karolo_website/main/viz/Table/Flag_of_China.png",
+    str_detect(Country,"Colombia") ~ "https://raw.githubusercontent.com/karolo89/karolo_website/main/viz/Table/Flag_of_Colombia.png",
+    str_detect(Country,"Costa Rica") ~ "https://raw.githubusercontent.com/karolo89/karolo_website/main/viz/Table/Flag_of_Costa_Rica.svg.png",
+    str_detect(Country,"Cote d'Ivoire") ~ "https://raw.githubusercontent.com/karolo89/karolo_website/main/viz/Table/Flag_of_C%C3%B4te_d'Ivoire.svg.png",
+    str_detect(Country,"Ecuador") ~ "https://raw.githubusercontent.com/karolo89/karolo_website/main/viz/Table/Flag_of_Ecuador.svg.png",
+     str_detect(Country, "El Salvador" )~ "https://raw.githubusercontent.com/karolo89/karolo_website/main/viz/Table/Flag_of_El_Salvador.svg.png",
+    str_detect(Country,"Ethiopia") ~ "https://raw.githubusercontent.com/karolo89/karolo_website/main/viz/Table/Flag_of_Ethiopia.svg.png",
+    str_detect(Country,"Guatemala") ~ "https://raw.githubusercontent.com/karolo89/karolo_website/main/viz/Table/Flag_of_Guatemala.svg.png"))%>%
   head(n =9)%>%
-  select(country.of.origin, flag, Avg_acidity, Avg_aroma, Avg_flavor, Avg_sweetness)
+  select(Country, flag, Avg_acidity, Avg_aroma, Avg_flavor, Avg_sweetness)
 
 
 ```
@@ -91,8 +92,14 @@ coffee_tabble%>%
   gt()%>%
   tab_header(
     title = "Arabica Coffee Attributes by Country")%>%
+tab_style(
+    style = list(
+      cell_text(font=google_font(
+        #name = "Roboto Condensed"
+        name = "Playfair Display"), weight='800',
+        align = "center",color='#6F4E37')),
+    locations = cells_title(groups = "title"))%>%
   gtExtras::gt_theme_nytimes()%>% 
-  gtExtras::gt_img_rows(columns = flag, height = 20)
+  gtExtras::gt_img_rows(columns = flag, height = 15)
 
 ```
-
