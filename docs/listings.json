@@ -1,0 +1,17 @@
+[
+  {
+    "listing": "/Projects.html",
+    "items": [
+      "/posts/TimeSeries/Time Series Project.html",
+      "/posts/RegressionModel/RegressionModel.html"
+    ]
+  },
+  {
+    "listing": "/Resources.html",
+    "items": [
+      "/viz/Hurricanes Graph/hurricanes.html",
+      "/viz/TidyTuesday/PetCats.html",
+      "/viz/Voter Registrations Graph/voter.html"
+    ]
+  }
+]
