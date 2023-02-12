@@ -5,6 +5,11 @@ date: today
 image: featured.png
 ---
 
+
+# Meet the Palmer penguins
+
+![Palmer penguins](featured.png)
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(warning=FALSE, message=FALSE)
 
@@ -66,6 +71,7 @@ extensions = c('Select', 'Buttons'), options = list(
 
 ## Riding Tables with gt & gtExtra
 
+[Modify the table output options](https://gt.rstudio.com/reference/tab_options.html)
 
 
 ```{r}
@@ -90,7 +96,7 @@ table%>%
   tab_header(
     title = md(paste0(
       emo::ji("penguin"), emo::ji("penguin"), emo::ji("penguin"),
-      "**Penguins are fun to summarize!**",
+      "Penguins are fun to summarize!",
       emo::ji("penguin"), emo::ji("penguin"), emo::ji("penguin"))),
   # Use markdown syntax with md()
     subtitle = md("The palmerpenguins: Palmer Archipelago (Antarctica) penguin data"))%>%
@@ -107,12 +113,12 @@ tab_footnote(
     locations = cells_column_labels(
       columns = 7:7 # note
       ))%>% 
-  tab_source_note(source_note = "Data were collected and made available by Dr. Kristen Gorman and the Palmer Station, Antarctica LTER, a member of the Long Term Ecological Research Network. | **Table**: Karol Orozco")%>% 
+  tab_source_note(source_note = "Data were collected and made available by Dr. Kristen Gorman and the Palmer Station, Antarctica LTER, a member of the Long Term Ecological Research Network. | Table: Karol Orozco")%>% 
   
  tab_options(
     row_group.border.top.width = px(3),
-    row_group.border.top.color = "black",
-    row_group.border.bottom.color = "black",
+    row_group.border.top.color = "gray",
+    row_group.border.bottom.color = "gray",
     
     table_body.hlines.color = "white",
     table.border.top.color = "white",
@@ -120,59 +126,46 @@ tab_footnote(
     table.border.bottom.color = "white",
     table.border.bottom.width = px(3),
     
-    column_labels.border.bottom.color = "black",
+    column_labels.border.bottom.color = "gray",
     column_labels.border.bottom.width = px(2),
+    column_labels.background.color = "black",
     
     heading.background.color = "#eebf00",
     heading.border.bottom.color = "#eebd00",
     heading.border.bottom.width = "5px")%>% 
   
   tab_style(
-    style = cell_text(color = "black"),
+    style = cell_text(color = "white"),
     locations = list(
       cells_row_groups(),
       cells_column_labels(everything())))%>%
   
    tab_style(
-    style = list(
-      cell_fill(color = "darkorange"),
-      cell_text(weight = "bold",
-                align = "center")),
-    locations = list(cells_body(
-      columns = Penguin,
-      rows = Penguin == "Adelie")))%>%
+    locations = cells_row_groups(groups = "Adelie"),
+    style = cell_fill(color = "darkorange"))%>%
+  
+   tab_style(
+    locations = cells_row_groups(groups = "Chinstrap"),
+    style = cell_fill(color = "darkorchid"))%>%
+  
+   tab_style(
+    locations = cells_row_groups(groups = "Gentoo"),
+    style = cell_fill(color = "cyan4"))%>%
   
   tab_style(
-    style = list(
-      cell_fill(color = "darkorchid"),
-       cell_text(weight = "bold",
-                align = "center")),
-    locations = list(cells_body(
-      columns = Penguin,
-      rows = Penguin == "Chinstrap")))%>%
+    locations = cells_row_groups(groups = "Gentoo"),
+    style = cell_fill(color = "cyan4"))%>%
   
-  
-  tab_style(
-    style = list(
-      cell_fill(color = "cyan4"),
-    cell_text(weight = "bold",
-                align = "center")),
-    locations = list(cells_body(
-      columns = Penguin,
-     rows = Penguin == "Gentoo")))%>%
-  
-  
-  
-
-  
-
   tab_source_note(attach_excel)
 
 
 ```
 
+
+
+
 ## Reference
 
 Horst AM, Hill AP, Gorman KB (2020). palmerpenguins: Palmer Archipelago (Antarctica) penguin data. R package version 0.1.0. https://allisonhorst.github.io/palmerpenguins/. doi: 10.5281/zenodo.3960218.
 
-\`
+Image by @allison_horst

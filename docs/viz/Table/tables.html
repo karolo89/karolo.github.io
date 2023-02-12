@@ -143,7 +143,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -216,13 +216,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content quarto-banner-title-block page-columns page-full" id="quarto-document-content">
 
 
 
 
+<section id="meet-the-palmer-penguins" class="level1 page-columns page-full">
+<h1>Meet the Palmer penguins</h1>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="featured.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption margin-caption">Palmer penguins</figcaption><p></p>
+</figure>
+</div>
 <section id="riding-tables-with-dt" class="level2">
 <h2 class="anchored" data-anchor-id="riding-tables-with-dt">Riding Tables with DT</h2>
 <div class="cell">
@@ -247,13 +256,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </details>
 <div class="cell-output-display">
 
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-4fccd31a62e33fc48386" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-4fccd31a62e33fc48386">{"x":{"filter":"none","vertical":false,"extensions":["Select","Buttons"],"caption":"<caption style=\"caption-side: bottom; text-align: center;\">\n  Table 1: \n  <em>Data were collected and made available by Dr. Kristen Gorman and the Palmer Station, Antarctica LTER, a member of the Long Term Ecological Research Network.<\/em>\n<\/caption>","data":[["1","2","3","4","5","6"],["Adelie","Adelie","Chinstrap","Chinstrap","Gentoo","Gentoo"],["female","male","female","male","female","male"],[73,73,34,34,58,61],[37.26,40.39,46.57,51.09,45.56,49.47],[17.62,19.07,17.59,19.25,14.24,15.72],[187.79,192.41,191.74,199.91,212.71,221.54],[3368.84,4043.49,3527.21,3938.97,4679.74,5484.84]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Penguin<\/th>\n      <th>Sex<\/th>\n      <th>Count<\/th>\n      <th>Culmen_Length<\/th>\n      <th>Culmen_Depth<\/th>\n      <th>Flipper_Length<\/th>\n      <th>Body_Mass<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"select":{"style":"os","items":"row"},"dom":"Blfrtip","rowId":0,"buttons":["selectAll","selectNone","selectRows","selectColumns","selectCells"],"columnDefs":[{"className":"dt-right","targets":[3,4,5,6,7]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-bf046bbcedcb8456f623" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-bf046bbcedcb8456f623">{"x":{"filter":"none","vertical":false,"extensions":["Select","Buttons"],"caption":"<caption style=\"caption-side: bottom; text-align: center;\">\n  Table 1: \n  <em>Data were collected and made available by Dr. Kristen Gorman and the Palmer Station, Antarctica LTER, a member of the Long Term Ecological Research Network.<\/em>\n<\/caption>","data":[["1","2","3","4","5","6"],["Adelie","Adelie","Chinstrap","Chinstrap","Gentoo","Gentoo"],["female","male","female","male","female","male"],[73,73,34,34,58,61],[37.26,40.39,46.57,51.09,45.56,49.47],[17.62,19.07,17.59,19.25,14.24,15.72],[187.79,192.41,191.74,199.91,212.71,221.54],[3368.84,4043.49,3527.21,3938.97,4679.74,5484.84]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Penguin<\/th>\n      <th>Sex<\/th>\n      <th>Count<\/th>\n      <th>Culmen_Length<\/th>\n      <th>Culmen_Depth<\/th>\n      <th>Flipper_Length<\/th>\n      <th>Body_Mass<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"select":{"style":"os","items":"row"},"dom":"Blfrtip","rowId":0,"buttons":["selectAll","selectNone","selectRows","selectColumns","selectCells"],"columnDefs":[{"className":"dt-right","targets":[3,4,5,6,7]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
 <section id="riding-tables-with-gt-gtextra" class="level2">
 <h2 class="anchored" data-anchor-id="riding-tables-with-gt-gtextra">Riding Tables with gt &amp; gtExtra</h2>
+<p><a href="https://gt.rstudio.com/reference/tab_options.html">Modify the table output options</a></p>
 <div class="cell">
 <details>
 <summary>Show the code</summary>
@@ -277,7 +287,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(</span>
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">md</span>(<span class="fu">paste0</span>(</span>
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>      emo<span class="sc">::</span><span class="fu">ji</span>(<span class="st">"penguin"</span>), emo<span class="sc">::</span><span class="fu">ji</span>(<span class="st">"penguin"</span>), emo<span class="sc">::</span><span class="fu">ji</span>(<span class="st">"penguin"</span>),</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>      <span class="st">"**Penguins are fun to summarize!**"</span>,</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Penguins are fun to summarize!"</span>,</span>
 <span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>      emo<span class="sc">::</span><span class="fu">ji</span>(<span class="st">"penguin"</span>), emo<span class="sc">::</span><span class="fu">ji</span>(<span class="st">"penguin"</span>), emo<span class="sc">::</span><span class="fu">ji</span>(<span class="st">"penguin"</span>))),</span>
 <span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Use markdown syntax with md()</span></span>
 <span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="fu">md</span>(<span class="st">"The palmerpenguins: Palmer Archipelago (Antarctica) penguin data"</span>))<span class="sc">%&gt;%</span></span>
@@ -294,12 +304,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_column_labels</span>(</span>
 <span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>      <span class="at">columns =</span> <span class="dv">7</span><span class="sc">:</span><span class="dv">7</span> <span class="co"># note</span></span>
 <span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>      ))<span class="sc">%&gt;%</span> </span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_source_note</span>(<span class="at">source_note =</span> <span class="st">"Data were collected and made available by Dr. Kristen Gorman and the Palmer Station, Antarctica LTER, a member of the Long Term Ecological Research Network. | **Table**: Karol Orozco"</span>)<span class="sc">%&gt;%</span> </span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_source_note</span>(<span class="at">source_note =</span> <span class="st">"Data were collected and made available by Dr. Kristen Gorman and the Palmer Station, Antarctica LTER, a member of the Long Term Ecological Research Network. | Table: Karol Orozco"</span>)<span class="sc">%&gt;%</span> </span>
 <span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a> <span class="fu">tab_options</span>(</span>
 <span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">row_group.border.top.width =</span> <span class="fu">px</span>(<span class="dv">3</span>),</span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">row_group.border.top.color =</span> <span class="st">"black"</span>,</span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">row_group.border.bottom.color =</span> <span class="st">"black"</span>,</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">row_group.border.top.color =</span> <span class="st">"gray"</span>,</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">row_group.border.bottom.color =</span> <span class="st">"gray"</span>,</span>
 <span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">table_body.hlines.color =</span> <span class="st">"white"</span>,</span>
 <span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">table.border.top.color =</span> <span class="st">"white"</span>,</span>
@@ -307,62 +317,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">table.border.bottom.color =</span> <span class="st">"white"</span>,</span>
 <span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">table.border.bottom.width =</span> <span class="fu">px</span>(<span class="dv">3</span>),</span>
 <span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>    <span class="at">column_labels.border.bottom.color =</span> <span class="st">"black"</span>,</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>    <span class="at">column_labels.border.bottom.color =</span> <span class="st">"gray"</span>,</span>
 <span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>    <span class="at">column_labels.border.bottom.width =</span> <span class="fu">px</span>(<span class="dv">2</span>),</span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>    <span class="at">heading.background.color =</span> <span class="st">"#eebf00"</span>,</span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>    <span class="at">heading.border.bottom.color =</span> <span class="st">"#eebd00"</span>,</span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>    <span class="at">heading.border.bottom.width =</span> <span class="st">"5px"</span>)<span class="sc">%&gt;%</span> </span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_style</span>(</span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">cell_text</span>(<span class="at">color =</span> <span class="st">"black"</span>),</span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">list</span>(</span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cells_row_groups</span>(),</span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cells_column_labels</span>(<span class="fu">everything</span>())))<span class="sc">%&gt;%</span></span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>   <span class="fu">tab_style</span>(</span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">list</span>(</span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cell_fill</span>(<span class="at">color =</span> <span class="st">"darkorange"</span>),</span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cell_text</span>(<span class="at">weight =</span> <span class="st">"bold"</span>,</span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>                <span class="at">align =</span> <span class="st">"center"</span>)),</span>
-<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">list</span>(<span class="fu">cells_body</span>(</span>
-<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>      <span class="at">columns =</span> Penguin,</span>
-<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>      <span class="at">rows =</span> Penguin <span class="sc">==</span> <span class="st">"Adelie"</span>)))<span class="sc">%&gt;%</span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>    <span class="at">column_labels.background.color =</span> <span class="st">"black"</span>,</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>    <span class="at">heading.background.color =</span> <span class="st">"#eebf00"</span>,</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>    <span class="at">heading.border.bottom.color =</span> <span class="st">"#eebd00"</span>,</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>    <span class="at">heading.border.bottom.width =</span> <span class="st">"5px"</span>)<span class="sc">%&gt;%</span> </span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_style</span>(</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">cell_text</span>(<span class="at">color =</span> <span class="st">"white"</span>),</span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">list</span>(</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cells_row_groups</span>(),</span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cells_column_labels</span>(<span class="fu">everything</span>())))<span class="sc">%&gt;%</span></span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>   <span class="fu">tab_style</span>(</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_row_groups</span>(<span class="at">groups =</span> <span class="st">"Adelie"</span>),</span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">cell_fill</span>(<span class="at">color =</span> <span class="st">"darkorange"</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>   <span class="fu">tab_style</span>(</span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_row_groups</span>(<span class="at">groups =</span> <span class="st">"Chinstrap"</span>),</span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">cell_fill</span>(<span class="at">color =</span> <span class="st">"darkorchid"</span>))<span class="sc">%&gt;%</span></span>
 <span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_style</span>(</span>
-<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">list</span>(</span>
-<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cell_fill</span>(<span class="at">color =</span> <span class="st">"darkorchid"</span>),</span>
-<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>       <span class="fu">cell_text</span>(<span class="at">weight =</span> <span class="st">"bold"</span>,</span>
-<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>                <span class="at">align =</span> <span class="st">"center"</span>)),</span>
-<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">list</span>(<span class="fu">cells_body</span>(</span>
-<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>      <span class="at">columns =</span> Penguin,</span>
-<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>      <span class="at">rows =</span> Penguin <span class="sc">==</span> <span class="st">"Chinstrap"</span>)))<span class="sc">%&gt;%</span></span>
-<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_style</span>(</span>
-<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">list</span>(</span>
-<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cell_fill</span>(<span class="at">color =</span> <span class="st">"cyan4"</span>),</span>
-<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cell_text</span>(<span class="at">weight =</span> <span class="st">"bold"</span>,</span>
-<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>                <span class="at">align =</span> <span class="st">"center"</span>)),</span>
-<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">list</span>(<span class="fu">cells_body</span>(</span>
-<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>      <span class="at">columns =</span> Penguin,</span>
-<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>     <span class="at">rows =</span> Penguin <span class="sc">==</span> <span class="st">"Gentoo"</span>)))<span class="sc">%&gt;%</span></span>
-<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_source_note</span>(attach_excel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>   <span class="fu">tab_style</span>(</span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_row_groups</span>(<span class="at">groups =</span> <span class="st">"Gentoo"</span>),</span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">cell_fill</span>(<span class="at">color =</span> <span class="st">"cyan4"</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_style</span>(</span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_row_groups</span>(<span class="at">groups =</span> <span class="st">"Gentoo"</span>),</span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">cell_fill</span>(<span class="at">color =</span> <span class="st">"cyan4"</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_source_note</span>(attach_excel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 
-<div id="iwthwyrmla" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="vejqpxjgyx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#iwthwyrmla) .gt_table {
+:where(#vejqpxjgyx) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -387,7 +381,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-left-color: #D3D3D3;
 }
 
-:where(#iwthwyrmla) .gt_heading {
+:where(#vejqpxjgyx) .gt_heading {
   background-color: #EEBF00;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -399,12 +393,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-:where(#iwthwyrmla) .gt_caption {
+:where(#vejqpxjgyx) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#iwthwyrmla) .gt_title {
+:where(#vejqpxjgyx) .gt_title {
   color: #FFFFFF;
   font-size: 125%;
   font-weight: initial;
@@ -416,7 +410,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-width: 0;
 }
 
-:where(#iwthwyrmla) .gt_subtitle {
+:where(#vejqpxjgyx) .gt_subtitle {
   color: #FFFFFF;
   font-size: 85%;
   font-weight: initial;
@@ -428,19 +422,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-top-width: 0;
 }
 
-:where(#iwthwyrmla) .gt_bottom_border {
+:where(#vejqpxjgyx) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 5px;
   border-bottom-color: #EEBD00;
 }
 
-:where(#iwthwyrmla) .gt_col_headings {
+:where(#vejqpxjgyx) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
   border-bottom-style: solid;
   border-bottom-width: 2px;
-  border-bottom-color: #000000;
+  border-bottom-color: #BEBEBE;
   border-left-style: none;
   border-left-width: 1px;
   border-left-color: #D3D3D3;
@@ -449,9 +443,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-:where(#iwthwyrmla) .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
+:where(#vejqpxjgyx) .gt_col_heading {
+  color: #FFFFFF;
+  background-color: #000000;
   font-size: 100%;
   font-weight: normal;
   text-transform: inherit;
@@ -469,9 +463,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   overflow-x: hidden;
 }
 
-:where(#iwthwyrmla) .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
+:where(#vejqpxjgyx) .gt_column_spanner_outer {
+  color: #FFFFFF;
+  background-color: #000000;
   font-size: 100%;
   font-weight: normal;
   text-transform: inherit;
@@ -481,18 +475,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 4px;
 }
 
-:where(#iwthwyrmla) .gt_column_spanner_outer:first-child {
+:where(#vejqpxjgyx) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#iwthwyrmla) .gt_column_spanner_outer:last-child {
+:where(#vejqpxjgyx) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#iwthwyrmla) .gt_column_spanner {
+:where(#vejqpxjgyx) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
-  border-bottom-color: #000000;
+  border-bottom-color: #BEBEBE;
   vertical-align: bottom;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -501,7 +495,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   width: 100%;
 }
 
-:where(#iwthwyrmla) .gt_group_heading {
+:where(#vejqpxjgyx) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -513,10 +507,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   text-transform: inherit;
   border-top-style: solid;
   border-top-width: 3px;
-  border-top-color: #000000;
+  border-top-color: #BEBEBE;
   border-bottom-style: solid;
   border-bottom-width: 2px;
-  border-bottom-color: #000000;
+  border-bottom-color: #BEBEBE;
   border-left-style: none;
   border-left-width: 1px;
   border-left-color: #D3D3D3;
@@ -527,7 +521,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   text-align: left;
 }
 
-:where(#iwthwyrmla) .gt_empty_group_heading {
+:where(#vejqpxjgyx) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -535,22 +529,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   font-weight: initial;
   border-top-style: solid;
   border-top-width: 3px;
-  border-top-color: #000000;
+  border-top-color: #BEBEBE;
   border-bottom-style: solid;
   border-bottom-width: 2px;
-  border-bottom-color: #000000;
+  border-bottom-color: #BEBEBE;
   vertical-align: middle;
 }
 
-:where(#iwthwyrmla) .gt_from_md > :first-child {
+:where(#vejqpxjgyx) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#iwthwyrmla) .gt_from_md > :last-child {
+:where(#vejqpxjgyx) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#iwthwyrmla) .gt_row {
+:where(#vejqpxjgyx) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -569,7 +563,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   overflow-x: hidden;
 }
 
-:where(#iwthwyrmla) .gt_stub {
+:where(#vejqpxjgyx) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -582,7 +576,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#iwthwyrmla) .gt_stub_row_group {
+:where(#vejqpxjgyx) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -596,11 +590,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: top;
 }
 
-:where(#iwthwyrmla) .gt_row_group_first td {
+:where(#vejqpxjgyx) .gt_row_group_first td {
   border-top-width: 3px;
 }
 
-:where(#iwthwyrmla) .gt_summary_row {
+:where(#vejqpxjgyx) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -610,16 +604,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#iwthwyrmla) .gt_first_summary_row {
+:where(#vejqpxjgyx) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#iwthwyrmla) .gt_first_summary_row.thick {
+:where(#vejqpxjgyx) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#iwthwyrmla) .gt_last_summary_row {
+:where(#vejqpxjgyx) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -629,7 +623,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-color: #D3D3D3;
 }
 
-:where(#iwthwyrmla) .gt_grand_summary_row {
+:where(#vejqpxjgyx) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -639,7 +633,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#iwthwyrmla) .gt_first_grand_summary_row {
+:where(#vejqpxjgyx) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -649,11 +643,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-top-color: #D3D3D3;
 }
 
-:where(#iwthwyrmla) .gt_striped {
+:where(#vejqpxjgyx) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#iwthwyrmla) .gt_table_body {
+:where(#vejqpxjgyx) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -662,7 +656,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-color: #D3D3D3;
 }
 
-:where(#iwthwyrmla) .gt_footnotes {
+:where(#vejqpxjgyx) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -676,7 +670,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-:where(#iwthwyrmla) .gt_footnote {
+:where(#vejqpxjgyx) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -685,7 +679,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#iwthwyrmla) .gt_sourcenotes {
+:where(#vejqpxjgyx) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -699,7 +693,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-:where(#iwthwyrmla) .gt_sourcenote {
+:where(#vejqpxjgyx) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -707,71 +701,71 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#iwthwyrmla) .gt_left {
+:where(#vejqpxjgyx) .gt_left {
   text-align: left;
 }
 
-:where(#iwthwyrmla) .gt_center {
+:where(#vejqpxjgyx) .gt_center {
   text-align: center;
 }
 
-:where(#iwthwyrmla) .gt_right {
+:where(#vejqpxjgyx) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#iwthwyrmla) .gt_font_normal {
+:where(#vejqpxjgyx) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#iwthwyrmla) .gt_font_bold {
+:where(#vejqpxjgyx) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#iwthwyrmla) .gt_font_italic {
+:where(#vejqpxjgyx) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#iwthwyrmla) .gt_super {
+:where(#vejqpxjgyx) .gt_super {
   font-size: 65%;
 }
 
-:where(#iwthwyrmla) .gt_footnote_marks {
+:where(#vejqpxjgyx) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#iwthwyrmla) .gt_asterisk {
+:where(#vejqpxjgyx) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#iwthwyrmla) .gt_indent_1 {
+:where(#vejqpxjgyx) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#iwthwyrmla) .gt_indent_2 {
+:where(#vejqpxjgyx) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#iwthwyrmla) .gt_indent_3 {
+:where(#vejqpxjgyx) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#iwthwyrmla) .gt_indent_4 {
+:where(#vejqpxjgyx) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#iwthwyrmla) .gt_indent_5 {
+:where(#vejqpxjgyx) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
 <table class="gt_table">
   <thead class="gt_header">
     <tr>
-      <td colspan="6" class="gt_heading gt_title gt_font_normal" style="">🐧🐧🐧**Penguins are fun to summarize!**🐧🐧🐧</td>
+      <td colspan="6" class="gt_heading gt_title gt_font_normal" style="">🐧🐧🐧Penguins are fun to summarize!🐧🐧🐧</td>
     </tr>
     <tr>
       <td colspan="6" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style="">The palmerpenguins: Palmer Archipelago (Antarctica) penguin data</td>
@@ -780,16 +774,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <thead class="gt_col_headings">
     <tr>
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=""></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="color: #000000;" scope="col" id="Count">Count</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="color: #000000;" scope="col" id="Culmen_Length<sup class=&quot;gt_footnote_marks&quot;>1</sup>">Culmen_Length<sup class="gt_footnote_marks">1</sup></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="color: #000000;" scope="col" id="Culmen_Depth<sup class=&quot;gt_footnote_marks&quot;>1</sup>">Culmen_Depth<sup class="gt_footnote_marks">1</sup></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="color: #000000;" scope="col" id="Flipper_Length<sup class=&quot;gt_footnote_marks&quot;>1</sup>">Flipper_Length<sup class="gt_footnote_marks">1</sup></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="color: #000000;" scope="col" id="Body_Mass<sup class=&quot;gt_footnote_marks&quot;>2</sup>">Body_Mass<sup class="gt_footnote_marks">2</sup></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="color: #FFFFFF;" scope="col" id="Count">Count</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="color: #FFFFFF;" scope="col" id="Culmen_Length<sup class=&quot;gt_footnote_marks&quot;>1</sup>">Culmen_Length<sup class="gt_footnote_marks">1</sup></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="color: #FFFFFF;" scope="col" id="Culmen_Depth<sup class=&quot;gt_footnote_marks&quot;>1</sup>">Culmen_Depth<sup class="gt_footnote_marks">1</sup></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="color: #FFFFFF;" scope="col" id="Flipper_Length<sup class=&quot;gt_footnote_marks&quot;>1</sup>">Flipper_Length<sup class="gt_footnote_marks">1</sup></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="color: #FFFFFF;" scope="col" id="Body_Mass<sup class=&quot;gt_footnote_marks&quot;>2</sup>">Body_Mass<sup class="gt_footnote_marks">2</sup></th>
     </tr>
   </thead>
   <tbody class="gt_table_body">
     <tr class="gt_group_heading_row">
-      <th colspan="6" class="gt_group_heading" style="color: #000000;" scope="colgroup" id="Adelie">Adelie</th>
+      <th colspan="6" class="gt_group_heading" style="color: #FFFFFF; background-color: #FF8C00;" scope="colgroup" id="Adelie">Adelie</th>
     </tr>
     <tr class="gt_row_group_first"><th id="stub_1_1" scope="row" class="gt_row gt_center gt_stub">female</th>
 <td headers="Adelie stub_1_1 Count" class="gt_row gt_right">73</td>
@@ -804,7 +798,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td headers="Adelie stub_1_2 Flipper_Length" class="gt_row gt_right">192.41</td>
 <td headers="Adelie stub_1_2 Body_Mass" class="gt_row gt_right">4043.49</td></tr>
     <tr class="gt_group_heading_row">
-      <th colspan="6" class="gt_group_heading" style="color: #000000;" scope="colgroup" id="Chinstrap">Chinstrap</th>
+      <th colspan="6" class="gt_group_heading" style="color: #FFFFFF; background-color: #9932CC;" scope="colgroup" id="Chinstrap">Chinstrap</th>
     </tr>
     <tr class="gt_row_group_first"><th id="stub_1_3" scope="row" class="gt_row gt_center gt_stub">female</th>
 <td headers="Chinstrap stub_1_3 Count" class="gt_row gt_right">34</td>
@@ -819,7 +813,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td headers="Chinstrap stub_1_4 Flipper_Length" class="gt_row gt_right">199.91</td>
 <td headers="Chinstrap stub_1_4 Body_Mass" class="gt_row gt_right">3938.97</td></tr>
     <tr class="gt_group_heading_row">
-      <th colspan="6" class="gt_group_heading" style="color: #000000;" scope="colgroup" id="Gentoo">Gentoo</th>
+      <th colspan="6" class="gt_group_heading" style="color: #FFFFFF; background-color: #008B8B;" scope="colgroup" id="Gentoo">Gentoo</th>
     </tr>
     <tr class="gt_row_group_first"><th id="stub_1_5" scope="row" class="gt_row gt_center gt_stub">female</th>
 <td headers="Gentoo stub_1_5 Count" class="gt_row gt_right">58</td>
@@ -836,10 +830,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </tbody>
   <tfoot class="gt_sourcenotes">
     <tr>
-      <td class="gt_sourcenote" colspan="6">Data were collected and made available by Dr. Kristen Gorman and the Palmer Station, Antarctica LTER, a member of the Long Term Ecological Research Network. | **Table**: Karol Orozco</td>
+      <td class="gt_sourcenote" colspan="6">Data were collected and made available by Dr. Kristen Gorman and the Palmer Station, Antarctica LTER, a member of the Long Term Ecological Research Network. | Table: Karol Orozco</td>
     </tr>
     <tr>
-      <td class="gt_sourcenote" colspan="6"><a onclick="fetch('data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,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').then(res => res.blob()).then(blob => {
+      <td class="gt_sourcenote" colspan="6"><a onclick="fetch('data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,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').then(res => res.blob()).then(blob => {
       const downloadURL = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
       document.body.appendChild(a);
@@ -868,9 +862,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="reference" class="level2">
 <h2 class="anchored" data-anchor-id="reference">Reference</h2>
 <p>Horst AM, Hill AP, Gorman KB (2020). palmerpenguins: Palmer Archipelago (Antarctica) penguin data. R package version 0.1.0. https://allisonhorst.github.io/palmerpenguins/. doi: 10.5281/zenodo.3960218.</p>
-<p>`</p>
+<p>Image by <span class="citation" data-cites="allison_horst">@allison_horst</span></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
