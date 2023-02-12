@@ -73,6 +73,7 @@ extensions = c('Select', 'Buttons'), options = list(
 library(gt)
 library(gtExtras)
 library(downloadthis)
+library(emo)
 
 attach_excel <- table %>%
   download_this(
@@ -87,9 +88,13 @@ table%>%
   gt(rowname_col = "Sex") %>%
 
   tab_header(
-    title = md("**Penguins are fun to summarize!**"),
+    title = md(paste0(
+      emo::ji("penguin"), emo::ji("penguin"), emo::ji("penguin"),
+      "**Penguins are fun to summarize!**",
+      emo::ji("penguin"), emo::ji("penguin"), emo::ji("penguin"))),
   # Use markdown syntax with md()
     subtitle = md("The palmerpenguins: Palmer Archipelago (Antarctica) penguin data"))%>%
+  
   
 tab_footnote(
     footnote = "Measurements in millimeters (mm)", 
@@ -120,9 +125,7 @@ tab_footnote(
     
     heading.background.color = "#eebf00",
     heading.border.bottom.color = "#eebd00",
-    heading.border.bottom.width = "5px",
-    heading.border.lr.color = "#aae100",
-    heading.border.lr.width = "50px")%>% 
+    heading.border.bottom.width = "5px")%>% 
   
   tab_style(
     style = cell_text(color = "black"),
@@ -130,7 +133,42 @@ tab_footnote(
       cells_row_groups(),
       cells_column_labels(everything())))%>%
   
+   tab_style(
+    style = list(
+      cell_fill(color = "darkorange"),
+      cell_text(weight = "bold",
+                align = "center")),
+    locations = list(cells_body(
+      columns = Penguin,
+      rows = Penguin == "Adelie")))%>%
+  
+  tab_style(
+    style = list(
+      cell_fill(color = "darkorchid"),
+       cell_text(weight = "bold",
+                align = "center")),
+    locations = list(cells_body(
+      columns = Penguin,
+      rows = Penguin == "Chinstrap")))%>%
+  
+  
+  tab_style(
+    style = list(
+      cell_fill(color = "cyan4"),
+    cell_text(weight = "bold",
+                align = "center")),
+    locations = list(cells_body(
+      columns = Penguin,
+     rows = Penguin == "Gentoo")))%>%
+  
+  
+  
+
+  
+
   tab_source_note(attach_excel)
+
+
 ```
 
 ## Reference
