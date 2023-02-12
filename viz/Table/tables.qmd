@@ -8,7 +8,13 @@ image: featured.png
 
 # Meet the Palmer penguins
 
+:::
 ![Palmer penguins](featured.png)
+The Palmer Archipelago penguins. Artwork by @allison_horst.
+
+:::
+
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(warning=FALSE, message=FALSE)
