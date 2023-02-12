@@ -8,14 +8,14 @@ image: featured.png
 
 # Meet the Palmer penguins
 
-:::
+
 
 
 
 ![Palmer penguins](featured.png)
 The Palmer Archipelago penguins. Artwork by @allison_horst.
 
-:::
+
 
 
 
