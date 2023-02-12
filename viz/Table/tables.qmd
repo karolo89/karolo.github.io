@@ -71,7 +71,7 @@ extensions = c('Select', 'Buttons'), options = list(
 
 ## Riding Tables with gt & gtExtra
 
-[Modify the table output options](https://gt.rstudio.com/reference/tab_options.html)
+Great Resource: [Modify the table output options](https://gt.rstudio.com/reference/tab_options.html)
 
 
 ```{r}
