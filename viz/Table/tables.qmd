@@ -2,6 +2,7 @@
 title: "Tables"
 author: "Karol Orozco"
 date: today
+image: featured.png
 ---
 
 ```{r setup, include=FALSE}
@@ -67,36 +68,73 @@ extensions = c('Select', 'Buttons'), options = list(
 
 
 
-
 ```{r}
 
 library(gt)
 library(gtExtras)
+library(downloadthis)
+
+attach_excel <- table %>%
+  download_this(
+    output_name = "Penguins",
+    output_extension = ".xlsx", # Excel file type
+    button_label = "Download Excel",
+    button_type = "primary", # change button type
+  )
 
 table%>%
-  gt()%>%
-  
+  group_by(Penguin)%>%
+  gt(rowname_col = "Sex") %>%
+
   tab_header(
-    title = "Penguins are fun to summarize!",
+    title = md("**Penguins are fun to summarize!**"),
   # Use markdown syntax with md()
     subtitle = md("The palmerpenguins: Palmer Archipelago (Antarctica) penguin data"))%>%
   
-  gtExtras::gt_theme_nytimes()%>%
+tab_footnote(
+    footnote = "Measurements in millimeters (mm)", 
+    locations = cells_column_labels(
+      columns = 4:6 # note
+      ))%>% 
   
-  tab_options(data_row.padding = px(9))%>%
+tab_footnote(
+    footnote = "Measurements in gram (g)", 
+    locations = cells_column_labels(
+      columns = 7:7 # note
+      ))%>% 
+  tab_source_note(source_note = "Data were collected and made available by Dr. Kristen Gorman and the Palmer Station, Antarctica LTER, a member of the Long Term Ecological Research Network. | **Table**: Karol Orozco")%>% 
   
-  # Merge columns
-  gtExtras::gt_merge_stack(col1 = Penguin, col2 = Sex)
+ tab_options(
+    row_group.border.top.width = px(3),
+    row_group.border.top.color = "black",
+    row_group.border.bottom.color = "black",
+    
+    table_body.hlines.color = "white",
+    table.border.top.color = "white",
+    table.border.top.width = px(3),
+    table.border.bottom.color = "white",
+    table.border.bottom.width = px(3),
+    
+    column_labels.border.bottom.color = "black",
+    column_labels.border.bottom.width = px(2),
+    
+    heading.background.color = "#eebf00",
+    heading.border.bottom.color = "#eebd00",
+    heading.border.bottom.width = "5px",
+    heading.border.lr.color = "#aae100",
+    heading.border.lr.width = "50px")%>% 
+  
+  tab_style(
+    style = cell_text(color = "black"),
+    locations = list(
+      cells_row_groups(),
+      cells_column_labels(everything())))%>%
+  
+  tab_source_note(attach_excel)
 ```
-
 
 ## Reference
 
-Horst AM, Hill AP, Gorman KB (2020). palmerpenguins: Palmer
-Archipelago (Antarctica) penguin data. R package version 0.1.0.
-https://allisonhorst.github.io/palmerpenguins/. doi:
-10.5281/zenodo.3960218.
+Horst AM, Hill AP, Gorman KB (2020). palmerpenguins: Palmer Archipelago (Antarctica) penguin data. R package version 0.1.0. https://allisonhorst.github.io/palmerpenguins/. doi: 10.5281/zenodo.3960218.
 
-
-`
-
+\`
