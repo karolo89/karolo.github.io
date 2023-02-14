@@ -41,7 +41,7 @@ This data has 25731 obs. of 32 variables
 head(raw_pdx)
 ```
 
-```{r}
+```{r include=FALSE, message=FALSE, warning=FALSE}
 
 # convert variables
 
@@ -72,7 +72,7 @@ raw_pdx <-  raw_pdx %>%
 
 ### Missing data
 
-```{r}
+```{r include=FALSE, message=FALSE, warning=FALSE}
 is.na(raw_pdx) %>% colSums()
 ```
 
@@ -105,7 +105,7 @@ summary(clean_data)
 
 ```
 
-```{r}
+```{r include=FALSE, message=FALSE, warning=FALSE}
 clean_data <- 
   clean_data %>% 
   mutate(price_category = case_when( 
