@@ -13,62 +13,39 @@ library(tidyverse)
 library(dplyr)
 library(tidytuesdayR)
 library(here)
-library(showtext)
+library(ggplot2)
 library(janitor)
-
-library(camcorder)
-library(ggtext)
-library(glue)
-library(patchwork)
-library(gghighlight)
+library(dplyr)
 
 
 age_gaps <- read.csv("https://raw.githubusercontent.com/karolo89/karolo_website/main/data/2023/2023-02-14/age_gaps.csv")
-
-
 ```
+
+
 
 ```{r}
-summary(age_gaps)
+df <- age_gaps %>%
+    arrange(release_year) %>% 
+    mutate(decade = paste0((release_year - 1) %/% 10 * 10, "'s")) %>% 
+    mutate(movie_name = fct_reorder(movie_name, release_year, .desc = TRUE)) 
+
+df_mean <- df%>%
+group_by(decade) %>% 
+    summarise_at(vars(age_difference), list(mean_age_diff = mean)) %>% 
+    ungroup()
+
+viz_df <- df %>% 
+    left_join(y = df_mean, by = "decade") %>% 
+    select(movie_name, release_year, age_difference, mean_age_diff, decade) %>% 
+    mutate(age_category = ifelse(age_difference > mean_age_diff, "Above Average", "Below Average")) %>% 
+    dplyr::mutate_if(is.numeric, round, 2) 
+
+
+head(viz_df)
 ```
 
-```{r}
-# data wrangling
 
 
- age_gaps |> 
-  mutate(rel_type = case_when(
-    (character_1_gender == "woman" & character_2_gender == "man") ~ "Older Woman, Younger Man",
-    (character_1_gender == "man" & character_2_gender == "woman") ~ "Older Man, Younger Woman",
-    (character_1_gender == "woman" & character_2_gender == "woman") ~ "Both Women",
-    (character_1_gender == "man" & character_2_gender == "man") ~ "Both Men" 
-  )) |> 
-  select(release_year, age_difference, rel_type) 
-
- ggplot(data = plot_data,
-       mapping = aes(x = release_year,
-                     y = age_difference)) +
-  geom_point(colour = alpha("#508080", 0.5)) +
-  geom_smooth(colour = "#E30B5C", se = FALSE) +
-  labs(y = "Age gap (years)") +
-  theme_minimal()
- 
- # faceted plot
-ggplot(data = plot_data,
-       mapping = aes(x = release_year,
-                     y = age_difference, 
-                     colour = rel_type)) +
-  geom_point(colour = alpha("#E30B5C", 0.5),
-             size = 0.3) +
-  gghighlight(use_direct_label = F) +
-  facet_wrap(~rel_type, ncol = 2, nrow = 2,
-             labeller = labeller(rel_type = label_wrap_gen(18))) +
-  labs(y = "Age gap (years)") +
-  theme_minimal()
-
-
-
-```
 
 
 
