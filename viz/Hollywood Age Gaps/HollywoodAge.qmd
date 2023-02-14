@@ -38,7 +38,7 @@ viz_df <- df %>%
     left_join(y = df_mean, by = "decade") %>% 
     select(movie_name, release_year, age_difference, mean_age_diff, decade) %>% 
     mutate(age_category = ifelse(age_difference > mean_age_diff, "Above Average", "Below Average")) %>% 
-    dplyr::mutate_if(is.numeric, round, 2) 
+    dplyr::mutate_if(is.numeric, round, 0) 
 
 
 head(viz_df)

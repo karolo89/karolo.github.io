@@ -223,19 +223,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">left_join</span>(<span class="at">y =</span> df_mean, <span class="at">by =</span> <span class="st">"decade"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(movie_name, release_year, age_difference, mean_age_diff, decade) <span class="sc">%&gt;%</span> </span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">age_category =</span> <span class="fu">ifelse</span>(age_difference <span class="sc">&gt;</span> mean_age_diff, <span class="st">"Above Average"</span>, <span class="st">"Below Average"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate_if</span>(is.numeric, round, <span class="dv">2</span>) </span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate_if</span>(is.numeric, round, <span class="dv">0</span>) </span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(viz_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>        movie_name release_year age_difference mean_age_diff decade
-1 Star of Midnight         1935             19          11.5 1930's
-2    Captain Blood         1935              7          11.5 1930's
-3     Modern Times         1936             21          11.5 1930's
-4    Stella Dallas         1937             12          11.5 1930's
-5   A Star Is Born         1937              9          11.5 1930's
-6    Stella Dallas         1937              1          11.5 1930's
+1 Star of Midnight         1935             19            12 1930's
+2    Captain Blood         1935              7            12 1930's
+3     Modern Times         1936             21            12 1930's
+4    Stella Dallas         1937             12            12 1930's
+5   A Star Is Born         1937              9            12 1930's
+6    Stella Dallas         1937              1            12 1930's
    age_category
 1 Above Average
 2 Below Average
