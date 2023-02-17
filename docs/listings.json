@@ -10,6 +10,7 @@
     "listing": "/Resources.html",
     "items": [
       "/viz/Hollywood Age Gaps/HollywoodAge.html",
+      "/viz/Interactive Viz/HollywoodAge.html",
       "/viz/Table/tables.html",
       "/viz/Hurricanes Graph/hurricanes.html",
       "/viz/TidyTuesday/PetCats.html"
