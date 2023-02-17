@@ -12,15 +12,12 @@ library(tidyverse)
 library(ggplot2)
 library(plyr) ## Tools for Splitting, Applying and Combining Data
 library(dplyr)
-library(treemap)
-library(d3treeR) ## devtools::install_github("timelyportfolio/d3treeR")
 library(colorspace)
 
 
 orders <- read.csv("C:/Users/karol/Desktop/Projects/orders.csv")
 order_products <- read.csv("https://raw.githubusercontent.com/karolo89/karolo_website/main/data/2023/instacart/order_products__train.csv")
 products <- read.csv("https://raw.githubusercontent.com/karolo89/karolo_website/main/data/2023/instacart/products.csv")
-aisles <- read.csv("https://raw.githubusercontent.com/karolo89/karolo_website/main/data/2023/instacart/aisles.csv")
 departments <- read.csv("https://raw.githubusercontent.com/karolo89/karolo_website/main/data/2023/instacart/departments.csv")
 
 ## Transform
@@ -30,12 +27,10 @@ products <- products%>% mutate(category =  ifelse(grepl("Organic", products$prod
 
 products <- products %>% mutate(product_name = as.factor(product_name))
 
-aisles <- aisles %>% mutate(aisle = as.factor(aisle))
 departments <- departments %>% mutate(department = as.factor(department))
 
 df <- products %>% group_by(department_id, aisle_id, product_id, product_name, category) %>% dplyr::summarize(n=n())
 df <- df %>% left_join(departments,by="department_id")
-df<-  df %>% left_join(aisles,by="aisle_id")
 
 data <- merge(x= order_products,y= df, by= "product_id")
 
