@@ -123,7 +123,7 @@
     "href": "Resources.html",
     "title": "Data Viz",
     "section": "",
-    "text": "Hollywood Age Gaps\n\n\n\n\n\n\nKarol Orozco\n\n\nFebruary 16, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHollywood Age Gaps\n\n\n\n\n\n\nKarol Orozco\n\n\nFebruary 16, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTables\n\n\n\n\n\n\n\nKarol Orozco\n\n\nFebruary 16, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHurricanes\n\n\n\n\n\n\nKarol Orozco\n\n\nFebruary 5, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPet Cats UK\n\n\n\n\n\n\nKarol Orozco\n\n\nFebruary 5, 2023\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Hollywood Age Gaps\n\n\n\n\n\n\nKarol Orozco\n\n\nFebruary 16, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInteractive Graph- Instacart\n\n\n\n\n\n\nKarol Orozco\n\n\nFebruary 16, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTables\n\n\n\n\n\n\n\nKarol Orozco\n\n\nFebruary 16, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHurricanes\n\n\n\n\n\n\nKarol Orozco\n\n\nFebruary 5, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPet Cats UK\n\n\n\n\n\n\nKarol Orozco\n\n\nFebruary 5, 2023\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "Spanish_index.html",
@@ -208,5 +208,47 @@
     "title": "Hollywood Age Gaps",
     "section": "Reference",
     "text": "Reference\nThe data this week comes from Hollywood Age Gap via Data Is Plural.\nThomas Mock (2022). Tidy Tuesday: A weekly data project aimed at the R ecosystem.GitHub"
+  },
+  {
+    "objectID": "viz/Interactive Viz/HollywoodAge.html",
+    "href": "viz/Interactive Viz/HollywoodAge.html",
+    "title": "Onteractive Graph- Instacart",
+    "section": "",
+    "text": "Show the code\nday_week <- orders %>%\n    mutate(day = as.factor(order_dow)) %>%\n    mutate(hour = as.factor(order_hour_of_day)) %>%\n    group_by(day,hour) %>%\n    dplyr::summarise(count = n()) %>%\n    arrange(desc(count))\n\n\nday_weekp <-day_week %>%\n    ggplot(aes(x=day, y=hour))+\n    geom_tile(aes(fill=count), colour = \"white\") + \n  \n    scale_fill_gradient(name= \"Number of\\nOrders\", low = \"#fff1e6\",high = \"#00835C\")+\n  \n    scale_x_discrete( position = \"top\",\n                    breaks = c(\"0\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\"),\n                    label = c(\"Sunday\", \"Monday\", \"Tuesday\", \"Wednesday\",\"Thursday\", \"Friday\", \"Saturday\"),\n                    expand=c(0,0))+\n  \n   scale_y_discrete( \n                    breaks = c(\"0\", \"6\", \"12\", \"18\", \"23\"),\n                    label = c(\"12am\", \"6am\", \"12pm\", \"6pm\", \"11pm\"),\n                    expand=c(0,0))+\n  \n      labs(title=\"Which Day and What Time\\nDo Customers Order the Most?\",\n         x=\"\", \n         y=\"\",\n         caption = \"Maximum number of orders are placed between 9:00am and 4:00pm on Sunday and Monday. There is also a big number of orders during Firday\\nand Saturday.\")+\n  \n    theme_classic()+\n  \n    theme(\n      \n    axis.line=element_blank(),                                               \n    axis.ticks=element_line(size=0.4),\n    axis.text = element_text(size= 10, color= \"#00835C\"),\n    axis.line.x = element_line(color= \"#00835C\" ),\n    \n    plot.background=element_blank(),         \n    plot.title = element_text(size =10, face = \"bold\", hjust = 0.50, vjust = 1, colour = \"darkgreen\"),\n    plot.caption = element_text(hjust = 0, size = 7, margin = unit(c(0.5, 0.5, 0.5, 0.5), \"cm\"), color = \"#718c9e\"),\n\n    \n    panel.grid = element_blank(),\n    \n    legend.position = \"bottom\",\n    legend.title = element_text(size= 8),\n    legend.margin=margin(grid::unit(0,\"cm\")),\n    legend.key.width=grid::unit(2,\"cm\"),\n    legend.key.height=grid::unit(0.2,\"cm\")\n)\n\nggplotly(day_weekp)"
+  },
+  {
+    "objectID": "viz/Interactive Viz/HollywoodAge.html#reference",
+    "href": "viz/Interactive Viz/HollywoodAge.html#reference",
+    "title": "Onteractive Graph- Instacart",
+    "section": "Reference",
+    "text": "Reference\n@misc{instacart-market-basket-analysis, author = {jeremy stanley, Meg Risdal, sharathrao, Will Cukierski}, title = {Instacart Market Basket Analysis}, publisher = {Kaggle}, year = {2017}, url = {https://kaggle.com/competitions/instacart-market-basket-analysis} }"
+  },
+  {
+    "objectID": "viz/Hollywood Age Gaps/Interactive.html",
+    "href": "viz/Hollywood Age Gaps/Interactive.html",
+    "title": "Hollywood Age Gaps",
+    "section": "",
+    "text": "Show the code\nage_gaps %>% \n  select(release_year, age_difference) %>%\n  ggplot(aes(x = release_year,  y = age_difference)) +\n  geom_point(colour = alpha(\"#FF9A00\", 0.5)) +\n  geom_smooth(colour = \"white\", se = FALSE) +\n  labs(y = \"Age gap (years)\",\n       x= \"Release Year\",\n       title =  \"Age Gap in Hollywood Movies from 1935 to 2022\",\n       caption=\"Data from TidyTuesday | Chart by @Karol_Orozco\") +\n  theme_minimal()+\n  theme(text=element_text(family = \"chivo\", color=\"white\"), \n        panel.grid.minor = element_blank(),\n        panel.grid.major = element_line(color=\"black\", size=0.1),\n        axis.title=element_text(face=\"bold\", size= 15),\n        axis.text =element_text(color=\"white\"),\n        axis.title.y=element_text(margin=margin(r=10)),\n        plot.title = element_text(size = 20, face = \"bold\", \n                                  hjust = 0.5, vjust = 0.5),\n        plot.background = element_rect(fill=\"black\"),\n        plot.margin  = margin(20,20,10,10))"
+  },
+  {
+    "objectID": "viz/Hollywood Age Gaps/Interactive.html#reference",
+    "href": "viz/Hollywood Age Gaps/Interactive.html#reference",
+    "title": "Hollywood Age Gaps",
+    "section": "Reference",
+    "text": "Reference\nThe data this week comes from Hollywood Age Gap via Data Is Plural.\nThomas Mock (2022). Tidy Tuesday: A weekly data project aimed at the R ecosystem.GitHub"
+  },
+  {
+    "objectID": "viz/Interactive Viz/Interactive Instacart.html",
+    "href": "viz/Interactive Viz/Interactive Instacart.html",
+    "title": "Interactive Graph- Instacart",
+    "section": "",
+    "text": "Show the code\nday_week <- orders %>%\n    mutate(day = as.factor(order_dow)) %>%\n    mutate(hour = as.factor(order_hour_of_day)) %>%\n    group_by(day,hour) %>%\n    dplyr::summarise(count = n()) %>%\n    arrange(desc(count))\n\n\nday_weekp <-day_week %>%\n    ggplot(aes(x=day, y=hour))+\n    geom_tile(aes(fill=count), colour = \"white\") + \n  \n    scale_fill_gradient(name= \"Number of\\nOrders\", low = \"#fff1e6\",high = \"#00835C\")+\n  \n    scale_x_discrete( position = \"top\",\n                    breaks = c(\"0\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\"),\n                    label = c(\"Sunday\", \"Monday\", \"Tuesday\", \"Wednesday\",\"Thursday\", \"Friday\", \"Saturday\"),\n                    expand=c(0,0))+\n  \n   scale_y_discrete( \n                    breaks = c(\"0\", \"6\", \"12\", \"18\", \"23\"),\n                    label = c(\"12am\", \"6am\", \"12pm\", \"6pm\", \"11pm\"),\n                    expand=c(0,0))+\n  \n      labs(title=\"Which Day and What Time\\nDo Customers Order the Most?\",\n         x=\"\", \n         y=\"\",\n         caption = \"Maximum number of orders are placed between 9:00am and 4:00pm on Sunday and Monday. There is also a big number of orders during Firday\\nand Saturday.\")+\n  \n    theme_classic()+\n  \n    theme(\n      \n    axis.line=element_blank(),                                               \n    axis.ticks=element_line(size=0.4),\n    axis.text = element_text(size= 10, color= \"#00835C\"),\n    axis.line.x = element_line(color= \"#00835C\" ),\n    \n    plot.background=element_blank(),         \n    plot.title = element_text(size =10, face = \"bold\", hjust = 0.50, vjust = 1, colour = \"darkgreen\"),\n    plot.caption = element_text(hjust = 0, size = 7, margin = unit(c(0.5, 0.5, 0.5, 0.5), \"cm\"), color = \"#718c9e\"),\n\n    \n    panel.grid = element_blank(),\n    \n    legend.position = \"bottom\",\n    legend.title = element_text(size= 8),\n    legend.margin=margin(grid::unit(0,\"cm\")),\n    legend.key.width=grid::unit(2,\"cm\"),\n    legend.key.height=grid::unit(0.2,\"cm\")\n)\n\nggplotly(day_weekp)"
+  },
+  {
+    "objectID": "viz/Interactive Viz/Interactive Instacart.html#reference",
+    "href": "viz/Interactive Viz/Interactive Instacart.html#reference",
+    "title": "Interactive Graph- Instacart",
+    "section": "Reference",
+    "text": "Reference\nInstacart-market-basket-analysis by Jeremy Staley, Meg Risdal, sharathrao, Will Cukierski publisher by Kaggle, 2017. https://kaggle.com/competitions/instacart-market-basket-analysis"
   }
 ]

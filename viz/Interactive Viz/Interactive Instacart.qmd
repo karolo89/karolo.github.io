@@ -1,0 +1,164 @@
+---
+title: "Interactive Graph- Instacart"
+author: "Karol Orozco"
+date: today
+image: "insta.png"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning=FALSE, message=FALSE)
+
+library(tidyverse)
+library(ggplot2)
+library(plyr) ## Tools for Splitting, Applying and Combining Data
+library(dplyr)
+library(treemap)
+library(d3treeR) ## devtools::install_github("timelyportfolio/d3treeR")
+library(colorspace)
+library(plotly)
+
+
+orders <- read.csv("C:/Users/karol/Desktop/Projects/orders.csv")
+order_products <- read.csv("https://raw.githubusercontent.com/karolo89/karolo_website/main/data/2023/instacart/order_products__train.csv")
+products <- read.csv("https://raw.githubusercontent.com/karolo89/karolo_website/main/data/2023/instacart/products.csv")
+aisles <- read.csv("https://raw.githubusercontent.com/karolo89/karolo_website/main/data/2023/instacart/aisles.csv")
+departments <- read.csv("https://raw.githubusercontent.com/karolo89/karolo_website/main/data/2023/instacart/departments.csv")
+
+## Transform
+orders$order_hour_of_day <- as.numeric(orders$order_hour_of_day)
+
+products <- products%>% mutate(category =  ifelse(grepl("Organic", products$product_name), "Organic",  "Non-organic"))
+
+products <- products %>% mutate(product_name = as.factor(product_name))
+
+aisles <- aisles %>% mutate(aisle = as.factor(aisle))
+departments <- departments %>% mutate(department = as.factor(department))
+
+df <- products %>% group_by(department_id, aisle_id, product_id, product_name, category) %>% dplyr::summarize(n=n())
+df <- df %>% left_join(departments,by="department_id")
+df<-  df %>% left_join(aisles,by="aisle_id")
+
+data <- merge(x= order_products,y= df, by= "product_id")
+
+data <- merge(x= data, y= orders, by= "order_id")
+
+data <- data %>% mutate(product_name = as.factor(product_name))
+
+
+
+```
+
+```{r}
+day_week <- orders %>%
+    mutate(day = as.factor(order_dow)) %>%
+    mutate(hour = as.factor(order_hour_of_day)) %>%
+    group_by(day,hour) %>%
+    dplyr::summarise(count = n()) %>%
+    arrange(desc(count))
+
+
+day_weekp <-day_week %>%
+    ggplot(aes(x=day, y=hour))+
+    geom_tile(aes(fill=count), colour = "white") + 
+  
+    scale_fill_gradient(name= "Number of\nOrders", low = "#fff1e6",high = "#00835C")+
+  
+    scale_x_discrete( position = "top",
+                    breaks = c("0", "1", "2", "3", "4", "5", "6"),
+                    label = c("Sunday", "Monday", "Tuesday", "Wednesday","Thursday", "Friday", "Saturday"),
+                    expand=c(0,0))+
+  
+   scale_y_discrete( 
+                    breaks = c("0", "6", "12", "18", "23"),
+                    label = c("12am", "6am", "12pm", "6pm", "11pm"),
+                    expand=c(0,0))+
+  
+      labs(title="Which Day and What Time\nDo Customers Order the Most?",
+         x="", 
+         y="",
+         caption = "Maximum number of orders are placed between 9:00am and 4:00pm on Sunday and Monday. There is also a big number of orders during Firday\nand Saturday.")+
+  
+    theme_classic()+
+  
+    theme(
+      
+    axis.line=element_blank(),                                               
+    axis.ticks=element_line(size=0.4),
+    axis.text = element_text(size= 10, color= "#00835C"),
+    axis.line.x = element_line(color= "#00835C" ),
+    
+    plot.background=element_blank(),         
+    plot.title = element_text(size =10, face = "bold", hjust = 0.50, vjust = 1, colour = "darkgreen"),
+    plot.caption = element_text(hjust = 0, size = 7, margin = unit(c(0.5, 0.5, 0.5, 0.5), "cm"), color = "#718c9e"),
+
+    
+    panel.grid = element_blank(),
+    
+    legend.position = "bottom",
+    legend.title = element_text(size= 8),
+    legend.margin=margin(grid::unit(0,"cm")),
+    legend.key.width=grid::unit(2,"cm"),
+    legend.key.height=grid::unit(0.2,"cm")
+)
+
+ggplotly(day_weekp)
+
+```
+
+
+
+```{r}
+
+type <- data   %>%
+    group_by(product_id)%>% 
+    dplyr::summarize(count = n()) %>% 
+    top_n(20, wt = count) %>%
+    left_join(select(products, product_id, product_name, category), by="product_id") %>%
+    arrange(desc(count))
+
+ 
+
+best <- type %>% 
+ggplot(aes(x=reorder(product_name,count), y=count, color= category, text= paste0(product_name, ", Total Orders:", count)))+    geom_point(size= 2)+
+    geom_segment(aes(x=reorder(product_name,count), 
+                     xend=reorder(product_name,count), 
+                     y=0, 
+                     yend=count), size=0.8)+
+  
+    scale_y_continuous(labels = scales::comma) +
+  
+      labs(title="Bestsellers Products",
+           subtitle = "Organic vs Non-Organic",
+           y="", 
+           x="", 
+           legend = "")+
+  
+    scale_color_manual("", values = c("#FF8200", "#0AAD0A"))+
+
+  
+    theme_minimal()+
+  
+    theme(
+       axis.text.x= element_text( size= 7),
+       axis.text.y= element_text( size= 8),
+
+       plot.title = element_text(hjust=0.5, size= 12, face = "bold", vjust = 0.5),
+       plot.subtitle = element_text(hjust=0.5, size= 9, vjust = 0.5),
+       
+       panel.grid.major.x = element_blank(),
+       panel.grid.major.y = element_blank(),
+       panel.grid.minor.y = element_blank(),
+       panel.grid = element_line(color = "#e5e5e5"))+
+  
+  
+     coord_flip()
+
+ggplotly(best, tooltip = "text")
+```
+
+
+## Reference
+
+Instacart-market-basket-analysis by Jeremy Staley, Meg Risdal, sharathrao, Will Cukierski
+    publisher by  Kaggle, 2017. https://kaggle.com/competitions/instacart-market-basket-analysis
+
