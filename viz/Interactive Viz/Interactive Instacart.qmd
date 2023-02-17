@@ -1,5 +1,5 @@
 ---
-title: "Interactive Graph- Instacart"
+title: "Interactive Graphics- Instacart"
 author: "Karol Orozco"
 date: today
 image: "insta.png"
@@ -15,7 +15,6 @@ library(dplyr)
 library(treemap)
 library(d3treeR) ## devtools::install_github("timelyportfolio/d3treeR")
 library(colorspace)
-library(plotly)
 
 
 orders <- read.csv("C:/Users/karol/Desktop/Projects/orders.csv")
@@ -48,7 +47,13 @@ data <- data %>% mutate(product_name = as.factor(product_name))
 
 ```
 
+
+## Gganimate
+
 ```{r}
+
+library(gganimate) 
+
 day_week <- orders %>%
     mutate(day = as.factor(order_dow)) %>%
     mutate(hour = as.factor(order_hour_of_day)) %>%
@@ -101,13 +106,14 @@ day_weekp <-day_week %>%
     legend.key.height=grid::unit(0.2,"cm")
 )
 
-ggplotly(day_weekp)
+day_weekp+ transition_manual(day, cumulative = TRUE)
 
 ```
 
-
+## Plotly
 
 ```{r}
+library(plotly)
 
 type <- data   %>%
     group_by(product_id)%>% 
@@ -151,10 +157,76 @@ ggplot(aes(x=reorder(product_name,count), y=count, color= category, text= paste0
        panel.grid = element_line(color = "#e5e5e5"))+
   
   
+  
      coord_flip()
 
 ggplotly(best, tooltip = "text")
 ```
+
+
+
+## Ggiraph
+
+```{r}
+library(ggiraph)
+library(glue)
+
+
+tooltip_css <- "background-color:#d8118c;color:white;padding:5px;border-radius:3px;"
+bg_color <- "#D7E0DA"
+font_color <- "#1f3225"
+
+
+df3 <- data%>%
+  select(product_id, reordered, product_name)%>%
+  group_by(product_id, product_name)%>% 
+  dplyr::summarize(proportion_reordered = mean(reordered), n=n())
+
+
+gg_scatter <- ggplot(
+  data = df3,
+  mapping = aes(x=n, y=proportion_reordered,
+                
+    # here we add iteractive aesthetics
+    tooltip = paste0(toupper(product_name), ":", 
+                   n))) +
+  geom_jitter_interactive(
+    size = 3, hover_nearest = TRUE)+
+
+  geom_smooth_interactive(se = FALSE, tooltip="smooth", data_id="smooth")+
+  
+  labs(y = "Proportion of reorders",
+       title= "Association between number of orders and probability of reordering",
+       caption = "Products with a high number of orders are naturally more likely to be reordered.\nHowever, there seems to be a ceiling effect.")+
+  theme_minimal()+
+  theme(text=element_text(family = "chivo", color="#1f3225"), 
+        panel.grid.minor = element_blank(),
+        panel.grid.major = element_line(color="#1f3225", size=0.1),
+        axis.title=element_text(face="bold", size= 10),
+        axis.text =element_text(color="#1f3225"),
+        axis.title.y=element_text(margin=margin(r=10)),
+        plot.title = element_text(size = 13, face = "bold", 
+                                  hjust = 0.5, vjust = 0.5),
+        plot.margin  = margin(20,20,20,20))
+
+## Customizing girafe animations
+
+girafe(
+  ggobj = gg_scatter,
+  bg = bg_color,
+  options = list(
+    opts_tooltip(css = tooltip_css, opacity = 1),
+    opts_sizing(width = .7),
+    opts_zoom(max = 1),
+    opts_hover(
+      css = girafe_css(
+        css = glue("fill:{font_color};"),
+        text = glue("stroke:none;fill:{font_color};fill-opacity:1;")))))
+   
+ 
+
+```
+
 
 
 ## Reference
