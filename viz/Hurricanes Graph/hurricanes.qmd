@@ -2,7 +2,7 @@
 title: "Hurricanes"
 author: "Karol Orozco"
 date: "2023/02/05"
-image: "hurricanes.jpg"
+image: "hurricane.png"
 ---
 
 Hello there,
