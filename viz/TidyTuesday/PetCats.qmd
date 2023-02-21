@@ -2,9 +2,8 @@
 title: "Pet Cats UK"
 author: "Karol Orozco"
 date: "2023/02/05"
-image: "tt_logo.png"
+image: "TT_Week5_2023.png"
 ---
-
 
 This dataset is full of exciting columns that provide insight into the secret lives of cats. I must admit that dogs are my favorite pets, but many of my friends love cats, and I always hear stories about how independent their pets are, which made me want to learn more about them.
 
@@ -12,13 +11,11 @@ Well, I was born in Colombia, and during my time there, I always remember the ca
 
 According to the American Society for the Prevention of Cruelty to Animals ASPCA, a female cat can have an average of four to six kittens per litter and may have one to two litters per year. Some cat owners prefer to spay or neuter their cats.
 
-The TidyTuesday, weekly data project, posted on January 31st, 2023, a dataset from the Movebank for Animal Tracking Data, which includes cats' characteristics (such as age, sex, neuter status, hunting habits) and time-stamped GPS pings.  I'll take a look at the reproductive status of the cats and improve the graph offered by the Twitter user [@OluwafemOyedele](https://twitter.com/OluwafemOyedele/status/1621817963232874496/photo/1).
+The TidyTuesday, weekly data project, posted on January 31st, 2023, a dataset from the Movebank for Animal Tracking Data, which includes cats' characteristics (such as age, sex, neuter status, hunting habits) and time-stamped GPS pings. I'll take a look at the reproductive status of the cats and improve the graph offered by the Twitter user [\@OluwafemOyedele](https://twitter.com/OluwafemOyedele/status/1621817963232874496/photo/1).
 
 ![OluwademOyede's Visualization](cat_orig.jpg)
 
 You can find the data on the TidyTuesday Github site- ["Pet Cats UK"](https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-01-31/readme.md).
-
-
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(warning=FALSE, message=FALSE)
@@ -158,13 +155,12 @@ cats_uk_reference |> write_csv(
 )
 ```
 
-::: {.callout-warning icon=true}
-
+::: {.callout-warning icon="true"}
 ## Pay Attention
 
-- In the graph above, the user combined both data sets: cats_uk and cats_uk_reference, which combined all cat activities and duplicated tag_id. The user did not consider the unique tag_id, which inflated their data points to over 100,000.
+-   In the graph above, the user combined both data sets: cats_uk and cats_uk_reference, which combined all cat activities and duplicated tag_id. The user did not consider the unique tag_id, which inflated their data points to over 100,000.
 
-- By doubling the tag_ids, the data implies that the cat was neutered or spayed multiple times.
+-   By doubling the tag_ids, the data implies that the cat was neutered or spayed multiple times.
 :::
 
 **Here is the list of cat names, in case you need some inspiration.**
@@ -172,7 +168,6 @@ cats_uk_reference |> write_csv(
 ```{r}
 unique(cats_uk$tag_id)
 ```
-
 
 ```{r}
 
@@ -218,11 +213,10 @@ scale_fill_manual(name= NULL, values = c("cyan4","darkgray","#b13173"))+
 
 ```
 
-
 ## Reference
 
 Kays R, Dunn RR, Parsons AW, Mcdonald B, Perkins T, Powers S, Shell L, McDonald JL, Cole H, Kikillus H, Woods L, Tindle H, Roetman P (2020) The small home ranges and large local ecological impacts of pet cats. Animal Conservation. doi:10.1111/acv.12563
 
-McDonald JL, Cole H (2020) Data from: The small home ranges and large local ecological impacts of pet cats [United Kingdom]. Movebank Data Repository. doi:10.5441/001/1.pf315732
+McDonald JL, Cole H (2020) Data from: The small home ranges and large local ecological impacts of pet cats \[United Kingdom\]. Movebank Data Repository. doi:10.5441/001/1.pf315732
 
 Thomas Mock (2022). Tidy Tuesday: A weekly data project aimed at the R ecosystem.[GitHub](https://github.com/rfordatascience/tidytuesday)
