@@ -1,7 +1,7 @@
 ---
 title: "Hollywood Age Gaps"
 author: "Karol Orozco"
-date: today
+date: 02/14/2023
 image: "p.png"
 ---
 

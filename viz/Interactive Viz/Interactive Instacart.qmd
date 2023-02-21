@@ -1,7 +1,7 @@
 ---
 title: "Interactive Graphics- Instacart"
 author: "Karol Orozco"
-date: today
+date: 02/20/2023
 image: "insta.png"
 ---
 

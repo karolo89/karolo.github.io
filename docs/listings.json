@@ -9,8 +9,8 @@
   {
     "listing": "/Resources.html",
     "items": [
-      "/viz/Hollywood Age Gaps/AgeGaps.html",
       "/viz/Interactive Viz/Interactive Instacart.html",
+      "/viz/Hollywood Age Gaps/AgeGaps.html",
       "/viz/Table/tables.html",
       "/viz/Hurricanes Graph/hurricanes.html",
       "/viz/TidyTuesday/PetCats.html"
