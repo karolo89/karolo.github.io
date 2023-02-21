@@ -42,8 +42,7 @@ data <- data %>% mutate(product_name = as.factor(product_name))
 
 ```
 
-
-## Gganimate
+## gganimate
 
 ```{r}
 
@@ -117,10 +116,12 @@ type <- data   %>%
     left_join(select(products, product_id, product_name, category), by="product_id") %>%
     arrange(desc(count))
 
- 
 
 best <- type %>% 
-ggplot(aes(x=reorder(product_name,count), y=count, color= category, text= paste0(product_name, ", Total Orders:", count)))+    geom_point(size= 2)+
+
+ggplot(aes(x=reorder(product_name,count), y=count, color= category, text= paste0(product_name, ", Total Orders:", count)))+    
+  
+  geom_point(size= 2)+
     geom_segment(aes(x=reorder(product_name,count), 
                      xend=reorder(product_name,count), 
                      y=0, 
@@ -158,9 +159,7 @@ ggplot(aes(x=reorder(product_name,count), y=count, color= category, text= paste0
 ggplotly(best, tooltip = "text")
 ```
 
-
-
-## Ggiraph
+## ggiraph
 
 ```{r}
 library(ggiraph)
@@ -188,7 +187,7 @@ gg_scatter <- ggplot(
   geom_jitter_interactive(
     size = 3, hover_nearest = TRUE)+
 
-  geom_smooth_interactive(se = FALSE, tooltip="smooth", data_id="smooth")+
+geom_smooth(aes(tooltip="smoothed line", data_id="smooth"), se= FALSE)+  
   
   labs(y = "Proportion of reorders",
        title= "Association between number of orders and probability of reordering",
@@ -222,10 +221,6 @@ girafe(
 
 ```
 
-
-
 ## Reference
 
-Instacart-market-basket-analysis by Jeremy Staley, Meg Risdal, sharathrao, Will Cukierski
-    publisher by  Kaggle, 2017. https://kaggle.com/competitions/instacart-market-basket-analysis
-
+Instacart-market-basket-analysis by Jeremy Staley, Meg Risdal, sharathrao, Will Cukierski publisher by Kaggle, 2017. https://kaggle.com/competitions/instacart-market-basket-analysis
