@@ -2,7 +2,7 @@
 title: "Hollywood Age Gaps"
 author: "Karol Orozco"
 date: today
-image: "tt_logo.png"
+image: "p.png"
 ---
 
 ```{r setup, include=FALSE}
@@ -16,9 +16,8 @@ age_gaps <- read.csv("https://raw.githubusercontent.com/karolo89/karolo_website/
 
 ```
 
-
 ```{r}
-age_gaps %>% 
+p <- age_gaps %>% 
   select(release_year, age_difference) %>%
   ggplot(aes(x = release_year,  y = age_difference)) +
   geom_point(colour = alpha("#FF9A00", 0.5)) +
@@ -40,9 +39,9 @@ age_gaps %>%
         plot.margin  = margin(20,20,10,10)) 
 
 
+p
+
 ```
-
-
 
 ## Reference
 
