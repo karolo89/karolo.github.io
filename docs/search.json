@@ -201,5 +201,152 @@
     "title": "Pet Cats UK",
     "section": "Reference",
     "text": "Reference\nKays R, Dunn RR, Parsons AW, Mcdonald B, Perkins T, Powers S, Shell L, McDonald JL, Cole H, Kikillus H, Woods L, Tindle H, Roetman P (2020) The small home ranges and large local ecological impacts of pet cats. Animal Conservation. doi:10.1111/acv.12563\nMcDonald JL, Cole H (2020) Data from: The small home ranges and large local ecological impacts of pet cats [United Kingdom]. Movebank Data Repository. doi:10.5441/001/1.pf315732\nThomas Mock (2022). Tidy Tuesday: A weekly data project aimed at the R ecosystem.GitHub"
+  },
+  {
+    "objectID": "KarolOrozco.html#slide-1-",
+    "href": "KarolOrozco.html#slide-1-",
+    "title": "Measures that Matter",
+    "section": "Slide 1-",
+    "text": "Slide 1-"
+  },
+  {
+    "objectID": "KarolOrozco.html#slide-2",
+    "href": "KarolOrozco.html#slide-2",
+    "title": "Measures that Matter",
+    "section": "Slide 2",
+    "text": "Slide 2"
+  },
+  {
+    "objectID": "KarolOrozco.html#slide-1",
+    "href": "KarolOrozco.html#slide-1",
+    "title": "Measures that Matter",
+    "section": "Slide 1",
+    "text": "Slide 1"
+  },
+  {
+    "objectID": "KarolOrozco.html#slide-one",
+    "href": "KarolOrozco.html#slide-one",
+    "title": "Measures that Matter",
+    "section": "Slide One",
+    "text": "Slide One"
+  },
+  {
+    "objectID": "KarolOrozco.html#section",
+    "href": "KarolOrozco.html#section",
+    "title": "Measures that Matter",
+    "section": "",
+    "text": "Slide 2 has a special image for its background, even though the heading has no content."
+  },
+  {
+    "objectID": "KarolOrozco.html#we-all-live-in-a-yellow-submarine",
+    "href": "KarolOrozco.html#we-all-live-in-a-yellow-submarine",
+    "title": "Measures that Matter",
+    "section": "We all live in a yellow submarine",
+    "text": "We all live in a yellow submarine\nhelp me"
+  },
+  {
+    "objectID": "KarolOrozco.html#section-1",
+    "href": "KarolOrozco.html#section-1",
+    "title": "Measures that Matter",
+    "section": "",
+    "text": "“C:_website”\nThis is a colored slide with no title"
+  },
+  {
+    "objectID": "KarolOrozco.html#slide-with-speaker-notes",
+    "href": "KarolOrozco.html#slide-with-speaker-notes",
+    "title": "Measures that Matter",
+    "section": "Slide with speaker notes",
+    "text": "Slide with speaker notes\nSlide content\n\nSpeaker notes go here."
+  },
+  {
+    "objectID": "KarolOrozco.html#fit-text",
+    "href": "KarolOrozco.html#fit-text",
+    "title": "Measures that Matter",
+    "section": "FIT TEXT",
+    "text": "FIT TEXT"
+  },
+  {
+    "objectID": "KarolOrozco.html#can-be-used-for-multiple-headlines",
+    "href": "KarolOrozco.html#can-be-used-for-multiple-headlines",
+    "title": "Measures that Matter",
+    "section": "CAN BE USED FOR MULTIPLE HEADLINES",
+    "text": "CAN BE USED FOR MULTIPLE HEADLINES"
+  },
+  {
+    "objectID": "KarolOrozco.html#im-not-hidden",
+    "href": "KarolOrozco.html#im-not-hidden",
+    "title": "Measures that Matter",
+    "section": "I’m not hidden",
+    "text": "I’m not hidden"
+  },
+  {
+    "objectID": "KarolOrozco.html#tabset-example",
+    "href": "KarolOrozco.html#tabset-example",
+    "title": "Measures that Matter",
+    "section": "Tabset example",
+    "text": "Tabset example\n\nExample 1Example 2\n\n\nContent here for tabset 1 :)\n\n\nMore content here, for tabset 2 :)"
+  },
+  {
+    "objectID": "KarolOrozco.html#incremental-content",
+    "href": "KarolOrozco.html#incremental-content",
+    "title": "Measures that Matter",
+    "section": "Incremental content",
+    "text": "Incremental content\nHi!\n\nUse . . . to separate content as an incremental slide!"
+  },
+  {
+    "objectID": "KarolOrozco.html#you-can-add-r-code",
+    "href": "KarolOrozco.html#you-can-add-r-code",
+    "title": "Measures that Matter",
+    "section": "You can add R code",
+    "text": "You can add R code\n\nlibrary(dplyr)\nlibrary(ggplot2)\ng <- starwars |> \n  ggplot() +\n  geom_point(aes(x = height, y = mass)) +\n  theme_light()"
+  },
+  {
+    "objectID": "KarolOrozco.html#and-show-the-results-aswell",
+    "href": "KarolOrozco.html#and-show-the-results-aswell",
+    "title": "Measures that Matter",
+    "section": "And show the results aswell :)",
+    "text": "And show the results aswell :)\n\ng"
+  },
+  {
+    "objectID": "KarolOrozco.html#what-about-tables",
+    "href": "KarolOrozco.html#what-about-tables",
+    "title": "Measures that Matter",
+    "section": "What about tables?",
+    "text": "What about tables?\nknitr::kable()\n\n\n\ntab <- starwars |>\n  tidyr::drop_na(species) |> \n  group_by(species) |>\n  summarise(\n    n = n(),\n    mean_heigth = round(mean(height, na.rm = TRUE)),\n    mean_mass = round(mean(mass, na.rm = TRUE))\n  ) |> \n  slice_max(order_by = n, n = 4) \nknitr::kable(tab)\n\n\n\n\n\n\n\nspecies\nn\nmean_heigth\nmean_mass\n\n\n\n\nHuman\n35\n177\n83\n\n\nDroid\n6\n131\n70\n\n\nGungan\n3\n209\n74\n\n\nKaminoan\n2\n221\n88\n\n\nMirialan\n2\n168\n53\n\n\nTwi’lek\n2\n179\n55\n\n\nWookiee\n2\n231\n124\n\n\nZabrak\n2\n173\n80"
+  },
+  {
+    "objectID": "KarolOrozco.html#dtdatatable",
+    "href": "KarolOrozco.html#dtdatatable",
+    "title": "Measures that Matter",
+    "section": "DT::datatable()",
+    "text": "DT::datatable()\nWith the smaller class in the slide! Ex: ## slide name {.smaller}"
+  },
+  {
+    "objectID": "KarolOrozco.html#gtgt",
+    "href": "KarolOrozco.html#gtgt",
+    "title": "Measures that Matter",
+    "section": "gt::gt()",
+    "text": "gt::gt()\n\n\n\n\n\n\n  \n  \n    \n      species\n      n\n      mean_heigth\n      mean_mass\n    \n  \n  \n    Human\n35\n177\n83\n    Droid\n6\n131\n70\n    Gungan\n3\n209\n74\n    Kaminoan\n2\n221\n88\n    Mirialan\n2\n168\n53\n    Twi'lek\n2\n179\n55\n    Wookiee\n2\n231\n124\n    Zabrak\n2\n173\n80"
+  },
+  {
+    "objectID": "KarolOrozco.html#reactablereactable",
+    "href": "KarolOrozco.html#reactablereactable",
+    "title": "Measures that Matter",
+    "section": "reactable::reactable()",
+    "text": "reactable::reactable()"
+  },
+  {
+    "objectID": "KarolOrozco.html#diagrams-with-mermaid",
+    "href": "KarolOrozco.html#diagrams-with-mermaid",
+    "title": "Measures that Matter",
+    "section": "Diagrams with Mermaid!",
+    "text": "Diagrams with Mermaid!\nRead about how to create a diagram in this post by Mine Çetinkaya-Rundel.\n\n\n\n#quartotip 21: Create diagrams in Quarto documents using Mermaid or Graphviz in executable code cells, similar to how you create figures.Read more: https://t.co/3qx9oSNCay pic.twitter.com/fYzGcISl4h\n\n— Quarto (@quarto_pub) July 19, 2022"
+  },
+  {
+    "objectID": "KarolOrozco.html#exporting-into-pdf",
+    "href": "KarolOrozco.html#exporting-into-pdf",
+    "title": "Measures that Matter",
+    "section": "Exporting into PDF",
+    "text": "Exporting into PDF\nYou can use the function pagedown::chrome_print() to print the HTML version into a PDF!\npagedown::chrome_print(\"path-to-file.html\")\n\n\n\nLinkedIn: @karolorozcoe | GitHub: @karolo89"
   }
 ]
