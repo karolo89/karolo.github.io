@@ -348,5 +348,40 @@
     "title": "Measures that Matter",
     "section": "Exporting into PDF",
     "text": "Exporting into PDF\nYou can use the function pagedown::chrome_print() to print the HTML version into a PDF!\npagedown::chrome_print(\"path-to-file.html\")\n\n\n\nLinkedIn: @karolorozcoe | GitHub: @karolo89"
+  },
+  {
+    "objectID": "KarolOrozco.html#skills",
+    "href": "KarolOrozco.html#skills",
+    "title": "Measures that Matter",
+    "section": "Skills",
+    "text": "Skills"
+  },
+  {
+    "objectID": "KarolOrozco.html#what-people-said-about-me",
+    "href": "KarolOrozco.html#what-people-said-about-me",
+    "title": "Measures that Matter",
+    "section": "What people said about me",
+    "text": "What people said about me\nRead about how to create a diagram in this post by Mine Çetinkaya-Rundel.\n\n\n\n#quartotip 21: Create diagrams in Quarto documents using Mermaid or Graphviz in executable code cells, similar to how you create figures.Read more: https://t.co/3qx9oSNCay pic.twitter.com/fYzGcISl4h\n\n— Quarto (@quarto_pub) July 19, 2022\n\n\n\npagedown::chrome_print(\"path-to-file.html\")\n\n\n\nLinkedIn: @karolorozcoe | GitHub: @karolo89"
+  },
+  {
+    "objectID": "karolo89/karol_website-karolo89/karol_website-karolo89.html",
+    "href": "karolo89/karol_website-karolo89/karol_website-karolo89.html",
+    "title": "A Title",
+    "section": "",
+    "text": "some code and some text.\nA URL www.good.cnrs.fr.\n\n\nShow the code\n1 + 1\n\n\n[1] 2\n\n\n\n\nShow the code\nx <- 1\ny <- x + 1 #<<\ny\n\n\n[1] 2"
+  },
+  {
+    "objectID": "karolo89/karol_website-karolo89/karol_website-karolo89.html#ggplot2-with-code",
+    "href": "karolo89/karol_website-karolo89/karol_website-karolo89.html#ggplot2-with-code",
+    "title": "A Title",
+    "section": "GGPLOT2 With code",
+    "text": "GGPLOT2 With code"
+  },
+  {
+    "objectID": "karolo89/karol_website-karolo89/karol_website-karolo89.html#new-slide",
+    "href": "karolo89/karol_website-karolo89/karol_website-karolo89.html#new-slide",
+    "title": "A Title",
+    "section": "New slide",
+    "text": "New slide\nWith only text"
   }
 ]
