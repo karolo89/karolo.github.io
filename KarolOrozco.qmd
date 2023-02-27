@@ -8,8 +8,6 @@ format:
     css: logo.css
     code-fold: false
     footer: "LinkedIn: @karolorozcoe |  GitHub: @karolo89"
-    revealjs-plugins:
-      - spotlight
 ---
 
 # Personal Profile
@@ -38,14 +36,6 @@ Use `. . .` to separate content as an incremental slide!
 
 ## What people said about me
 
-Read about how to create a diagram in this [post by Mine Çetinkaya-Rundel](https://mine-cetinkaya-rundel.github.io/quarto-tip-a-day/posts/21-diagrams/).
 
-<center>
-<blockquote class="twitter-tweet" data-conversation="none"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/quartotip?src=hash&amp;ref_src=twsrc%5Etfw">#quartotip</a> 21: Create diagrams in Quarto documents using Mermaid or Graphviz in executable code cells, similar to how you create figures.<br><br>Read more: <a href="https://t.co/3qx9oSNCay">https://t.co/3qx9oSNCay</a> <a href="https://t.co/fYzGcISl4h">pic.twitter.com/fYzGcISl4h</a></p>&mdash; Quarto (@quarto_pub) <a href="https://twitter.com/quarto_pub/status/1549271325943947270?ref_src=twsrc%5Etfw">July 19, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</center>
-
-
-```r
-pagedown::chrome_print("path-to-file.html")
-```
+[Go back to my site](https://karolo89.github.io/karolo_website/)
 
