@@ -1,5 +1,6 @@
 ---
 title: "Measures that Matter"
+subtitle: "Maximise the Impact of your Expertise"
 author: "Karol Orozco"
 format:
   revealjs: 
@@ -15,12 +16,12 @@ format:
 I help to create and sustain communities, programs, and solutions that enhance the use of responsible data science and business practices for equitable social good.
 
 
-# Education {background-color="#562457"}
+# Education {background-color="#FFC107"}
 
 As a graduated engineer, I have acquired an extensive experience and problem–solving expertise in data wrangling, statistical analysis, and model development. Since effective communicating of data is of paramount importance, I have subsequently developed strong skills in data visualization and business knowledge. I hold an MBA from Willamette University and currently pursuing a second master in Data Science.
 
 
-# Skills
+# Skills {background-color="#562457"}
 
 I have experience working on the public and private sector helping organization to embrace Shared Value by positively impacting society and the environment. The sweet spot where profit meets purpose. 
 
@@ -34,7 +35,7 @@ Data Analysis | Team Development | Partnership Management | Business Development
 
 R | Tableau | SQL | Community Affairs | Strategic Management | Leadership | Community Engagement | Latinx Community | Shared Value
 
-## My style
+## My style {background-color="#1E88E5"}
 
 𝑰 𝒆𝒏𝒔𝒖𝒓𝒆 𝒄𝒖𝒍𝒕𝒖𝒓𝒂𝒍𝒍𝒚 𝒓𝒆𝒍𝒆𝒗𝒂𝒏𝒕 𝒅𝒂𝒕𝒂 𝒂𝒏𝒂𝒍𝒚𝒔𝒊𝒔 𝒃𝒚:
 
@@ -57,7 +58,7 @@ Create bespoke solutions which automate data processes, and equipping others to 
 
 
 
-## 
+##  {background-color="#1E88E5"}
 
 
 
