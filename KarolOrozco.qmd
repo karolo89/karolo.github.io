@@ -12,29 +12,76 @@ format:
 
 # Personal Profile
 
-My area of expertise is community development through the practical and ethical use of data to advocate for change under the lens of diversity, equity, and inclusion.
+I help to create and sustain communities, programs, and solutions that enhance the use of responsible data science and business practices for equitable social good.
+
 
 # Education {background-color="#562457"}
 
-
-## Skills
-
+As a graduated engineer, I have acquired an extensive experience and problem–solving expertise in data wrangling, statistical analysis, and model development. Since effective communicating of data is of paramount importance, I have subsequently developed strong skills in data visualization and business knowledge. I hold an MBA from Willamette University and currently pursuing a second master in Data Science.
 
 
-## Incremental content
+# Skills
 
-Hi! 
+I have experience working on the public and private sector helping organization to embrace Shared Value by positively impacting society and the environment. The sweet spot where profit meets purpose. 
+
+𝑷𝒓𝒐𝒇𝒆𝒔𝒔𝒊𝒐𝒏𝒂𝒍 𝑺𝒌𝒊𝒍𝒍𝒔
+
+Data Analysis | Team Development | Partnership Management | Business Development | Diversity & Inclusion | Strategic Planning | Process Improvement | Project Management | People & Change
+
+# 
+
+𝑫𝒐𝒎𝒂𝒊𝒏 𝑲𝒏𝒐𝒘𝒍𝒆𝒅𝒈𝒆
+
+R | Tableau | SQL | Community Affairs | Strategic Management | Leadership | Community Engagement | Latinx Community | Shared Value
+
+## My style
+
+𝑰 𝒆𝒏𝒔𝒖𝒓𝒆 𝒄𝒖𝒍𝒕𝒖𝒓𝒂𝒍𝒍𝒚 𝒓𝒆𝒍𝒆𝒗𝒂𝒏𝒕 𝒅𝒂𝒕𝒂 𝒂𝒏𝒂𝒍𝒚𝒔𝒊𝒔 𝒃𝒚:
+
+. . .
+
+Craft intuitive data visualizations and clear narratives to help readers engage well with patterns in data
+
+. . .
+
+Translate data reports and business jargon into plain language in English and Spanish
 
 . . .
 
 
-Use `. . .` to separate content as an incremental slide!
+Create bespoke solutions which automate data processes, and equipping others to use them
+
+. . .
 
 
 
 
-## What people said about me
+
+## 
 
 
-[Go back to my site](https://karolo89.github.io/karolo_website/)
+
+Collect data by partnering with community-based, religious, or other organizations that work with members of the assessment's target communities
+
+. . .
+
+
+Conduct key informant interviews with community leaders
+
+. . .
+
+Engage community members as data collectors and meeting there where they are
+
+. . .
+
+
+Share early results with community stakeholders to validate findings, obtain candid feedback, and adjust the interpretation of data
+
+
+. . .
+
+## Let's get in touch
+
+
+[Contact](https://karolo89.github.io/karolo_website/)
 
