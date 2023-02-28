@@ -1,5 +1,5 @@
 ---
-title: "Hello there! Welcome to my page"
+title: "Hello there!"
 about:
   template: trestles
   image: "koe.jpg"
@@ -18,6 +18,8 @@ title-block-banner-color: "white"
 page-layout: full
 toc: true
 toc-location: right
+fontsize: 1.5em
+
 ---
 
 <center>
@@ -34,6 +36,8 @@ toc-location: right
 <a href="KarolOrozco.html"><button type="button" class="btn btn-primary me-md-2 btn-sm">In a nutshell</button></a>
 
 </center>
+
+# About Me
 
 My name is Karol Orozco, I am from Barranquilla, Colombia, a city also known as "la Arenosa" (the Sandy) and "Curramba la Bella" (Curramba the beautiful), is one of Colombia's major cities, as well as a key tourist destination for locals and foreigners. The city, where the long journey of the Magdalena River ends, is home to many great musicians, writers, and painters. It is also the country's most famous celebration stage: the [Carnival of Barranquilla](https://carnavaldebarranquilla.org/).
 
@@ -58,23 +62,6 @@ Data Analysis | Team Development | Partnership Management | Business Development
 𝑫𝒐𝒎𝒂𝒊𝒏 𝑲𝒏𝒐𝒘𝒍𝒆𝒅𝒈𝒆
 
 R | Tableau | SQL | Community Affairs | Strategic Management | Leadership | Community Engagement | Latinx Community | Shared Value
-
-
-𝑰 𝒆𝒏𝒔𝒖𝒓𝒆 𝒄𝒖𝒍𝒕𝒖𝒓𝒂𝒍𝒍𝒚 𝒓𝒆𝒍𝒆𝒗𝒂𝒏𝒕 𝒅𝒂𝒕𝒂 𝒂𝒏𝒂𝒍𝒚𝒔𝒊𝒔 𝒃𝒚:
-
-- Craft intuitive data visualizations and clear narratives to help readers engage well with patterns in data
-
-- Translate data reports and business jargon into plain language in English and Spanish
-
-- Create bespoke solutions which automate data processes, and equipping others to use them
-
-- Collect data by partnering with community-based, religious, or other organizations that work with members of the assessment's target communities
-
-- Conduct key informant interviews with community leaders
-
-- Engage community members as data collectors and meeting there where they are
-
-- Share early results with community stakeholders to validate findings, obtain candid feedback, and adjust the interpretation of data
 
 
 

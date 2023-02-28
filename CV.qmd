@@ -6,6 +6,8 @@ format:
     toc-location: right
     html-math-method: katex
     page-layout: full
+    fontsize: 1.5em
+
 ---
 
 ### Background
