@@ -1,7 +1,7 @@
 ---
 title: "Hello there!"
 about:
-  template: trestles
+  template: jolla
   image: "koe.jpg"
   links:
     - icon: linkedin
