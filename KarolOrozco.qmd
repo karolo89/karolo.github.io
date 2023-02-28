@@ -1,6 +1,6 @@
 ---
 title: "Measures that Matter"
-subtitle: "Maximise the Impact of your Expertise"
+subtitle: "Maximize the Impact of your Expertise"
 author: "Karol Orozco"
 format:
   revealjs: 
@@ -8,10 +8,14 @@ format:
     logo: logo.png
     css: logo.css
     code-fold: false
-    footer: "LinkedIn: @karolorozcoe |  GitHub: @karolo89"
+    slide-number: c/t
+    width: 1600
+    height: 900
+    footer: "[LinkedIn: @karolorozcoe](https://www.linkedin.com/in/karolorozcoe/) |  [GitHub: @karolo89](https://github.com/karolo89)"
 ---
 
-# Personal Profile
+
+# Personal Profile{background-color="#F0E68C"}
 
 I help to create and sustain communities, programs, and solutions that enhance the use of responsible data science and business practices for equitable social good.
 
@@ -23,11 +27,16 @@ As a graduated engineer, I have acquired an extensive experience and problem–s
 
 # Skills {background-color="#562457"}
 
-I have experience working on the public and private sector helping organization to embrace Shared Value by positively impacting society and the environment. The sweet spot where profit meets purpose. 
+I have experience working on the public and private sector helping organization to embrace Shared Value by positively impacting society and the environment. The sweet spot where profit meets purpose.
+
+. . .
 
 𝑷𝒓𝒐𝒇𝒆𝒔𝒔𝒊𝒐𝒏𝒂𝒍 𝑺𝒌𝒊𝒍𝒍𝒔
 
 Data Analysis | Team Development | Partnership Management | Business Development | Diversity & Inclusion | Strategic Planning | Process Improvement | Project Management | People & Change
+
+. . .
+
 
 # 
 
@@ -41,16 +50,16 @@ R | Tableau | SQL | Community Affairs | Strategic Management | Leadership | Comm
 
 . . .
 
-Craft intuitive data visualizations and clear narratives to help readers engage well with patterns in data
+- Craft intuitive data visualizations and clear narratives to help readers engage well with patterns in data
 
 . . .
 
-Translate data reports and business jargon into plain language in English and Spanish
+- Translate data reports and business jargon into plain language in English and Spanish
 
 . . .
 
 
-Create bespoke solutions which automate data processes, and equipping others to use them
+- Create bespoke solutions which automate data processes, and equipping others to use them
 
 . . .
 
@@ -62,26 +71,26 @@ Create bespoke solutions which automate data processes, and equipping others to 
 
 
 
-Collect data by partnering with community-based, religious, or other organizations that work with members of the assessment's target communities
+- Collect data by partnering with community-based, religious, or other organizations that work with members of the assessment's target communities
 
 . . .
 
 
-Conduct key informant interviews with community leaders
+- Conduct key informant interviews with community leaders
 
 . . .
 
-Engage community members as data collectors and meeting there where they are
+- Engage community members as data collectors and meeting there where they are
 
 . . .
 
 
-Share early results with community stakeholders to validate findings, obtain candid feedback, and adjust the interpretation of data
+- Share early results with community stakeholders to validate findings, obtain candid feedback, and adjust the interpretation of data
 
 
 . . .
 
-## Let's get in touch
+## {background-color="#648FFF"}
 
 If you like what you see, get in touch!
 

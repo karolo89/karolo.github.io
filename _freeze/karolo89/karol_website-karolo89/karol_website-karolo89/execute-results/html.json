@@ -1,0 +1,20 @@
+{
+  "hash": "6da701737a8dd685efcb182d15602349",
+  "result": {
+    "markdown": "---\ntitle: \"A Title\"\nsubtitle: \"A Subtitle\"\nauthor: Mickaël Canouil, *Ph.D.*\ninstitute: Inserm U1283 / CNRS UMR8199 / Institut Pasteur de Lille / Université de Lille\ndate: today\ndate-format: \"dddd, [the] D[<sup style='font-size:65%;font-style:italic;'>th</sup>] [of] MMMM, YYYY\"\nembed-resources: true\nformat: umr1283-revealjs\n---\n\n\n\n\n## Introduction\n\n### Subtitle\n\n`some code` and some text.  \nA URL [www.good.cnrs.fr](https://www.good.cnrs.fr/).\n\n\n::: {.cell}\n::: {.cell-output .cell-output-stdout}\n```\n[1] 2\n```\n:::\n:::\n\n::: {.cell}\n::: {.cell-output .cell-output-stdout}\n```\n[1] 2\n```\n:::\n:::\n\n\n## GGPLOT2 With `code`\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](karol_website-karolo89_files/figure-revealjs/unnamed-chunk-4-1.png){width=960}\n:::\n:::\n\n\n# PART 1 With `code` {.center .center-x}\n\n## New slide\n\nWith only text\n\n# [www.good.cnrs.fr](http://www.good.cnrs.fr) {.center .center-x}\n",
+    "supporting": [
+      "karol_website-karolo89_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-after-body": [
+        "\r\n<script>\r\n  // htmlwidgets need to know to resize themselves when slides are shown/hidden.\r\n  // Fire the \"slideenter\" event (handled by htmlwidgets.js) when the current\r\n  // slide changes (different for each slide format).\r\n  (function () {\r\n    // dispatch for htmlwidgets\r\n    function fireSlideEnter() {\r\n      const event = window.document.createEvent(\"Event\");\r\n      event.initEvent(\"slideenter\", true, true);\r\n      window.document.dispatchEvent(event);\r\n    }\r\n\r\n    function fireSlideChanged(previousSlide, currentSlide) {\r\n      fireSlideEnter();\r\n\r\n      // dispatch for shiny\r\n      if (window.jQuery) {\r\n        if (previousSlide) {\r\n          window.jQuery(previousSlide).trigger(\"hidden\");\r\n        }\r\n        if (currentSlide) {\r\n          window.jQuery(currentSlide).trigger(\"shown\");\r\n        }\r\n      }\r\n    }\r\n\r\n    // hookup for slidy\r\n    if (window.w3c_slidy) {\r\n      window.w3c_slidy.add_observer(function (slide_num) {\r\n        // slide_num starts at position 1\r\n        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);\r\n      });\r\n    }\r\n\r\n  })();\r\n</script>\r\n\r\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

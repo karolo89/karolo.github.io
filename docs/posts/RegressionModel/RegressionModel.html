@@ -126,15 +126,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">Karol Orozco</span>
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../images/logo.png" alt="" class="navbar-logo">
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -148,7 +148,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../Resources.html">
- <span class="menu-text">Visualization</span></a>
+ <span class="menu-text">DataViz</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../Projects.html">
@@ -199,7 +199,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background">Background</a></li>
+  <li><a href="#get-the-data" id="toc-get-the-data" class="nav-link" data-scroll-target="#get-the-data">Get the Data</a></li>
+  <li><a href="#prepare-the-data" id="toc-prepare-the-data" class="nav-link" data-scroll-target="#prepare-the-data">Prepare the Data</a>
+  <ul class="collapse">
+  <li><a href="#missing-data" id="toc-missing-data" class="nav-link" data-scroll-target="#missing-data">Missing data</a></li>
+  </ul></li>
+  <li><a href="#take-a-look-at-the-data" id="toc-take-a-look-at-the-data" class="nav-link" data-scroll-target="#take-a-look-at-the-data">Take a look at the Data</a>
+  <ul class="collapse">
+  <li><a href="#data-splitting" id="toc-data-splitting" class="nav-link" data-scroll-target="#data-splitting">Data Splitting</a></li>
+  <li><a href="#validaton-set" id="toc-validaton-set" class="nav-link" data-scroll-target="#validaton-set">Validaton Set</a></li>
+  </ul></li>
+  <li><a href="#the-model--logistic-regression" id="toc-the-model--logistic-regression" class="nav-link" data-scroll-target="#the-model--logistic-regression">The Model- Logistic regression</a>
+  <ul class="collapse">
+  <li><a href="#performance-metrics" id="toc-performance-metrics" class="nav-link" data-scroll-target="#performance-metrics">Performance metrics</a></li>
+  <li><a href="#collect-predictions" id="toc-collect-predictions" class="nav-link" data-scroll-target="#collect-predictions">Collect predictions</a></li>
+  <li><a href="#roc-curve" id="toc-roc-curve" class="nav-link" data-scroll-target="#roc-curve">ROC Curve</a></li>
+  </ul></li>
+  <li><a href="#use-the-workflow-to-train-our-model" id="toc-use-the-workflow-to-train-our-model" class="nav-link" data-scroll-target="#use-the-workflow-to-train-our-model">Use the workflow to train our model</a></li>
+  <li><a href="#evaluate-other-desired-metrics" id="toc-evaluate-other-desired-metrics" class="nav-link" data-scroll-target="#evaluate-other-desired-metrics">Evaluate other desired metrics</a>
+  <ul class="collapse">
+  <li><a href="#make-a-roc_chart" id="toc-make-a-roc_chart" class="nav-link" data-scroll-target="#make-a-roc_chart">Make a roc_chart</a></li>
+  <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference">Reference</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 

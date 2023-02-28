@@ -4,13 +4,20 @@ project:
 
 website:
   title: "Karol Orozco"
+  
   navbar:
     pinned: true
+    background: "#092c3b"
+    logo: "images/logo.png"
+    align: center
+    title: false
+    color: "white"
+    collapse-below: lg
     
     left:
       - href: index.qmd
         text: About
-      - text: Visualization
+      - text: DataViz
         href: Resources.qmd
       - text: Models
         href: Projects.qmd
@@ -20,6 +27,7 @@ website:
     background: light
     left: 
       - "Copyright 2023, Karol Orozco"
+      
     right: 
       - icon: github
         href: https://github.com/karolo89
@@ -34,7 +42,8 @@ format:
   html:
     theme: 
        - html/mystyles.scss
-    toc: false
+    toc: true
+    code-copy: true
     code-fold: true
     code-summary: "Show the code"
     anchor-sections: true
@@ -42,7 +51,10 @@ format:
     reference-location: margin
     footnotes-hover: true
     highlight-style: monokai
+    mainfont: "Atkinson Hyperlegible"
+    include-in-header: "style/fontawesome.html"
 
+freeze: auto
 
 editor: visual
 
