@@ -3,7 +3,7 @@ title: "Portfolio"
 listing:
   contents: viz
   sort: "date desc"
-  type: table
+  type: grid
   fields: [image, date, title, author]
   sort-ui: false
 title-block-banner: "#000080"
