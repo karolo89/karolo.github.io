@@ -52,7 +52,8 @@ leaflet() %>%
 
 As a graduated engineer, I have acquired extensive experience and problem–solving expertise in data wrangling, statistical analysis, and model development. Since effective communication of data is of paramount importance, I have subsequently developed strong skills in data visualization and business knowledge. I hold an MBA from Willamette University and currently pursuing a second master's in Data Science.
 
-I have experience working on the public and private sector helping organization to embrace Shared Value by positively impacting society and the environment: The sweet spot where profit meets purpose.
+I have experience working in the public and private sectors helping organizations to embrace Shared Value by positively impacting society and the environment: The sweet spot where profit meets purpose.
+
 
 
 
