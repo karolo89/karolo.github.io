@@ -70,9 +70,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-image','listing-date','listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -149,7 +149,7 @@ background: #000080;
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
+    <div class="quarto-title column-page">
       <h1 class="title">Portfolio</h1>
                       </div>
   </div>
@@ -166,11 +166,9 @@ background: #000080;
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(7)</span></div></div></div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
 
 
 
@@ -179,206 +177,133 @@ background: #000080;
 
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1676880000000" data-listing-file-modified-sort="1676956353908" data-listing-reading-time-sort="6.31">
-<div class="thumbnail">
-<p><a href="./viz/Interactive Viz/Interactive Instacart.html"> <img src="./viz/Interactive Viz/insta.png" class="thumnail-image"> </a></p>
+<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
+<div class="listing-actions-group">
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
 </div>
-<div class="body">
-<a href="./viz/Interactive Viz/Interactive Instacart.html">
-<h3 class="no-anchor listing-title">
-Interactive Graphics- Instacart
-</h3>
-<div class="listing-subtitle">
 
-</div>
-<div class="listing-description">
-Insta…
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./viz/Interactive Viz/Interactive Instacart.html">
-<div class="listing-date">
+<table class="quarto-listing-table table">
+<thead>
+<tr>
+<th>
+</th>
+<th>
+Date
+</th>
+<th>
+Title
+</th>
+<th>
+Author
+</th>
+</tr>
+</thead>
+<tbody class="list">
+<tr data-index="0" data-listing-date-sort="1676880000000" data-listing-file-modified-sort="1676956353908" data-listing-reading-time-sort="6.31" data-listing-title-sort="Interactive Graphics- Instacart" data-listing-filename-sort="Interactive Instacart.qmd">
+<td class="listing-image">
+<img src="./viz/Interactive Viz/insta.png" style="height: 40px;">
+</td>
+<td class="listing-date">
 February 20, 2023
-</div>
-<div class="listing-author">
+</td>
+<td class="listing-title">
+<a href="./viz/Interactive Viz/Interactive Instacart.html" class="title">Interactive Graphics- Instacart</a>
+</td>
+<td class="listing-author">
 Karol Orozco
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1676361600000" data-listing-file-modified-sort="1676956176993" data-listing-reading-time-sort="1.21">
-<div class="thumbnail">
-<p><a href="./viz/Hollywood Age Gaps/AgeGaps.html"> <img src="./viz/Hollywood Age Gaps/p.png" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./viz/Hollywood Age Gaps/AgeGaps.html">
-<h3 class="no-anchor listing-title">
-Hollywood Age Gaps
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-The data this week comes from Hollywood Age Gap via Data Is Plural.
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./viz/Hollywood Age Gaps/AgeGaps.html">
-<div class="listing-date">
+</td>
+</tr>
+<tr data-index="1" data-listing-date-sort="1676361600000" data-listing-file-modified-sort="1676956176993" data-listing-reading-time-sort="1.21" data-listing-title-sort="Hollywood Age Gaps" data-listing-filename-sort="AgeGaps.qmd">
+<td class="listing-image">
+<img src="./viz/Hollywood Age Gaps/p.png" style="height: 40px;">
+</td>
+<td class="listing-date">
 February 14, 2023
-</div>
-<div class="listing-author">
+</td>
+<td class="listing-title">
+<a href="./viz/Hollywood Age Gaps/AgeGaps.html" class="title">Hollywood Age Gaps</a>
+</td>
+<td class="listing-author">
 Karol Orozco
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1675670400000" data-listing-file-modified-sort="1676956316729" data-listing-reading-time-sort="4.625">
-<div class="thumbnail">
-<p><a href="./viz/Table/tables.html"> <img src="./viz/Table/featured.png" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./viz/Table/tables.html">
-<h3 class="no-anchor listing-title">
-Tables
-</h3>
-<div class="listing-subtitle">
+</td>
+</tr>
 
-</div>
-<div class="listing-description">
-
- The Palmer Archipelago penguins. Artwork by <span class="citation" data-cites="allison_horst">@allison_horst</span>.
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./viz/Table/tables.html">
-<div class="listing-date">
+<tr data-index="2" data-listing-date-sort="1675670400000" data-listing-file-modified-sort="1676956316729" data-listing-reading-time-sort="4.625" data-listing-title-sort="Tables" data-listing-filename-sort="tables.qmd">
+<td class="listing-image">
+<img src="./viz/Table/featured.png" style="height: 40px;">
+</td>
+<td class="listing-date">
 February 6, 2023
-</div>
-<div class="listing-author">
+</td>
+<td class="listing-title">
+<a href="./viz/Table/tables.html" class="title">Tables</a>
+</td>
+<td class="listing-author">
 Karol Orozco
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-listing-date-sort="1675584000000" data-listing-file-modified-sort="1676672619373" data-listing-reading-time-sort="5.69">
-<div class="thumbnail">
-<p><a href="./viz/Hurricanes Graph/hurricanes.html"> <img src="./viz/Hurricanes Graph/hurricane.png" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./viz/Hurricanes Graph/hurricanes.html">
-<h3 class="no-anchor listing-title">
-Hurricanes
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-Hello there,
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./viz/Hurricanes Graph/hurricanes.html">
-<div class="listing-date">
+</td>
+</tr>
+<tr data-index="3" data-listing-date-sort="1675584000000" data-listing-file-modified-sort="1676672619373" data-listing-reading-time-sort="5.69" data-listing-title-sort="Hurricanes" data-listing-filename-sort="hurricanes.qmd">
+<td class="listing-image">
+<img src="./viz/Hurricanes Graph/hurricane.png" style="height: 40px;">
+</td>
+<td class="listing-date">
 February 5, 2023
-</div>
-<div class="listing-author">
+</td>
+<td class="listing-title">
+<a href="./viz/Hurricanes Graph/hurricanes.html" class="title">Hurricanes</a>
+</td>
+<td class="listing-author">
 Karol Orozco
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-listing-date-sort="1675584000000" data-listing-file-modified-sort="1676950347064" data-listing-reading-time-sort="6.53">
-<div class="thumbnail">
-<p><a href="./viz/TidyTuesday/PetCats.html"> <img src="./viz/TidyTuesday/TT_Week5_2023.png" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./viz/TidyTuesday/PetCats.html">
-<h3 class="no-anchor listing-title">
-Pet Cats UK
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-This dataset is full of exciting columns that provide insight into the secret lives of cats. I must…
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./viz/TidyTuesday/PetCats.html">
-<div class="listing-date">
+</td>
+</tr>
+<tr data-index="4" data-listing-date-sort="1675584000000" data-listing-file-modified-sort="1676950347064" data-listing-reading-time-sort="6.53" data-listing-title-sort="Pet Cats UK" data-listing-filename-sort="PetCats.qmd">
+<td class="listing-image">
+<img src="./viz/TidyTuesday/TT_Week5_2023.png" style="height: 40px;">
+</td>
+<td class="listing-date">
 February 5, 2023
-</div>
-<div class="listing-author">
+</td>
+<td class="listing-title">
+<a href="./viz/TidyTuesday/PetCats.html" class="title">Pet Cats UK</a>
+</td>
+<td class="listing-author">
 Karol Orozco
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-listing-date-sort="1670140800000" data-listing-file-modified-sort="1676094028463" data-listing-reading-time-sort="5.575">
-<div class="thumbnail">
-<p><a href="./viz/TimeSeries/Time Series Project.html"> <img src="./viz/TimeSeries/forecast.jpg" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./viz/TimeSeries/Time Series Project.html">
-<h3 class="no-anchor listing-title">
-Time Series
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-In this project, I will perform Time series analysis using the Zillow Home Value Index (ZHVI) dataset: A smoothed, seasonally…
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./viz/TimeSeries/Time Series Project.html">
-<div class="listing-date">
+</td>
+</tr>
+<tr data-index="5" data-listing-date-sort="1670140800000" data-listing-file-modified-sort="1676094028463" data-listing-reading-time-sort="5.575" data-listing-title-sort="Time Series" data-listing-filename-sort="Time Series Project.qmd">
+<td class="listing-image">
+<img src="./viz/TimeSeries/forecast.jpg" style="height: 40px;">
+</td>
+<td class="listing-date">
 December 4, 2022
-</div>
-<div class="listing-author">
+</td>
+<td class="listing-title">
+<a href="./viz/TimeSeries/Time Series Project.html" class="title">Time Series</a>
+</td>
+<td class="listing-author">
 Karol Orozco
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-listing-date-sort="1669881600000" data-listing-file-modified-sort="1676336038674" data-listing-reading-time-sort="6.83">
-<div class="thumbnail">
-<p><a href="./viz/RegressionModel/RegressionModel.html"> <img src="./viz/RegressionModel/house_price.jpg" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./viz/RegressionModel/RegressionModel.html">
-<h3 class="no-anchor listing-title">
-House Prices in Portland, OR
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-The goal is to build a classification model to predict the type of median housing prices in Portland, OR and its metropolitan area.
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./viz/RegressionModel/RegressionModel.html">
-<div class="listing-date">
+</td>
+</tr>
+<tr data-index="6" data-listing-date-sort="1669881600000" data-listing-file-modified-sort="1676336038674" data-listing-reading-time-sort="6.83" data-listing-title-sort="House Prices in Portland, OR" data-listing-filename-sort="RegressionModel.qmd">
+<td class="listing-image">
+<img src="./viz/RegressionModel/house_price.jpg" style="height: 40px;">
+</td>
+<td class="listing-date">
 December 1, 2022
-</div>
-<div class="listing-author">
+</td>
+<td class="listing-title">
+<a href="./viz/RegressionModel/RegressionModel.html" class="title">House Prices in Portland, OR</a>
+</td>
+<td class="listing-author">
 Karol Orozco
-</div>
-</a>
-</div>
-</div>
-</div>
+</td>
+</tr>
+</tbody>
+
+</table>
 <div class="listing-no-matching d-none">
 No matching items
 </div>

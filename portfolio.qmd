@@ -3,8 +3,8 @@ title: "Portfolio"
 listing:
   contents: viz
   sort: "date desc"
-  type: default
-  categories: true
+  type: table
+  fields: [image, date, title, author]
   sort-ui: false
 title-block-banner: "#000080"
 title-block-banner-color: "white"
