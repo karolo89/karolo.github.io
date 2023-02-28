@@ -2,7 +2,7 @@
 title: "Hello there! Welcome to my page"
 about:
   template: trestles
-  image: profile.jpeg
+  image: koe.jpeg
   links:
     - icon: linkedin
       text: LinkedIn
@@ -43,7 +43,7 @@ leaflet() %>%
   addTiles() %>%  # Add default OpenStreetMap map tiles
   addMarkers(lng=-74.77028, lat=10.98611, popup="The birthplace of R")
 ```
-
+:::
 
 As a graduated engineer, I have acquired extensive experience and problem–solving expertise in data wrangling, statistical analysis, and model development. Since effective communication of data is of paramount importance, I have subsequently developed strong skills in data visualization and business knowledge. I hold an MBA from Willamette University and currently pursuing a second master's in Data Science.
 
@@ -61,12 +61,19 @@ R | Tableau | SQL | Community Affairs | Strategic Management | Leadership | Comm
 
 
 𝑰 𝒆𝒏𝒔𝒖𝒓𝒆 𝒄𝒖𝒍𝒕𝒖𝒓𝒂𝒍𝒍𝒚 𝒓𝒆𝒍𝒆𝒗𝒂𝒏𝒕 𝒅𝒂𝒕𝒂 𝒂𝒏𝒂𝒍𝒚𝒔𝒊𝒔 𝒃𝒚:
+
 - Craft intuitive data visualizations and clear narratives to help readers engage well with patterns in data
+
 - Translate data reports and business jargon into plain language in English and Spanish
+
 - Create bespoke solutions which automate data processes, and equipping others to use them
+
 - Collect data by partnering with community-based, religious, or other organizations that work with members of the assessment's target communities
+
 - Conduct key informant interviews with community leaders
+
 - Engage community members as data collectors and meeting there where they are
+
 - Share early results with community stakeholders to validate findings, obtain candid feedback, and adjust the interpretation of data
 
 

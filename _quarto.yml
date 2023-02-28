@@ -46,7 +46,7 @@ format:
       dark: flatly
     css: styles.css
     mainfont: "Futura"
-    fontsize: 1em
+    fontsize: 2em
     linestretch: 1.7
     monofont: "Monaco"
     code-copy: true
