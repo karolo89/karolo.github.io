@@ -6,7 +6,7 @@ lightbox: auto
 about:
   id: hero-heading
   template: broadside
-  image: koe.jpg
+  image: "koe.jpg"
   image-width: 10em
   image-shape: round
   links:
