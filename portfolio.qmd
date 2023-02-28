@@ -6,7 +6,7 @@ listing:
   type: default
   categories: true
   sort-ui: false
-title-block-banner: "lightblue"
+title-block-banner: "#000080"
 title-block-banner-color: "white"
 page-layout: full
 date-format: "MMMM D, YYYY"
