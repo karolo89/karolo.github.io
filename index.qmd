@@ -48,7 +48,7 @@ leaflet() %>%
   addTiles() %>%  # Add default OpenStreetMap map tiles
   addMarkers(lng=-74.77028, lat=10.98611, popup="The birthplace of R")
 ```
-:::
+
 
 As a graduated engineer, I have acquired extensive experience and problem–solving expertise in data wrangling, statistical analysis, and model development. Since effective communication of data is of paramount importance, I have subsequently developed strong skills in data visualization and business knowledge. I hold an MBA from Willamette University and currently pursuing a second master's in Data Science.
 

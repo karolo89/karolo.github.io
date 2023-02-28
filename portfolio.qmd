@@ -9,8 +9,5 @@ listing:
 title-block-banner: "lightblue"
 title-block-banner-color: "white"
 page-layout: full
-toc: true
-toc-location: right
-toc-title: Year
 date-format: "MMMM D, YYYY"
 ---
