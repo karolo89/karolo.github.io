@@ -1,0 +1,41 @@
+---
+title: "Resume"
+format:
+  html:
+    toc: true
+    toc-location: right
+    html-math-method: katex
+    page-layout: full
+---
+
+### Background
+
+
+### Goal
+
+
+
+### Education
+
+Willamette University \| Portland, OR\
+**Master in Data Science** \| August 2023\
+Presidential Scholarship; selected based on professional achievements\
+
+Willamette University \| Portland, OR\
+**Master of Business Administration** \| August 2022\
+George and Colleen Hoyt Not-For-Profit Scholarship; selected based on professional achievements\
+Atkinson Honor\
+Beta Gamma Sigma: The International Business Honor Society\
+
+Universidad Autonoma del Caribe \| Barranquilla, Colombia\
+**Bachelor's Degree, Industrial Engineering** \| July 2014\
+
+
+### Professional Experience
+
+
+
+### Languages
+
+-   I have a deep understanding of the cultural nuances of both English and Spanish-speaking communities. I am able to navigate cultural differences with sensitivity and respect.
+-   I have basic verbal and written communication skills in Portuguese. I am able to introduce myself, ask and answer basic questions, and engage in simple conversations. I am also able to write simple sentences and paragraphs in Portuguese.

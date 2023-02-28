@@ -1,19 +1,18 @@
 [
   {
-    "listing": "/Projects.html",
-    "items": [
-      "/posts/TimeSeries/Time Series Project.html",
-      "/posts/RegressionModel/RegressionModel.html"
-    ]
+    "listing": "/CV.html",
+    "items": []
   },
   {
-    "listing": "/Resources.html",
+    "listing": "/portfolio.html",
     "items": [
       "/viz/Interactive Viz/Interactive Instacart.html",
       "/viz/Hollywood Age Gaps/AgeGaps.html",
       "/viz/Table/tables.html",
       "/viz/Hurricanes Graph/hurricanes.html",
-      "/viz/TidyTuesday/PetCats.html"
+      "/viz/TidyTuesday/PetCats.html",
+      "/viz/TimeSeries/Time Series Project.html",
+      "/viz/RegressionModel/RegressionModel.html"
     ]
   }
 ]

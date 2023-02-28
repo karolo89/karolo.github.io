@@ -1,0 +1,16 @@
+---
+title: "Portfolio"
+listing:
+  contents: viz
+  sort: "date desc"
+  type: grid
+  categories: true
+  sort-ui: false
+title-block-banner: "#60688D"
+title-block-banner-color: "white"
+page-layout: full
+toc: true
+toc-location: right
+toc-title: Year
+date-format: "MMMM D, YYYY"
+---

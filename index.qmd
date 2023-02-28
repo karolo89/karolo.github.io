@@ -1,17 +1,8 @@
 ---
-title: "Measures that Matter"
-title-block-banner: "#1C4481"
-title-block-banner-color: "white"
-format:
-  html:
-    quarto-template-params:
-      banner-header-class: "home"
+title: "Hello there! Welcome to my page"
 about:
-  id: hero-heading
-  template: broadside
-  image: koe.jpg
-  image-width: 10em
-  image-shape: round
+  template: trestles
+  image: profile.jpeg
   links:
     - icon: linkedin
       text: LinkedIn
@@ -22,6 +13,11 @@ about:
     - icon: envelope
       text: Email
       href: mailto:karol.marianoe@gmail.com
+title-block-banner: "#5B8BA1"
+title-block-banner-color: "white"
+page-layout: full
+toc: true
+toc-location: right
 ---
 
 <center>
@@ -32,21 +28,46 @@ about:
 
 </center>
 
-::: {#hero-heading}
-*I love digging into community challenges and bringing an equity lens to the data collection, analysis, interpretation, and distribution.*  <a href="KarolOrozco.html"><button type="button" class="btn btn-primary me-md-2 btn-sm">In a nutshell</button></a>
 
-## Education
+*I help to create and sustain communities, programs, and solutions that enhance the use of responsible data science and business practices for equitable social good.*  
 
-Willamette University \| Portland, OR\
-**Master in Data Science** \| August 2023\
-Presidential Scholarship; selected based on professional achievements\
+<a href="KarolOrozco.html"><button type="button" class="btn btn-primary me-md-2 btn-sm">In a nutshell</button></a>
 
-Willamette University \| Portland, OR\
-**Master of Business Administration** \| August 2022\
-George and Colleen Hoyt Not-For-Profit Scholarship; selected based on professional achievements\
-Atkinson Honor\
-Beta Gamma Sigma: The International Business Honor Society\
+</center>
 
-Universidad Autonoma del Caribe \| Barranquilla, Colombia\
-**Bachelor's Degree, Industrial Engineering** \| July 2014\
-:::
+My name is Karol Orozco, I am from Barranquilla, Colombia, a city also known as "la Arenosa" (the Sandy) and "Curramba la Bella" (Curramba the beautiful), is one of Colombia's major cities, as well as a key tourist destination for locals and foreigners. The city, where the long journey of the Magdalena River ends, is home to many great musicians, writers, and painters. It is also the country's most famous celebration stage: the [Carnival of Barranquilla](https://carnavaldebarranquilla.org/).
+
+```{r}
+library(leaflet)
+leaflet() %>%
+  addTiles() %>%  # Add default OpenStreetMap map tiles
+  addMarkers(lng=-74.77028, lat=10.98611, popup="The birthplace of R")
+```
+
+
+As a graduated engineer, I have acquired extensive experience and problem–solving expertise in data wrangling, statistical analysis, and model development. Since effective communication of data is of paramount importance, I have subsequently developed strong skills in data visualization and business knowledge. I hold an MBA from Willamette University and currently pursuing a second master's in Data Science.
+
+I have experience working on the public and private sector helping organization to embrace Shared Value by positively impacting society and the environment: The sweet spot where profit meets purpose.
+
+
+𝑷𝒓𝒐𝒇𝒆𝒔𝒔𝒊𝒐𝒏𝒂𝒍 𝑺𝒌𝒊𝒍𝒍𝒔
+
+Data Analysis | Team Development | Partnership Management | Business Development | Diversity & Inclusion | Strategic Planning | Process Improvement | Project Management | People & Change
+
+
+𝑫𝒐𝒎𝒂𝒊𝒏 𝑲𝒏𝒐𝒘𝒍𝒆𝒅𝒈𝒆
+
+R | Tableau | SQL | Community Affairs | Strategic Management | Leadership | Community Engagement | Latinx Community | Shared Value
+
+
+𝑰 𝒆𝒏𝒔𝒖𝒓𝒆 𝒄𝒖𝒍𝒕𝒖𝒓𝒂𝒍𝒍𝒚 𝒓𝒆𝒍𝒆𝒗𝒂𝒏𝒕 𝒅𝒂𝒕𝒂 𝒂𝒏𝒂𝒍𝒚𝒔𝒊𝒔 𝒃𝒚:
+- Craft intuitive data visualizations and clear narratives to help readers engage well with patterns in data
+- Translate data reports and business jargon into plain language in English and Spanish
+- Create bespoke solutions which automate data processes, and equipping others to use them
+- Collect data by partnering with community-based, religious, or other organizations that work with members of the assessment's target communities
+- Conduct key informant interviews with community leaders
+- Engage community members as data collectors and meeting there where they are
+- Share early results with community stakeholders to validate findings, obtain candid feedback, and adjust the interpretation of data
+
+
+

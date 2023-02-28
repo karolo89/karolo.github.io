@@ -4,23 +4,24 @@ project:
 
 website:
   title: "Karol Orozco"
+  image: "back.png"
+  open-graph: true
   
   navbar:
-    pinned: true
     background: "#092c3b"
-    logo: "images/logo.png"
+    logo: logo.png
     align: center
     title: false
     color: "white"
     collapse-below: lg
     
     left:
+      - text: Portfolio
+        href: portfolio.qmd
+      - text: Resume
+        href: CV.qmd
       - href: index.qmd
         text: About
-      - text: DataViz
-        href: Resources.qmd
-      - text: Models
-        href: Projects.qmd
 
 
   page-footer: 
@@ -41,8 +42,13 @@ website:
 format:
   html:
     theme: 
-       - html/mystyles.scss
-    toc: true
+      light: yeti
+      dark: flatly
+    css: styles.css
+    mainfont: "Futura"
+    fontsize: 1em
+    linestretch: 1.7
+    monofont: "Monaco"
     code-copy: true
     code-fold: true
     code-summary: "Show the code"
@@ -50,9 +56,8 @@ format:
     fig-cap-location: margin
     reference-location: margin
     footnotes-hover: true
-    highlight-style: monokai
-    mainfont: "Atkinson Hyperlegible"
-    include-in-header: "style/fontawesome.html"
+    highlight-style: Sass
+
 
 freeze: auto
 
