@@ -43,7 +43,7 @@ format:
   html:
     theme: 
       light: yeti
-      dark: flatly
+      dark: darkly
     css: styles.css
     mainfont: "Futura"
     fontsize: 2em
