@@ -35,7 +35,6 @@ fontsize: 1.2em
 
 *I help to create and sustain communities, programs, and solutions that enhance the use of responsible data science and business practices for equitable social good.*  
 
-<a href="KarolOrozco.html"><button type="button" class="btn btn-primary me-md-2 btn-sm">In a nutshell</button></a>
 
 </center>
 
