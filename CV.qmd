@@ -6,7 +6,7 @@ format:
     toc-location: right
     html-math-method: katex
     page-layout: full
-    fontsize: 1.5em
+    fontsize: 1.2em
 title-block-banner: "#60688D"
 title-block-banner-color: "white"
 page-layout: full
@@ -39,6 +39,14 @@ Beta Gamma Sigma: The International Business Honor Society\
 Universidad Autonoma del Caribe \| Barranquilla, Colombia\
 **Bachelor's Degree, Industrial Engineering** \| July 2014\
 
+### Professional Skills
+
+Data Analysis | Team Development | Partnership Management | Business Development | Diversity & Inclusion | Strategic Planning | Process Improvement | Project Management | People & Change
+
+
+### Domain Knowledge
+
+R | Tableau | SQL | Community Affairs | Strategic Management | Leadership | Community Engagement | Latinx Community | Shared Value
 
 ### Professional Experience
 

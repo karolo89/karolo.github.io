@@ -18,9 +18,11 @@ title-block-banner-color: "white"
 page-layout: full
 toc: true
 toc-location: right
-fontsize: 1.5em
+fontsize: 1.2em
 
 ---
+
+# About Me
 
 <center>
 
@@ -37,7 +39,6 @@ fontsize: 1.5em
 
 </center>
 
-# About Me
 
 My name is Karol Orozco, I am from Barranquilla, Colombia, a city also known as "la Arenosa" (the Sandy) and "Curramba la Bella" (Curramba the beautiful), is one of Colombia's major cities, as well as a key tourist destination for locals and foreigners. The city, where the long journey of the Magdalena River ends, is home to many great musicians, writers, and painters. It is also the country's most famous celebration stage: the [Carnival of Barranquilla](https://carnavaldebarranquilla.org/).
 
@@ -54,14 +55,7 @@ As a graduated engineer, I have acquired extensive experience and problem–solv
 I have experience working on the public and private sector helping organization to embrace Shared Value by positively impacting society and the environment: The sweet spot where profit meets purpose.
 
 
-𝑷𝒓𝒐𝒇𝒆𝒔𝒔𝒊𝒐𝒏𝒂𝒍 𝑺𝒌𝒊𝒍𝒍𝒔
 
-Data Analysis | Team Development | Partnership Management | Business Development | Diversity & Inclusion | Strategic Planning | Process Improvement | Project Management | People & Change
-
-
-𝑫𝒐𝒎𝒂𝒊𝒏 𝑲𝒏𝒐𝒘𝒍𝒆𝒅𝒈𝒆
-
-R | Tableau | SQL | Community Affairs | Strategic Management | Leadership | Community Engagement | Latinx Community | Shared Value
 
 
 
