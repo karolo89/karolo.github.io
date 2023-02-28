@@ -2,7 +2,7 @@
 title: "Hello there! Welcome to my page"
 about:
   template: trestles
-  image: koe.jpeg
+  image: koe.jpg
   links:
     - icon: linkedin
       text: LinkedIn
