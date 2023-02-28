@@ -7,6 +7,13 @@ format:
     html-math-method: katex
     page-layout: full
     fontsize: 1.5em
+title-block-banner: "#60688D"
+title-block-banner-color: "white"
+page-layout: full
+toc: true
+toc-location: right
+toc-title: Year
+date-format: "MMMM D, YYYY"
 
 ---
 
