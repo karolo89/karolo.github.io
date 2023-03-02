@@ -9,7 +9,6 @@ website:
   
   navbar:
     background: "#092c3b"
-    logo: logo.png
     align: center
     title: false
     color: "white"
@@ -27,7 +26,7 @@ website:
   page-footer: 
     background: light
     left: 
-      - "Copyright 2023, Karol Orozco"
+      - "Blog made with Quarto, Copyright 2023, Karol Orozco"
       
     right: 
       - icon: github

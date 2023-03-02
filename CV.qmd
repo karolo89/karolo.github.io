@@ -1,5 +1,5 @@
 ---
-title: "Resume"
+title: "Karol Orozco"
 format:
   html:
     toc: true
@@ -12,16 +12,14 @@ title-block-banner-color: "white"
 page-layout: full
 toc: true
 toc-location: right
-toc-title: Year
 date-format: "MMMM D, YYYY"
-
 ---
 
 ### Background
 
+As a highly motivated and results-oriented professional, I bring a unique combination of technical expertise, strategic thinking, and interpersonal skills to the table. I am committed to promoting diversity and inclusion in all aspects of my life, and I believe that a diverse and inclusive workplace leads to better outcomes for employees, the company as a whole, and our community.
 
-### Goal
-
+My experience has also taught me how to work collaboratively with cross-functional teams to identify business needs and translate them into data-driven solutions. I have a keen eye for detail, am skilled in data visualization tools and techniques, and have a proven track record of communicating complex technical concepts to non-technical stakeholders.
 
 
 ### Education
@@ -41,16 +39,13 @@ Universidad Autonoma del Caribe \| Barranquilla, Colombia\
 
 ### Professional Skills
 
-Data Analysis | Team Development | Partnership Management | Business Development | Diversity & Inclusion | Strategic Planning | Process Improvement | Project Management | People & Change
-
+Data Analysis \| Team Development \| Partnership Management \| Business Development \| Diversity & Inclusion \| Strategic Planning \| Process Improvement \| Project Management \| People & Change
 
 ### Domain Knowledge
 
-R | Tableau | SQL | Community Affairs | Strategic Management | Leadership | Community Engagement | Latinx Community | Shared Value
+R \| Tableau \| SQL \| Community Affairs \| Strategic Management \| Leadership \| Community Engagement \| Latinx Community \| Shared Value
 
 ### Professional Experience
-
-
 
 ### Languages
 
