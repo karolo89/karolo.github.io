@@ -1,5 +1,5 @@
 {
-  "hash": "c9215aae0141176b36dd406083599cfb",
+  "hash": "fbb00354c281001ec7d8c6a5d7576e0b",
   "result": {
     "markdown": "---\ntitle: \"Reported Bias Crimes in Portland\"\nauthor: \"Karol Orozco\"\ndate: 03/02/2023\nimage: \"stophate.png\"\nformat:\n  html:\n    page-layout: full\n    toc: true\n    toc-location: right\n    html-math-method: katex\noutput: html_document\nexecute:\n  message: false\n  warning: false\n  echo: false\ncode-fold: true\ncategories:\n  - Crime\n  - Community\n  - analysis\n  - Quarto\n  - Rstudio\n---\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](biascrime_files/figure-html/unnamed-chunk-1-1.gif)\n:::\n:::\n\n::: {.cell}\n::: {.cell-output-display}\n![](biascrime_files/figure-html/unnamed-chunk-2-1.gif)\n:::\n:::\n",
     "supporting": [
