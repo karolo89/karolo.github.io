@@ -1,7 +1,7 @@
 ---
 title: "Portfolio"
 listing:
-  contents: viz
+  contents: social
   sort: "date desc"
   type: grid
   fields: [image, date, title, author]

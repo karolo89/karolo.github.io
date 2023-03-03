@@ -1,0 +1,16 @@
+{
+  "hash": "82872ba968bb209712197563d5066884",
+  "result": {
+    "markdown": "---\ntitle: \"Reported Bias Crimes in Portland\"\nauthor: \"Karol Orozco\"\ndate: 03/02/2023\nimage: \"stophate.png\"\nformat:\n  html:\n    page-layout: full\n    toc: true\n    toc-location: right\n    html-math-method: katex\noutput: html_document\nexecute:\n  message: false\n  warning: false\n  echo: false\ncode-fold: true\ncategories:\n  - Crime\n  - Community\n  - analysis\n  - Quarto\n  - Rstudio\n---\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](biascrime_files/figure-html/unnamed-chunk-1-1.png){width=864}\n:::\n:::\n",
+    "supporting": [
+      "biascrime_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

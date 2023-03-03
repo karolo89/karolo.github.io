@@ -14,13 +14,19 @@ website:
     color: "white"
     collapse-below: lg
     
-    left:
+    right:
       - text: Portfolio
         href: portfolio.qmd
       - text: Resume
         href: CV.qmd
       - href: index.qmd
-        text: About
+        text: About Me
+      - icon: linkedin
+        href: https://www.linkedin.com/in/karolorozcoe/
+      - icon: github
+        href: https://github.com/karolo89
+      - icon: envelope
+        href: mailto:karol.marianoe@gmail.com
 
 
   page-footer: 
@@ -28,15 +34,6 @@ website:
     left: 
       - "Blog made with Quarto, Copyright 2023, Karol Orozco"
       
-    right: 
-      - icon: github
-        href: https://github.com/karolo89
-      - icon: linkedin
-        href: https://www.linkedin.com/in/karolorozcoe/
-      - icon: envelope
-        href: mailto:karol.marianoe@gmail.com
-
-  reader-mode: true
 
 format:
   html:

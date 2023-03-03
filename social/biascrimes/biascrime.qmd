@@ -1,0 +1,90 @@
+---
+title: "Reported Bias Crimes in Portland"
+author: "Karol Orozco"
+date: 03/02/2023
+image: "stophate.png"
+format:
+  html:
+    page-layout: full
+    toc: true
+    toc-location: right
+    html-math-method: katex
+output: html_document
+execute:
+  message: false
+  warning: false
+  echo: false
+code-fold: true
+categories:
+  - Crime
+  - Community
+  - analysis
+  - Quarto
+  - Rstudio
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning=FALSE, message=FALSE)
+
+library(tidyverse)
+library(showtext)
+library(lubridate)
+
+
+crime<- read.csv("https://raw.githubusercontent.com/karolo89/Raw_Data/main/BiasCrime-All.csv")
+
+crime$Report.Month.Year<- my(crime$Report.Month.Year)
+
+crime <- crime%>%mutate(year= year(Report.Month.Year))
+
+crime_type <- crime%>%
+  group_by(Case.Type, year)%>%
+  summarize(prov_freq = n())
+
+summary(crime)
+```
+
+
+```{r, fig.width= 9, fig.height= 9}
+
+library(directlabels)
+library(gganimate)
+
+plot <- ggplot(crime_type) +
+ aes(x = year, y = prov_freq, colour = Case.Type) +
+ geom_line() +
+  
+    geom_point(aes(x = year, y = prov_freq, shape=Case.Type, color=Case.Type))+
+  
+ scale_color_manual(guide = 'none', values = c(`BIAS CRIME` = "white", 
+`BIAS INCIDENT` = "#d4aca4", `BIAS UNFOUNDED` = "#35B779", UNKNOWN = "#f4d47c")) +
+  
+ labs(y = "Number of Cases", 
+      x= "Year",
+ title = "Report of Bias by Year", 
+ subtitle = "Data current through September 2022", 
+ 
+ caption = "Police Bureau: The graph visualizes the current case status for all reported bias/hate incidents that have been reviewed by the assigned detective.\nBias Incidents (instances in which bias occurred, but no crime occurred) began to be recorded in March 2020") +
+
+    geom_dl(aes(label = Case.Type), method = list(dl.trans(x = x + 0.2), "last.points", cex = 0.8)) +
+
+  
+ theme_minimal() +
+
+  theme(
+        legend.position="none",
+        plot.title = element_text( hjust = 0.5, size = 15),
+        plot.subtitle = element_text(hjust = 0.5,size = 10),
+        plot.caption = element_text(size = 8, hjust=0, colour = "darkgray"),
+        plot.margin = unit(c(0.5, 0.5, 0.5, 0.5), "cm"),
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        plot.background = element_rect(fill = "#1d1330", colour = "#1d1330"),
+          panel.grid = element_line(color = "#331f59"),
+          panel.background = element_rect(fill = "#1d1330", colour = "#1d1330"),
+          text = element_text(colour = "white", family = "Corbel Light")) 
+
+plot 
+
+```
+
