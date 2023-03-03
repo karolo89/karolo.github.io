@@ -45,7 +45,7 @@ summary(crime)
 ```
 
 
-```{r, fig.width= 9, fig.height= 9}
+```{r}
 
 library(directlabels)
 library(gganimate)
@@ -56,8 +56,8 @@ plot <- ggplot(crime_type) +
   
     geom_point(aes(x = year, y = prov_freq, shape=Case.Type, color=Case.Type))+
   
- scale_color_manual(guide = 'none', values = c(`BIAS CRIME` = "white", 
-`BIAS INCIDENT` = "#d4aca4", `BIAS UNFOUNDED` = "#35B779", UNKNOWN = "#f4d47c")) +
+ scale_color_manual(guide = 'none', values = c(`BIAS CRIME` = "#4f372d", 
+`BIAS INCIDENT` = "#cc2a36", `BIAS UNFOUNDED` = "#00a0b0", UNKNOWN = "#706474")) +
   
  labs(y = "Number of Cases", 
       x= "Year",
@@ -78,13 +78,48 @@ plot <- ggplot(crime_type) +
         plot.caption = element_text(size = 8, hjust=0, colour = "darkgray"),
         plot.margin = unit(c(0.5, 0.5, 0.5, 0.5), "cm"),
         panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank()) 
+
+plot +transition_reveal(year)
+
+```
+```{r, message=FALSE, warning=FALSE}
+## Top Five Bias Incidents and Crimes Locations
+
+p_loc <- crime %>%
+  filter(year >= 2020)%>%
+  filter(Case.Type== c("BIAS CRIME", "BIAS INCIDENT"))%>%
+  group_by(Location.Type)%>%
+  summarise(frequency = n())%>%
+filter(frequency >= 7)
+
+
+## Graph
+
+loc <- ggplot(p_loc) +
+ aes(x = reorder(Location.Type, -frequency, sum), y = frequency, fill= factor(Location.Type)) +
+ geom_col() +
+  
+ scale_fill_manual(values = c("#eece62", "#00a0b0","#ed7754","#4f372d","#cc2a36"))+
+  
+ labs(y = "Number of Cases", x= "",
+ title = "Top Five Bias Incidents and Crimes Locations", 
+ subtitle = "Year 2020-22")+
+  
+ theme_minimal() +
+ theme(plot.title = element_text( hjust = 0.5, size = 15),
+       plot.subtitle = element_text(hjust = 0.5,size = 10),
+       axis.text.x = element_text(size= 8, margin = margin(t = 0, r = 35, b = 0, l = 0)),
+       axis.title.y = element_text(size= 8),
+        panel.grid.major.x = element_blank(),
         panel.grid.minor.x = element_blank(),
-        plot.background = element_rect(fill = "#1d1330", colour = "#1d1330"),
-          panel.grid = element_line(color = "#331f59"),
-          panel.background = element_rect(fill = "#1d1330", colour = "#1d1330"),
-          text = element_text(colour = "white", family = "Corbel Light")) 
+       legend.position = "none")
 
-plot 
 
+  loc+transition_states(Location.Type, wrap = FALSE) +
+  shadow_mark() +
+  enter_grow() +
+  enter_fade() 
+  
 ```
 
