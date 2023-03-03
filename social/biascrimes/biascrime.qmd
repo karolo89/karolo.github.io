@@ -116,10 +116,27 @@ loc <- ggplot(p_loc) +
        legend.position = "none")
 
 
-  loc+transition_states(Location.Type, wrap = FALSE) +
-  shadow_mark() +
-  enter_grow() +
-  enter_fade() 
+  loc+transition_states(Location.Type, wrap = FALSE) + shadow_mark() + enter_grow() +  enter_fade() 
   
+```
+```{r}
+## Bias Category & Type
+```
+
+```{r}
+## Victim Type
+```
+
+```{r}
+## Victim Demog
+```
+
+
+```{r}
+## Suspect Demog
+```
+
+```{r}
+## vict/ susp rela
 ```
 
