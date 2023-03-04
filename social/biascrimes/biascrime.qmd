@@ -5,7 +5,6 @@ date: 03/02/2023
 image: "stophate.png"
 format:
   html:
-    page-layout: full
     toc: true
     toc-location: right
     html-math-method: katex
@@ -24,23 +23,14 @@ categories:
 ---
 
 
-## SET UP AND IMPORTING THE DATA
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(warning=FALSE, message=FALSE)
 
-library(rvest)
 library(tidyverse)
-library(RColorBrewer)
-library(viridis)
-library(sysfonts)
 library(showtext)
-library(geomtextpath)
-library(ggimage)
 library(ggtext)
 library(lubridate)
-library(ggplot2)
-
+library(viridis)
 
 
 crime<- read.csv("https://raw.githubusercontent.com/karolo89/Raw_Data/main/BiasCrime-All.csv")
@@ -55,11 +45,7 @@ crime_type <- crime%>%
 
 ```
 
-```{r}
-summary(crime)
-```
-
-```{r, fig.width= 12}
+```{r, fig.width=9}
 
 library(directlabels)
 library(gganimate)
@@ -70,8 +56,8 @@ plot <- ggplot(crime_type) +
   
     geom_point(aes(x = year, y = prov_freq, shape=Case.Type, color=Case.Type))+
   
- scale_color_manual(guide = 'none', values = c(`BIAS CRIME` = "#4f372d", 
-`BIAS INCIDENT` = "#cc2a36", `BIAS UNFOUNDED` = "#00a0b0", UNKNOWN = "#706474")) +
+ scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
   
  labs(y = "Number of Cases", 
       x= "Year",
@@ -82,26 +68,23 @@ plot <- ggplot(crime_type) +
     geom_dl(aes(label = Case.Type), method = list(dl.trans(x = x + 0.2), "last.points", cex = 0.8)) +
   
  theme_minimal() +
-
-
-  theme(
-        legend.position="none",
-        plot.caption = element_text(size = 8, hjust=0, colour = "darkgray"),
+ theme(
         panel.grid.major.x = element_blank(),
         panel.grid.minor.x = element_blank(),
+        legend.position = "none",
         plot.title.position = "plot", 
-        plot.subtitle = element_text(hjust = 0.5, lineheight = 0.4, size = 20),
-        plot.title = element_text(lineheight = 0.5, face = "bold", size = 28, hjust = 0.5),
-        strip.text = element_text(size = 20),
-        axis.text = element_text(size = 16),
+        plot.subtitle = element_text(hjust = 0.5, lineheight = 0.4, size = 10),
+        plot.title = element_text(lineheight = 0.5, face = "bold", size = 12, hjust = 0.5),
+        axis.text = element_text(size = 7),
+        axis.title = element_text(size= 8),
         plot.background = element_rect(fill = "#fafafa", colour = "#fafafa"),
-        panel.background = element_rect(fill = "#fafafa", colour = "#fafafa")) 
+        panel.background = element_rect(fill = "#fafafa", colour = "#fafafa"))
 
 plot +transition_reveal(year)
 
 ```
 
-```{r, fig.width= 12, fig.width= 12}
+```{r}
 ## Bias Category per year
 
 ## Bias Category & Type
@@ -110,18 +93,13 @@ bc_type <- crime%>%
   summarise(frequency = n())%>%
 filter(!(Bias.Category == "" | Bias.Category =="None"))
 
-
-ggplot(bc_type) +
- aes(x = reorder(Bias.Category, -frequency, sum), y = frequency, fill = Bias.Category, colour = Bias.Category) +
+bc_type %>%
+ggplot(aes(x = reorder(Bias.Category, -frequency, sum), y = frequency, fill = Bias.Category, colour = Bias.Category)) +
  geom_col() +
-   scale_fill_manual(guide = 'none', values = c(`Disability` = "#706474", 
-`Ethnicity` = "yellow", `Sexual Orientation` = "orange", `Race` = "red", `Race` = "red", `Sexual Orientation`= "#706474", `Religion`= "#706474")) +
-  
- scale_colour_manual(guide = 'none', values = c(`Disability` = "#706474", 
-`Ethnicity` = "yellow", `Sexual Orientation` = "orange", `Race` = "red", `Race` = "red", `Sexual Orientation`= "#706474", `Religion`= "#706474")) +
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
  theme_minimal() +
- facet_wrap(vars(year), scales = "free")+
-    scale_y_continuous(limits = c(0, 60)) +
+    scale_y_continuous(limits = c(0, 70)) +
 
 
   labs(x=" ", y=" ")+
@@ -130,29 +108,30 @@ ggplot(bc_type) +
         panel.spacing = unit(1, "lines"),
         plot.title.position = "plot", 
         plot.caption.position = "plot", 
-        plot.caption = element_text(hjust = 0, lineheight = 0.4, size = 16),
-        plot.title = element_text(lineheight = 0.4, face = "bold", size = 28),
-        strip.text = element_text(size = 20),
-        axis.text = element_text(size = 16),
+        plot.caption = element_text(hjust = 0, lineheight = 0.4, size = 10),
+        plot.title = element_text(lineheight = 0.4, face = "bold", size = 12),
+        strip.text = element_text(size = 10),
+        axis.text = element_text(size = 10),
         plot.background = element_rect(fill = "#fafafa", colour = "#fafafa"),
         panel.background = element_rect(fill = "#fafafa", colour = "#fafafa"))
+  
+ facet_grid(vars(year), scale= "free_y")
 
 
 
 ```
-```{r, fig.width=12}
+```{r}
 
 
 bias_t <- bc_type %>%
-filter(year>= 2020)%>%
-filter(frequency >=8)
+filter(year>= 2020)
 
 
 p <- ggplot(bias_t) +
   aes(x = reorder(Bias.Type,-frequency,sum), y = frequency, colour= factor(Bias.Type), fill= Bias.Type) +
   geom_col() +
-   scale_fill_manual(values = c("#eece62", "#00a0b0","#ed7754","#4f372d","#cc2a36"))+
-
+   scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
   labs(x = "", y= "") +
   coord_flip() +
   theme_minimal() +
@@ -161,58 +140,15 @@ theme(legend.position = "none",
         plot.background = element_rect(fill = "#FAFAFA", colour = "#FAFAFA"), 
         legend.background = element_rect(fill = "transparent", colour = "transparent"), 
         legend.key = element_rect(fill = "transparent", colour = "transparent"),
-        axis.title.y = element_text(margin = margin(0, 20, 0, 0), family = "dosis", size= 20), 
-        axis.text = element_text(family = "dosis", size= 15),
-        plot.margin = unit(c(0.5, 0.8, 0.5, 0.5), "cm"), 
+        axis.text = element_text(family = "dosis", size= 5),
         panel.grid.major = element_line(colour = "#DEDEDE"), 
-        panel.grid.minor = element_blank())+
- facet_grid(vars(year), scale= "free_x")
+        panel.grid.minor = element_blank())
+
 p
-
-```
-
-```{r, fig.width=9}
-## Primary Offense
-
-crime_of <- crime%>%
-  group_by(Primary.Offense.Type, year)%>%
-  na.omit()%>%
-  summarise(freq= n())%>%
-  filter(!(Primary.Offense.Type %in% c("", "Hit & Run-Property"))) %>%
- filter(freq >= 7) %>%
-  filter(year>=2020)
 ```
 
 
-```{r, fig.width=9}
-crime_of %>%
- ggplot() +
-  aes(
-    x = Primary.Offense.Type,
-    y = freq,
-    fill = Primary.Offense.Type,
-    colour = Primary.Offense.Type
-  ) +
-  labs(x= "", y= "")+
-  geom_col() +
-  geom_text(aes(y = freq + 1.8,label = freq))+
-  scale_fill_hue(direction = 1) +
-  scale_color_hue(direction = 1) +
-  theme(legend.position = "none", 
-        panel.background = element_rect(fill = "#FAFAFA", colour = "#FAFAFA"), 
-        plot.background = element_rect(fill = "#FAFAFA", colour = "#FAFAFA"), 
-        legend.background = element_rect(fill = "transparent", colour = "transparent"), 
-        legend.key = element_rect(fill = "transparent", colour = "transparent"),
-        axis.text = element_text(family = "dosis", size= 10),
-        plot.margin = unit(c(0.5, 0.8, 0.5, 0.5), "cm"), 
-        panel.grid.major = element_line(colour = "#DEDEDE"), 
-        panel.grid.minor = element_blank())+
-  coord_polar()+
-  facet_wrap(vars(year))
-
-```
-
-```{r, message=FALSE, warning=FALSE, fig.width= 9, fig.height== 9}
+```{r, message=FALSE, warning=FALSE}
 ## Top Five Bias Incidents and Crimes Locations
 
 p_loc <- crime %>%
@@ -227,9 +163,10 @@ filter(frequency >= 7)
 
 loc <- ggplot(p_loc) +
  aes(x = reorder(Location.Type, -frequency, sum), y = frequency, fill= factor(Location.Type)) +
- geom_col() +
+ geom_col(width = 0.5) +
   
- scale_fill_manual(values = c("#eece62", "#00a0b0","#ed7754","#4f372d","#cc2a36"))+
+ scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_fill_viridis(discrete = TRUE) +
   
  labs(y = "Number of Cases", x= "",
  title = "Top Five Bias Incidents and Crimes Locations", 
@@ -238,21 +175,20 @@ loc <- ggplot(p_loc) +
  theme_minimal() +
   
  theme(
-       axis.text.x = element_text(size= 12),
         panel.grid.major.x = element_blank(),
         panel.grid.minor.x = element_blank(),
         legend.position = "none",
         plot.title.position = "plot", 
-        plot.subtitle = element_text(hjust = 0.5, lineheight = 0.4, size = 20),
-        plot.title = element_text(lineheight = 0.5, face = "bold", size = 28, hjust = 0.5),
-        strip.text = element_text(size = 20),
-        axis.text = element_text(size = 20),
+        plot.subtitle = element_text(hjust = 0.5, lineheight = 0.4, size = 10),
+        plot.title = element_text(lineheight = 0.5, face = "bold", size = 12, hjust = 0.5),
+        axis.text = element_text(size = 7),
+        axis.title = element_text(size= 8),
         plot.background = element_rect(fill = "#fafafa", colour = "#fafafa"),
         panel.background = element_rect(fill = "#fafafa", colour = "#fafafa"))
 
 
 
-  loc +transition_states(Location.Type, wrap = FALSE) + shadow_mark() + enter_grow() +  enter_fade() 
+  loc+transition_states(Location.Type, wrap = FALSE) + shadow_mark() + enter_grow() +  enter_fade() 
   
 ```
 
