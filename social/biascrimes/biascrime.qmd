@@ -45,7 +45,7 @@ crime_type <- crime%>%
 
 ```
 
-```{r, fig.width=9}
+```{r, fig.width=9, warning=FALSE, message=FALSE}
 
 library(directlabels)
 library(gganimate)
@@ -84,7 +84,7 @@ plot +transition_reveal(year)
 
 ```
 
-```{r}
+```{r, fig.width=9, warning=FALSE, message=FALSE}
 ## Bias Category per year
 
 ## Bias Category & Type
@@ -92,8 +92,12 @@ bc_type <- crime%>%
   group_by(Bias.Type, Bias.Category, year)%>%
   summarise(frequency = n())%>%
 filter(!(Bias.Category == "" | Bias.Category =="None"))
+```
 
+
+```{r,fig.width=9, warning=FALSE, message=FALSE}
 bc_type %>%
+  filter(frequency>=10)%>%
 ggplot(aes(x = reorder(Bias.Category, -frequency, sum), y = frequency, fill = Bias.Category, colour = Bias.Category)) +
  geom_col() +
   scale_color_viridis(discrete = TRUE, option = "D")+
@@ -113,14 +117,15 @@ ggplot(aes(x = reorder(Bias.Category, -frequency, sum), y = frequency, fill = Bi
         strip.text = element_text(size = 10),
         axis.text = element_text(size = 10),
         plot.background = element_rect(fill = "#fafafa", colour = "#fafafa"),
-        panel.background = element_rect(fill = "#fafafa", colour = "#fafafa"))
+        panel.background = element_rect(fill = "#fafafa", colour = "#fafafa"))+
   
  facet_grid(vars(year), scale= "free_y")
 
 
 
 ```
-```{r}
+
+```{r, fig.width=9, warning=FALSE, message=FALSE}
 
 
 bias_t <- bc_type %>%
@@ -140,7 +145,7 @@ theme(legend.position = "none",
         plot.background = element_rect(fill = "#FAFAFA", colour = "#FAFAFA"), 
         legend.background = element_rect(fill = "transparent", colour = "transparent"), 
         legend.key = element_rect(fill = "transparent", colour = "transparent"),
-        axis.text = element_text(family = "dosis", size= 5),
+        axis.text = element_text(family = "dosis", size= 8),
         panel.grid.major = element_line(colour = "#DEDEDE"), 
         panel.grid.minor = element_blank())
 
