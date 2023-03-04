@@ -92,10 +92,7 @@ bc_type <- crime%>%
   group_by(Bias.Type, Bias.Category, year)%>%
   summarise(frequency = n())%>%
 filter(!(Bias.Category == "" | Bias.Category =="None"))
-```
 
-
-```{r,fig.width=9, warning=FALSE, message=FALSE}
 bc_type %>%
   filter(frequency>=10)%>%
 ggplot(aes(x = reorder(Bias.Category, -frequency, sum), y = frequency, fill = Bias.Category, colour = Bias.Category)) +
@@ -106,14 +103,14 @@ ggplot(aes(x = reorder(Bias.Category, -frequency, sum), y = frequency, fill = Bi
     scale_y_continuous(limits = c(0, 70)) +
 
 
-  labs(x=" ", y=" ")+
+  labs(x=" ", y=" ", title = "Most Bias Cases Reported per Year")+
   coord_flip()+
   theme(legend.position = "none", 
         panel.spacing = unit(1, "lines"),
         plot.title.position = "plot", 
         plot.caption.position = "plot", 
         plot.caption = element_text(hjust = 0, lineheight = 0.4, size = 10),
-        plot.title = element_text(lineheight = 0.4, face = "bold", size = 12),
+        plot.title = element_text(lineheight = 0.4, face = "bold", size = 12, hjust= 0.5),
         strip.text = element_text(size = 10),
         axis.text = element_text(size = 10),
         plot.background = element_rect(fill = "#fafafa", colour = "#fafafa"),
@@ -137,7 +134,7 @@ p <- ggplot(bias_t) +
   geom_col() +
    scale_color_viridis(discrete = TRUE, option = "D")+
   scale_fill_viridis(discrete = TRUE) +
-  labs(x = "", y= "") +
+  labs(x = "", y= "", title = "Frequency of Bias Type Since 2020") +
   coord_flip() +
   theme_minimal() +
 theme(legend.position = "none", 
@@ -187,7 +184,7 @@ loc <- ggplot(p_loc) +
         plot.subtitle = element_text(hjust = 0.5, lineheight = 0.4, size = 10),
         plot.title = element_text(lineheight = 0.5, face = "bold", size = 12, hjust = 0.5),
         axis.text = element_text(size = 7),
-        axis.title = element_text(size= 8),
+        axis.title = element_text(size= 8, hjust = 0.5),
         plot.background = element_rect(fill = "#fafafa", colour = "#fafafa"),
         panel.background = element_rect(fill = "#fafafa", colour = "#fafafa"))
 
