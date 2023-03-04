@@ -23,6 +23,9 @@ categories:
   - Rstudio
 ---
 
+
+## SET UP AND IMPORTING THE DATA
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(warning=FALSE, message=FALSE)
 
@@ -52,6 +55,9 @@ crime_type <- crime%>%
 
 ```
 
+```{r}
+summary(crime)
+```
 
 ```{r, fig.width= 12}
 
@@ -95,7 +101,7 @@ plot +transition_reveal(year)
 
 ```
 
-```{r, fig.width= 12}
+```{r, fig.width= 12, fig.width= 12}
 ## Bias Category per year
 
 ## Bias Category & Type
@@ -108,9 +114,11 @@ filter(!(Bias.Category == "" | Bias.Category =="None"))
 ggplot(bc_type) +
  aes(x = reorder(Bias.Category, -frequency, sum), y = frequency, fill = Bias.Category, colour = Bias.Category) +
  geom_col() +
- scale_fill_viridis_d(option = "plasma", direction = 1) +
- scale_color_viridis_d(option = "plasma", 
- direction = 1) +
+   scale_fill_manual(guide = 'none', values = c(`Disability` = "#706474", 
+`Ethnicity` = "yellow", `Sexual Orientation` = "orange", `Race` = "red", `Race` = "red", `Sexual Orientation`= "#706474", `Religion`= "#706474")) +
+  
+ scale_colour_manual(guide = 'none', values = c(`Disability` = "#706474", 
+`Ethnicity` = "yellow", `Sexual Orientation` = "orange", `Race` = "red", `Race` = "red", `Sexual Orientation`= "#706474", `Religion`= "#706474")) +
  theme_minimal() +
  facet_wrap(vars(year), scales = "free")+
     scale_y_continuous(limits = c(0, 60)) +
@@ -143,33 +151,68 @@ filter(frequency >=8)
 p <- ggplot(bias_t) +
   aes(x = reorder(Bias.Type,-frequency,sum), y = frequency, colour= factor(Bias.Type), fill= Bias.Type) +
   geom_col() +
-  
+   scale_fill_manual(values = c("#eece62", "#00a0b0","#ed7754","#4f372d","#cc2a36"))+
 
   labs(x = "", y= "") +
   coord_flip() +
   theme_minimal() +
-  theme(legend.position = "none", 
-        panel.spacing = unit(1, "lines"),
-        plot.title.position = "plot", 
-        plot.caption.position = "plot", 
-        plot.caption = element_text(hjust = 0, lineheight = 0.4, size = 16),
-        plot.title = element_text(lineheight = 0.4, face = "bold", size = 28),
-        strip.text = element_text(size = 20),
-        axis.text = element_text(size = 16),
-        plot.background = element_rect(fill = "#fafafa", colour = "#fafafa"),
-        panel.background = element_rect(fill = "#fafafa", colour = "#fafafa"))+
-  
- facet_wrap(vars(year))
+theme(legend.position = "none", 
+        panel.background = element_rect(fill = "#FAFAFA", colour = "#FAFAFA"), 
+        plot.background = element_rect(fill = "#FAFAFA", colour = "#FAFAFA"), 
+        legend.background = element_rect(fill = "transparent", colour = "transparent"), 
+        legend.key = element_rect(fill = "transparent", colour = "transparent"),
+        axis.title.y = element_text(margin = margin(0, 20, 0, 0), family = "dosis", size= 20), 
+        axis.text = element_text(family = "dosis", size= 15),
+        plot.margin = unit(c(0.5, 0.8, 0.5, 0.5), "cm"), 
+        panel.grid.major = element_line(colour = "#DEDEDE"), 
+        panel.grid.minor = element_blank())+
+ facet_grid(vars(year), scale= "free_x")
 p
 
 ```
 
-```{r}
+```{r, fig.width=9}
 ## Primary Offense
+
+crime_of <- crime%>%
+  group_by(Primary.Offense.Type, year)%>%
+  na.omit()%>%
+  summarise(freq= n())%>%
+  filter(!(Primary.Offense.Type %in% c("", "Hit & Run-Property"))) %>%
+ filter(freq >= 7) %>%
+  filter(year>=2020)
 ```
 
 
-```{r, message=FALSE, warning=FALSE, fig.width= 9}
+```{r, fig.width=9}
+crime_of %>%
+ ggplot() +
+  aes(
+    x = Primary.Offense.Type,
+    y = freq,
+    fill = Primary.Offense.Type,
+    colour = Primary.Offense.Type
+  ) +
+  labs(x= "", y= "")+
+  geom_col() +
+  geom_text(aes(y = freq + 1.8,label = freq))+
+  scale_fill_hue(direction = 1) +
+  scale_color_hue(direction = 1) +
+  theme(legend.position = "none", 
+        panel.background = element_rect(fill = "#FAFAFA", colour = "#FAFAFA"), 
+        plot.background = element_rect(fill = "#FAFAFA", colour = "#FAFAFA"), 
+        legend.background = element_rect(fill = "transparent", colour = "transparent"), 
+        legend.key = element_rect(fill = "transparent", colour = "transparent"),
+        axis.text = element_text(family = "dosis", size= 10),
+        plot.margin = unit(c(0.5, 0.8, 0.5, 0.5), "cm"), 
+        panel.grid.major = element_line(colour = "#DEDEDE"), 
+        panel.grid.minor = element_blank())+
+  coord_polar()+
+  facet_wrap(vars(year))
+
+```
+
+```{r, message=FALSE, warning=FALSE, fig.width= 9, fig.height== 9}
 ## Top Five Bias Incidents and Crimes Locations
 
 p_loc <- crime %>%
@@ -195,7 +238,7 @@ loc <- ggplot(p_loc) +
  theme_minimal() +
   
  theme(
-       axis.text.x = element_text(size= 14),
+       axis.text.x = element_text(size= 12),
         panel.grid.major.x = element_blank(),
         panel.grid.minor.x = element_blank(),
         legend.position = "none",
@@ -215,23 +258,4 @@ loc <- ggplot(p_loc) +
 
 
 
-
-
-
-```{r}
-## Victim Type
-```
-
-```{r}
-## Victim Demog
-```
-
-
-```{r}
-## Suspect Demog
-```
-
-```{r}
-## vict/ susp rela
-```
 

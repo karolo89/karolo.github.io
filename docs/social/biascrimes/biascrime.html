@@ -118,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page">
+    <div class="quarto-title column-page-left">
       <h1 class="title">Reported Bias Crimes in Portland</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Crime</div>
@@ -154,23 +154,70 @@ ul.task-list li input[type="checkbox"] {
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#set-up-and-importing-the-data" id="toc-set-up-and-importing-the-data" class="nav-link active" data-scroll-target="#set-up-and-importing-the-data">SET UP AND IMPORTING THE DATA</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
+<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
 
 
 
+<section id="set-up-and-importing-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="set-up-and-importing-the-data">SET UP AND IMPORTING THE DATA</h2>
 <div class="cell">
-<div class="cell-output-display">
-<p><img src="biascrime_files/figure-html/unnamed-chunk-1-1.gif" class="img-fluid"></p>
+<div class="cell-output cell-output-stdout">
+<pre><code> Bias.Category       Bias.Type         Business.as.victim  Case.Type        
+ Length:862         Length:862         Length:862         Length:862        
+ Class :character   Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+ Location.Type      Open.Data.Case.Number Primary.Offense.Type
+ Length:862         Length:862            Length:862          
+ Class :character   Class :character      Class :character    
+ Mode  :character   Mode  :character      Mode  :character    
+                                                              
+                                                              
+                                                              
+                                                              
+ Report.Month.Year     Suspect.Age     Suspect.Gender     Suspect.Race      
+ Min.   :2015-04-01   Min.   : 11.00   Length:862         Length:862        
+ 1st Qu.:2018-07-01   1st Qu.: 30.00   Class :character   Class :character  
+ Median :2020-03-01   Median : 40.00   Mode  :character   Mode  :character  
+ Mean   :2019-11-14   Mean   : 41.51                                        
+ 3rd Qu.:2021-08-01   3rd Qu.: 50.50                                        
+ Max.   :2022-09-01   Max.   :101.00                                        
+                      NA's   :511                                           
+   Victim.Age    Victim.Gender      Victim.Race       
+ Min.   : 2.00   Length:862         Length:862        
+ 1st Qu.:23.00   Class :character   Class :character  
+ Median :32.00   Mode  :character   Mode  :character  
+ Mean   :35.61                                        
+ 3rd Qu.:46.00                                        
+ Max.   :83.00                                        
+ NA's   :415                                          
+ Victim.Suspect.Relationship      year     
+ Length:862                  Min.   :2015  
+ Class :character            1st Qu.:2018  
+ Mode  :character            Median :2020  
+                             Mean   :2019  
+                             3rd Qu.:2021  
+                             Max.   :2022  
+                                           </code></pre>
 </div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="biascrime_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="1152"></p>
+<p><img src="biascrime_files/figure-html/unnamed-chunk-2-1.gif" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell">
@@ -179,27 +226,26 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="cell">
+<div class="cell-output-display">
+<p><img src="biascrime_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="1152"></p>
+</div>
+</div>
+<div class="cell">
 
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="biascrime_files/figure-html/unnamed-chunk-5-1.gif" class="img-fluid"></p>
+<p><img src="biascrime_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="864"></p>
 </div>
 </div>
 <div class="cell">
-
+<div class="cell-output-display">
+<p><img src="biascrime_files/figure-html/fig.height==9-1.gif" class="img-fluid"></p>
 </div>
-<div class="cell">
-
-</div>
-<div class="cell">
-
-</div>
-<div class="cell">
-
 </div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
