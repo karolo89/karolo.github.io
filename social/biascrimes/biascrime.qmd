@@ -1,18 +1,7 @@
 ---
 title: "Reported Bias Crimes in Portland"
 image: "stophate.png"
-date: 02/28/2023
-format:
-  html:
-    toc: true
-    toc-location: right
-    html-math-method: katex
-output: html_document
-execute:
-  message: false
-  warning: false
-  echo: false
-code-fold: true
+date: 02/28/202
 categories:
   - Crime
   - Community
