@@ -3,7 +3,7 @@ title: "Portfolio"
 listing:
   contents: social
   sort: "date desc"
-  type: grid
+  type: default
   fields: [image, date, title, author]
   sort-ui: false
 title-block-banner: "#000080"

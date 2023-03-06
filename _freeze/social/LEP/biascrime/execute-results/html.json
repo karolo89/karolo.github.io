@@ -1,0 +1,14 @@
+{
+  "hash": "bbe9c1308b53a4573ff760b6e80489d6",
+  "result": {
+    "markdown": "---\ntitle: \"Limited English Proficiency, Portland\"\nimage: \"stophate.png\"\nformat:\n  html:\n    toc: true\n    toc-location: right\n    html-math-method: katex\noutput: html_document\nexecute:\n  message: false\n  warning: false\n  echo: false\ncode-fold: true\ncategories:\n  - Crime\n  - Community\n  - analysis\n  - Quarto\n  - Rstudio\n---\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -1,0 +1,59 @@
+---
+title: "Limited English Proficiency, Portland"
+image: "lep.png"
+date: 03/05/2023
+format:
+  html:
+    toc: true
+    toc-location: right
+    html-math-method: katex
+output: html_document
+execute:
+  message: false
+  warning: false
+  echo: false
+code-fold: true
+categories:
+  - Language
+  - Community
+  - Analysis
+  - Rstudio
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning=FALSE, message=FALSE)
+
+library(tidyverse)
+library(showtext)
+library(ggtext)
+library(lubridate)
+library(viridis)
+library(ggplot2)
+
+
+lep<- read.csv("https://raw.githubusercontent.com/karolo89/Raw_Data/main/Limited_English_Proficiency.csv")
+
+summary(lep)
+
+```
+
+```{r}
+summary(lep)
+```
+```{r}
+lep_long <- lep%>%
+  pivot_longer(c("Spanish", "Russian","Other_Slavic","Other_Indic","Other_Indo_European","Chinese","Japanese", "Korean", "Mon_Khmer_Cambodian", "Laotian", "Vietnamese", "Other_Asian","Tagalog", "Other_Pacific_Island","Arabic","African"),
+               names_to= "Languages",
+    values_to = "Count",
+    values_drop_na = TRUE)
+
+lep_long <- lep_long[,-c(1:4)]
+```
+
+
+```{r}
+lang <-lep %>%
+  group_by(Geography, "Spanish", "Russian","Other_Slavic","Other_Indic","Other_Indo_European","Chinese","Japanese", "Korean", "Mon_Khmer_Cambodian", "Laotian", "Vietnamese", "Other_Asian","Tagalog", "Other_Pacific_Island","Arabic","African") %>%
+  summarise(count= n())
+```
+
