@@ -242,7 +242,7 @@
     "href": "social/biascrimes/biascrime.html",
     "title": "Reported Bias Crimes in Portland",
     "section": "",
-    "text": "This data was obtained from the (PortlandMaps- Open Data website)[https://gis-pdx.opendata.arcgis.com/]- Reported Bias Crime Statistics, Portland Police Bureau.\nA hate crime is a criminal offense committed against persons, property, or society that is motivated, in whole or in part, by an offender’s bias against an individual’s or a group’s race, religion, ethnic/national origin, gender, age, disability or sexual orientation. (Definition developed at the 1998 IACP Summit on Hate Crime in America.) This data exploration aims to learn about the most common locations where these crimes occurred and the type of assault received by the victims."
+    "text": "This data was obtained from the PortlandMaps- Open Data website- Reported Bias Crime Statistics, Portland Police Bureau.\nA hate crime is a criminal offense committed against persons, property, or society that is motivated, in whole or in part, by an offender’s bias against an individual’s or a group’s race, religion, ethnic/national origin, gender, age, disability or sexual orientation. (Definition developed at the 1998 IACP Summit on Hate Crime in America.) This data exploration aims to learn about the most common locations where these crimes occurred and their types."
   },
   {
     "objectID": "social/biascrimes/biascrime.html#insights",

@@ -47,9 +47,9 @@ summary(crime)
 ```
 
 
-This data was obtained from the (PortlandMaps- Open Data website)[https://gis-pdx.opendata.arcgis.com/]- Reported Bias Crime Statistics, Portland Police Bureau.
+This data was obtained from the PortlandMaps- Open Data website- Reported Bias Crime Statistics, Portland Police Bureau.
 
-A hate crime is a criminal offense committed against persons, property, or society that is motivated, in whole or in part, by an offender's bias against an individual's or a group's race, religion, ethnic/national origin, gender, age, disability or sexual orientation. (Definition developed at the 1998 IACP Summit on Hate Crime in America.) This data exploration aims to learn about the most common locations where these crimes occurred and the type of assault received by the victims.
+A hate crime is a criminal offense committed against persons, property, or society that is motivated, in whole or in part, by an offender's bias against an individual's or a group's race, religion, ethnic/national origin, gender, age, disability or sexual orientation. (Definition developed at the 1998 IACP Summit on Hate Crime in America.) This data exploration aims to learn about the most common locations where these crimes occurred and their types.
 
 
 ## Insights:
@@ -112,6 +112,7 @@ bc_type <- crime%>%
 filter(!(Bias.Category == "" | Bias.Category =="None"))
 
 bc_type %>%
+  filter(year>=2020)%>%
 ggplot(aes(x = reorder(Bias.Category, -frequency, sum), y = frequency, fill = Bias.Category, colour = Bias.Category)) +
  geom_col() +
   scale_color_viridis(discrete = TRUE, option = "D")+
@@ -120,7 +121,7 @@ ggplot(aes(x = reorder(Bias.Category, -frequency, sum), y = frequency, fill = Bi
     scale_y_continuous(limits = c(0, 70)) +
 
 
-  labs(x=" ", y=" ", title = "Bias Motivation Categories for Victims of Single Bias Incidents since 2018")+
+  labs(x=" ", y=" ", title = "Bias Motivation Categories for Victims of Single Bias Incidents since 2020")+
   coord_flip()+
   theme(legend.position = "none", 
         panel.spacing = unit(1, "lines"),
@@ -129,7 +130,7 @@ ggplot(aes(x = reorder(Bias.Category, -frequency, sum), y = frequency, fill = Bi
         plot.caption = element_text(hjust = 0, lineheight = 0.4, size = 8),
         plot.title = element_text(lineheight = 0.4, face = "bold", size = 12, hjust= 0.5),
         strip.text = element_text(size = 10),
-        axis.text = element_text(size = 6),
+        axis.text = element_text(size = 6.5),
         plot.background = element_rect(fill = "#fafafa", colour = "#fafafa"),
         panel.background = element_rect(fill = "#fafafa", colour = "#fafafa"))+
   
