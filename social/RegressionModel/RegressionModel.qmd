@@ -88,12 +88,11 @@ clean_data <-
   mutate(price_category = case_when( 
     price < 551000 ~ "below",
     price >= 551000 ~ "above")) %>% 
-  mutate(price_category = as.factor(price_category)) 
+  mutate(price_category = as.factor(price_category))
 ```
 
-## Take a look at the Data
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 clean_data %>% 
   count(price_category, 
         name ="total") %>%
@@ -126,7 +125,7 @@ qmplot(x = longitude,
 
 ```
 
-```{r}
+```{r, include=FALSE}
 houses_pdx <-
   clean_data %>% 
   select( # select our predictors
@@ -143,11 +142,9 @@ houses_pdx <-
     ElementarySchooldistance,
     HighSchooldistance)
 
-glimpse(houses_pdx)
-
 ```
 
-```{r}
+```{r, include=FALSE}
 pdx_long <- houses_pdx %>% 
   select(-longitude,-latitude, -homeType, -yearBuilt, -lotSize)%>%
     pivot_longer(!price_category, names_to = "features", values_to = "values")
@@ -158,7 +155,7 @@ pdx_long %>%
   slice_head(n = 10)
 ```
 
-```{r}
+```{r, include=FALSE}
 theme_set(theme_light())
 
 # Make a box plot for each predictor feature
