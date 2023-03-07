@@ -3,11 +3,9 @@ title: "Transit Costs Project"
 image: "TRAIN.png"
 date: 03/6/2023
 categories:
-  - Crime
-  - Community
+  - transportation
   - analysis
-  - Quarto
-  - Rstudio
+  - RStudio
 ---
 
 ```{r setup, include=FALSE}
@@ -16,7 +14,9 @@ knitr::opts_chunk$set(warning=FALSE, message=FALSE)
 library(tidytuesdayR)
 library(tidyverse)
 library(countrycode)
+
 #load data
+
 tuesdata <- tidytuesdayR::tt_load('2021-01-05')
 raw_df <- tuesdata$transit_cost
 
@@ -24,11 +24,11 @@ raw_df <- tuesdata$transit_cost
 
 ```
 
+## Overview
 
-Politicians in the twenty-first century frequently advocate for establishing a massive public works program in the United States to create the necessary infrastructure. The Biden administration's Bipartisan Infrastructure Bill (BIL) turned this excitement for infrastructure into law after a few tentative steps in the Obama administration and the Trump Administration's persistent attempts at Infrastructure Week. BIL proposes spending nearly $1 trillion between fiscal years 2022 and 2026, of which more than $500 billion will be allocated to transportation, including $66 billion for mainline rail and $39 billion for other public transit (National Association of Counties, 2022); when the customary five-year appropriations are taken into account, non-mainline public transit is expected to receive between $91 and $108 billion (FTA n.d.).
+Politicians in the twenty-first century frequently advocate for establishing a massive public works program in the United States to create the necessary infrastructure. The Biden administration's Bipartisan Infrastructure Bill (BIL) turned this excitement for infrastructure into law after a few tentative steps in the Obama administration and the Trump Administration's persistent attempts at Infrastructure Week. BIL proposes spending nearly \$1 trillion between fiscal years 2022 and 2026, of which more than \$500 billion will be allocated to transportation, including \$66 billion for mainline rail and \$39 billion for other public transit (National Association of Counties, 2022); when the customary five-year appropriations are taken into account, non-mainline public transit is expected to receive between \$91 and \$108 billion (FTA n.d.).
 
 Spending money wisely is essential when such significant quantities are at stake. Governments invest in infrastructure, transportation, and public transit because they see them as opportunities to improve connectivity, spur economic activity, renovate aging infrastructure, cut emissions, produce high-paying jobs, and spark innovation rather than just handing out money to people as welfare (The White House 2022). **Regrettably, as we will demonstrate in the graph below, the US transit infrastructure cost is among the highest in the world.**
-
 
 ```{r, fig.height=9, fig.width=9}
 
@@ -72,8 +72,8 @@ p <- ggplot(df, aes(colour=cost_km_millions)) +
         legend.background = element_rect(fill ="#e6e6fa"),
         plot.title = element_text(colour = "black", size=18, face="bold", hjust = 0.5),
         plot.subtitle = element_text(colour = "black", size=12, hjust = 0.5),
-        axis.text.x= element_text(colour="black", size=12),
-        axis.text.y= element_text(colour="black", size=11)) +
+        axis.text.x= element_text(colour="black", size=10),
+        axis.text.y= element_text(colour="black", size=10)) +
   xlab("") + ylab("") +  labs(title = "Transit-infrastructure Costs", 
                               subtitle = "Construction timelines for the most expensive transit-infrastructure \nprojects in each country",
                               colour = "US Dollars \n(millions)/km") 
@@ -83,3 +83,4 @@ p
 
 ```
 
+The first completed Case Study can be found on Boston's Green Line, although there is data from around the world! The raw data is available [here.](https://github.com/rfordatascience/tidytuesday/blob/master/data/2021/2021-01-05/readme.md)

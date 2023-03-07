@@ -1,0 +1,103 @@
+---
+title: "Freedom in the World"
+image: "free.png"
+date: 03/6/2023
+categories:
+  - Community
+  - analysis
+  - Rstudio
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning=FALSE, message=FALSE)
+
+library(tidyverse)
+library(geofacet)
+library(usefunc)
+library(showtext)
+
+# get data
+tuesdata <- tidytuesdayR::tt_load('2022-02-22')
+freedom <- tuesdata$freedom
+
+# load fonts
+font_add_google(family="josefin-slab", "Josefin Slab")
+showtext_auto()
+
+# prep data
+africa_data <- freedom %>%
+  filter(Region_Name == "Africa") %>% 
+  mutate(country = recode(country, 
+                          "CÃƒÂ´te dÃ¢â‚¬â„¢Ivoire" = "Côte d'Ivoire", 
+                          "Sao Tome and Principe" = "São Tomé and Principe", 
+                          "United Republic of Tanzania" = "Tanzania", 
+                          "Congo" = "Republic of the Congo")) %>% 
+  select(country, year, PR) 
+
+plot_2020 <- africa_data %>% 
+  filter(year == 2020) %>% 
+  select(country, PR)
+
+plot_data <- left_join(africa_data, plot_2020, by = "country")
+
+```
+
+## Overview
+
+The flagship publication of Freedom House, Freedom in the World, is the benchmark for comparing assessments of civil liberties and political rights worldwide. Policymakers, the media, multinational businesses, community activists, and human rights advocates use the survey ratings and narrative reports on 195 countries and 15 connected and disputed territories published annually since 1972.
+
+A country or territory’s Freedom in the World status depends on its aggregate Political Rights score, on a scale of 0–40, and its aggregate Civil Liberties score, on a scale of 0–60. The total Political Rights and Civil Liberties scores are equally weighted in this calculation, leading to the following possible ranges.
+
+![Key to Scores and Status](table.jpg)
+
+KEY:     F = Free, PF = Partly Free, and NF = Not Free
+
+* It is possible for a country or territory’s total political rights score to be less than zero (between –1 and –4) if it receives mostly or all zeros for each of the 10 political rights questions and it receives a sufficiently large negative score for the political rights discretionary question.
+
+
+```{r, fig.height=9, fig.width=9}
+# plot 
+ggplot(plot_data, aes(x = year, y = PR.x, fill = as.character(PR.y))) +
+  
+  geom_area() +
+  
+  facet_geo(~ country, grid = africa_countries_grid1, label = "code") +
+  
+  scale_x_continuous(limits = c(1995, 2020), breaks = c(2000, 2020)) +
+  
+  scale_y_continuous(limits = c(0, 10), breaks = c(0, 5, 10)) +
+  
+  coord_cartesian(expand = F) +
+  
+  labs(title = "Freedom in the World: Political Rights", 
+       subtitle = str_wrap_break("", 70), 
+       x = "", 
+       y = "") +
+  
+   scale_fill_viridis_d("2020 Political\nRights Index") +
+  
+  guides(fill=guide_legend(ncol=4)) +
+  
+  theme_light() +
+   theme(
+     plot.background = element_rect(fill = "black", colour = "black"),
+        panel.background = element_rect(fill = "black", colour = "black"), 
+     
+        plot.title = element_text(colour = "white", size=16, face = "bold", hjust = 0.5, family="josefin-slab"), 
+  
+        plot.caption = element_text(colour = "#fafafa", size=10, hjust = 0.5, family="josefin-slab", 
+                                     margin = margin(5, 0, 5, 0)), 
+        strip.text = element_text(colour = "white", size=10, hjust = 0.5, family="josefin-slab"), 
+     
+        strip.background = element_rect(fill = "black", colour = "black"), 
+        plot.margin = unit(c(0.3, 0.9, 0.3, 0.3), "cm"), 
+        legend.background = element_rect(fill = "black", colour = "black"), 
+        legend.key = element_rect(fill = "black", colour = "black"),
+        legend.position = c(0.85, 0.1),
+     
+        legend.text = element_text(colour = "white", size=9, hjust = 0.5, family="josefin-slab"), 
+        legend.title = element_text(colour = "white", size=10, hjust = 0.5, family="josefin-slab"))
+```
+
+
+

@@ -3,13 +3,10 @@ title: "Reported Bias Crimes in Portland"
 image: "stophate.png"
 date: 02/28/202
 categories:
-  - Crime
   - Community
   - analysis
-  - Quarto
   - Rstudio
 ---
-
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(warning=FALSE, message=FALSE)
@@ -37,25 +34,18 @@ crime_type <- crime%>%
   summarize(prov_freq = n())
 ```
 
-
-
-
 This data was obtained from the PortlandMaps- Open Data website- Reported Bias Crime Statistics, Portland Police Bureau.
 
 A hate crime is a criminal offense committed against persons, property, or society that is motivated, in whole or in part, by an offender's bias against an individual's or a group's race, religion, ethnic/national origin, gender, age, disability or sexual orientation. (Definition developed at the 1998 IACP Summit on Hate Crime in America.) This data exploration aims to learn about the most common locations where these crimes occurred and their types.
 
-
 ## Insights:
-               
 
-- The victims are from 2 to 83 years old, with a median of 32 (when the information was available)
-- The ages of the suspects are from 11 to over 80 years, with a median of 40 (when the information was available)
-- Most hate crimes were reported in 2021, with a decline in 2022, but bias incidents have increased over the past two years.
-- Over the past five years, the most common motivations for bias have been race, sexual orientation, and ethnicity.
-- The most common cases of bias reported have been against Black or African-American people, followed by Anti-Gay (Male) and Anti-White.
-- The places where these incidents occurred the most are Public Spaces (Streets/Roads/Sidewalks), residences, and Parking Lots.
-
-
+-   The victims are from 2 to 83 years old, with a median of 32 (when the information was available)
+-   The ages of the suspects are from 11 to over 80 years, with a median of 40 (when the information was available)
+-   Most hate crimes were reported in 2021, with a decline in 2022, but bias incidents have increased over the past two years.
+-   Over the past five years, the most common motivations for bias have been race, sexual orientation, and ethnicity.
+-   The most common cases of bias reported have been against Black or African-American people, followed by Anti-Gay (Male) and Anti-White.
+-   The places where these incidents occurred the most are Public Spaces (Streets/Roads/Sidewalks), residences, and Parking Lots.
 
 ```{r,  fig.width=9}
 pp1 <- crime %>%
@@ -127,10 +117,6 @@ pp2 <-crime %>%
 
 pp1+pp2
 ```
-
-
-
-
 
 ```{r, fig.width=9, warning=FALSE, message=FALSE}
 
@@ -236,7 +222,6 @@ theme(legend.position = "none",
 p
 ```
 
-
 ```{r, message=FALSE, warning=FALSE}
 ## Top Five Bias Incidents and Crimes Locations
 
@@ -280,5 +265,3 @@ loc <- ggplot(p_loc) +
   loc+transition_states(Location.Type, wrap = FALSE) + shadow_mark() + enter_grow() +  enter_fade() 
   
 ```
-
-
