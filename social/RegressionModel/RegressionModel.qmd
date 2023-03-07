@@ -23,25 +23,13 @@ library(ggmap)
 suppressWarnings(if(!require("pacman")) install.packages("pacman"))
 
 pacman::p_load('tidyverse', 'tidymodels', 'ranger','vip', 'ggplot2', 'readr', 'ggmap','gt' )
-```
 
-## Get the Data
-
-```{r}
 raw_pdx <- read.csv("https://raw.githubusercontent.com/karolo89/Raw_Data/main/PORTLAND%20HOUSE.csv", stringsAsFactors=TRUE)
-```
 
-## Prepare the Data
-
-This data has 25731 obs. of 32 variables
-
-```{r}
 ## raw_pdx <- raw_pdx%>%select(-id)
 
 head(raw_pdx)
-```
 
-```{r include=FALSE, message=FALSE, warning=FALSE}
 
 # convert variables
 
@@ -68,15 +56,8 @@ raw_pdx <-  raw_pdx %>%
     
   )
 
-```
-
-### Missing data
-
-```{r include=FALSE, message=FALSE, warning=FALSE}
 is.na(raw_pdx) %>% colSums()
-```
 
-```{r}
 clean_data <- raw_pdx %>%
   filter(!is.na(yearBuilt))%>%
   filter(!is.na(longitude))%>%
@@ -98,14 +79,10 @@ clean_data <- raw_pdx %>%
   filter(!is.na(MiddleSchoolsrating))%>%
   filter(!is.na(HighSchoolRating))
 
-```
 
-```{r}
 summary(clean_data)
 
-```
 
-```{r include=FALSE, message=FALSE, warning=FALSE}
 clean_data <- 
   clean_data %>% 
   mutate(price_category = case_when( 
