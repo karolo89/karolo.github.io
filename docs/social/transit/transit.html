@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2202-03-05">
+<meta name="dcterms.date" content="2023-03-06">
 
-<title>Karol Orozco - Limited English Proficiency, Portland</title>
+<title>Karol Orozco - Transit Costs Project</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -127,8 +127,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Karol Orozco - Limited English Proficiency, Portland">
-<meta property="og:image" content="lep.png">
+<meta property="og:title" content="Karol Orozco - Transit Costs Project">
+<meta property="og:description" content="Politicians in the twenty-first century frequently advocate for establishing a massive public works program in the United States to create the necessary infrastructure.">
+<meta property="og:image" content="TRAIN.png">
 <meta property="og:site-name" content="Karol Orozco">
 </head>
 
@@ -183,11 +184,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Limited English Proficiency, Portland</h1>
+      <h1 class="title">Transit Costs Project</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">Language</div>
+                <div class="quarto-category">Crime</div>
                 <div class="quarto-category">Community</div>
-                <div class="quarto-category">Analysis</div>
+                <div class="quarto-category">analysis</div>
+                <div class="quarto-category">Quarto</div>
                 <div class="quarto-category">Rstudio</div>
               </div>
                   </div>
@@ -200,7 +202,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">March 5, 2202</p>
+        <p class="date">March 6, 2023</p>
       </div>
     </div>
     
@@ -218,82 +220,61 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
+<p>Politicians in the twenty-first century frequently advocate for establishing a massive public works program in the United States to create the necessary infrastructure. The Biden administration’s Bipartisan Infrastructure Bill (BIL) turned this excitement for infrastructure into law after a few tentative steps in the Obama administration and the Trump Administration’s persistent attempts at Infrastructure Week. BIL proposes spending nearly $1 trillion between fiscal years 2022 and 2026, of which more than $500 billion will be allocated to transportation, including $66 billion for mainline rail and $39 billion for other public transit (National Association of Counties, 2022); when the customary five-year appropriations are taken into account, non-mainline public transit is expected to receive between $91 and $108 billion (FTA n.d.).</p>
+<p>Spending money wisely is essential when such significant quantities are at stake. Governments invest in infrastructure, transportation, and public transit because they see them as opportunities to improve connectivity, spur economic activity, renovate aging infrastructure, cut emissions, produce high-paying jobs, and spark innovation rather than just handing out money to people as welfare (The White House 2022). <strong>Regrettably, as we will demonstrate in the graph below, the US transit infrastructure cost is among the highest in the world.</strong></p>
 <div class="cell">
 <details>
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lep)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#maximum cost per km for each country</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> raw_df <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span> <span class="fu">top_n</span>(<span class="dv">1</span>, cost_km_millions) </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#obtain country names</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>end_year <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(df<span class="sc">$</span>end_year) </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>country_name <span class="ot">&lt;-</span> <span class="fu">countrycode</span>(df<span class="sc">$</span>country, <span class="st">"ecb"</span>, <span class="st">"country.name"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>country_name[<span class="fu">which</span>(df<span class="sc">$</span>country <span class="sc">==</span> <span class="st">"UK"</span>)] <span class="ot">&lt;-</span> <span class="st">"United Kingdom"</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#remove NA and get distinct names</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">distinct</span>(df)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">drop_na</span>(<span class="fu">c</span>(<span class="st">"country"</span>, <span class="st">"start_year"</span>, <span class="st">"end_year"</span>, <span class="st">"cost_km_millions"</span>))</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">#plot</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">colour=</span>cost_km_millions)) <span class="sc">+</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="co">#plot project duration</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="fu">as.numeric</span>(start_year), <span class="at">xend=</span><span class="fu">as.numeric</span>(end_year), <span class="at">y=</span>country_name, <span class="at">yend=</span>country_name), <span class="at">size=</span><span class="fl">4.5</span>) <span class="sc">+</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="co">#colour by cost</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_gradient2</span>(<span class="at">low =</span> <span class="st">"lightgray"</span>,</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>                        <span class="at">mid =</span> <span class="st">"#00008B"</span>,</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">high =</span> <span class="st">"#800080"</span>,</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">midpoint =</span> <span class="dv">2000</span>,</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">space =</span> <span class="st">"Lab"</span>,</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">guide =</span> <span class="st">"colourbar"</span>,</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">aesthetics =</span> <span class="st">"colour"</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="co">#order countries </span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_discrete</span>(<span class="at">limits =</span> <span class="fu">factor</span>(df<span class="sc">$</span>country_name[<span class="fu">order</span>(df<span class="sc">$</span>start_year)], <span class="at">levels=</span>df<span class="sc">$</span>country_name[<span class="fu">order</span>(df<span class="sc">$</span>start_year)])) <span class="sc">+</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks=</span><span class="fu">seq</span>(<span class="fu">min</span>(df<span class="sc">$</span>start_year), <span class="fu">max</span>(df<span class="sc">$</span>end_year), <span class="at">by =</span> <span class="dv">3</span>)) <span class="sc">+</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="co">#note current year</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">2021</span>, <span class="at">y =</span> df<span class="sc">$</span>country_name[<span class="fu">which.min</span>(df<span class="sc">$</span>start_year)], <span class="at">xend =</span> <span class="dv">2021</span>, <span class="at">yend =</span> df<span class="sc">$</span>country_name[<span class="fu">which.max</span>(df<span class="sc">$</span>start_year)]), <span class="at">colour =</span> <span class="st">"#70284a"</span>, <span class="at">linetype=</span><span class="st">"dashed"</span>, <span class="at">size=</span><span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  <span class="co">#visualisation</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"#e6e6fa"</span>),</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"#e6e6fa"</span>),</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span><span class="st">"#e6e6fa"</span>),</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">colour =</span> <span class="st">"black"</span>, <span class="at">size=</span><span class="dv">18</span>, <span class="at">face=</span><span class="st">"bold"</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">colour =</span> <span class="st">"black"</span>, <span class="at">size=</span><span class="dv">12</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x=</span> <span class="fu">element_text</span>(<span class="at">colour=</span><span class="st">"black"</span>, <span class="at">size=</span><span class="dv">12</span>),</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y=</span> <span class="fu">element_text</span>(<span class="at">colour=</span><span class="st">"black"</span>, <span class="at">size=</span><span class="dv">11</span>)) <span class="sc">+</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">""</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">""</span>) <span class="sc">+</span>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Transit-infrastructure Costs"</span>, </span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>                              <span class="at">subtitle =</span> <span class="st">"Construction timelines for the most expensive transit-infrastructure </span><span class="sc">\n</span><span class="st">projects in each country"</span>,</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>                              <span class="at">colour =</span> <span class="st">"US Dollars </span><span class="sc">\n</span><span class="st">(millions)/km"</span>) </span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>    OBJECTID        GEO_ID              STATE        COUNTY       TRACT       
- Min.   :  1.0   Length:171         Min.   :41   Min.   :51   Min.   :   100  
- 1st Qu.: 43.5   Class :character   1st Qu.:41   1st Qu.:51   1st Qu.:  2752  
- Median : 86.0   Mode  :character   Median :41   Median :51   Median :  5800  
- Mean   : 86.0                      Mean   :41   Mean   :51   Mean   : 11291  
- 3rd Qu.:128.5                      3rd Qu.:41   3rd Qu.:51   3rd Qu.:  8902  
- Max.   :171.0                      Max.   :41   Max.   :51   Max.   :980000  
-      NAME             LSAD                Id                 Id2           
- Min.   :   1.00   Length:171         Length:171         Min.   :4.105e+10  
- 1st Qu.:  27.52   Class :character   Class :character   1st Qu.:4.105e+10  
- Median :  58.00   Mode  :character   Mode  :character   Median :4.105e+10  
- Mean   : 112.91                                         Mean   :4.105e+10  
- 3rd Qu.:  89.02                                         3rd Qu.:4.105e+10  
- Max.   :9800.00                                         Max.   :4.105e+10  
-  Geography         Total_Pop_5_n_over    Spanish          Russian      
- Length:171         Min.   :   1       Min.   :   0.0   Min.   :  0.00  
- Class :character   1st Qu.:2991       1st Qu.:  19.5   1st Qu.:  0.00  
- Mode  :character   Median :3989       Median :  62.0   Median :  0.00  
-                    Mean   :4159       Mean   : 157.6   Mean   : 29.51  
-                    3rd Qu.:5125       3rd Qu.: 187.5   3rd Qu.: 22.00  
-                    Max.   :9103       Max.   :1193.0   Max.   :441.00  
-  Other_Slavic     Other_Indic      Other_Indo_European    Chinese      
- Min.   :  0.00   Min.   :  0.000   Min.   :  0.00      Min.   :  0.00  
- 1st Qu.:  0.00   1st Qu.:  0.000   1st Qu.:  0.00      1st Qu.:  0.00  
- Median :  0.00   Median :  0.000   Median :  0.00      Median :  1.00  
- Mean   : 13.15   Mean   :  5.211   Mean   : 10.95      Mean   : 35.85  
- 3rd Qu.:  3.00   3rd Qu.:  0.000   3rd Qu.:  1.00      3rd Qu.: 23.00  
- Max.   :299.00   Max.   :255.000   Max.   :411.00      Max.   :716.00  
-    Japanese         Korean       Mon_Khmer_Cambodian    Laotian      
- Min.   : 0.00   Min.   : 0.000   Min.   :  0.000     Min.   : 0.000  
- 1st Qu.: 0.00   1st Qu.: 0.000   1st Qu.:  0.000     1st Qu.: 0.000  
- Median : 0.00   Median : 0.000   Median :  0.000     Median : 0.000  
- Mean   : 4.48   Mean   : 5.035   Mean   :  3.491     Mean   : 3.181  
- 3rd Qu.: 6.00   3rd Qu.: 0.000   3rd Qu.:  0.000     3rd Qu.: 0.000  
- Max.   :52.00   Max.   :74.000   Max.   :123.000     Max.   :54.000  
-   Vietnamese      Other_Asian         Tagalog        Other_Pacific_Island
- Min.   :  0.00   Min.   :  0.000   Min.   :  0.000   Min.   :  0.000     
- 1st Qu.:  0.00   1st Qu.:  0.000   1st Qu.:  0.000   1st Qu.:  0.000     
- Median : 15.00   Median :  0.000   Median :  0.000   Median :  0.000     
- Mean   : 56.49   Mean   :  9.912   Mean   :  5.222   Mean   :  8.076     
- 3rd Qu.: 70.00   3rd Qu.:  0.000   3rd Qu.:  0.000   3rd Qu.:  0.000     
- Max.   :538.00   Max.   :285.000   Max.   :141.000   Max.   :218.000     
-     Arabic           African        Shape_Length      Shape_Area       
- Min.   :  0.000   Min.   :  0.00   Min.   :  3609   Min.   :6.178e+05  
- 1st Qu.:  0.000   1st Qu.:  0.00   1st Qu.:  6911   1st Qu.:2.487e+06  
- Median :  0.000   Median :  0.00   Median :  8614   Median :3.396e+06  
- Mean   :  4.187   Mean   : 14.68   Mean   : 12269   Mean   :1.438e+07  
- 3rd Qu.:  0.000   3rd Qu.:  0.00   3rd Qu.: 10587   3rd Qu.:5.424e+06  
- Max.   :128.000   Max.   :482.00   Max.   :188923   Max.   :1.013e+09  </code></pre>
+<div class="cell-output-display">
+<p><img src="transit_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="864"></p>
 </div>
-</div>
-<div class="cell">
-<details>
-<summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>lep_long <span class="ot">&lt;-</span> lep<span class="sc">%&gt;%</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">c</span>(<span class="st">"Spanish"</span>, <span class="st">"Russian"</span>,<span class="st">"Other_Slavic"</span>,<span class="st">"Other_Indic"</span>,<span class="st">"Other_Indo_European"</span>,<span class="st">"Chinese"</span>,<span class="st">"Japanese"</span>, <span class="st">"Korean"</span>, <span class="st">"Mon_Khmer_Cambodian"</span>, <span class="st">"Laotian"</span>, <span class="st">"Vietnamese"</span>, <span class="st">"Other_Asian"</span>,<span class="st">"Tagalog"</span>, <span class="st">"Other_Pacific_Island"</span>,<span class="st">"Arabic"</span>,<span class="st">"African"</span>),</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to=</span> <span class="st">"Languages"</span>,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"Count"</span>,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_drop_na =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>lep_long <span class="ot">&lt;-</span> lep_long[,<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<div class="cell">
-<details>
-<summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>lang <span class="ot">&lt;-</span>lep <span class="sc">%&gt;%</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Geography, <span class="st">"Spanish"</span>, <span class="st">"Russian"</span>,<span class="st">"Other_Slavic"</span>,<span class="st">"Other_Indic"</span>,<span class="st">"Other_Indo_European"</span>,<span class="st">"Chinese"</span>,<span class="st">"Japanese"</span>, <span class="st">"Korean"</span>, <span class="st">"Mon_Khmer_Cambodian"</span>, <span class="st">"Laotian"</span>, <span class="st">"Vietnamese"</span>, <span class="st">"Other_Asian"</span>,<span class="st">"Tagalog"</span>, <span class="st">"Other_Pacific_Island"</span>,<span class="st">"Arabic"</span>,<span class="st">"African"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count=</span> <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 
 

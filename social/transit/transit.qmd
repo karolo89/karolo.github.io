@@ -1,0 +1,85 @@
+---
+title: "Transit Costs Project"
+image: "TRAIN.png"
+date: 03/6/2023
+categories:
+  - Crime
+  - Community
+  - analysis
+  - Quarto
+  - Rstudio
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning=FALSE, message=FALSE)
+
+library(tidytuesdayR)
+library(tidyverse)
+library(countrycode)
+#load data
+tuesdata <- tidytuesdayR::tt_load('2021-01-05')
+raw_df <- tuesdata$transit_cost
+
+
+
+```
+
+
+Politicians in the twenty-first century frequently advocate for establishing a massive public works program in the United States to create the necessary infrastructure. The Biden administration's Bipartisan Infrastructure Bill (BIL) turned this excitement for infrastructure into law after a few tentative steps in the Obama administration and the Trump Administration's persistent attempts at Infrastructure Week. BIL proposes spending nearly $1 trillion between fiscal years 2022 and 2026, of which more than $500 billion will be allocated to transportation, including $66 billion for mainline rail and $39 billion for other public transit (National Association of Counties, 2022); when the customary five-year appropriations are taken into account, non-mainline public transit is expected to receive between $91 and $108 billion (FTA n.d.).
+
+Spending money wisely is essential when such significant quantities are at stake. Governments invest in infrastructure, transportation, and public transit because they see them as opportunities to improve connectivity, spur economic activity, renovate aging infrastructure, cut emissions, produce high-paying jobs, and spark innovation rather than just handing out money to people as welfare (The White House 2022). **Regrettably, as we will demonstrate in the graph below, the US transit infrastructure cost is among the highest in the world.**
+
+
+```{r, fig.height=9, fig.width=9}
+
+
+#maximum cost per km for each country
+df <- raw_df %>% group_by(country) %>% top_n(1, cost_km_millions) 
+
+#obtain country names
+df$end_year <- as.numeric(df$end_year) 
+df$country_name <- countrycode(df$country, "ecb", "country.name")
+df$country_name[which(df$country == "UK")] <- "United Kingdom"
+
+#remove NA and get distinct names
+df <- distinct(df)
+df <- df %>% drop_na(c("country", "start_year", "end_year", "cost_km_millions"))
+
+#plot
+p <- ggplot(df, aes(colour=cost_km_millions)) +
+  #plot project duration
+  geom_segment(aes(x=as.numeric(start_year), xend=as.numeric(end_year), y=country_name, yend=country_name), size=4.5) +
+  #colour by cost
+  scale_colour_gradient2(low = "lightgray",
+                        mid = "#00008B",
+    high = "#800080",
+    midpoint = 2000,
+    space = "Lab",
+    guide = "colourbar",
+    aesthetics = "colour"
+  ) + 
+  #order countries 
+  scale_y_discrete(limits = factor(df$country_name[order(df$start_year)], levels=df$country_name[order(df$start_year)])) +
+  scale_x_continuous(breaks=seq(min(df$start_year), max(df$end_year), by = 3)) +
+  #note current year
+  geom_segment(aes(x = 2021, y = df$country_name[which.min(df$start_year)], xend = 2021, yend = df$country_name[which.max(df$start_year)]), colour = "#70284a", linetype="dashed", size=1.5) +
+  
+  #visualisation
+  theme_classic() +
+  
+  theme(plot.background = element_rect(fill = "#e6e6fa"),
+        panel.background = element_rect(fill = "#e6e6fa"),
+        legend.background = element_rect(fill ="#e6e6fa"),
+        plot.title = element_text(colour = "black", size=18, face="bold", hjust = 0.5),
+        plot.subtitle = element_text(colour = "black", size=12, hjust = 0.5),
+        axis.text.x= element_text(colour="black", size=12),
+        axis.text.y= element_text(colour="black", size=11)) +
+  xlab("") + ylab("") +  labs(title = "Transit-infrastructure Costs", 
+                              subtitle = "Construction timelines for the most expensive transit-infrastructure \nprojects in each country",
+                              colour = "US Dollars \n(millions)/km") 
+
+p
+
+
+```
+
