@@ -3,7 +3,8 @@ title: "Freedom in the World"
 image: "free.png"
 date: 03/6/2023
 categories:
-  - Community
+  - Countries
+  - freedom
   - analysis
   - Rstudio
 ---
