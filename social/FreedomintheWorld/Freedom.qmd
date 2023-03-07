@@ -51,13 +51,13 @@ A country or territory’s Freedom in the World status depends on its aggregate 
 
 :::
 
-![Key to Scores and Status](table.jpg)
+![Key to Scores and Status, Source: Freedom House](table.jpg)
 
 :::
 
 KEY:     F = Free, PF = Partly Free, and NF = Not Free
 
-* It is possible for a country or territory’s total political rights score to be less than zero (between –1 and –4) if it receives mostly or all zeros for each of the 10 political rights questions and it receives a sufficiently large negative score for the political rights discretionary question.
+* According to the Freedom House, It is possible for a country or territory’s total political rights score to be less than zero (between –1 and –4) if it receives mostly or all zeros for each of the 10 political rights questions and it receives a sufficiently large negative score for the political rights discretionary question.
 
 
 ```{r, fig.height=9, fig.width=9}
