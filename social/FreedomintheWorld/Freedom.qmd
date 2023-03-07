@@ -49,9 +49,11 @@ The flagship publication of Freedom House, Freedom in the World, is the benchmar
 A country or territory’s Freedom in the World status depends on its aggregate Political Rights score, on a scale of 0–40, and its aggregate Civil Liberties score, on a scale of 0–60. The total Political Rights and Civil Liberties scores are equally weighted in this calculation, leading to the following possible ranges.
 
 
+:::
 
 ![Key to Scores and Status](table.jpg)
 
+:::
 
 KEY:     F = Free, PF = Partly Free, and NF = Not Free
 
