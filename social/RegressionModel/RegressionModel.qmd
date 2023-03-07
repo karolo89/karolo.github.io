@@ -91,7 +91,6 @@ clean_data <-
   mutate(price_category = as.factor(price_category))
 ```
 
-
 ```{r, message=FALSE, warning=FALSE}
 clean_data %>% 
   count(price_category, 
@@ -114,7 +113,7 @@ clean_data %>%
   )  
 ```
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 qmplot(x = longitude, 
        y = latitude, 
        data = clean_data, 
@@ -167,7 +166,7 @@ pdx_long %>%
   theme(legend.position = "none")
 ```
 
-### Data Splitting
+**Data Splitting**
 
 ```{r}
 
@@ -184,16 +183,16 @@ train_data <- training(data_split)
 test_data <- testing(data_split)
 ```
 
-### Validaton Set
+**Validaton Set**
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 house_folds <-
  vfold_cv(train_data, 
           v = 5, 
           strata = price_category) 
 ```
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 pdx_rec <-
   recipe(price_category ~ .,
          data = train_data) %>%
@@ -215,12 +214,9 @@ pdx_rec <-
 
 ```
 
-```{r}
-summary(pdx_rec)
 
-```
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 prep_data <- 
   pdx_rec %>% # use the recipe object
   prep() %>% # perform the recipe on training data
@@ -230,7 +226,7 @@ prep_data <-
 
 ## The Model- Logistic regression
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 log_spec <- # your model specification
   logistic_reg() %>%  # model type
   set_engine(engine = "glm") %>%  # model engine
@@ -240,7 +236,7 @@ log_spec <- # your model specification
 log_spec
 ```
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 
 pdx_wflow <- # new workflow object
  workflow() %>% # use workflow function
@@ -286,7 +282,7 @@ filter(all_coef, term == "bedrooms")
 
 Show performance for every single fold:
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 log_res_2 %>%  collect_metrics(summarize = FALSE)
 
 ```
@@ -295,7 +291,7 @@ log_res_2 %>%  collect_metrics(summarize = FALSE)
 
 To obtain the actual model predictions, we use the function collect_predictions and save the result as log_pred:
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 log_pred <- 
   log_res_2 %>%
   collect_predictions()
@@ -305,7 +301,7 @@ log_pred %>%
   conf_mat(price_category, .pred_class) 
 ```
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 log_pred %>% 
   conf_mat(price_category, .pred_class) %>% 
   autoplot(type = "heatmap")+
@@ -314,7 +310,7 @@ log_pred %>%
 
 ### ROC Curve
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 log_pred %>% 
   group_by(id) %>% # id contains our folds
   roc_curve(price_category, .pred_above) %>% 
@@ -324,20 +320,20 @@ log_pred %>%
 
 ## Use the workflow to train our model
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 pdx_fit <- fit(pdx_wflow, train_data)
 ```
 
 This allows us to use the model trained by this workflow to predict labels for our test set, and compare the performance metrics with the basic model we created previously.
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 pdx_fit %>% ## display results
 pull_workflow_fit() %>%
 tidy()%>%
   filter(p.value < 0.05)
 ```
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 library(vip)
 
 pdx_fit %>%
@@ -348,7 +344,7 @@ extract_fit_parsnip() %>%
 
 The two most important predictors in whether the median house value is above or below 551,000 dollars were the Living Area and the home type: Townhouse
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 # Make predictions on the test set
 pred_results <- test_data %>% 
   select(price_category) %>% 
@@ -364,7 +360,7 @@ pred_results %>%
 
 Let's take a look at the confusion matrix:
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 pred_results%>% 
   conf_mat(price_category, .pred_class) %>% 
   autoplot(type = "heatmap")+
@@ -373,13 +369,13 @@ pred_results%>%
 
 # Evaluate other desired metrics
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 
 eval_metrics <- metric_set(ppv, recall, accuracy, f_meas)
 eval_metrics(data = pred_results, truth = price_category, estimate = .pred_class)
 ```
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 pred_results %>% 
   roc_auc(price_category, .pred_above)
 ```
@@ -388,7 +384,7 @@ pred_results %>%
 
 Let's create the ROC curve. Again, since the event we are predicting is the first level in the price_category factor ("above"), we provide roc_curve() with the relevant class probability .pred_above:
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 pred_results %>% 
   roc_curve(truth = price_category, .pred_above) %>% 
   autoplot()+
