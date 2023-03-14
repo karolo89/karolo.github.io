@@ -1,0 +1,14 @@
+{
+  "hash": "6c1ea3c87c75591894b4c493d16375a0",
+  "result": {
+    "markdown": "---\ntitle: \"Latinos\"\ndate: 03/8/2023\ncategories:\n  - Spanish\n  - Demographic\n  - DataViz\n  - RStudio\n---\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

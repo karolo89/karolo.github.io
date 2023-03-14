@@ -1,7 +1,7 @@
 {
-  "hash": "929f02268dfcac62da5863491f5e355b",
+  "hash": "9697ae93a4c9e9c19eadbbcf206ede9f",
   "result": {
-    "markdown": "---\ntitle: \"Overview of Latinos or Hispanic: Multnomah, Clackamas & Washington Counties\"\nimage: \"vote.png\"\ndate: 03/8/2023\ncategories:\n  - Spanish\n  - Demographic\n  - DataViz\n  - RStudio\n---\n\n\n\n::: {.cell}\n\n:::\n",
+    "markdown": "---\ntitle: \"Overview of Latinos or Hispanic: Multnomah, Clackamas & Washington Counties\"\ndate: 03/8/2023\ncategories:\n  - Spanish\n  - Demographic\n  - DataViz\n  - RStudio\n---\n\n\n",
     "supporting": [],
     "filters": [
       "rmarkdown/pagebreak.lua"
