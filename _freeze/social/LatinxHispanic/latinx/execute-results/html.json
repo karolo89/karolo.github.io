@@ -1,7 +1,7 @@
 {
-  "hash": "9383205bdae29cc349aed30a6903f7de",
+  "hash": "4c63f980d0cc67efc4c9cf467d4db402",
   "result": {
-    "markdown": "---\ntitle: \"Hispanic or Latino, Oregon\"\nimage: \"free.png\"\ndate: 03/6/2023\ncategories:\n  - Latinx- Hispanic\n  - Analysis\n  - Rstudio\n---\n\n\n",
+    "markdown": "---\ntitle: \"Who are the Latinos of Wahington, Multnomah and Clackamas Counties\"\nimage: \"latin.png\"\ndate: 03/6/2023\ncategories:\n  - Latinx- Hispanic\n  - Analysis\n  - Rstudio\n---\n\n\n\n::: {.cell}\n\n:::\n",
     "supporting": [],
     "filters": [
       "rmarkdown/pagebreak.lua"
