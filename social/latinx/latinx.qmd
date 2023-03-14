@@ -1,0 +1,26 @@
+---
+title: "Overview of Latinos or Hispanic: Multnomah, Clackamas & Washington Counties"
+image: "vote.png"
+date: 03/8/2023
+categories:
+  - Spanish
+  - Demographic
+  - DataViz
+  - RStudio
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning=FALSE, message=FALSE)
+
+library(tidyverse)
+library(ggplot2)
+library(dplyr)
+
+```
+
+```{r}
+
+```
+
+

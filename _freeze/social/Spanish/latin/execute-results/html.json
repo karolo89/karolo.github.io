@@ -1,0 +1,14 @@
+{
+  "hash": "4f91b39f0d1ed29ee308d791497d3935",
+  "result": {
+    "markdown": "---\ntitle: \"Census Data: Multnomah, Clackamas & Washington\"\ndate: 03/8/2023\ncategories:\n  - Spanish\n  - Demographic\n  - DataViz\n  - RStudio\n---\n\n\n\n::: {.cell}\n\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
