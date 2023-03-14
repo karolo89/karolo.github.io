@@ -1,7 +1,7 @@
 ---
 title: "Reported Bias Crimes in Portland"
 image: "stophate.png"
-date: 02/28/202
+date: 02/28/2022
 categories:
   - Community
   - analysis

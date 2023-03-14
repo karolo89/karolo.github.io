@@ -1,0 +1,23 @@
+---
+title: "Hispanic or Latino, Oregon"
+image: "free.png"
+date: 03/6/2023
+categories:
+  - Latinx- Hispanic
+  - Analysis
+  - Rstudio
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning=FALSE, message=FALSE)
+
+library(tidyverse)
+library(geofacet)
+library(usefunc)
+library(showtext)
+
+library(readxl)
+latin_raw <- read_excel("C:/Users/karol/Desktop/LATINOS/ORIGIN_LATINO.xlsx")
+
+```
+

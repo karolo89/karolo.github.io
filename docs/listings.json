@@ -2,13 +2,12 @@
   {
     "listing": "/portfolio.html",
     "items": [
-      "/social/biascrimes/biascrime.html",
-      "/social/latinx/hispanic.html",
-      "/social/latinx/latinx.html",
       "/social/FreedomintheWorld/Freedom.html",
+      "/social/LatinxHispanic/latinx.html",
       "/social/transit/transit.html",
       "/social/Hurricanes Graph/hurricanes.html",
       "/social/RegressionModel/RegressionModel.html",
+      "/social/biascrimes/biascrime.html",
       "/social/vote/vote.html"
     ]
   }

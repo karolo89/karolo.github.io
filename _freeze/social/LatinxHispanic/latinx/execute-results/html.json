@@ -1,0 +1,14 @@
+{
+  "hash": "9383205bdae29cc349aed30a6903f7de",
+  "result": {
+    "markdown": "---\ntitle: \"Hispanic or Latino, Oregon\"\nimage: \"free.png\"\ndate: 03/6/2023\ncategories:\n  - Latinx- Hispanic\n  - Analysis\n  - Rstudio\n---\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
