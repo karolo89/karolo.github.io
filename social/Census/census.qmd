@@ -1,5 +1,6 @@
 ---
 title: "Census Data"
+image: "census.png"
 date: 02/28/2022
 categories:
   - Community
@@ -78,7 +79,9 @@ orPct<-as.data.frame(orDem)[,c(1,3:4)]%>%
 
 head(orPct)
 
+```
 
+```{r}
 # Set a year first
 this.year = 2021
 
@@ -108,6 +111,21 @@ or <- get_acs(geography = "tract", year=this.year,
   mutate(GEO_ID=paste0("1400000US", GEOID))
 
 head(or)
+```
+
+```{r}
+joinrace<- geo_join(or_tracts, orPct, 
+                 by_sp="GEOID", by_df="GEOID")
+
+## SET GEOMETRY
+oregon <- get_acs(geography = "tract", year=this.year,
+               state = "OR",
+               variables = "B25077_001E",
+               geometry = TRUE)
+
+#Plotting with MAPVIEW 
+mapview(oregon, zcol = "estimate", legend = TRUE, 
+        lwd=.25)
 ```
 
 ```{r}
@@ -151,3 +169,27 @@ leaflet()%>%
 
 ```
 
+```{r}
+## Total Hispanic/Latino
+or <- get_acs(geography = "county", variables = "B03001_001", state = 'OR', year = 2021)
+
+or %>%
+ ggplot(aes(x = estimate, y = reorder(NAME, estimate))) +
+ geom_point(color = "red", size = 1) +
+  labs(title = "Latino Population by county in Oregon",
+       subtitle = "2018-2021 American Community Survey",
+       y = "",
+       x = "ACS estimate")
+
+```
+
+```{r}
+oregon <- get_acs(geography = "tract", year=2021,
+               state = "OR",
+               variables = "B03001_001",
+               geometry = TRUE)
+
+#Plotting with MAPVIEW 
+mapview(oregon, zcol = "estimate", legend = TRUE, 
+        lwd=.25)
+```

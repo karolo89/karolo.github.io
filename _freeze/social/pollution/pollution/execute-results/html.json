@@ -1,0 +1,16 @@
+{
+  "hash": "2f6a1bf405105a78b5c3c4d74042a5e6",
+  "result": {
+    "markdown": "---\ntitle: \"Indoor Air Pollution\"\ndate: 03/15/2023\ncategories:\n  - Community\n  - analysis\n  - Rstudio\n---\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\np\n```\n\n::: {.cell-output-display}\n![](pollution_files/figure-html/unnamed-chunk-1-1.png){width=672}\n:::\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\n# red box\nrect <- rectGrob(\n  x = unit(0.75, \"in\"),\n  y = unit(1, \"npc\"),\n  width = unit(1, \"in\"),\n  height = unit(0.25, \"in\"),\n  hjust = 0, vjust = 1,\n  gp = gpar(col = \"#E3120B\", fill = \"#E3120B\", alpha = 1)\n)\n```\n:::\n\nggdraw(p) +\n  draw_grob(rect)",
+    "supporting": [
+      "pollution_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
