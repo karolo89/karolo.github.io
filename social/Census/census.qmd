@@ -1,0 +1,153 @@
+---
+title: "Census Data"
+date: 02/28/2022
+categories:
+  - Community
+  - analysis
+  - Rstudio
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning=FALSE, message=FALSE)
+
+library(mapview)
+library(tidycensus)
+library(tidyverse)
+library(sp)
+library(sf)
+library(spatialEco)
+library(tigris)
+library(maps)
+library(leaflet)
+library(tmap)
+
+census_api_key("30d8f974df95b2720023cf3115f43a060da74c0a")
+
+
+# Many many variables are included in the ACS. The ACS has 1 and 5 year estimates. Use the following code to see what variables are available:
+
+# Set a year of interest
+this.year = 2021
+
+# This looks at the 5 year estimates
+# You can also do "acs1"
+vars <- load_variables(year = 2021,
+                      dataset = "acs5",
+                      cache = TRUE)
+
+# There are 27886 possible variables 
+dim(vars)
+
+## Names for variable types
+# Gives five year estimates
+
+#OR
+
+orDem <- get_acs(geography = "tract", year=this.year,
+                  state = "OR", 
+                  geometry = TRUE,
+                  variables = c(popululation = "B02001_001",
+                                median.gross.rent = "B25064_001",
+                                median.household.income = "B19013_001",
+                                rent.burden = "B25071_001",
+                                white = "B03002_003", 
+                                af.am = "B03002_004",
+                                hispanic = "B03002_012",
+                                am.ind = "B03002_005",
+                                asian = "B03002_006",
+                                nh.pi = "B03002_007",
+                                multiple = "B03002_009",
+                                other = "B03002_008"))
+
+head(orDem)
+
+## We’re going to need to do a little data wrangling so that we have a tidydata format to spread the column named ‘variable’.
+orPct<-as.data.frame(orDem)[,c(1,3:4)]%>%
+  spread(variable, estimate)%>%
+  mutate(checkTot = white+af.am+hispanic+am.ind+ # looks good!
+           asian+nh.pi+multiple+other)%>%
+  mutate(pct.white = white/checkTot,
+         pct.af.am = af.am/checkTot,
+         pct.hispanic = hispanic/checkTot,
+         pct.am.ind = am.ind/checkTot,
+         pct.asian = asian/checkTot,
+         pct.nh.pi = nh.pi/checkTot,
+         pct.multiple = multiple/checkTot, 
+         pct.other = other/checkTot, 
+         year = this.year)
+
+head(orPct)
+
+
+# Set a year first
+this.year = 2021
+
+### BASE PLOT EXAMPLE
+### Washington
+or_tracts <- tracts(state = 'OR', 
+                    cb = T, year = this.year)
+
+# This is the structure of spatial data 
+head(or_tracts)
+
+plot(or_tracts)
+
+# GGPLOT
+ggplot(or_tracts) + 
+  geom_sf() + 
+  coord_sf()
+
+
+
+
+### GET CENSUS DATA
+### B25077_001E: MEDIAN HOME VALUE
+or <- get_acs(geography = "tract", year=this.year,
+              state = "OR", 
+              variables = "B25077_001E")%>%
+  mutate(GEO_ID=paste0("1400000US", GEOID))
+
+head(or)
+```
+
+```{r}
+## USE GEO_JOIN TO COMBINE SPATIAL DATA AND OTHER DATA FRAMES
+
+joinOR<- geo_join(or_tracts, or, 
+                 by_sp="GEOID", by_df="GEOID")
+
+## USE TMAP PACKAGE
+tm_shape(joinOR)+
+  tm_fill("estimate", style = "quantile", n=7, palette = "Greens")+
+  tm_legend(bg.color="white", bg.alpha=0.6)+
+  tm_style("gray")
+
+## SET GEOMETRY
+oregon <- get_acs(geography = "tract", year=this.year,
+               state = "OR",
+               variables = "B25077_001E",
+               geometry = TRUE)
+
+#Plotting with MAPVIEW 
+mapview(oregon, zcol = "estimate", legend = TRUE, 
+        lwd=.25)
+```
+
+```{r}
+## Plotting with LEAFLET
+
+## Leaflet with reactive
+pal<-colorNumeric("Greens", domain=0:ceiling(max(oregon$estimate, na.rm=TRUE)))
+popup<-paste("Tract: ", as.character(substring(oregon$GEOID, 6, 11)), "<br>",
+             "Median Home Value: ", as.character(oregon$estimate))
+leaflet()%>%
+  addProviderTiles("CartoDB.Positron")%>%
+  addPolygons(data=oregon,
+              fillColor= ~pal(oregon$estimate),
+              fillOpacity = 0.7,
+              weight = 0.4,
+              smoothFactor = 0.2,
+              popup = popup)
+
+```
+

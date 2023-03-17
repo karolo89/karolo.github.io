@@ -11,58 +11,7 @@ library(tidyverse)
 library(ggplot2)
 library(dplyr)
 
-v20 <- load_variables(year= 2021,
-                      dataset = "acs5",
-                      cache = TRUE)
-
-
-hispanic_var <- v20%>%
-  filter(grepl("(HISPANIC OR LATINO)", concept, fixed=TRUE))
-
 ```
 
-# Obtain and view state populations from the US Census
-
-
-```{r}
-state_pop <- get_decennial(geography= "state", #every10years-complete count of US pop
-                           variables="P001001")
-
-head(state_pop)
-
-
-## The American Community Survey, or ACS, in contrast, is a survey of around 3 million households taken every year. Whereas the decennial Census asks only about core demographic characteristics like age and race, the ACS asks a much broader range of questions.
-
-
-state_income <- get_acs(geography= "state", ## estimates
-                        variables = "B19013_001")
-
-# 90% confidence
-
-head(state_income)
-```
-
-## Household Income  2017-2021 5-year ACS
-
-```{r}
-
-income <- get_acs(geography = "county",    
-                  state = "OR",
-                  variables = c(hhincome = "B19013_001"))
-
-summary(income)
-
-median_income <-58453.5
-
-## Oregon hh_income median =58453.5, Mean =60885
-
-
-three_counties <- income %>%
- filter(NAME %in% c("Clackamas County, Oregon", "Multnomah County, Oregon", "Washington County, Oregon"))
-
-head(three_counties)
-
-
-```
 
 
