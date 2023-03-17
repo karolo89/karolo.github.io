@@ -9,10 +9,6 @@ params:
 printcode:
     label: "Behind the Scene:"
     value: TRUE
-data:
-    label: "Input dataset:"
-    value: results.csv
-    input: file
 ---
 
 ```{r setup, include=FALSE}

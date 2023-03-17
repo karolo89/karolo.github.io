@@ -4,11 +4,11 @@
     "items": [
       "/social/FreedomintheWorld/Freedom.html",
       "/social/transit/transit.html",
-      "/social/Hurricanes Graph/hurricanes.html",
-      "/social/RegressionModel/RegressionModel.html",
-      "/social/biascrimes/biascrime.html",
       "/social/Census/census.html",
+      "/social/Hurricanes Graph/hurricanes.html",
+      "/social/biascrimes/biascrime.html",
       "/social/parameterized/Parameterized reports.html",
+      "/social/RegressionModel/RegressionModel.html",
       "/social/vote/vote.html"
     ]
   }
