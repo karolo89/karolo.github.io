@@ -2,7 +2,7 @@
 title: "Child mortality rates continue to fall"
 author: "Karol Orozco"
 image: "child.png"
-date: "`r format(Sys.time(), '%d %B, %Y')`"
+date: 03/17/2023
 output: html_document
 params:
   state: "Oregon"
