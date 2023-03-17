@@ -4,15 +4,12 @@ author: "Karol Orozco"
 image: "child.png"
 date: 03/17/2023
 output: html_document
-params:
-  state: "Oregon"
-printcode:
-    label: "Behind the Scene:"
-    value: TRUE
 ---
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+
 
 library(emojifont)
 library(tidyverse)
@@ -28,9 +25,11 @@ By 2030, all countries must achieve at least a 2.5% child mortality rate. This w
 Currently, 3.9% of children worldwide die before turning five, equating to an average of 15,000 deaths per day.
 
 ```{r}
-
 df <-read.csv("https://raw.githubusercontent.com/karolo89/Raw_Data/main/child-deaths-igme-data.csv")
+```
 
+
+```{r}
 df <- tibble(year = c(1800, 1900, 2020),
              percent_die = c(43.3, 36.2, 3.9))
 
