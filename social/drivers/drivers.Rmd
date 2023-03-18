@@ -1,0 +1,120 @@
+---
+title: "Worst Drivers"
+author: "Karol Orozco"
+date: "2023-03-18"
+output: html_document
+params:
+  state: "Oregon"
+---
+
+
+```{r setup, include=FALSE, warning=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(knitr)
+library(grid)
+library(gridExtra)
+library(formattable)
+library(kableExtra)
+library(ggplot2)
+library(showtext)
+
+# load fonts
+font_add_google(family="josefin-slab", "Josefin Slab")
+showtext_auto()
+
+bad_drivers <- read.csv("https://raw.githubusercontent.com/karolo89/Raw_Data/main/drivers.csv")%>%
+  select(state, badDrivingIndex, insuredDrivers., DIUArrests, fatalities)
+
+```
+
+
+#### States with the Most drivers Involved in Fatal Collisions per 100m Vehicle Miles
+
+
+```{r}
+worst_drivers <- bad_drivers %>%
+  arrange(desc(fatalities)) %>%
+  mutate(Rank = row_number())
+
+state_row <- worst_drivers %>%
+  filter(state == params$state) %>%
+  pull(Rank)
+
+worst_drivers %>%  
+  filter(Rank %in% 1:5 | state == params$state) %>%
+  mutate_at(.vars = vars(insuredDrivers.), .funs = ~scales::percent(. / 100)) %>%  
+  select(Rank, State = "state",'% Insured Drivers'= insuredDrivers.,`DUI Arrests per 1,000 Drivers` = DIUArrests, `Fatalities /100m Vehicle Miles` =fatalities) %>%
+
+  kable(format = "html", align = "c") %>%
+  kable_styling(full_width = FALSE, position = "left") %>%
+  row_spec(min(state_row, 6), color = "lightgray", background = "darkblue", bold = TRUE)
+```
+
+
+
+```{r, message=FALSE, warning=FALSE}
+titler <- function(title) {
+  textGrob(title, 
+           x = unit(0, "npc"), 
+           hjust = 0, 
+           vjust = 0.5,
+           gp = gpar(fontsize = 20, fontfamily = "josefin-slab"))
+}
+
+sourcer <- function(source) {
+  grobTree(
+    textGrob("Source: ", 
+             name = "source1",
+             x = unit(0, "npc"), 
+             hjust = 0, 
+             vjust = 0,
+             gp = gpar(fontsize = 15, fontfamily = "josefin-slab", fontface = "bold")),
+    textGrob(source, 
+             x = unit(0, "npc") + grobWidth("source1"), 
+             hjust = 0, 
+             vjust = 0,
+             gp = gpar(fontsize = 15, fontfamily = "josefin-slab"))
+  )
+}
+
+caption <- grobTree(
+  gp = gpar(fontsize = 15), 
+  textGrob(label = "Karol Orozco", 
+           name = "caption1",
+           x = unit(0, "npc"),  
+           y = unit(0, "npc"),
+           hjust = 0, 
+           vjust = 1)
+)
+
+plotr <- function(plot, title = NULL, subtitle = NULL, 
+                  source = "World Population Report",
+                  endnote = "") {
+  grid.arrange(titler(title), 
+              plot, 
+              caption, 
+              sourcer(source),
+              heights = c(1.5, 4, 1, 1)) 
+
+}
+
+
+plot <- worst_drivers%>%
+ select(state, DIUArrests, fatalities)%>%
+  gather(key = "key", value = "value", -state) %>%
+  filter(state == params$state) %>%
+  ggplot(aes(key, value)) +
+  geom_bar(stat = "identity", fill= "darkblue")+
+  scale_y_continuous(expand = c(0, 0), limits = c(0, 5)) +
+  labs(x= "", y =" ")
+
+plotr(plot= plot,
+      title = paste0("Driver Behaviors in ", params$state),
+      source = "World Population Review")
+```
+
+
+
+

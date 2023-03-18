@@ -2,15 +2,13 @@
   {
     "listing": "/portfolio.html",
     "items": [
-      "/social/childmortality/ChildM.html",
-      "/social/childmortality/childmortality.html",
+      "/social/drivers/drivers.html",
       "/social/FreedomintheWorld/Freedom.html",
       "/social/transit/transit.html",
       "/social/Census/census.html",
       "/social/Hurricanes Graph/hurricanes.html",
       "/social/RegressionModel/RegressionModel.html",
       "/social/biascrimes/biascrime.html",
-      "/social/Parameterized_template/drivers.html",
       "/social/vote/vote.html"
     ]
   }
