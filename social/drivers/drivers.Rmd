@@ -1,6 +1,7 @@
 ---
 title: "Worst Drivers"
 author: "Karol Orozco"
+image: "drivers.png"
 date: "2023-03-18"
 output: html_document
 params:
