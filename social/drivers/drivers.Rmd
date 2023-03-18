@@ -61,7 +61,7 @@ titler <- function(title) {
            x = unit(0, "npc"), 
            hjust = 0, 
            vjust = 0.5,
-           gp = gpar(fontsize = 20, fontfamily = "josefin-slab"))
+           gp = gpar(fontsize = 40, fontfamily = "josefin-slab"))
 }
 
 sourcer <- function(source) {
@@ -103,7 +103,7 @@ plotr <- function(plot, title = NULL, subtitle = NULL,
 
 
 plot <- worst_drivers%>%
- select(state, DIUArrests, fatalities)%>%
+ select(state, `DUI Arrests per 1,000 Drivers` = DIUArrests, `Fatalities /100m Vehicle Miles` =fatalities)%>%
   gather(key = "key", value = "value", -state) %>%
   filter(state == params$state) %>%
   ggplot(aes(key, value)) +
