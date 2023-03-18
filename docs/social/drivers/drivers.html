@@ -226,7 +226,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4 class="anchored" data-anchor-id="states-with-the-most-drivers-involved-in-fatal-collisions-per-100m-vehicle-miles">States with the Most drivers Involved in Fatal Collisions per 100m Vehicle Miles</h4>
 <div class="cell">
 <details>
-<summary>Show the code</summary>
+<summary>Behind the Scenes</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>worst_drivers <span class="ot">&lt;-</span> bad_drivers <span class="sc">%&gt;%</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(fatalities)) <span class="sc">%&gt;%</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Rank =</span> <span class="fu">row_number</span>())</span>
@@ -306,7 +306,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="cell">
 <details>
-<summary>Show the code</summary>
+<summary>Behind the Scenes</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>titler <span class="ot">&lt;-</span> <span class="cf">function</span>(title) {</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">textGrob</span>(title, </span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> <span class="fu">unit</span>(<span class="dv">0</span>, <span class="st">"npc"</span>), </span>

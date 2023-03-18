@@ -226,7 +226,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>This exercise focuses on practicing our data visualization skills with ggplot2, so I’ll skip the data manipulation steps. You can find the dataset for the graph in my GitHub repository.</p>
 <div class="cell">
 <details>
-<summary>Show the code</summary>
+<summary>Behind the Scenes</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## library(ggplot2)</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="do">## library(geomtextpath)</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="do">## library(RCurl)</span></span>
@@ -304,7 +304,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We are still missing the footer, so let’s add it.</p>
 <div class="cell">
 <details>
-<summary>Show the code</summary>
+<summary>Behind the Scenes</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>footer<span class="ot">&lt;-</span> <span class="fu">grobTree</span>( </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">textGrob</span>(<span class="st">"      FiveThirtyEight"</span>, <span class="at">x=</span><span class="fu">unit</span>(.<span class="dv">05</span>, <span class="st">"npc"</span>), </span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">gp=</span><span class="fu">gpar</span>(<span class="at">col=</span><span class="st">"#868686"</span>, </span>

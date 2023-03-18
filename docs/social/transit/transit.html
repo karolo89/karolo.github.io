@@ -226,7 +226,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Spending money wisely is essential when such significant quantities are at stake. Governments invest in infrastructure, transportation, and public transit because they see them as opportunities to improve connectivity, spur economic activity, renovate aging infrastructure, cut emissions, produce high-paying jobs, and spark innovation rather than just handing out money to people as welfare (The White House 2022). <strong>Regrettably, as we will demonstrate in the graph below, the US transit infrastructure cost is among the highest in the world.</strong></p>
 <div class="cell">
 <details>
-<summary>Show the code</summary>
+<summary>Behind the Scenes</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#maximum cost per km for each country</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> raw_df <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span> <span class="fu">top_n</span>(<span class="dv">1</span>, cost_km_millions) </span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>

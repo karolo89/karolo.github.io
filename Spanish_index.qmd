@@ -6,7 +6,7 @@ lightbox: auto
 about:
   id: hero-heading
   template: broadside
-  image: "koe.jpg"
+  image: "karol.jpg"
   image-width: 10em
   image-shape: round
   links:
@@ -22,10 +22,6 @@ about:
 ---
 
 ::: {#hero-heading}
-Me han fascinado los números y la tecnología desde que era una niña. Tengo una licenciatura en Ingeniería Industrial y actualmente estoy cursando una maestría en Ciencia de Datos. Durante mi carrera, he aprendido a recopilar y analizar datos de presupuestos, compensación de empleados, encuestas y tendencias del mercado. Me gusta profundizar en conjuntos de datos complejos y producir recomendaciones estratégicas perspicaces basadas en datos. Me siento cómodo navegando por bases de datos, asegurando la integridad de los datos y capacitando al personal para usar la tecnología.
-
-También tengo una Maestría en Administración de Empresas de la Universidad de Willamette y cinco años trabajando con instituciones gubernamentales que me han preparado con las herramientas necesarias para prosperar en entornos matriciales complejos.
-
 ## Educación
 
 Willamette University \| Portland, OR\

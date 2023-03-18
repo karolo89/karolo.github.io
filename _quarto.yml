@@ -47,7 +47,7 @@ format:
     monofont: "Monaco"
     code-copy: true
     code-fold: true
-    code-summary: "Show the code"
+    code-summary: "Behind the Scenes"
     
     
     

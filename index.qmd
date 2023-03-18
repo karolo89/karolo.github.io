@@ -2,7 +2,7 @@
 title: "Hello! It’s nice to meet you"
 about:
   template: jolla
-  image: "koe.jpg"
+  image: "karol.jpg"
   links:
     - icon: linkedin
       text: LinkedIn
@@ -19,7 +19,6 @@ page-layout: full
 toc: true
 toc-location: right
 fontsize: 1.2em
-
 ---
 
 # About Me
@@ -32,16 +31,11 @@ fontsize: 1.2em
 
 </center>
 
-
-*I help to create and sustain communities, programs, and solutions that enhance the use of responsible data science and business practices for equitable social good.*  
-
+*I help to create and sustain communities, programs, and solutions that enhance the use of responsible data science and business practices for equitable social good.*
 
 </center>
 
-
-My name is Karol Orozco; I live in Portland, OR, with my husband, two kids, and my dog Lucy. 
-I am originally from Barranquilla, Colombia,  a city located in the northern region of Colombia on the Caribbean coast. It is the fourth-largest city in the country and an important economic and cultural center in the Caribbean region. Barranquilla is known for its vibrant culture and festive atmosphere, exemplified by its famous [Carnival of Barranquilla](https://carnavaldebarranquilla.org/).
-
+My name is Karol Orozco; I live in Portland, OR, with my husband, two kids, and my dog Lucy. I am originally from Barranquilla, Colombia, a city located in the northern region of Colombia on the Caribbean coast. It is the fourth-largest city in the country and an important economic and cultural center in the Caribbean region. Barranquilla is known for its vibrant culture and festive atmosphere, exemplified by its famous [Carnival of Barranquilla](https://carnavaldebarranquilla.org/).
 
 ```{r}
 library(leaflet)
@@ -50,14 +44,6 @@ leaflet() %>%
   addMarkers(lng=-74.77028, lat=10.98611, popup="The birthplace of R")
 ```
 
-
-As a graduated engineer, I have acquired extensive experience and problem–solving expertise in data wrangling, statistical analysis, and model development. Since effective communication of data is of paramount importance, I have subsequently developed strong skills in data visualization and business knowledge. I hold an MBA from Willamette University and currently pursuing a second master's in Data Science.
+As a graduated engineer, I have acquired extensive experience and problem--solving expertise in data wrangling, statistical analysis, and model development. Since effective communication of data is of paramount importance, I have subsequently developed strong skills in data visualization and business knowledge. I hold an MBA from Willamette University and currently pursuing a second master's in Data Science.
 
 I have experience working in the public and private sectors helping organizations to embrace Shared Value by positively impacting society and the environment: The sweet spot where profit meets purpose.
-
-
-
-
-
-
-

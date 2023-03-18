@@ -221,7 +221,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Let’s practice our visualization skills with ggplot2 and recreate the graph from the <a href="https://fivethirtyeight.com/features/voter-registrations-are-way-way-down-during-the-pandemic/">Voter Registrations Are Way, Way Down During The Pandemic</a> article.</p>
 <div class="cell">
 <details>
-<summary>Show the code</summary>
+<summary>Behind the Scenes</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(vreg, <span class="fu">aes</span>(<span class="at">x=</span> Month, <span class="at">y=</span> change, <span class="at">fill =</span> Color))<span class="sc">+</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_col</span>()<span class="sc">+</span> </span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_hline</span>( <span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">color=</span> <span class="st">"black"</span>)<span class="sc">+</span></span>
