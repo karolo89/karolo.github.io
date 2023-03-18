@@ -1,0 +1,55 @@
+---
+author: "Karol Orozco"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+output: html_document
+css: ../www/styles.css
+editor_options: 
+  chunk_output_type: console
+params:
+  state: "Oregon"
+---
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato" />
+
+```{r rmarkdown-setup, echo=FALSE}
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+knitr::opts_chunk$set(echo = FALSE)
+
+library(tidyverse)
+library(knitr)
+library(grid)
+library(gridExtra)
+library(formattable)
+library(kableExtra)
+library(ggplot2)
+
+bad_drivers <- read.csv("https://raw.githubusercontent.com/karolo89/Raw_Data/main/drivers.csv")%>%
+  select(state, badDrivingIndex, insuredDrivers., DIUArrests, fatalities)
+
+```
+
+
+#### States with the Most drivers Involved in Fatal Collisions per 100m Vehicle Miles
+
+```{r}
+worst_drivers <- bad_drivers %>%
+  arrange(desc(fatalities)) %>%
+  mutate(Rank = row_number())
+
+state_row <- worst_drivers %>%
+  filter(state == params$state) %>%
+  pull(Rank)
+
+worst_drivers %>%  
+  filter(Rank %in% 1:5 | state == params$state) %>%
+  mutate_at(.vars = vars(insuredDrivers., DIUArrests, fatalities), .funs = ~scales::percent(. / 100)) %>%  
+  select(Rank, State = "state",'% Insured Drivers'= insuredDrivers.,`% DIUArrests` = DIUArrests, `% fatalities` =fatalities) %>%
+
+  kable(format = "html", align = "r") %>%
+  kable_styling(full_width = FALSE, position = "left") %>%
+  row_spec(min(state_row, 6), color = "lightgray", background = "darkblue", bold = TRUE)
+```
+
+
+
