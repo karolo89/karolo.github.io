@@ -2,7 +2,7 @@
 title: "Hello! It’s nice to meet you"
 about:
   template: jolla
-  image: "karol.jpg"
+  image: "karoloe.jpg"
   links:
     - icon: linkedin
       text: LinkedIn
