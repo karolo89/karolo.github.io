@@ -54,8 +54,3 @@ R \| Tableau \| SQL \| Community Affairs \| Strategic Management \| Leadership \
 -   I have a deep understanding of the cultural nuances of both English and Spanish-speaking communities. I am able to navigate cultural differences with sensitivity and respect.
 -   I have basic verbal and written communication skills in Portuguese. I am able to introduce myself, ask and answer basic questions, and engage in simple conversations. I am also able to write simple sentences and paragraphs in Portuguese.
 
-### Presentation
-
-<iframe src="https://karolo89/karolo_website.github.io/revealjs/presentationkoe.html" width="680" height="600" allowfullscreen></iframe>
-
-
