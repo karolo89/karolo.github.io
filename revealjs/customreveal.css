@@ -12,22 +12,7 @@ $link-color: #fb6606
 /*-- scss:rules --*/
 
 .reveal .slide blockquote {
-  border-left: 3px solid $text-muted;
+  border-left: 2px solid $text-muted;
   padding-left: 0.5em;}
   
-body {
-	background:url('2.jpg');
-	background-size:cover;
-	/* the following are for firefox 70 */
-	opacity:1;
-	z-index:1;
 
-}
-@media print {
-	.backgrounds {
-		background:url('1.jpg');
-		/* if you used "cover" on screen,
-		 * you will probably want "contains" on print */
-		background-size:contain;
-	}
-}
