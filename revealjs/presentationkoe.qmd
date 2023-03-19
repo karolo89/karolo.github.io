@@ -12,20 +12,15 @@ format:
     background-transition: fade
 ---
 
-
-
 ## ABOUT ME {background-image="4.png"}
 
 ::: {.column width="50%"}
-
 I help to create and sustain communities, programs, and solutions that enhance the use of responsible data science and business practices for equitable social good.
-
 :::
-![](karol.jpg){.absolute top=50 right=50 width="350" height="380"}
+
+![](karol.jpg){.absolute top="50" right="50" width="350" height="380"}
 
 ::: {.column width="50%"}
-
-
 :::
 
 ::: footer
@@ -35,20 +30,16 @@ I help to create and sustain communities, programs, and solutions that enhance t
 ## SKILLS {background-image="4.png"}
 
 ::: {.column width="50%"}
-
 𝑷𝒓𝒐𝒇𝒆𝒔𝒔𝒊𝒐𝒏𝒂𝒍 𝑺𝒌𝒊𝒍𝒍𝒔
 
 Data Analysis \| Partnership Management \| Business Development \| Diversity & Inclusion \| Strategic Planning \| Process Improvement \| Project Management
-
 :::
 
 ::: {.column width="45%"}
-
 𝑫𝒐𝒎𝒂𝒊𝒏 𝑲𝒏𝒐𝒘𝒍𝒆𝒅𝒈𝒆
 
 R \| Tableau \| SQL \| Community Affairs \| Leadership \| Community Engagement \| Latinx Community \| Shared Value
 :::
-
 
 ::: footer
 [LinkedIn: \@karolorozcoe](https://www.linkedin.com/in/karolorozcoe/) \| [GitHub: \@karolo89](https://github.com/karolo89)
@@ -56,20 +47,18 @@ R \| Tableau \| SQL \| Community Affairs \| Leadership \| Community Engagement \
 
 ## EDUCATION {background-image="4.png"}
 
-::: {.incremental}
+::: incremental
+-   Willamette University \| Portland, OR\
+    **Master in Data Science** \| August 2023\
+    Presidential Scholarship
 
-- Willamette University \| Portland, OR\
-**Master in Data Science** \| August 2023\
-Presidential Scholarship
+-   Willamette University \| Portland, OR\
+    **Master of Business Administration** \| August 2022\
+    George and Colleen Hoyt Not-For-Profit Scholarship Atkinson Honor\
+    Beta Gamma Sigma
 
-- Willamette University \| Portland, OR\
-**Master of Business Administration** \| August 2022\
-George and Colleen Hoyt Not-For-Profit Scholarship
-Atkinson Honor\
-Beta Gamma Sigma
-
-- Universidad Autonoma del Caribe \| Barranquilla, Colombia\
-**Bachelor's Degree, Industrial Engineering** \| July 2014\
+-   Universidad Autonoma del Caribe \| Barranquilla, Colombia\
+    **Bachelor's Degree, Industrial Engineering** \| July 2014\
 :::
 
 ::: footer
@@ -78,34 +67,15 @@ Beta Gamma Sigma
 
 ## PORTFOLIO {background-image="4.png"}
 
-:::: {.columns}
-
+::: columns
 ::: {.column width="60%"}
-![](child.png){.absolute  top=100 left=0 width="480" height="480"}
+![](child.png){.absolute top="100" left="0" width="480" height="480"}
 :::
 
 ::: {.column width="40%"}
-![](transit.png){.absolute  top=100 right=50 width="480" height="480"}
+![](transit.png){.absolute top="100" right="50" width="480" height="480"}
 :::
-
-::::
-
-::: footer
-[LinkedIn: \@karolorozcoe](https://www.linkedin.com/in/karolorozcoe/) \| [GitHub: \@karolo89](https://github.com/karolo89)
 :::
-## PORTFOLIO {background-image="4.png"}
-
-:::: {.columns}
-
-::: {.column width="40%"}
-![](locationbias.gif){.absolute  top=100 left=0 width="480" height="480"}
-:::
-
-::: {.column width="60%"}
-![](reportedbias.gif){.absolute  top=100 right=50 width="480" height="480"}
-:::
-
-::::
 
 ::: footer
 [LinkedIn: \@karolorozcoe](https://www.linkedin.com/in/karolorozcoe/) \| [GitHub: \@karolo89](https://github.com/karolo89)
@@ -113,17 +83,15 @@ Beta Gamma Sigma
 
 ## PORTFOLIO {background-image="4.png"}
 
-:::: {.columns}
+::: columns
+::: {.column width="40%"}
+![](locationbias.gif){.absolute top="100" left="0" width="480" height="480"}
+:::
 
 ::: {.column width="60%"}
-![](freedom.png){.absolute  top=100 left=0 width="480" height="480"}
+![](reportedbias.gif){.absolute top="100" right="50" width="480" height="480"}
 :::
-
-::: {.column width="40%"}
-![](voters.png){.absolute  top=100 right=50 width="480" height="480"}
 :::
-
-::::
 
 ::: footer
 [LinkedIn: \@karolorozcoe](https://www.linkedin.com/in/karolorozcoe/) \| [GitHub: \@karolo89](https://github.com/karolo89)
@@ -131,26 +99,40 @@ Beta Gamma Sigma
 
 ## PORTFOLIO {background-image="4.png"}
 
-:::: {.columns}
-
+::: columns
 ::: {.column width="60%"}
-![](p.png){.absolute  top=100 left=0 width="380" height="430"}
+![](freedom.png){.absolute top="100" left="0" width="480" height="480"}
 :::
 
 ::: {.column width="40%"}
-![](diagram.png){.absolute  top=100 right=50 width="380" height="430"}
+![](voters.png){.absolute top="100" right="50" width="480" height="480"}
 :::
-
-::::
+:::
 
 ::: footer
 [LinkedIn: \@karolorozcoe](https://www.linkedin.com/in/karolorozcoe/) \| [GitHub: \@karolo89](https://github.com/karolo89)
 :::
+
+## PORTFOLIO {background-image="4.png"}
+
+::: columns
+::: {.column width="60%"}
+![](p.png){.absolute top="100" left="0" width="380" height="430"}
+:::
+
+::: {.column width="40%"}
+![](diagram.png){.absolute top="100" right="50" width="380" height="430"}
+:::
+:::
+
+::: footer
+[LinkedIn: \@karolorozcoe](https://www.linkedin.com/in/karolorozcoe/) \| [GitHub: \@karolo89](https://github.com/karolo89)
+:::
+
 ## CONTACT ME {background-image="4.png"}
 
 ::: callout
-[LinkedIn:@karolorozcoe](https://www.linkedin.com/in/karolorozcoe/)
+[LinkedIn:\@karolorozcoe](https://www.linkedin.com/in/karolorozcoe/)
 
 [GitHub: \@karolo89](https://github.com/karolo89)
 :::
-
