@@ -7,9 +7,6 @@ title-slide-attributes:
 format:
   revealjs: 
     theme: [default, customreveal.css]
-    transition: slide
-    preview-links: auto
-    background-transition: fade
 ---
 
 ## ABOUT ME {background-image="4.png"}
