@@ -1,0 +1,18 @@
+{
+  "hash": "b344aeca63c7e75c27a99c911412d0f9",
+  "result": {
+    "markdown": "---\ntitle: \"Karol Orozco\"\nauthor: \"Get to Know Me\"\nformat: revealjs\n---\n\n\n# Section Header\n\n## Quarto\n\nQuarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.\n\n## Bullets\n\nWhen you click the **Render** button a document will be generated that includes:\n\n-   Content authored with markdown\n-   Output from executable code\n\n\n::: {.cell}\n::: {.cell-output .cell-output-stdout}\n```\n\nCall:\nlm(formula = mpg ~ disp, data = mtcars)\n\nCoefficients:\n(Intercept)         disp  \n   29.59985     -0.04122  \n```\n:::\n:::\n\n\n\n## LaTeX Equations\n\n\n```{=tex}\n\\begin{align}\na_{11}& =b_{11}&\n  a_{12}& =b_{12}\\\\\na_{21}& =b_{21}&\n  a_{22}& =b_{22}+c_{22}\n\\end{align}\n```\n\n\n## LaTeX Equations {.inverse}\n\n[MathJax](https://www.mathjax.org/) rendering of equations to HTML\n\n\n```{=tex}\n\\begin{gather*}\na_1=b_1+c_1\\\\\na_2=b_2+c_2-d_2+e_2\n\\end{gather*}\n```\n\n```{=tex}\n\\begin{align}\na_{11}& =b_{11}&\n  a_{12}& =b_{12}\\\\\na_{21}& =b_{21}&\n  a_{22}& =b_{22}+c_{22}\n\\end{align}\n```\n\n\n## Tables\n\n| Syntax      | Description |\n| ----------- | ----------- |\n| Header      | Title       |\n| Paragraph   | Text        |\n\n\n\n## Callout Blocks\n\n::: {.callout-note}\nNote that there are five types of callouts, including:\n`note`, `warning`, `important`, `tip`, and `caution`.\n:::\n\n::: {.callout-important}\nDanger, callouts will really improve your writing.\n:::\n\n::: {.callout-tip}\n## Tip With Caption\n\nThis is an example of a callout with a caption.\n:::\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-after-body": [
+        "\r\n<script>\r\n  // htmlwidgets need to know to resize themselves when slides are shown/hidden.\r\n  // Fire the \"slideenter\" event (handled by htmlwidgets.js) when the current\r\n  // slide changes (different for each slide format).\r\n  (function () {\r\n    // dispatch for htmlwidgets\r\n    function fireSlideEnter() {\r\n      const event = window.document.createEvent(\"Event\");\r\n      event.initEvent(\"slideenter\", true, true);\r\n      window.document.dispatchEvent(event);\r\n    }\r\n\r\n    function fireSlideChanged(previousSlide, currentSlide) {\r\n      fireSlideEnter();\r\n\r\n      // dispatch for shiny\r\n      if (window.jQuery) {\r\n        if (previousSlide) {\r\n          window.jQuery(previousSlide).trigger(\"hidden\");\r\n        }\r\n        if (currentSlide) {\r\n          window.jQuery(currentSlide).trigger(\"shown\");\r\n        }\r\n      }\r\n    }\r\n\r\n    // hookup for slidy\r\n    if (window.w3c_slidy) {\r\n      window.w3c_slidy.add_observer(function (slide_num) {\r\n        // slide_num starts at position 1\r\n        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);\r\n      });\r\n    }\r\n\r\n  })();\r\n</script>\r\n\r\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
