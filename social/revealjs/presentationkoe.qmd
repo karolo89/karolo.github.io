@@ -7,6 +7,9 @@ title-slide-attributes:
 format:
   revealjs: 
     theme: [default, customreveal.css]
+    html-math-method: katex
+    incremental: true
+    slide-number: c/t
 ---
 
 ## ABOUT ME {background-image="4.png"}

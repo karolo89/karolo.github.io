@@ -11,8 +11,3 @@ $link-color: #fb6606
 
 /*-- scss:rules --*/
 
-.reveal .slide blockquote {
-  border-left: 2px solid $text-muted;
-  padding-left: 0.5em;}
-  
-

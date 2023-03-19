@@ -56,6 +56,6 @@ R \| Tableau \| SQL \| Community Affairs \| Strategic Management \| Leadership \
 
 ### Presentation
 
-[Presentation](presentationkoe.qmd)
+<iframe src="https://karolo89/karolo_website.github.io/revealjs/presentationkoe.html" width="680" height="600" allowfullscreen></iframe>
 
 
