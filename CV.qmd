@@ -15,6 +15,7 @@ toc-location: right
 date-format: "MMMM D, YYYY"
 ---
 
+
 ### Background
 
 As a highly motivated and results-oriented professional, I bring a unique blend of technical expertise, strategic thinking, and interpersonal skills to the table.
@@ -24,7 +25,6 @@ I have always been fascinated by the power of data and its potential to inform b
 I am committed to promoting diversity and inclusion in all aspects of my life and believe that a diverse and inclusive workplace leads to better results for employees, the company as a whole, and our community.
 
 My experience has also taught me to collaborate with cross-functional teams to identify and translate business needs into data-driven solutions. I have an eye for detail, am an expert in data visualization tools and techniques, and have a proven track record of communicating complex technical concepts to non-technical stakeholders.
-
 
 ### Education
 
@@ -41,7 +41,6 @@ Beta Gamma Sigma: The International Business Honor Society\
 Universidad Autonoma del Caribe \| Barranquilla, Colombia\
 **Bachelor's Degree, Industrial Engineering** \| July 2014\
 
-
 ### Professional Skills
 
 Data Analysis \| Team Development \| Partnership Management \| Business Development \| Diversity & Inclusion \| Strategic Planning \| Process Improvement \| Project Management \| People & Change
@@ -50,8 +49,10 @@ Data Analysis \| Team Development \| Partnership Management \| Business Developm
 
 R \| Tableau \| SQL \| Community Affairs \| Strategic Management \| Leadership \| Community Engagement \| Latinx Community \| Shared Value
 
-
 ### Languages
 
 -   I have a deep understanding of the cultural nuances of both English and Spanish-speaking communities. I am able to navigate cultural differences with sensitivity and respect.
 -   I have basic verbal and written communication skills in Portuguese. I am able to introduce myself, ask and answer basic questions, and engage in simple conversations. I am also able to write simple sentences and paragraphs in Portuguese.
+
+<iframe src="gettoknowme.html" title="Karol Orozco.Js" width="850" height="650">
+
