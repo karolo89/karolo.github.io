@@ -1,0 +1,42 @@
+#    http://shiny.rstudio.com/
+#
+
+library(shiny)
+library(shinythemes)
+library(DT)
+library(ggplot2)
+library(shiny.i18n)
+
+
+# Define UI for application that draws a histogram
+
+                  
+ui <- shinyUI(fluidPage(theme = bslib::bs_theme(bootswatch = "united"),
+                
+           titlePanel("Overview of the Latino/ Hispanic Population in Clackamas, Multnomah & Washington County, OR"),
+          
+           
+           ## Naviggation Panels (tabs)
+           
+            navbarPage("Let's get started",
+                               
+                          tabsetPanel(
+                          tabPanel(icon("home"),
+                          hr(),
+                          p(em("Developed by"),br("Karol Orozco E."),style="text-align:center; font-family: times")),
+      
+                          tabPanel("Social Characteristics"),
+                          tabPanel("Economics Characteristics"),
+                          tabPanel("Demographic Estimates"),
+                          tabPanel("Data Sources")),
+                        
+                     )
+                      )
+              )
+## Output
+
+server <- function(input, output, session) {
+}
+
+# Run the application 
+shinyApp(ui = ui, server = server)

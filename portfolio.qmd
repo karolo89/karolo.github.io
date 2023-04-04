@@ -2,12 +2,19 @@
 title: "Portfolio"
 listing:
   contents: social
+  categories: true
+  date-format: "YYYY-MM-DD"
+  feed: true
+  filter-ui: false
+  image-align: "left"
   sort: "date desc"
-  type: grid
-  fields: [image, date, title, author]
   sort-ui: false
+  type: default
+  template: custom.ejs
+format: 
+  html:
+    page-layout: article
 title-block-banner: "#000080"
 title-block-banner-color: "white"
-page-layout: full
-date-format: "MMMM D, YYYY"
+page-layout: article
 ---

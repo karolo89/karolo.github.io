@@ -72,9 +72,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-image','listing-date','listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-freeze','listing-title-block-banner','listing-title','listing-image','listing-date','listing-categories','listing-path','listing-author','listing-description','listing-filename','listing-file-modified','listing-reading-time','listing-output','listing-params','listing-title-slide-attributes','listing-format','listing-code-line-numbers','listing-server',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
+      searchColumns: ["listing-freeze","listing-title-block-banner","listing-title","listing-image","listing-date","listing-categories","listing-path","listing-author","listing-description","listing-filename","listing-file-modified","listing-reading-time","listing-output","listing-params","listing-title-slide-attributes","listing-format","listing-code-line-numbers","listing-server"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -155,7 +155,7 @@ background: #000080;
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page">
+    <div class="quarto-title column-body">
       <h1 class="title">Portfolio</h1>
                       </div>
   </div>
@@ -169,12 +169,14 @@ background: #000080;
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(11)</span></div><div class="category" data-category="Community">Community <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Countries">Countries <span class="quarto-category-count">(1)</span></div><div class="category" data-category="DataViz">DataViz <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RStudio">RStudio <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Rstudio">Rstudio <span class="quarto-category-count">(3)</span></div><div class="category" data-category="World">World <span class="quarto-category-count">(1)</span></div><div class="category" data-category="analysis">analysis <span class="quarto-category-count">(5)</span></div><div class="category" data-category="freedom">freedom <span class="quarto-category-count">(1)</span></div><div class="category" data-category="transportation">transportation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="vote">vote <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
@@ -183,226 +185,290 @@ background: #000080;
 
 
 
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1679197953148" data-listing-reading-time-sort="1.355">
-<a href="./social/revealjs/presentationkoe.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./social/revealjs/karol.jpg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Karol Orozco
-</h5>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-
+<div class="quarto-listing quarto-listing-container-custom" id="listing-listing">
+<ul class="list" style="list-style-type:none">
+  <li data-index="0" data-listing-file-modified-sort="1679197953148" data-listing-reading-time-sort="1.355">
+    <div id="container" style="height:100%; width:100%; overflow: hidden; display: flex; margin-left: -35px; margin-bottom: 30px;">
+      <div id="itemImage" style="width:150px; height:150px; background-size:contain; background-position:center; margin: 0px 30px 15px 0px;">
+        <a href="./social/revealjs/presentationkoe.html" class="listing-categories">
+          <img src="./social/revealjs/karol.jpg" width="150" height="150">
+        </a>
+      </div>
+    <div id="itemDetails" style="width:100%;">
+      <div id="itemHeader" style="justify-content: space-between; line-height:30px; margin-bottom:3px; align-items:flex-start;">
+      <div id="itemTitle" style="display:block; width:95%">
+        <p style="font-size:22px">
+          <a href="./social/revealjs/presentationkoe.html" class="listing-categories">Karol Orozco
+          </a>
+        </p>
+      </div>
+      <div id="itemDescription" style="margin-bottom:8px">
+        
+      </div>
+      <div id="created" style="margin-top:8px">
+        <p style="font-size:14px"></p>
+      </div>
+    </div>
+  </div>
 </div>
+</li>
+  <li data-index="1" data-listing-file-modified-sort="1680572055711" data-listing-reading-time-sort="2.2">
+    <div id="container" style="height:100%; width:100%; overflow: hidden; display: flex; margin-left: -35px; margin-bottom: 30px;">
+      <div id="itemImage" style="width:150px; height:150px; background-size:contain; background-position:center; margin: 0px 30px 15px 0px;">
+        <a href="./social/shiny/shiny.html" class="listing-categories">
+          <img src="" width="150" height="150">
+        </a>
+      </div>
+    <div id="itemDetails" style="width:100%;">
+      <div id="itemHeader" style="justify-content: space-between; line-height:30px; margin-bottom:3px; align-items:flex-start;">
+      <div id="itemTitle" style="display:block; width:95%">
+        <p style="font-size:22px">
+          <a href="./social/shiny/shiny.html" class="listing-categories">Hispanic
+          </a>
+        </p>
+      </div>
+      <div id="itemDescription" style="margin-bottom:8px">
+        
+<script type="application/shiny-prerendered" data-context="server-extras">
+ojs_define <- function(..., .session = shiny::getDefaultReactiveDomain()) {
+  quos <- rlang::enquos(...)
+  vars <- rlang::list2(...)
+  nm <- names(vars)
+  if (is.null(nm))…</script>
+      </div>
+      <div id="created" style="margin-top:8px">
+        <p style="font-size:14px"></p>
+      </div>
+    </div>
+  </div>
 </div>
+</li>
+  <li data-index="2" data-listing-date-sort="1679122800000" data-listing-file-modified-sort="1679110927966" data-listing-reading-time-sort="3.23">
+    <div id="container" style="height:100%; width:100%; overflow: hidden; display: flex; margin-left: -35px; margin-bottom: 30px;">
+      <div id="itemImage" style="width:150px; height:150px; background-size:contain; background-position:center; margin: 0px 30px 15px 0px;">
+        <a href="./social/drivers/drivers.html" class="listing-categories">
+          <img src="./social/drivers/drivers.png" width="150" height="150">
+        </a>
+      </div>
+    <div id="itemDetails" style="width:100%;">
+      <div id="itemHeader" style="justify-content: space-between; line-height:30px; margin-bottom:3px; align-items:flex-start;">
+      <div id="itemTitle" style="display:block; width:95%">
+        <p style="font-size:22px">
+          <a href="./social/drivers/drivers.html" class="listing-categories">Worst Drivers
+          </a>
+        </p>
+      </div>
+      <div id="itemDescription" style="margin-bottom:8px">
+        
+      </div>
+      <div id="created" style="margin-top:8px">
+        <p style="font-size:14px">2023-03-18</p>
+      </div>
+    </div>
+  </div>
 </div>
+</li>
+  <li data-index="3" data-categories="World,analysis,RStudio" data-listing-date-sort="1679036400000" data-listing-file-modified-sort="1679112024591" data-listing-reading-time-sort="3.07">
+    <div id="container" style="height:100%; width:100%; overflow: hidden; display: flex; margin-left: -35px; margin-bottom: 30px;">
+      <div id="itemImage" style="width:150px; height:150px; background-size:contain; background-position:center; margin: 0px 30px 15px 0px;">
+        <a href="./social/ChildMortality/childMortality.html" class="listing-categories">
+          <img src="./social/ChildMortality/child.png" width="150" height="150">
+        </a>
+      </div>
+    <div id="itemDetails" style="width:100%;">
+      <div id="itemHeader" style="justify-content: space-between; line-height:30px; margin-bottom:3px; align-items:flex-start;">
+      <div id="itemTitle" style="display:block; width:95%">
+        <p style="font-size:22px">
+          <a href="./social/ChildMortality/childMortality.html" class="listing-categories">Child Mortality
+          </a>
+        </p>
+      </div>
+      <div id="itemDescription" style="margin-bottom:8px">
+        The rate of child mortality is at its lowest point ever.…
+      </div>
+      <div id="created" style="margin-top:8px">
+        <p style="font-size:14px">2023-03-17</p>
+      </div>
+    </div>
+  </div>
 </div>
-</a>
+</li>
+  <li data-index="4" data-categories="Countries,freedom,analysis,Rstudio" data-listing-date-sort="1678089600000" data-listing-file-modified-sort="1678164001933" data-listing-reading-time-sort="3.315">
+    <div id="container" style="height:100%; width:100%; overflow: hidden; display: flex; margin-left: -35px; margin-bottom: 30px;">
+      <div id="itemImage" style="width:150px; height:150px; background-size:contain; background-position:center; margin: 0px 30px 15px 0px;">
+        <a href="./social/FreedomintheWorld/Freedom.html" class="listing-categories">
+          <img src="./social/FreedomintheWorld/free.png" width="150" height="150">
+        </a>
+      </div>
+    <div id="itemDetails" style="width:100%;">
+      <div id="itemHeader" style="justify-content: space-between; line-height:30px; margin-bottom:3px; align-items:flex-start;">
+      <div id="itemTitle" style="display:block; width:95%">
+        <p style="font-size:22px">
+          <a href="./social/FreedomintheWorld/Freedom.html" class="listing-categories">Freedom in the World
+          </a>
+        </p>
+      </div>
+      <div id="itemDescription" style="margin-bottom:8px">
+        The flagship publication of Freedom House, Freedom in the World, is the benchmark for comparing assessments of civil liberties and political rights worldwide. Policymakers, the media, multinational businesses…
+      </div>
+      <div id="created" style="margin-top:8px">
+        <p style="font-size:14px">2023-03-06</p>
+      </div>
+    </div>
+  </div>
 </div>
-<div class="g-col-1" data-index="1" data-listing-date-sort="1679122800000" data-listing-file-modified-sort="1679110927966" data-listing-reading-time-sort="3.23">
-<a href="./social/drivers/drivers.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./social/drivers/drivers.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Worst Drivers
-</h5>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Karol Orozco
+</li>
+  <li data-index="5" data-categories="transportation,analysis,RStudio" data-listing-date-sort="1678089600000" data-listing-file-modified-sort="1678161230701" data-listing-reading-time-sort="2.88">
+    <div id="container" style="height:100%; width:100%; overflow: hidden; display: flex; margin-left: -35px; margin-bottom: 30px;">
+      <div id="itemImage" style="width:150px; height:150px; background-size:contain; background-position:center; margin: 0px 30px 15px 0px;">
+        <a href="./social/transit/transit.html" class="listing-categories">
+          <img src="./social/transit/TRAIN.png" width="150" height="150">
+        </a>
+      </div>
+    <div id="itemDetails" style="width:100%;">
+      <div id="itemHeader" style="justify-content: space-between; line-height:30px; margin-bottom:3px; align-items:flex-start;">
+      <div id="itemTitle" style="display:block; width:95%">
+        <p style="font-size:22px">
+          <a href="./social/transit/transit.html" class="listing-categories">Transit Costs Project
+          </a>
+        </p>
+      </div>
+      <div id="itemDescription" style="margin-bottom:8px">
+        Politicians in the twenty-first century frequently advocate for establishing a massive public works program in the United States to create the necessary infrastructure. The…
+      </div>
+      <div id="created" style="margin-top:8px">
+        <p style="font-size:14px">2023-03-06</p>
+      </div>
+    </div>
+  </div>
 </div>
-<div class="listing-date">
-March 18, 2023
+</li>
+  <li data-index="6" data-categories="Community,analysis,Rstudio" data-listing-date-sort="1677571200000" data-listing-file-modified-sort="1679074038370" data-listing-reading-time-sort="6.27">
+    <div id="container" style="height:100%; width:100%; overflow: hidden; display: flex; margin-left: -35px; margin-bottom: 30px;">
+      <div id="itemImage" style="width:150px; height:150px; background-size:contain; background-position:center; margin: 0px 30px 15px 0px;">
+        <a href="./social/Census/census.html" class="listing-categories">
+          <img src="./social/Census/census.png" width="150" height="150">
+        </a>
+      </div>
+    <div id="itemDetails" style="width:100%;">
+      <div id="itemHeader" style="justify-content: space-between; line-height:30px; margin-bottom:3px; align-items:flex-start;">
+      <div id="itemTitle" style="display:block; width:95%">
+        <p style="font-size:22px">
+          <a href="./social/Census/census.html" class="listing-categories">Census Data
+          </a>
+        </p>
+      </div>
+      <div id="itemDescription" style="margin-bottom:8px">
+        
+      </div>
+      <div id="created" style="margin-top:8px">
+        <p style="font-size:14px">2023-02-28</p>
+      </div>
+    </div>
+  </div>
 </div>
+</li>
+  <li data-index="7" data-listing-date-sort="1675584000000" data-listing-file-modified-sort="1678165284912" data-listing-reading-time-sort="5.7">
+    <div id="container" style="height:100%; width:100%; overflow: hidden; display: flex; margin-left: -35px; margin-bottom: 30px;">
+      <div id="itemImage" style="width:150px; height:150px; background-size:contain; background-position:center; margin: 0px 30px 15px 0px;">
+        <a href="./social/Hurricanes Graph/hurricanes.html" class="listing-categories">
+          <img src="./social/Hurricanes Graph/hurricane.png" width="150" height="150">
+        </a>
+      </div>
+    <div id="itemDetails" style="width:100%;">
+      <div id="itemHeader" style="justify-content: space-between; line-height:30px; margin-bottom:3px; align-items:flex-start;">
+      <div id="itemTitle" style="display:block; width:95%">
+        <p style="font-size:22px">
+          <a href="./social/Hurricanes Graph/hurricanes.html" class="listing-categories">Hurricanes
+          </a>
+        </p>
+      </div>
+      <div id="itemDescription" style="margin-bottom:8px">
+        Hello there,
+      </div>
+      <div id="created" style="margin-top:8px">
+        <p style="font-size:14px">2023-02-05</p>
+      </div>
+    </div>
+  </div>
 </div>
+</li>
+  <li data-index="8" data-listing-date-sort="1669881600000" data-listing-file-modified-sort="1678166061954" data-listing-reading-time-sort="6.87">
+    <div id="container" style="height:100%; width:100%; overflow: hidden; display: flex; margin-left: -35px; margin-bottom: 30px;">
+      <div id="itemImage" style="width:150px; height:150px; background-size:contain; background-position:center; margin: 0px 30px 15px 0px;">
+        <a href="./social/RegressionModel/RegressionModel.html" class="listing-categories">
+          <img src="./social/RegressionModel/house_price.jpg" width="150" height="150">
+        </a>
+      </div>
+    <div id="itemDetails" style="width:100%;">
+      <div id="itemHeader" style="justify-content: space-between; line-height:30px; margin-bottom:3px; align-items:flex-start;">
+      <div id="itemTitle" style="display:block; width:95%">
+        <p style="font-size:22px">
+          <a href="./social/RegressionModel/RegressionModel.html" class="listing-categories">House Prices in Portland, OR
+          </a>
+        </p>
+      </div>
+      <div id="itemDescription" style="margin-bottom:8px">
+        The goal is to build a classification model to predict the type of median housing prices in Portland, OR and its metropolitan area.
+      </div>
+      <div id="created" style="margin-top:8px">
+        <p style="font-size:14px">2022-12-01</p>
+      </div>
+    </div>
+  </div>
 </div>
+</li>
+  <li data-index="9" data-categories="Community,analysis,Rstudio" data-listing-date-sort="1646035200000" data-listing-file-modified-sort="1678767888807" data-listing-reading-time-sort="7.82">
+    <div id="container" style="height:100%; width:100%; overflow: hidden; display: flex; margin-left: -35px; margin-bottom: 30px;">
+      <div id="itemImage" style="width:150px; height:150px; background-size:contain; background-position:center; margin: 0px 30px 15px 0px;">
+        <a href="./social/biascrimes/biascrime.html" class="listing-categories">
+          <img src="./social/biascrimes/stophate.png" width="150" height="150">
+        </a>
+      </div>
+    <div id="itemDetails" style="width:100%;">
+      <div id="itemHeader" style="justify-content: space-between; line-height:30px; margin-bottom:3px; align-items:flex-start;">
+      <div id="itemTitle" style="display:block; width:95%">
+        <p style="font-size:22px">
+          <a href="./social/biascrimes/biascrime.html" class="listing-categories">Reported Bias Crimes in Portland
+          </a>
+        </p>
+      </div>
+      <div id="itemDescription" style="margin-bottom:8px">
+        This data was obtained from the PortlandMaps- Open Data website- Reported Bias Crime Statistics, Portland Police Bureau.
+      </div>
+      <div id="created" style="margin-top:8px">
+        <p style="font-size:14px">2022-02-28</p>
+      </div>
+    </div>
+  </div>
 </div>
-</a>
+</li>
+  <li data-index="10" data-categories="vote,DataViz,RStudio" data-listing-date-sort="1583481600000" data-listing-file-modified-sort="1678164921033" data-listing-reading-time-sort="8.63">
+    <div id="container" style="height:100%; width:100%; overflow: hidden; display: flex; margin-left: -35px; margin-bottom: 30px;">
+      <div id="itemImage" style="width:150px; height:150px; background-size:contain; background-position:center; margin: 0px 30px 15px 0px;">
+        <a href="./social/vote/vote.html" class="listing-categories">
+          <img src="./social/vote/vote.png" width="150" height="150">
+        </a>
+      </div>
+    <div id="itemDetails" style="width:100%;">
+      <div id="itemHeader" style="justify-content: space-between; line-height:30px; margin-bottom:3px; align-items:flex-start;">
+      <div id="itemTitle" style="display:block; width:95%">
+        <p style="font-size:22px">
+          <a href="./social/vote/vote.html" class="listing-categories">Voter Registrations Are Way, Way Down During The Pandemic
+          </a>
+        </p>
+      </div>
+      <div id="itemDescription" style="margin-bottom:8px">
+        Let’s practice our visualization skills with ggplot2 and recreate the graph from the Voter Registrations Are Way, Way Down During The Pandemic article.
+      </div>
+      <div id="created" style="margin-top:8px">
+        <p style="font-size:14px">2020-03-06</p>
+      </div>
+    </div>
+  </div>
 </div>
-<div class="g-col-1" data-index="2" data-categories="World,analysis,RStudio" data-listing-date-sort="1679036400000" data-listing-file-modified-sort="1679112024591" data-listing-reading-time-sort="3.07">
-<a href="./social/ChildMortality/childMortality.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./social/ChildMortality/child.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Child Mortality
-</h5>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Karol Orozco
-</div>
-<div class="listing-date">
-March 17, 2023
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="3" data-categories="Countries,freedom,analysis,Rstudio" data-listing-date-sort="1678089600000" data-listing-file-modified-sort="1678164001933" data-listing-reading-time-sort="3.315">
-<a href="./social/FreedomintheWorld/Freedom.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./social/FreedomintheWorld/free.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Freedom in the World
-</h5>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-
-</div>
-<div class="listing-date">
-March 6, 2023
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="4" data-categories="transportation,analysis,RStudio" data-listing-date-sort="1678089600000" data-listing-file-modified-sort="1678161230701" data-listing-reading-time-sort="2.88">
-<a href="./social/transit/transit.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./social/transit/TRAIN.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Transit Costs Project
-</h5>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-
-</div>
-<div class="listing-date">
-March 6, 2023
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="5" data-categories="Community,analysis,Rstudio" data-listing-date-sort="1677571200000" data-listing-file-modified-sort="1679074038370" data-listing-reading-time-sort="6.27">
-<a href="./social/Census/census.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./social/Census/census.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Census Data
-</h5>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-
-</div>
-<div class="listing-date">
-February 28, 2023
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="6" data-listing-date-sort="1675584000000" data-listing-file-modified-sort="1678165284912" data-listing-reading-time-sort="5.7">
-<a href="./social/Hurricanes Graph/hurricanes.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./social/Hurricanes Graph/hurricane.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Hurricanes
-</h5>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Karol Orozco
-</div>
-<div class="listing-date">
-February 5, 2023
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="7" data-listing-date-sort="1669881600000" data-listing-file-modified-sort="1678166061954" data-listing-reading-time-sort="6.87">
-<a href="./social/RegressionModel/RegressionModel.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./social/RegressionModel/house_price.jpg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-House Prices in Portland, OR
-</h5>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Karol Orozco
-</div>
-<div class="listing-date">
-December 1, 2022
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="8" data-categories="Community,analysis,Rstudio" data-listing-date-sort="1646035200000" data-listing-file-modified-sort="1678767888807" data-listing-reading-time-sort="7.82">
-<a href="./social/biascrimes/biascrime.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./social/biascrimes/stophate.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Reported Bias Crimes in Portland
-</h5>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-
-</div>
-<div class="listing-date">
-February 28, 2022
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="9" data-categories="vote,DataViz,RStudio" data-listing-date-sort="1583481600000" data-listing-file-modified-sort="1678164921033" data-listing-reading-time-sort="8.63">
-<a href="./social/vote/vote.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./social/vote/vote.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Voter Registrations Are Way, Way Down During The Pandemic
-</h5>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-
-</div>
-<div class="listing-date">
-March 6, 2020
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-</div>
+</li>
+</ul>
 <div class="listing-no-matching d-none">
 No matching items
 </div>
