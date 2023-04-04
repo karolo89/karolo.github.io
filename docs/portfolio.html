@@ -72,9 +72,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-freeze','listing-title-block-banner','listing-title','listing-image','listing-date','listing-categories','listing-path','listing-author','listing-description','listing-filename','listing-file-modified','listing-reading-time','listing-output','listing-params','listing-title-slide-attributes','listing-format','listing-code-line-numbers','listing-server',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] }],
+      valueNames: ['listing-freeze','listing-title-block-banner','listing-title','listing-image','listing-date','listing-categories','listing-path','listing-author','listing-description','listing-filename','listing-file-modified','listing-reading-time','listing-output','listing-params','listing-title-slide-attributes','listing-format',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] }],
       
-      searchColumns: ["listing-freeze","listing-title-block-banner","listing-title","listing-image","listing-date","listing-categories","listing-path","listing-author","listing-description","listing-filename","listing-file-modified","listing-reading-time","listing-output","listing-params","listing-title-slide-attributes","listing-format","listing-code-line-numbers","listing-server"],
+      searchColumns: ["listing-freeze","listing-title-block-banner","listing-title","listing-image","listing-date","listing-categories","listing-path","listing-author","listing-description","listing-filename","listing-file-modified","listing-reading-time","listing-output","listing-params","listing-title-slide-attributes","listing-format"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -105,7 +105,7 @@ background: #000080;
 <meta property="og:site-name" content="Karol Orozco">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -172,9 +172,7 @@ background: #000080;
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(11)</span></div><div class="category" data-category="Community">Community <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Countries">Countries <span class="quarto-category-count">(1)</span></div><div class="category" data-category="DataViz">DataViz <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RStudio">RStudio <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Rstudio">Rstudio <span class="quarto-category-count">(3)</span></div><div class="category" data-category="World">World <span class="quarto-category-count">(1)</span></div><div class="category" data-category="analysis">analysis <span class="quarto-category-count">(5)</span></div><div class="category" data-category="freedom">freedom <span class="quarto-category-count">(1)</span></div><div class="category" data-category="transportation">transportation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="vote">vote <span class="quarto-category-count">(1)</span></div></div></div>
+    
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -212,38 +210,7 @@ background: #000080;
   </div>
 </div>
 </li>
-  <li data-index="1" data-listing-file-modified-sort="1680572055711" data-listing-reading-time-sort="2.2">
-    <div id="container" style="height:100%; width:100%; overflow: hidden; display: flex; margin-left: -35px; margin-bottom: 30px;">
-      <div id="itemImage" style="width:150px; height:150px; background-size:contain; background-position:center; margin: 0px 30px 15px 0px;">
-        <a href="./social/shiny/shiny.html" class="listing-categories">
-          <img src="" width="150" height="150">
-        </a>
-      </div>
-    <div id="itemDetails" style="width:100%;">
-      <div id="itemHeader" style="justify-content: space-between; line-height:30px; margin-bottom:3px; align-items:flex-start;">
-      <div id="itemTitle" style="display:block; width:95%">
-        <p style="font-size:22px">
-          <a href="./social/shiny/shiny.html" class="listing-categories">Hispanic
-          </a>
-        </p>
-      </div>
-      <div id="itemDescription" style="margin-bottom:8px">
-        
-<script type="application/shiny-prerendered" data-context="server-extras">
-ojs_define <- function(..., .session = shiny::getDefaultReactiveDomain()) {
-  quos <- rlang::enquos(...)
-  vars <- rlang::list2(...)
-  nm <- names(vars)
-  if (is.null(nm))…</script>
-      </div>
-      <div id="created" style="margin-top:8px">
-        <p style="font-size:14px"></p>
-      </div>
-    </div>
-  </div>
-</div>
-</li>
-  <li data-index="2" data-listing-date-sort="1679122800000" data-listing-file-modified-sort="1679110927966" data-listing-reading-time-sort="3.23">
+  <li data-index="1" data-listing-date-sort="1679122800000" data-listing-file-modified-sort="1679110927966" data-listing-reading-time-sort="3.23">
     <div id="container" style="height:100%; width:100%; overflow: hidden; display: flex; margin-left: -35px; margin-bottom: 30px;">
       <div id="itemImage" style="width:150px; height:150px; background-size:contain; background-position:center; margin: 0px 30px 15px 0px;">
         <a href="./social/drivers/drivers.html" class="listing-categories">
@@ -268,7 +235,7 @@ ojs_define <- function(..., .session = shiny::getDefaultReactiveDomain()) {
   </div>
 </div>
 </li>
-  <li data-index="3" data-categories="World,analysis,RStudio" data-listing-date-sort="1679036400000" data-listing-file-modified-sort="1679112024591" data-listing-reading-time-sort="3.07">
+  <li data-index="2" data-categories="World,analysis,RStudio" data-listing-date-sort="1679036400000" data-listing-file-modified-sort="1679112024591" data-listing-reading-time-sort="3.07">
     <div id="container" style="height:100%; width:100%; overflow: hidden; display: flex; margin-left: -35px; margin-bottom: 30px;">
       <div id="itemImage" style="width:150px; height:150px; background-size:contain; background-position:center; margin: 0px 30px 15px 0px;">
         <a href="./social/ChildMortality/childMortality.html" class="listing-categories">
@@ -293,7 +260,7 @@ ojs_define <- function(..., .session = shiny::getDefaultReactiveDomain()) {
   </div>
 </div>
 </li>
-  <li data-index="4" data-categories="Countries,freedom,analysis,Rstudio" data-listing-date-sort="1678089600000" data-listing-file-modified-sort="1678164001933" data-listing-reading-time-sort="3.315">
+  <li data-index="3" data-categories="Countries,freedom,analysis,Rstudio" data-listing-date-sort="1678089600000" data-listing-file-modified-sort="1678164001933" data-listing-reading-time-sort="3.315">
     <div id="container" style="height:100%; width:100%; overflow: hidden; display: flex; margin-left: -35px; margin-bottom: 30px;">
       <div id="itemImage" style="width:150px; height:150px; background-size:contain; background-position:center; margin: 0px 30px 15px 0px;">
         <a href="./social/FreedomintheWorld/Freedom.html" class="listing-categories">
@@ -318,7 +285,7 @@ ojs_define <- function(..., .session = shiny::getDefaultReactiveDomain()) {
   </div>
 </div>
 </li>
-  <li data-index="5" data-categories="transportation,analysis,RStudio" data-listing-date-sort="1678089600000" data-listing-file-modified-sort="1678161230701" data-listing-reading-time-sort="2.88">
+  <li data-index="4" data-categories="transportation,analysis,RStudio" data-listing-date-sort="1678089600000" data-listing-file-modified-sort="1678161230701" data-listing-reading-time-sort="2.88">
     <div id="container" style="height:100%; width:100%; overflow: hidden; display: flex; margin-left: -35px; margin-bottom: 30px;">
       <div id="itemImage" style="width:150px; height:150px; background-size:contain; background-position:center; margin: 0px 30px 15px 0px;">
         <a href="./social/transit/transit.html" class="listing-categories">
@@ -343,7 +310,7 @@ ojs_define <- function(..., .session = shiny::getDefaultReactiveDomain()) {
   </div>
 </div>
 </li>
-  <li data-index="6" data-categories="Community,analysis,Rstudio" data-listing-date-sort="1677571200000" data-listing-file-modified-sort="1679074038370" data-listing-reading-time-sort="6.27">
+  <li data-index="5" data-categories="Community,analysis,Rstudio" data-listing-date-sort="1677571200000" data-listing-file-modified-sort="1679074038370" data-listing-reading-time-sort="6.27">
     <div id="container" style="height:100%; width:100%; overflow: hidden; display: flex; margin-left: -35px; margin-bottom: 30px;">
       <div id="itemImage" style="width:150px; height:150px; background-size:contain; background-position:center; margin: 0px 30px 15px 0px;">
         <a href="./social/Census/census.html" class="listing-categories">
@@ -368,7 +335,7 @@ ojs_define <- function(..., .session = shiny::getDefaultReactiveDomain()) {
   </div>
 </div>
 </li>
-  <li data-index="7" data-listing-date-sort="1675584000000" data-listing-file-modified-sort="1678165284912" data-listing-reading-time-sort="5.7">
+  <li data-index="6" data-listing-date-sort="1675584000000" data-listing-file-modified-sort="1678165284912" data-listing-reading-time-sort="5.7">
     <div id="container" style="height:100%; width:100%; overflow: hidden; display: flex; margin-left: -35px; margin-bottom: 30px;">
       <div id="itemImage" style="width:150px; height:150px; background-size:contain; background-position:center; margin: 0px 30px 15px 0px;">
         <a href="./social/Hurricanes Graph/hurricanes.html" class="listing-categories">
@@ -393,7 +360,7 @@ ojs_define <- function(..., .session = shiny::getDefaultReactiveDomain()) {
   </div>
 </div>
 </li>
-  <li data-index="8" data-listing-date-sort="1669881600000" data-listing-file-modified-sort="1678166061954" data-listing-reading-time-sort="6.87">
+  <li data-index="7" data-listing-date-sort="1669881600000" data-listing-file-modified-sort="1678166061954" data-listing-reading-time-sort="6.87">
     <div id="container" style="height:100%; width:100%; overflow: hidden; display: flex; margin-left: -35px; margin-bottom: 30px;">
       <div id="itemImage" style="width:150px; height:150px; background-size:contain; background-position:center; margin: 0px 30px 15px 0px;">
         <a href="./social/RegressionModel/RegressionModel.html" class="listing-categories">
@@ -418,7 +385,7 @@ ojs_define <- function(..., .session = shiny::getDefaultReactiveDomain()) {
   </div>
 </div>
 </li>
-  <li data-index="9" data-categories="Community,analysis,Rstudio" data-listing-date-sort="1646035200000" data-listing-file-modified-sort="1678767888807" data-listing-reading-time-sort="7.82">
+  <li data-index="8" data-categories="Community,analysis,Rstudio" data-listing-date-sort="1646035200000" data-listing-file-modified-sort="1678767888807" data-listing-reading-time-sort="7.82">
     <div id="container" style="height:100%; width:100%; overflow: hidden; display: flex; margin-left: -35px; margin-bottom: 30px;">
       <div id="itemImage" style="width:150px; height:150px; background-size:contain; background-position:center; margin: 0px 30px 15px 0px;">
         <a href="./social/biascrimes/biascrime.html" class="listing-categories">
@@ -443,7 +410,7 @@ ojs_define <- function(..., .session = shiny::getDefaultReactiveDomain()) {
   </div>
 </div>
 </li>
-  <li data-index="10" data-categories="vote,DataViz,RStudio" data-listing-date-sort="1583481600000" data-listing-file-modified-sort="1678164921033" data-listing-reading-time-sort="8.63">
+  <li data-index="9" data-categories="vote,DataViz,RStudio" data-listing-date-sort="1583481600000" data-listing-file-modified-sort="1678164921033" data-listing-reading-time-sort="8.63">
     <div id="container" style="height:100%; width:100%; overflow: hidden; display: flex; margin-left: -35px; margin-bottom: 30px;">
       <div id="itemImage" style="width:150px; height:150px; background-size:contain; background-position:center; margin: 0px 30px 15px 0px;">
         <a href="./social/vote/vote.html" class="listing-categories">

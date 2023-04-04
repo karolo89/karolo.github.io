@@ -27,7 +27,6 @@ fontsize: 1.2em
 
 *I help to create and sustain communities, programs, and solutions that enhance the use of responsible data science and business practices for equitable social good.*
 
-
 </center>
 
 My name is Karol Orozco; I live in Portland, OR, with my husband, two kids, and my dog Lucy. I am originally from Barranquilla, Colombia, a city located in the northern region of Colombia on the Caribbean coast. It is the fourth-largest city in the country and an important economic and cultural center in the Caribbean region. Barranquilla is known for its vibrant culture and festive atmosphere, exemplified by its famous [Carnival of Barranquilla](https://carnavaldebarranquilla.org/).
