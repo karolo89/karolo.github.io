@@ -95,7 +95,7 @@
     "href": "portfolio.html",
     "title": "Portfolio",
     "section": "",
-    "text": "Karol Orozco\n          \n        \n      \n      \n        \n      \n      \n        \n      \n    \n  \n\n\n  \n    \n      \n        \n          \n        \n      \n    \n      \n      \n        \n          Worst Drivers\n          \n        \n      \n      \n        \n      \n      \n        2023-03-18\n      \n    \n  \n\n\n  \n    \n      \n        \n          \n        \n      \n    \n      \n      \n        \n          Child Mortality\n          \n        \n      \n      \n        \n      \n      \n        2023-03-17\n      \n    \n  \n\n\n  \n    \n      \n        \n          \n        \n      \n    \n      \n      \n        \n          Freedom in the World\n          \n        \n      \n      \n        \n      \n      \n        2023-03-06\n      \n    \n  \n\n\n  \n    \n      \n        \n          \n        \n      \n    \n      \n      \n        \n          Transit Costs Project\n          \n        \n      \n      \n        \n      \n      \n        2023-03-06\n      \n    \n  \n\n\n  \n    \n      \n        \n          \n        \n      \n    \n      \n      \n        \n          Census Data\n          \n        \n      \n      \n        \n      \n      \n        2023-02-28\n      \n    \n  \n\n\n  \n    \n      \n        \n          \n        \n      \n    \n      \n      \n        \n          Hurricanes\n          \n        \n      \n      \n        \n      \n      \n        2023-02-05\n      \n    \n  \n\n\n  \n    \n      \n        \n          \n        \n      \n    \n      \n      \n        \n          House Prices in Portland, OR\n          \n        \n      \n      \n        \n      \n      \n        2022-12-01\n      \n    \n  \n\n\n  \n    \n      \n        \n          \n        \n      \n    \n      \n      \n        \n          Reported Bias Crimes in Portland\n          \n        \n      \n      \n        \n      \n      \n        2022-02-28\n      \n    \n  \n\n\n  \n    \n      \n        \n          \n        \n      \n    \n      \n      \n        \n          Voter Registrations Are Way, Way Down During The Pandemic\n          \n        \n      \n      \n        \n      \n      \n        2020-03-06\n      \n    \n  \n\n\n\n\nNo matching items"
+    "text": "Dispatched Calls for Service\n          \n        \n      \n      \n        \n      \n      \n        2023-04-23\n      \n    \n  \n\n\n  \n    \n      \n        \n          \n        \n      \n    \n      \n      \n        \n          Worst Drivers\n          \n        \n      \n      \n        \n      \n      \n        2023-03-18\n      \n    \n  \n\n\n  \n    \n      \n        \n          \n        \n      \n    \n      \n      \n        \n          Child Mortality\n          \n        \n      \n      \n        \n      \n      \n        2023-03-17\n      \n    \n  \n\n\n  \n    \n      \n        \n          \n        \n      \n    \n      \n      \n        \n          Freedom in the World\n          \n        \n      \n      \n        \n      \n      \n        2023-03-06\n      \n    \n  \n\n\n  \n    \n      \n        \n          \n        \n      \n    \n      \n      \n        \n          Transit Costs Project\n          \n        \n      \n      \n        \n      \n      \n        2023-03-06\n      \n    \n  \n\n\n  \n    \n      \n        \n          \n        \n      \n    \n      \n      \n        \n          Census Data\n          \n        \n      \n      \n        \n      \n      \n        2023-02-28\n      \n    \n  \n\n\n  \n    \n      \n        \n          \n        \n      \n    \n      \n      \n        \n          Hurricanes\n          \n        \n      \n      \n        \n      \n      \n        2023-02-05\n      \n    \n  \n\n\n  \n    \n      \n        \n          \n        \n      \n    \n      \n      \n        \n          House Prices in Portland, OR\n          \n        \n      \n      \n        \n      \n      \n        2022-12-01\n      \n    \n  \n\n\n  \n    \n      \n        \n          \n        \n      \n    \n      \n      \n        \n          Reported Bias Crimes in Portland\n          \n        \n      \n      \n        \n      \n      \n        2022-02-28\n      \n    \n  \n\n\n  \n    \n      \n        \n          \n        \n      \n    \n      \n      \n        \n          Voter Registrations Are Way, Way Down During The Pandemic\n          \n        \n      \n      \n        \n      \n      \n        2020-03-06\n      \n    \n  \n\n\n\n\nNo matching items"
   },
   {
     "objectID": "shiny/shiny.html",
@@ -320,5 +320,159 @@
     "title": "Pet Cats UK",
     "section": "Reference",
     "text": "Reference\nKays R, Dunn RR, Parsons AW, Mcdonald B, Perkins T, Powers S, Shell L, McDonald JL, Cole H, Kikillus H, Woods L, Tindle H, Roetman P (2020) The small home ranges and large local ecological impacts of pet cats. Animal Conservation. doi:10.1111/acv.12563\nMcDonald JL, Cole H (2020) Data from: The small home ranges and large local ecological impacts of pet cats [United Kingdom]. Movebank Data Repository. doi:10.5441/001/1.pf315732\nThomas Mock (2022). Tidy Tuesday: A weekly data project aimed at the R ecosystem.GitHub"
+  },
+  {
+    "objectID": "social/Calls/vote.html#purpose",
+    "href": "social/Calls/vote.html#purpose",
+    "title": "Monthly Portland Neighborhood Offense Statistics",
+    "section": "Purpose",
+    "text": "Purpose\nIn this project, I developed a Shiny application that analyzed Amazon products available in India. The dataset used in this project was obtained from Kaggle, and it presented several challenges during the development process. While I was not able to fix all the issues with the product categories due to time constraints, I focused on creating a concise and informative dashboard that displayed the categories with the highest average ratings and reviews.\nCompared to my previous Shiny app, this project was developed more efficiently, taking approximately 70% less time. Additionally, I was able to implement more advanced CSS theming than before, which improved the overall design of the application. While there are still additional features and visualizations that could be added to the app, I decided to leave them for others to explore in the future.\nOverall, this project was a challenging but rewarding experience that allowed me to build my skills in data analysis and Shiny app development."
+  },
+  {
+    "objectID": "social/Calls/vote.html#questions",
+    "href": "social/Calls/vote.html#questions",
+    "title": "Monthly Portland Neighborhood Offense Statistics",
+    "section": "Questions",
+    "text": "Questions\n\nWhat is the average rating for each category and subcategory?\nWhat is the average review for each category and subcategory?\n\n\n\nFullscreen"
+  },
+  {
+    "objectID": "social/Calls/vote.html#load-libraries",
+    "href": "social/Calls/vote.html#load-libraries",
+    "title": "Monthly Portland Neighborhood Offense Statistics",
+    "section": "Load Libraries",
+    "text": "Load Libraries\n\nlibrary(shiny)\nlibrary(dplyr)\nlibrary(tidyr)\nlibrary(lubridate)\nlibrary(lubridate)\nlibrary(viridis) \nlibrary(zoo)\nlibrary(DT)\nlibrary(shinythemes)\nlibrary(thematic)\nlibrary(bslib)"
+  },
+  {
+    "objectID": "social/Calls/vote.html#data-wrangling-multiple-datasets",
+    "href": "social/Calls/vote.html#data-wrangling-multiple-datasets",
+    "title": "Monthly Portland Neighborhood Offense Statistics",
+    "section": "Data Wrangling Multiple Datasets",
+    "text": "Data Wrangling Multiple Datasets\n\n#ORIGINAL DATA WRANGLING \n\ndispatch_calls2023 <- read.csv(\"https://raw.githubusercontent.com/karolo89/Raw_Data/main/dispatchedcalls_opendata_2023_1.csv\")|>\n  select(-ReportDateTime)|>\n  mutate(Priority = as.factor(Priority))|>\n  mutate(FinalCallCategory = as.factor(FinalCallCategory)) |>\n  mutate(FinalCallGroup = as.factor(FinalCallGroup))|>\n  mutate(Neighborhood = as.factor(Neighborhood))|>\n  mutate(ReportMonthYear = mdy(ReportMonthYear))|>\n  mutate_if(is.character, as.double)|>\n  mutate(ResponseTime= ResponseTime_sec/60)|>\n  separate(\"ReportMonthYear\", c(\"Year\", \"Month\", \"Day\"), sep = \"-\")|>\n  select(-Day)|>\n  mutate(date= as.yearmon(paste(Year, Month), \"%Y %m\"))\n\ndispatch_calls2022 <-read.csv(\"https://raw.githubusercontent.com/karolo89/Raw_Data/main/dispatchedcalls_opendata_2022_0.csv\")|>\n  mutate(Priority = as.factor(Priority))|>\n  mutate(FinalCallCategory = as.factor(FinalCallCategory)) |>\n  mutate(FinalCallGroup = as.factor(FinalCallGroup))|>\n  mutate(Neighborhood = as.factor(Neighborhood))|>\n  mutate(ReportMonthYear = mdy(ReportMonthYear))|>\n  mutate_if(is.character, as.double)|>\n  mutate(ResponseTime= ResponseTime_sec/60)|>\n  separate(\"ReportMonthYear\", c(\"Year\", \"Month\", \"Day\"), sep = \"-\")|>\n  select(-Day)|>\n  mutate(date= as.yearmon(paste(Year, Month), \"%Y %m\"))\n\ncalls <- rbind(dispatch_calls2022, dispatch_calls2023)\n\nmonth_call <- calls |>\n  group_by(date, Year, FinalCallGroup)|>\n  filter(FinalCallGroup!= \"NULL\") |>\n  summarise(count = n()) |>\n  arrange(desc(count))|>\n  na.omit() |> \n  ungroup()\n\ngroup_month <- calls |>\n  group_by(date, FinalCallGroup)|>\n  summarise(num= n())|>\n  mutate(date= as.Date(date))|>\n  arrange(desc(num))|>\n  top_n(5) |>\n  ungroup()\n\n\nColor Theming\n\ncustom_theme <- bs_theme(\n  version = 5,\n  bg = \"#FFFFFF\",\n  fg = \"#000000\",\n  primary = \"#0199F8\",\n  secondary = \"#FF374B\",\n  base_font = \"Maven Pro\"\n)\n\nthematic::thematic_shiny()"
+  },
+  {
+    "objectID": "social/Calls/vote.html#part-1-shiny-ui",
+    "href": "social/Calls/vote.html#part-1-shiny-ui",
+    "title": "Monthly Portland Neighborhood Offense Statistics",
+    "section": "Part 1: Shiny UI",
+    "text": "Part 1: Shiny UI\n\n# Define UI for application \n# Define the user interface\nui <- fluidPage(theme = custom_theme,\n                # Application title\n                \n                titlePanel(\"Dispatched Calls for Service- Portland Police Bureau\"),\n                # sidebar\n                sidebarLayout(\n                  sidebarPanel(\n                    dateRangeInput(inputId = \"date\",\n                                   label   = \"Enter date\",\n                                   start   = \"2022-01-01\",\n                                   end     = \"2023-03-01\",\n                                   min     = \"2022-01-01\",\n                                   max     = \"2023-03-01\"),\n                    \n                    selectInput(inputId  = \"FinalCallGroup\",\n                                label    = \"Select Call Type\",\n                                choices  = group_month$FinalCallGroup,\n                                multiple = TRUE,\n                                selected = \"Disorder\"),\n                    plotOutput(\"density\")),\n                  # main panel\n                  mainPanel(\n                    plotOutput(outputId = \"plot\"),\n                    dataTableOutput(outputId = \"table\")\n                  )\n                )\n)"
+  },
+  {
+    "objectID": "social/Calls/vote.html#part-2-shiny-server",
+    "href": "social/Calls/vote.html#part-2-shiny-server",
+    "title": "Monthly Portland Neighborhood Offense Statistics",
+    "section": "Part 2: Shiny Server",
+    "text": "Part 2: Shiny Server\n\n# Create server function\n\nserver <- function(input, output) {\n  GM <- reactive({ group_month |> \n      filter(date >= input$date[1], \n             date <= input$date[2]) |> \n      filter(FinalCallGroup == input$FinalCallGroup)\n  })\n  TC <- reactive({  calls |> \n      filter(FinalCallGroup == input$FinalCallGroup) |> \n      arrange(date)})\n  \n  output$plot <- renderPlot({\n    GM() |> \n      ggplot(aes(x= fct_rev(fct_reorder(FinalCallGroup, num)), y= num))+\n      geom_bar(stat = 'identity', aes(color=FinalCallGroup, fill= FinalCallGroup))+\n      \n      scale_y_continuous(labels = scales::number_format(scale = .001, suffix = \"K\"))+\n      \n      scale_color_viridis_d()+\n      scale_fill_viridis_d()+\n      \n      labs(title= \"Total Calls by Group, 2022-23\",\n           x=\"\",\n           y= \"\") +\n      theme_minimal()+\n      theme(\n            legend.position = \"none\",\n            panel.background = element_rect(colour = \"#fdf8ec\", fill = \"#fdf8ec\"),\n            plot.background = element_rect(colour = \"#fdf8ec\", fill = \"#fdf8ec\"),\n            legend.background = element_rect(colour = \"#fdf8ec\", fill = \"#fdf8ec\"))\n  })\n  \n  output$table <- DT::renderDataTable({\n    TC() |> \n      datatable(options = list(scrollX = T))\n  })\n  output$density <- renderPlot({\n    TC() |> ggplot() + aes(y=ResponseTime, x=FinalCallGroup, color=FinalCallGroup) +\n      geom_boxplot()+\n      labs(title= \"Response Time by Call Type\",\n           x=\"\",\n           y= \"min\")+\n      theme(legend.position = \"none\")+\n      theme_minimal()+\n      theme(\n            legend.position = \"none\",\n            panel.background = element_rect(colour = \"#fdf8ec\", fill = \"#fdf8ec\"),\n            plot.background = element_rect(colour = \"#fdf8ec\", fill = \"#fdf8ec\"),\n            legend.background = element_rect(colour = \"#fdf8ec\", fill = \"#fdf8ec\"))\n  })\n  \n}\n\n\nlibrary(shiny)\nlibrary(dplyr)\nlibrary(tidyr)\nlibrary(ggplot2)\nlibrary(lubridate)\nlibrary(showtext)\nlibrary(lubridate)\nlibrary(viridis) \nlibrary(zoo)\nlibrary(DT)\nlibrary(shinythemes)\nlibrary(thematic)\nlibrary(bslib)\n\n\ndispatch_calls2023 <- read.csv(\"https://raw.githubusercontent.com/karolo89/Raw_Data/main/dispatchedcalls_opendata_2023_1.csv\")|>\n  select(-ReportDateTime)|>\n  mutate(Priority = as.factor(Priority))|>\n  mutate(FinalCallCategory = as.factor(FinalCallCategory)) |>\n  mutate(FinalCallGroup = as.factor(FinalCallGroup))|>\n  mutate(Neighborhood = as.factor(Neighborhood))|>\n  mutate(ReportMonthYear = mdy(ReportMonthYear))|>\n  mutate_if(is.character, as.double)|>\n  mutate(ResponseTime= ResponseTime_sec/60)|>\n  separate(\"ReportMonthYear\", c(\"Year\", \"Month\", \"Day\"), sep = \"-\")|>\n  select(-Day)|>\n  mutate(date= as.yearmon(paste(Year, Month), \"%Y %m\"))\n\ndispatch_calls2022 <-read.csv(\"https://raw.githubusercontent.com/karolo89/Raw_Data/main/dispatchedcalls_opendata_2022_0.csv\")|>\n  mutate(Priority = as.factor(Priority))|>\n  mutate(FinalCallCategory = as.factor(FinalCallCategory)) |>\n  mutate(FinalCallGroup = as.factor(FinalCallGroup))|>\n  mutate(Neighborhood = as.factor(Neighborhood))|>\n  mutate(ReportMonthYear = mdy(ReportMonthYear))|>\n  mutate_if(is.character, as.double)|>\n  mutate(ResponseTime= ResponseTime_sec/60)|>\n  separate(\"ReportMonthYear\", c(\"Year\", \"Month\", \"Day\"), sep = \"-\")|>\n  select(-Day)|>\n  mutate(date= as.yearmon(paste(Year, Month), \"%Y %m\"))\n\ncalls <- rbind(dispatch_calls2022, dispatch_calls2023)\n\nmonth_call <- calls |>\n  group_by(date, Year, FinalCallGroup)|>\n  filter(FinalCallGroup!= \"NULL\") |>\n  summarise(count = n()) |>\n  arrange(desc(count))|>\n  na.omit() |> \n  ungroup()\n\ngroup_month <- calls |>\n  group_by(date, FinalCallGroup)|>\n  summarise(num= n())|>\n  mutate(date= as.Date(date))|>\n  arrange(desc(num))|>\n  top_n(5) |>\n  ungroup()\n\n\n\ncustom_theme <- bs_theme(\n  version = 5,\n  bg = \"#FFFFFF\",\n  fg = \"#000000\",\n  primary = \"#0199F8\",\n  secondary = \"#FF374B\",\n  base_font = \"Maven Pro\"\n)\n\nthematic::thematic_shiny()\n\n\n\n# Define the user interface\nui <- fluidPage(theme = custom_theme,\n                # Application title\n                \n                titlePanel(\"Dispatched Calls for Service- Portland Police Bureau\"),\n                # sidebar\n                sidebarLayout(\n                  sidebarPanel(\n                    dateRangeInput(inputId = \"date\",\n                                   label   = \"Enter date\",\n                                   start   = \"2022-01-01\",\n                                   end     = \"2023-03-01\",\n                                   min     = \"2022-01-01\",\n                                   max     = \"2023-03-01\"),\n                    \n                    selectInput(inputId  = \"FinalCallGroup\",\n                                label    = \"Select Call Type\",\n                                choices  = group_month$FinalCallGroup,\n                                multiple = TRUE,\n                                selected = \"Disorder\"),\n                    plotOutput(\"density\")),\n                  # main panel\n                  mainPanel(\n                    plotOutput(outputId = \"plot\"),\n                    dataTableOutput(outputId = \"table\")\n                  )\n                )\n)\n\n\n# Create server function\n\nserver <- function(input, output) {\n  GM <- reactive({ group_month |> \n      filter(date >= input$date[1], \n             date <= input$date[2]) |> \n      filter(FinalCallGroup == input$FinalCallGroup)\n  })\n  TC <- reactive({  calls |> \n      filter(FinalCallGroup == input$FinalCallGroup) |> \n      arrange(date)})\n  \n  output$plot <- renderPlot({\n    GM() |> \n      ggplot(aes(x= fct_rev(fct_reorder(FinalCallGroup, num)), y= num))+\n      geom_bar(stat = 'identity', aes(color=FinalCallGroup, fill= FinalCallGroup))+\n      \n      scale_y_continuous(labels = scales::number_format(scale = .001, suffix = \"K\"))+\n      \n      scale_color_viridis_d()+\n      scale_fill_viridis_d()+\n      \n      labs(title= \"Total Calls by Group, 2022-23\",\n           x=\"\",\n           y= \"\") +\n      theme_minimal()+\n      theme(\n            legend.position = \"none\",\n            panel.background = element_rect(colour = \"#fdf8ec\", fill = \"#fdf8ec\"),\n            plot.background = element_rect(colour = \"#fdf8ec\", fill = \"#fdf8ec\"),\n            legend.background = element_rect(colour = \"#fdf8ec\", fill = \"#fdf8ec\"))\n  })\n  \n  output$table <- DT::renderDataTable({\n    TC() |> \n      datatable(options = list(scrollX = T))\n  })\n  output$density <- renderPlot({\n    TC() |> ggplot() + aes(y=ResponseTime, x=FinalCallGroup, color=FinalCallGroup) +\n      geom_boxplot()+\n      labs(title= \"Response Time by Call Type\",\n           x=\"\",\n           y= \"min\")+\n      theme(legend.position = \"none\")+\n      theme_minimal()+\n      theme(\n            legend.position = \"none\",\n            panel.background = element_rect(colour = \"#fdf8ec\", fill = \"#fdf8ec\"),\n            plot.background = element_rect(colour = \"#fdf8ec\", fill = \"#fdf8ec\"),\n            legend.background = element_rect(colour = \"#fdf8ec\", fill = \"#fdf8ec\"))\n  })\n  \n}\n\n\n# Build and run the application\nrun_with_themer(shinyApp(ui = ui, server = server))"
+  },
+  {
+    "objectID": "revealjs/presentationkoe.html",
+    "href": "revealjs/presentationkoe.html",
+    "title": "Karol Orozco",
+    "section": "",
+    "text": "I help to create and sustain communities, programs, and solutions that enhance the use of responsible data science and business practices for equitable social good.\n\n\n\n\n\n\nLinkedIn: @karolorozcoe | GitHub: @karolo89"
+  },
+  {
+    "objectID": "revealjs/presentationkoe.html#skills",
+    "href": "revealjs/presentationkoe.html#skills",
+    "title": "Karol Orozco",
+    "section": "SKILLS",
+    "text": "SKILLS\n\n𝑷𝒓𝒐𝒇𝒆𝒔𝒔𝒊𝒐𝒏𝒂𝒍 𝑺𝒌𝒊𝒍𝒍𝒔\nData Analysis | Partnership Management | Business Development | Diversity & Inclusion | Strategic Planning | Process Improvement | Project Management\n\n\n𝑫𝒐𝒎𝒂𝒊𝒏 𝑲𝒏𝒐𝒘𝒍𝒆𝒅𝒈𝒆\nR | Tableau | SQL | Community Affairs | Leadership | Community Engagement | Latinx Community | Shared Value\n\n\nLinkedIn: @karolorozcoe | GitHub: @karolo89"
+  },
+  {
+    "objectID": "revealjs/presentationkoe.html#education",
+    "href": "revealjs/presentationkoe.html#education",
+    "title": "Karol Orozco",
+    "section": "EDUCATION",
+    "text": "EDUCATION\n\n\nWillamette University | Portland, OR\nMaster in Data Science | August 2023\nPresidential Scholarship\nWillamette University | Portland, OR\nMaster of Business Administration | August 2022\nGeorge and Colleen Hoyt Not-For-Profit Scholarship Atkinson Honor\nBeta Gamma Sigma\nUniversidad Autonoma del Caribe | Barranquilla, Colombia\nBachelor’s Degree, Industrial Engineering | July 2014\n\n\n\n\nLinkedIn: @karolorozcoe | GitHub: @karolo89"
+  },
+  {
+    "objectID": "revealjs/presentationkoe.html#portfolio",
+    "href": "revealjs/presentationkoe.html#portfolio",
+    "title": "Karol Orozco",
+    "section": "PORTFOLIO",
+    "text": "PORTFOLIO\n\n\n\n\n\n\n\n\nLinkedIn: @karolorozcoe | GitHub: @karolo89"
+  },
+  {
+    "objectID": "revealjs/presentationkoe.html#portfolio-1",
+    "href": "revealjs/presentationkoe.html#portfolio-1",
+    "title": "Karol Orozco",
+    "section": "PORTFOLIO",
+    "text": "PORTFOLIO\n\n\n\n\n\n\n\n\nLinkedIn: @karolorozcoe | GitHub: @karolo89"
+  },
+  {
+    "objectID": "revealjs/presentationkoe.html#portfolio-2",
+    "href": "revealjs/presentationkoe.html#portfolio-2",
+    "title": "Karol Orozco",
+    "section": "PORTFOLIO",
+    "text": "PORTFOLIO\n\n\n\n\n\n\n\n\nLinkedIn: @karolorozcoe | GitHub: @karolo89"
+  },
+  {
+    "objectID": "revealjs/presentationkoe.html#portfolio-3",
+    "href": "revealjs/presentationkoe.html#portfolio-3",
+    "title": "Karol Orozco",
+    "section": "PORTFOLIO",
+    "text": "PORTFOLIO\n\n\n\n\n\n\n\n\nLinkedIn: @karolorozcoe | GitHub: @karolo89"
+  },
+  {
+    "objectID": "revealjs/presentationkoe.html#contact-me",
+    "href": "revealjs/presentationkoe.html#contact-me",
+    "title": "Karol Orozco",
+    "section": "CONTACT ME",
+    "text": "CONTACT ME\n\n\n\n\n\n\nLinkedIn:@karolorozcoe\nGitHub: @karolo89\n\n\n\n\n\n Back to My Page"
+  },
+  {
+    "objectID": "social/Calls/calls.html#purpose",
+    "href": "social/Calls/calls.html#purpose",
+    "title": "Dispatched Calls for Service",
+    "section": "Purpose",
+    "text": "Purpose\nThis project aims to create a basic Shiny App with calls for services statistics from the Portland Police Bureau. They use calls for service statistics to track and report the level of police activity in a specific area during a given time frame. These statistics are divided into dispatched calls, generated by the community through a call or text to 911 or the non-emergency line, and self-initiated/directed calls, which are officer-initiated calls for service.\nThe Portland Police Bureau counts all calls for service where at least one officer was dispatched or self-initiated a call, and these statistics focus on total police response. The dispatcher assigns each call for service a call type based on the preliminary nature of the call, and call types are categorized into one of eight call groups for reporting purposes. These call types may not be descriptive of the potential kind of crime but rather a description of the situation."
+  },
+  {
+    "objectID": "social/Calls/calls.html#questions",
+    "href": "social/Calls/calls.html#questions",
+    "title": "Monthly Portland Neighborhood Offense Statistics",
+    "section": "Questions",
+    "text": "Questions\n\nWhat is the average rating for each category and subcategory?\nWhat is the average review for each category and subcategory?\n\n\n\nFullscreen"
+  },
+  {
+    "objectID": "social/Calls/calls.html#load-libraries",
+    "href": "social/Calls/calls.html#load-libraries",
+    "title": "Dispatched Calls for Service",
+    "section": "Load Libraries",
+    "text": "Load Libraries\n\nlibrary(shiny)\nlibrary(dplyr)\nlibrary(tidyr)\nlibrary(lubridate)\nlibrary(lubridate)\nlibrary(viridis) \nlibrary(zoo)\nlibrary(DT)\nlibrary(shinythemes)\nlibrary(thematic)\nlibrary(bslib)"
+  },
+  {
+    "objectID": "social/Calls/calls.html#data-wrangling-multiple-datasets",
+    "href": "social/Calls/calls.html#data-wrangling-multiple-datasets",
+    "title": "Dispatched Calls for Service",
+    "section": "Data Wrangling Multiple Datasets",
+    "text": "Data Wrangling Multiple Datasets\n\ndispatch_calls2023 <- read.csv(\"https://raw.githubusercontent.com/karolo89/Raw_Data/main/dispatchedcalls_opendata_2023_1.csv\")|>\n  select(-ReportDateTime)|>\n  mutate(Priority = as.factor(Priority))|>\n  mutate(FinalCallCategory = as.factor(FinalCallCategory)) |>\n  mutate(FinalCallGroup = as.factor(FinalCallGroup))|>\n  mutate(Neighborhood = as.factor(Neighborhood))|>\n  mutate(ReportMonthYear = mdy(ReportMonthYear))|>\n  mutate_if(is.character, as.double)|>\n  mutate(ResponseTime= ResponseTime_sec/60)|>\n  separate(\"ReportMonthYear\", c(\"Year\", \"Month\", \"Day\"), sep = \"-\")|>\n  select(-Day)|>\n  mutate(date= as.yearmon(paste(Year, Month), \"%Y %m\"))\n\ndispatch_calls2022 <-read.csv(\"https://raw.githubusercontent.com/karolo89/Raw_Data/main/dispatchedcalls_opendata_2022_0.csv\")|>\n  mutate(Priority = as.factor(Priority))|>\n  mutate(FinalCallCategory = as.factor(FinalCallCategory)) |>\n  mutate(FinalCallGroup = as.factor(FinalCallGroup))|>\n  mutate(Neighborhood = as.factor(Neighborhood))|>\n  mutate(ReportMonthYear = mdy(ReportMonthYear))|>\n  mutate_if(is.character, as.double)|>\n  mutate(ResponseTime= ResponseTime_sec/60)|>\n  separate(\"ReportMonthYear\", c(\"Year\", \"Month\", \"Day\"), sep = \"-\")|>\n  select(-Day)|>\n  mutate(date= as.yearmon(paste(Year, Month), \"%Y %m\"))\n\ncalls <- rbind(dispatch_calls2022, dispatch_calls2023)\n\nmonth_call <- calls |>\n  group_by(date, Year, FinalCallGroup)|>\n  filter(FinalCallGroup!= \"NULL\") |>\n  summarise(count = n()) |>\n  arrange(desc(count))|>\n  na.omit() |> \n  ungroup()\n\ngroup_month <- calls |>\n  group_by(date, FinalCallGroup)|>\n  summarise(num= n())|>\n  mutate(date= as.Date(date))|>\n  arrange(desc(num))|>\n  top_n(5) |>\n  ungroup()\n\n\nColor Theming\n\ncustom_theme <- bs_theme(\n  version = 5,\n  bg = \"#FFFFFF\",\n  fg = \"#000000\",\n  primary = \"#0199F8\",\n  secondary = \"#FF374B\",\n  base_font = \"Maven Pro\"\n)\n\nthematic::thematic_shiny()"
+  },
+  {
+    "objectID": "social/Calls/calls.html#part-1-shiny-ui",
+    "href": "social/Calls/calls.html#part-1-shiny-ui",
+    "title": "Monthly Portland Neighborhood Offense Statistics",
+    "section": "Part 1: Shiny UI",
+    "text": "Part 1: Shiny UI\n\n# Define UI for application \n# Define the user interface\nui <- fluidPage(theme = custom_theme,\n                # Application title\n                \n                titlePanel(\"Dispatched Calls for Service- Portland Police Bureau\"),\n                # sidebar\n                sidebarLayout(\n                  sidebarPanel(\n                    dateRangeInput(inputId = \"date\",\n                                   label   = \"Enter date\",\n                                   start   = \"2022-01-01\",\n                                   end     = \"2023-03-01\",\n                                   min     = \"2022-01-01\",\n                                   max     = \"2023-03-01\"),\n                    \n                    selectInput(inputId  = \"FinalCallGroup\",\n                                label    = \"Select Call Type\",\n                                choices  = group_month$FinalCallGroup,\n                                multiple = TRUE,\n                                selected = \"Disorder\"),\n                    plotOutput(\"density\")),\n                  # main panel\n                  mainPanel(\n                    plotOutput(outputId = \"plot\"),\n                    dataTableOutput(outputId = \"table\")\n                  )\n                )\n)"
+  },
+  {
+    "objectID": "social/Calls/calls.html#part-2-shiny-server",
+    "href": "social/Calls/calls.html#part-2-shiny-server",
+    "title": "Monthly Portland Neighborhood Offense Statistics",
+    "section": "Part 2: Shiny Server",
+    "text": "Part 2: Shiny Server\n\n# Create server function\n\nserver <- function(input, output) {\n  GM <- reactive({ group_month |> \n      filter(date >= input$date[1], \n             date <= input$date[2]) |> \n      filter(FinalCallGroup == input$FinalCallGroup)\n  })\n  TC <- reactive({  calls |> \n      filter(FinalCallGroup == input$FinalCallGroup) |> \n      arrange(date)})\n  \n  output$plot <- renderPlot({\n    GM() |> \n      ggplot(aes(x= fct_rev(fct_reorder(FinalCallGroup, num)), y= num))+\n      geom_bar(stat = 'identity', aes(color=FinalCallGroup, fill= FinalCallGroup))+\n      \n      scale_y_continuous(labels = scales::number_format(scale = .001, suffix = \"K\"))+\n      \n      scale_color_viridis_d()+\n      scale_fill_viridis_d()+\n      \n      labs(title= \"Total Calls by Group, 2022-23\",\n           x=\"\",\n           y= \"\") +\n      theme_minimal()+\n      theme(\n            legend.position = \"none\",\n            panel.background = element_rect(colour = \"#fdf8ec\", fill = \"#fdf8ec\"),\n            plot.background = element_rect(colour = \"#fdf8ec\", fill = \"#fdf8ec\"),\n            legend.background = element_rect(colour = \"#fdf8ec\", fill = \"#fdf8ec\"))\n  })\n  \n  output$table <- DT::renderDataTable({\n    TC() |> \n      datatable(options = list(scrollX = T))\n  })\n  output$density <- renderPlot({\n    TC() |> ggplot() + aes(y=ResponseTime, x=FinalCallGroup, color=FinalCallGroup) +\n      geom_boxplot()+\n      labs(title= \"Response Time by Call Type\",\n           x=\"\",\n           y= \"min\")+\n      theme(legend.position = \"none\")+\n      theme_minimal()+\n      theme(\n            legend.position = \"none\",\n            panel.background = element_rect(colour = \"#fdf8ec\", fill = \"#fdf8ec\"),\n            plot.background = element_rect(colour = \"#fdf8ec\", fill = \"#fdf8ec\"),\n            legend.background = element_rect(colour = \"#fdf8ec\", fill = \"#fdf8ec\"))\n  })\n  \n}\n\n# Build and run the application\nrun_with_themer(shinyApp(ui = ui, server = server))"
+  },
+  {
+    "objectID": "social/Calls/calls.html#shiny-ui",
+    "href": "social/Calls/calls.html#shiny-ui",
+    "title": "Dispatched Calls for Service",
+    "section": "Shiny UI",
+    "text": "Shiny UI\n\n# Define UI for application \nui <- fluidPage(theme = custom_theme,\n                # Application title\n                \n                titlePanel(\"Dispatched Calls for Service- Portland Police Bureau\"),\n                # sidebar\n                sidebarLayout(\n                  sidebarPanel(\n                    dateRangeInput(inputId = \"date\",\n                                   label   = \"Enter date\",\n                                   start   = \"2022-01-01\",\n                                   end     = \"2023-03-01\",\n                                   min     = \"2022-01-01\",\n                                   max     = \"2023-03-01\"),\n                    \n                    selectInput(inputId  = \"FinalCallGroup\",\n                                label    = \"Select Call Type\",\n                                choices  = group_month$FinalCallGroup,\n                                multiple = TRUE,\n                                selected = \"Disorder\"),\n                    plotOutput(\"density\")),\n                  # main panel\n                  mainPanel(\n                    plotOutput(outputId = \"plot\"),\n                    dataTableOutput(outputId = \"table\")\n                  )\n                )\n)"
+  },
+  {
+    "objectID": "social/Calls/calls.html#shiny-server",
+    "href": "social/Calls/calls.html#shiny-server",
+    "title": "Dispatched Calls for Service",
+    "section": "Shiny Server",
+    "text": "Shiny Server\n\n# Create server function\n\nserver <- function(input, output) {\n  GM <- reactive({ group_month |> \n      filter(date >= input$date[1], \n             date <= input$date[2]) |> \n      filter(FinalCallGroup == input$FinalCallGroup)\n  })\n  TC <- reactive({  calls |> \n      filter(FinalCallGroup == input$FinalCallGroup) |> \n      arrange(date)})\n  \n  output$plot <- renderPlot({\n    GM() |> \n      ggplot(aes(x= fct_rev(fct_reorder(FinalCallGroup, num)), y= num))+\n      geom_bar(stat = 'identity', aes(color=FinalCallGroup, fill= FinalCallGroup))+\n      \n      scale_y_continuous(labels = scales::number_format(scale = .001, suffix = \"K\"))+\n      \n      scale_color_viridis_d()+\n      scale_fill_viridis_d()+\n      \n      labs(title= \"Total Calls by Group, 2022-23\",\n           x=\"\",\n           y= \"\") +\n      theme_minimal()+\n      theme(\n            legend.position = \"none\",\n            panel.background = element_rect(colour = \"#fdf8ec\", fill = \"#fdf8ec\"),\n            plot.background = element_rect(colour = \"#fdf8ec\", fill = \"#fdf8ec\"),\n            legend.background = element_rect(colour = \"#fdf8ec\", fill = \"#fdf8ec\"))\n  })\n  \n  output$table <- DT::renderDataTable({\n    TC() |> \n      datatable(options = list(scrollX = T))\n  })\n  output$density <- renderPlot({\n    TC() |> ggplot() + aes(y=ResponseTime, x=FinalCallGroup, color=FinalCallGroup) +\n      geom_boxplot()+\n      labs(title= \"Response Time by Call Type\",\n           x=\"\",\n           y= \"min\")+\n      theme(legend.position = \"none\")+\n      theme_minimal()+\n      theme(\n            legend.position = \"none\",\n            panel.background = element_rect(colour = \"#fdf8ec\", fill = \"#fdf8ec\"),\n            plot.background = element_rect(colour = \"#fdf8ec\", fill = \"#fdf8ec\"),\n            legend.background = element_rect(colour = \"#fdf8ec\", fill = \"#fdf8ec\"))\n  })\n  \n}\n\n# Build and run the application\nrun_with_themer(shinyApp(ui = ui, server = server))"
   }
 ]
