@@ -1,7 +1,7 @@
 ---
 title: "Portfolio"
 listing:
-  contents: post
+  contents: social
   date-format: "YYYY-MM-DD"
   feed: true
   filter-ui: false
