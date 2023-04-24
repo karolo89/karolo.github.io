@@ -2,14 +2,20 @@
 title: "Voter Registrations Are Way, Way Down During The Pandemic"
 image: "vote.png"
 date: 03/6/2020
-categories:
+format:
+  html:
+    toc: true
+    toc-location: right
+    html-math-method: katex
+output: html_document
+code-fold: true
+categories: 
   - vote
   - DataViz
   - RStudio
 ---
 
-Let’s practice our visualization skills with ggplot2 and recreate the graph from the [Voter Registrations Are Way, Way Down During The Pandemic](https://fivethirtyeight.com/features/voter-registrations-are-way-way-down-during-the-pandemic/) article.
-
+Let's practice our visualization skills with ggplot2 and recreate the graph from the [Voter Registrations Are Way, Way Down During The Pandemic](https://fivethirtyeight.com/features/voter-registrations-are-way-way-down-during-the-pandemic/) article.
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(warning=FALSE, message=FALSE)
@@ -46,8 +52,6 @@ a<- function(change){number_format(accuracy = 1,
 
 
 ```
-
-
 
 ```{r}
 
@@ -161,5 +165,3 @@ geom_rect(data = data.frame(Jurisdiction = "Arizona"),
 )
 
 ```
-
-

@@ -133,7 +133,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <meta property="og:site-name" content="Karol Orozco">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -212,7 +212,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -224,8 +232,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The flagship publication of <a href="https://freedomhouse.org/reports/publication-archives">Freedom House</a>, Freedom in the World, is the benchmark for comparing assessments of civil liberties and political rights worldwide. Policymakers, the media, multinational businesses, community activists, and human rights advocates use the survey ratings and narrative reports on 195 countries and 15 connected and disputed territories published annually since 1972.</p>
 <p>This data visualization explores the Political rights of African countries, where the scores range from 1 to 7, where 7 means more violations of political rights. Note that in 1972, South Africa was rated as “White” (2,3 Free) and “Black” (5,6 Not Free).</p>
 <div class="cell">
-<details>
-<summary>Behind the Scenes</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot </span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(plot_data, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> PR.x, <span class="at">fill =</span> <span class="fu">as.character</span>(PR.y))) <span class="sc">+</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  </span>
@@ -267,7 +273,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>     </span>
 <span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">colour =</span> <span class="st">"black"</span>, <span class="at">size=</span><span class="dv">9</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">family=</span><span class="st">"josefin-slab"</span>), </span>
 <span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">colour =</span> <span class="st">"black"</span>, <span class="at">size=</span><span class="dv">10</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">family=</span><span class="st">"josefin-slab"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output-display">
 <p><img src="Freedom_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="864"></p>
 </div>

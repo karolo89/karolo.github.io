@@ -6,6 +6,13 @@ categories:
   - Community
   - analysis
   - Rstudio
+format:
+  html:
+    toc: true
+    toc-location: right
+    html-math-method: katex
+output: html_document
+code-fold: false
 ---
 
 ```{r setup, include=FALSE}

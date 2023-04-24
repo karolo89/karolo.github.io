@@ -8,7 +8,6 @@ params:
   state: "Oregon"
 ---
 
-
 ```{r setup, include=FALSE, warning=FALSE, message=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
@@ -29,10 +28,9 @@ bad_drivers <- read.csv("https://raw.githubusercontent.com/karolo89/Raw_Data/mai
   select(state, badDrivingIndex, insuredDrivers., DIUArrests, fatalities)
 
 ```
-
+For this particular undertaking, I focused on the utilization of parameterized Rmarkdown with the aim of enhancing the efficacy of report generation. This approach involves setting predetermined values for parameters and creating a function that automatically updates the information, thereby mitigating the need for manual modification of parameters for daily reports.
 
 #### States with the Most drivers Involved in Fatal Collisions per 100m Vehicle Miles
-
 
 ```{r}
 worst_drivers <- bad_drivers %>%
@@ -52,8 +50,6 @@ worst_drivers %>%
   kable_styling(full_width = FALSE, position = "left") %>%
   row_spec(min(state_row, 6), color = "lightgray", background = "darkblue", bold = TRUE)
 ```
-
-
 
 ```{r, message=FALSE, warning=FALSE}
 titler <- function(title) {
@@ -109,13 +105,19 @@ plot <- worst_drivers%>%
   ggplot(aes(key, value)) +
   geom_bar(stat = "identity", fill= "darkblue")+
   scale_y_continuous(expand = c(0, 0), limits = c(0, 5)) +
-  labs(x= "", y =" ")
+  labs(x= "", y =" ")+
+    theme_classic()+
+  
+  theme(
+        axis.line=element_blank(),
+        text = element_text(size = 11),
+        plot.title = element_text(size = 12, face = "bold", 
+                                  hjust = 0.5, vjust = 0.5),
+        legend.title = element_blank(),
+        plot.caption.position = "panel",
+        plot.caption = element_text(hjust = 0, size= 10))
 
 plotr(plot= plot,
       title = paste0("Driver Behaviors in ", params$state),
       source = "World Population Review")
 ```
-
-
-
-

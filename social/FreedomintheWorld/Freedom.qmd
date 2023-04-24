@@ -7,6 +7,13 @@ categories:
   - freedom
   - analysis
   - Rstudio
+format:
+  html:
+    toc: true
+    toc-location: right
+    html-math-method: katex
+output: html_document
+code-fold: false 
 ---
 
 ```{r setup, include=FALSE}
@@ -47,8 +54,7 @@ plot_data <- left_join(africa_data, plot_2020, by = "country")
 
 The flagship publication of [Freedom House](https://freedomhouse.org/reports/publication-archives), Freedom in the World, is the benchmark for comparing assessments of civil liberties and political rights worldwide. Policymakers, the media, multinational businesses, community activists, and human rights advocates use the survey ratings and narrative reports on 195 countries and 15 connected and disputed territories published annually since 1972.
 
-This data visualization explores the Political rights of African countries, where the scores range from 1 to 7, where 7 means more violations of political rights. Note that in 1972, South Africa was rated as "White" (2,3 Free) and "Black" (5,6 Not Free).  
-
+This data visualization explores the Political rights of African countries, where the scores range from 1 to 7, where 7 means more violations of political rights. Note that in 1972, South Africa was rated as "White" (2,3 Free) and "Black" (5,6 Not Free).
 
 ```{r, fig.height=9, fig.width=9}
 # plot 
@@ -93,6 +99,3 @@ ggplot(plot_data, aes(x = year, y = PR.x, fill = as.character(PR.y))) +
         legend.text = element_text(colour = "black", size=9, hjust = 0.5, family="josefin-slab"), 
         legend.title = element_text(colour = "black", size=10, hjust = 0.5, family="josefin-slab"))
 ```
-
-
-

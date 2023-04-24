@@ -1,17 +1,6 @@
 [
   {
     "listing": "/portfolio.html",
-    "items": [
-      "/social/Calls/calls.html",
-      "/social/drivers/drivers.html",
-      "/social/ChildMortality/childMortality.html",
-      "/social/FreedomintheWorld/Freedom.html",
-      "/social/transit/transit.html",
-      "/social/Census/census.html",
-      "/social/Hurricanes Graph/hurricanes.html",
-      "/social/RegressionModel/RegressionModel.html",
-      "/social/biascrimes/biascrime.html",
-      "/social/vote/vote.html"
-    ]
+    "items": []
   }
 ]

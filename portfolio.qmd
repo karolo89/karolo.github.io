@@ -1,7 +1,7 @@
 ---
 title: "Portfolio"
 listing:
-  contents: social
+  contents: post
   date-format: "YYYY-MM-DD"
   feed: true
   filter-ui: false
@@ -15,5 +15,4 @@ format:
     page-layout: article
 title-block-banner: "#000080"
 title-block-banner-color: "white"
-page-layout: article
 ---

@@ -6,6 +6,13 @@ categories:
   - Community
   - analysis
   - Rstudio
+format:
+  html:
+    toc: true
+    toc-location: right
+    html-math-method: katex
+output: html_document
+code-fold: true
 ---
 
 ```{r setup, include=FALSE}
@@ -108,8 +115,8 @@ pp2 <-crime %>%
         plot.title.position = "plot", 
         plot.subtitle = element_text(hjust = 0.5, lineheight = 0.4, size = 10),
         plot.title = element_text(lineheight = 0.5, face = "bold", size = 12, hjust = 0.5),
-        axis.text = element_text(size = 7),
-        axis.title = element_text(size= 8),
+        axis.text = element_text(size = 10),
+        axis.title = element_text(size= 10),
         plot.background = element_rect(fill = "#fafafa", colour = "#fafafa"),
         panel.background = element_rect(fill = "#fafafa", colour = "#fafafa"))
 

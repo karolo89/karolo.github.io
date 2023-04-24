@@ -2,6 +2,13 @@
 title: "Transit Costs Project"
 image: "TRAIN.png"
 date: 03/6/2023
+format:
+  html:
+    toc: true
+    toc-location: right
+    html-math-method: katex
+output: html_document
+code-fold: true
 categories:
   - transportation
   - analysis

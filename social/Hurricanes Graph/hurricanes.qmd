@@ -3,6 +3,13 @@ title: "Hurricanes"
 author: "Karol Orozco"
 date: "2023/02/05"
 image: "hurricane.png"
+format:
+  html:
+    toc: true
+    toc-location: right
+    html-math-method: katex
+output: html_document
+code-fold: false
 ---
 
 Hello there,

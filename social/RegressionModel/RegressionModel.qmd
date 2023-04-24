@@ -3,6 +3,13 @@ title: "House Prices in Portland, OR"
 author: "Karol Orozco"
 date: "2022-12"
 image: "house_price.jpg"
+format:
+  html:
+    toc: true
+    toc-location: right
+    html-math-method: katex
+output: html_document
+code-fold: false
 ---
 
 ## Background
@@ -213,8 +220,6 @@ pdx_rec <-
   step_corr(all_predictors(), threshold = 0.7, method = "spearman") # step_corr(): will remove predictor variables that have large correlations with other predictor variables.
 
 ```
-
-
 
 ```{r, message=FALSE, warning=FALSE}
 prep_data <- 

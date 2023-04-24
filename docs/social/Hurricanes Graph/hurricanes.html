@@ -134,7 +134,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <meta property="og:site-name" content="Karol Orozco">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -213,7 +213,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -225,8 +227,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>You can find the raw data in the National Oceanic and Atmospheric Administration’s HURDAT2 database, which has records of all Atlantic basin tropical cyclones dating back to 1851.</p>
 <p>This exercise focuses on practicing our data visualization skills with ggplot2, so I’ll skip the data manipulation steps. You can find the dataset for the graph in my GitHub repository.</p>
 <div class="cell">
-<details>
-<summary>Behind the Scenes</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## library(ggplot2)</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="do">## library(geomtextpath)</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="do">## library(RCurl)</span></span>
@@ -295,7 +295,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>                              <span class="at">hjust =</span> <span class="fl">0.50</span>, <span class="at">vjust =</span> <span class="dv">1</span>)</span>
 <span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>graph1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output-display">
 <p><img src="hurricanes_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -303,8 +302,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>I used the <a href="https://imagecolorpicker.com/en">Image Color Picker</a> tool to get the hex colors from the original graph.</p>
 <p>We are still missing the footer, so let’s add it.</p>
 <div class="cell">
-<details>
-<summary>Behind the Scenes</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>footer<span class="ot">&lt;-</span> <span class="fu">grobTree</span>( </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">textGrob</span>(<span class="st">"      FiveThirtyEight"</span>, <span class="at">x=</span><span class="fu">unit</span>(.<span class="dv">05</span>, <span class="st">"npc"</span>), </span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">gp=</span><span class="fu">gpar</span>(<span class="at">col=</span><span class="st">"#868686"</span>, </span>
@@ -327,7 +324,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a> plt.final <span class="ot">&lt;-</span> <span class="fu">grid.arrange</span>(graph1, footer, <span class="at">heights=</span><span class="fu">unit</span>(<span class="fu">c</span>(<span class="fl">0.72</span>, <span class="fl">0.03</span>), </span>
 <span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>                                                    <span class="fu">c</span>(<span class="st">"npc"</span>, <span class="st">"npc"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output-display">
 <p><img src="hurricanes_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
 </div>
