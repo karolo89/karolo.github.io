@@ -72,7 +72,7 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-freeze','listing-title-block-banner','listing-title','listing-image','listing-date','listing-categories','listing-format','listing-output','listing-code-fold','listing-path','listing-author','listing-description','listing-filename','listing-file-modified','listing-reading-time','listing-execute','listing-params',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] }],
+      valueNames: ['listing-image','listing-date','listing-title','listing-author','listing-description','listing-categories','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] }],
       
       searchColumns: ["listing-freeze","listing-title-block-banner","listing-title","listing-image","listing-date","listing-categories","listing-format","listing-output","listing-code-fold","listing-path","listing-author","listing-description","listing-filename","listing-file-modified","listing-reading-time","listing-execute","listing-params"],
     };
@@ -105,7 +105,7 @@ background: #000080;
 <meta property="og:site-name" content="Karol Orozco">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -172,7 +172,9 @@ background: #000080;
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-unnumbered"><div class="category" data-category="CSS">CSS</div><div class="category" data-category="Community">Community</div><div class="category" data-category="Countries">Countries</div><div class="category" data-category="DataViz">DataViz</div><div class="category" data-category="R">R</div><div class="category" data-category="RShiny">RShiny</div><div class="category" data-category="RStudio">RStudio</div><div class="category" data-category="Rstudio">Rstudio</div><div class="category" data-category="World">World</div><div class="category" data-category="analysis">analysis</div><div class="category" data-category="freedom">freedom</div><div class="category" data-category="transportation">transportation</div><div class="category" data-category="vote">vote</div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -204,7 +206,7 @@ background: #000080;
         This project aims to create a basic Shiny App with calls for services statistics from the Portland Police Bureau.
       </div>
       <div id="created" style="margin-top:8px">
-        <p style="font-size:14px">2023-04-23</p>
+        <p style="font-size:14px">April 23, 2023</p>
       </div>
     </div>
   </div>
@@ -229,7 +231,7 @@ background: #000080;
         
       </div>
       <div id="created" style="margin-top:8px">
-        <p style="font-size:14px">2023-03-18</p>
+        <p style="font-size:14px">March 18, 2023</p>
       </div>
     </div>
   </div>
@@ -254,7 +256,7 @@ background: #000080;
         The rate of child mortality is at its lowest point ever.…
       </div>
       <div id="created" style="margin-top:8px">
-        <p style="font-size:14px">2023-03-17</p>
+        <p style="font-size:14px">March 17, 2023</p>
       </div>
     </div>
   </div>
@@ -279,7 +281,7 @@ background: #000080;
         The flagship publication of Freedom House, Freedom in the World, is the benchmark for comparing assessments of civil liberties and political rights worldwide. Policymakers, the media, multinational businesses…
       </div>
       <div id="created" style="margin-top:8px">
-        <p style="font-size:14px">2023-03-06</p>
+        <p style="font-size:14px">March 6, 2023</p>
       </div>
     </div>
   </div>
@@ -304,7 +306,7 @@ background: #000080;
         Politicians in the twenty-first century frequently advocate for establishing a massive public works program in the United States to create the necessary infrastructure. The…
       </div>
       <div id="created" style="margin-top:8px">
-        <p style="font-size:14px">2023-03-06</p>
+        <p style="font-size:14px">March 6, 2023</p>
       </div>
     </div>
   </div>
@@ -329,7 +331,7 @@ background: #000080;
         
       </div>
       <div id="created" style="margin-top:8px">
-        <p style="font-size:14px">2023-02-28</p>
+        <p style="font-size:14px">February 28, 2023</p>
       </div>
     </div>
   </div>
@@ -354,7 +356,7 @@ background: #000080;
         Hello there,
       </div>
       <div id="created" style="margin-top:8px">
-        <p style="font-size:14px">2023-02-05</p>
+        <p style="font-size:14px">February 5, 2023</p>
       </div>
     </div>
   </div>
@@ -379,7 +381,7 @@ background: #000080;
         The goal is to build a classification model to predict the type of median housing prices in Portland, OR and its metropolitan area.
       </div>
       <div id="created" style="margin-top:8px">
-        <p style="font-size:14px">2022-12-01</p>
+        <p style="font-size:14px">December 1, 2022</p>
       </div>
     </div>
   </div>
@@ -404,7 +406,7 @@ background: #000080;
         This data was obtained from the PortlandMaps- Open Data website- Reported Bias Crime Statistics, Portland Police Bureau.
       </div>
       <div id="created" style="margin-top:8px">
-        <p style="font-size:14px">2022-02-28</p>
+        <p style="font-size:14px">February 28, 2022</p>
       </div>
     </div>
   </div>
@@ -429,7 +431,7 @@ background: #000080;
         Let’s practice our visualization skills with ggplot2 and recreate the graph from the Voter Registrations Are Way, Way Down During The Pandemic article.
       </div>
       <div id="created" style="margin-top:8px">
-        <p style="font-size:14px">2020-03-06</p>
+        <p style="font-size:14px">March 6, 2020</p>
       </div>
     </div>
   </div>

@@ -2,8 +2,10 @@
 title: "Portfolio"
 listing:
   contents: social
-  date-format: "YYYY-MM-DD"
-  feed: true
+  date-format: long
+  fields: [image, date, title, author, description, categories, reading-time]
+  categories: unnumbered
+  max-description-length: 175
   filter-ui: false
   image-align: "left"
   sort: "date desc"
