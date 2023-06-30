@@ -1,0 +1,50 @@
+---
+title: "Hollywood Age Gaps"
+author: "Karol Orozco"
+date: 02/14/2023
+image: "p.png"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning=FALSE, message=FALSE)
+
+library(tidyverse)
+library(showtext)
+
+
+age_gaps <- read.csv("https://raw.githubusercontent.com/karolo89/karolo_website/main/data/2023/2023-02-14/age_gaps.csv")
+
+```
+
+```{r}
+p <- age_gaps %>% 
+  select(release_year, age_difference) %>%
+  ggplot(aes(x = release_year,  y = age_difference)) +
+  geom_point(colour = alpha("#FF9A00", 0.5)) +
+  geom_smooth(colour = "white", se = FALSE) +
+  labs(y = "Age gap (years)",
+       x= "Release Year",
+       title =  "Age Gap in Hollywood Movies from 1935 to 2022",
+       caption="Data from TidyTuesday | Chart by @Karol_Orozco") +
+  theme_minimal()+
+  theme(text=element_text(family = "chivo", color="white"), 
+        panel.grid.minor = element_blank(),
+        panel.grid.major = element_line(color="black", size=0.1),
+        axis.title=element_text(face="bold", size= 15),
+        axis.text =element_text(color="white"),
+        axis.title.y=element_text(margin=margin(r=10)),
+        plot.title = element_text(size = 20, face = "bold", 
+                                  hjust = 0.5, vjust = 0.5),
+        plot.background = element_rect(fill="black"),
+        plot.margin  = margin(20,20,10,10)) 
+
+
+p
+
+```
+
+## Reference
+
+The data this week comes from Hollywood Age Gap via Data Is Plural.
+
+Thomas Mock (2022). Tidy Tuesday: A weekly data project aimed at the R ecosystem.[GitHub](https://github.com/rfordatascience/tidytuesday)
